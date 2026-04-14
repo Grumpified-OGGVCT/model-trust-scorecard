@@ -7,8 +7,9 @@ from scripts.build_matrix import (
     prioritize_catalog_models,
 )
 
-EXAMPLE_INVENTORY = Path("docs/examples/personal-ollama-list.txt")
-ORGANIZED_INVENTORY = Path("docs/examples/personal-ollama-organized.md")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+EXAMPLE_INVENTORY = REPO_ROOT / "docs" / "examples" / "personal-ollama-list.txt"
+ORGANIZED_INVENTORY = REPO_ROOT / "docs" / "examples" / "personal-ollama-organized.md"
 
 
 def test_parse_inventory_models_from_raw_ollama_list_example():

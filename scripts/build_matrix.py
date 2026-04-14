@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """
-Build a GitHub Actions matrix of models by combining:
+Build a GitHub Actions matrix of catalog-backed models by combining:
   1) Live Ollama Cloud model pool (optional, via OLLAMA_API_KEY)
   2) Local catalog models/ directory
   3) Optional overrides from --extra-models
 
 Outputs a JSON list suitable for `matrix: ${{ fromJson(...) }}`.
+Only model IDs that already exist in the local catalog are emitted.
 
 This script is resilient: if Ollama is unreachable or the secret is absent,
 it falls back to catalog-only.
@@ -188,14 +189,19 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build dynamic matrix list of models")
     parser.add_argument("--models-dir", type=Path, default=Path("models"), help="Catalog directory")
     parser.add_argument("--output", type=Path, default=Path("matrix.json"), help="Output JSON file")
-    parser.add_argument("--extra-models", nargs="*", default=[], help="Additional model IDs to include")
+    parser.add_argument(
+        "--extra-models",
+        nargs="*",
+        default=[],
+        help="Additional requested model IDs to consider; only catalog-backed IDs are emitted",
+    )
     parser.add_argument(
         "--inventory-file",
         action="append",
         default=[],
         help=(
             "Path to a text file (or '-' for stdin) containing one model per line, raw `ollama list`, "
-            "or categorized Markdown with model names"
+            "or categorized Markdown with model names; only catalog-backed IDs are emitted"
         ),
     )
     parser.add_argument("--max-models", type=int, default=50, help="Safety cap on total models")
