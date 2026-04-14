@@ -11,6 +11,7 @@ All public exports:
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.benchmark_sources.open_llm_leaderboard import OpenLLMLeaderboardSource
+from trust_scorecard.benchmark_sources.openrouter_source import OpenRouterSource
 from trust_scorecard.benchmark_sources.platform_sources import (
     HELMSource,
     LMEvalHarnessSource,
@@ -36,6 +37,21 @@ def get_default_sources() -> list[BenchmarkSourceBase]:
     List of configured BenchmarkSourceBase instances.
     """
     sources: list[BenchmarkSourceBase] = []
+
+    # OpenRouter - live benchmark data from Model Arena
+    openrouter_config = BenchmarkConfig(
+        id="openrouter",
+        display_name="OpenRouter Model Arena",
+        description="OpenRouter benchmark data including Design Arena ELO, knowledge cutoffs, and model comparisons",
+        metric_kind=MetricKind.SCORE,
+        weight_max=8.0,
+        data_source="openrouter_api",
+        data_source_params={"url": "https://openrouter.ai/api/v1"},
+        tolerance_default=3.0,
+        enabled=True,
+        tags=["arena", "elo", "knowledge-cutoff", "benchmarks", "design-arena", "3d", "web-building", "svg"],
+    )
+    sources.append(OpenRouterSource(openrouter_config))
 
     # SWE-bench Verified leaderboard
     swe_bench_config = BenchmarkConfig(
@@ -174,6 +190,7 @@ __all__ = [
     "BenchmarkSource",
     "SWEBenchSource",
     "OpenLLMLeaderboardSource",
+    "OpenRouterSource",
     "LMEvalHarnessSource",
     "HELMSource",
     "OpenCompassSource",
