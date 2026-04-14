@@ -20,7 +20,7 @@ import re
 from pathlib import Path
 from typing import Optional
 
-import requests
+import requests  # type: ignore[import-untyped]
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.models import BenchmarkConfig, BenchmarkResult
@@ -142,10 +142,10 @@ class SWEBenchSource(BenchmarkSourceBase):
             rows: list[dict] = data if isinstance(data, list) else data.get("results", [])
             self._cache = rows
             # Persist for next run
-            try:
+            from contextlib import suppress
+
+            with suppress(OSError):
                 cache_path.write_text(json.dumps(rows, indent=2))
-            except OSError:
-                pass
             logger.info("[swe_bench] Fetched %d rows from live endpoint", len(rows))
             return rows
         except Exception as exc:

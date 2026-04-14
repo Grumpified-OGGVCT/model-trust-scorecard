@@ -46,35 +46,37 @@ class EvaluationStore:
             self._db_target = str(self.db_path)
             self._connect_kwargs = {}
 
+        # Maintain a single connection to avoid missing tables in shared memory
+        self._conn = sqlite3.connect(self._db_target, **self._connect_kwargs)
         self._init_db()
 
     def _connect(self) -> sqlite3.Connection:
-        """Return a new SQLite connection with consistent settings."""
-        return sqlite3.connect(self._db_target, **self._connect_kwargs)
+        """Return the persistent SQLite connection."""
+        return self._conn
 
     def _init_db(self) -> None:
         """Create the evaluations table if it doesn't exist."""
-        with self._connect() as conn:
-            conn.execute("""
-                CREATE TABLE IF NOT EXISTS evaluations (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    model_id TEXT NOT NULL,
-                    evaluated_at TEXT NOT NULL,
-                    trust_score REAL,
-                    data TEXT NOT NULL,
-                    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-                    UNIQUE(model_id, evaluated_at)
-                )
-            """)
-            conn.execute("""
-                CREATE INDEX IF NOT EXISTS idx_model_id
-                ON evaluations(model_id)
-            """)
-            conn.execute("""
-                CREATE INDEX IF NOT EXISTS idx_evaluated_at
-                ON evaluations(evaluated_at DESC)
-            """)
-            conn.commit()
+        conn = self._connect()
+        conn.execute("""
+            CREATE TABLE IF NOT EXISTS evaluations (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                model_id TEXT NOT NULL,
+                evaluated_at TEXT NOT NULL,
+                trust_score REAL,
+                data TEXT NOT NULL,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(model_id, evaluated_at)
+            )
+        """)
+        conn.execute("""
+            CREATE INDEX IF NOT EXISTS idx_model_id
+            ON evaluations(model_id)
+        """)
+        conn.execute("""
+            CREATE INDEX IF NOT EXISTS idx_evaluated_at
+            ON evaluations(evaluated_at DESC)
+        """)
+        conn.commit()
         logger.info("Initialized database at %s", self._db_target)
 
     def save(self, evaluation: ModelEvaluation) -> None:
@@ -113,7 +115,7 @@ class EvaluationStore:
             trust_score or 0.0,
         )
 
-    def get_latest(self, model_id: str) -> Optional[ModelEvaluation]:
+    def get_latest(self, model_id: str) -> ModelEvaluation | None:
         """
         Retrieve the most recent evaluation for a given model.
 
@@ -211,7 +213,7 @@ class EvaluationStore:
     def export_to_hf_dataset(
         self,
         dataset_name: str,
-        token: Optional[str] = None,
+        token: str | None = None,
         private: bool = False,
     ) -> str:
         """

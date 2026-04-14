@@ -56,7 +56,7 @@ class VerificationEngine:
         self,
         model_id: str,
         claim: Claim,
-        tolerance: Optional[float] = None,
+        tolerance: float | None = None,
     ) -> VerificationOutcome:
         """
         Verify a single claim against official benchmark data.
@@ -119,7 +119,7 @@ class VerificationEngine:
         self,
         model_id: str,
         claims: list[Claim],
-        tolerance: Optional[float] = None,
+        tolerance: float | None = None,
     ) -> list[VerificationOutcome]:
         """
         Verify all claims for a model.
@@ -146,7 +146,7 @@ class VerificationEngine:
         self,
         benchmark_id: str,
         value: float,
-    ) -> Optional[float]:
+    ) -> float | None:
         """
         Compute the percentile rank for a given value on a benchmark.
 
@@ -180,7 +180,7 @@ class VerificationEngine:
         self,
         model_id: str,
         claim: Claim,
-    ) -> Optional[BenchmarkResult]:
+    ) -> BenchmarkResult | None:
         """
         Find the benchmark result matching a claim.
 
@@ -237,7 +237,7 @@ class VerificationEngine:
 
 def create_engine_from_sources(
     sources: list,  # List of BenchmarkSource instances
-    model_ids: Optional[list[str]] = None,
+    model_ids: list[str] | None = None,
     default_tolerance: float = 2.0,
 ) -> VerificationEngine:
     """

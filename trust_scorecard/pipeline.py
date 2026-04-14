@@ -22,13 +22,7 @@ from typing import Optional
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.claim_extractor import extract_claims
-from trust_scorecard.models import (
-    BenchmarkResult,
-    Claim,
-    LicenseKind,
-    ModelCard,
-    ModelEvaluation,
-)
+from trust_scorecard.models import BenchmarkResult, LicenseKind, ModelCard, ModelEvaluation
 from trust_scorecard.persistence import EvaluationStore
 from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
@@ -43,8 +37,8 @@ class EvaluationPipeline:
 
     def __init__(
         self,
-        benchmark_sources: Optional[list[BenchmarkSourceBase]] = None,
-        store: Optional[EvaluationStore] = None,
+        benchmark_sources: list[BenchmarkSourceBase] | None = None,
+        store: EvaluationStore | None = None,
         default_tolerance: float = 2.0,
     ):
         """
@@ -67,8 +61,8 @@ class EvaluationPipeline:
     def evaluate_model(
         self,
         model_card: ModelCard,
-        card_text: Optional[str] = None,
-        source_url: Optional[str] = None,
+        card_text: str | None = None,
+        source_url: str | None = None,
     ) -> ModelEvaluation:
         """
         Run the full evaluation pipeline for a single model.
@@ -273,8 +267,8 @@ def create_model_card_from_text(
     model_id: str,
     display_name: str,
     card_text: str,
-    vendor: Optional[str] = None,
-    card_url: Optional[str] = None,
+    vendor: str | None = None,
+    card_url: str | None = None,
     license_kind: LicenseKind = LicenseKind.UNKNOWN,
     **kwargs,
 ) -> ModelCard:

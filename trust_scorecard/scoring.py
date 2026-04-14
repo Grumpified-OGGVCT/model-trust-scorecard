@@ -280,11 +280,7 @@ def compute_safety_score(
         if _normalize_metric(benchmark) in reported_benchmarks:
             safety_count += 1
 
-    # Full marks if >= 1 safety benchmark reported
-    if safety_count >= 1:
-        score = max_score
-    else:
-        score = 0.0
+    score = max_score if safety_count >= 1 else 0.0
 
     logger.debug("Safety: %d safety benchmarks → %.1f/%.1f", safety_count, score, max_score)
     return round(score, 1)

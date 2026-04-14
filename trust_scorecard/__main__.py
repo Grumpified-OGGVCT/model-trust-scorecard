@@ -84,12 +84,12 @@ def cli(ctx, verbose: bool) -> None:
 @click.pass_context
 def score(
     ctx,
-    model_id: Optional[str],
-    text: Optional[str],
-    text_file: Optional[str],
-    url: Optional[str],
-    display_name: Optional[str],
-    vendor: Optional[str],
+    model_id: str | None,
+    text: str | None,
+    text_file: str | None,
+    url: str | None,
+    display_name: str | None,
+    vendor: str | None,
     license: str,
     models_dir: str,
     db: str,
@@ -169,9 +169,9 @@ def batch(
     models_dir: str,
     db: str,
     tolerance: float,
-    model_filter: Optional[str],
+    model_filter: str | None,
     models: tuple[str, ...],
-    models_file: Optional[str],
+    models_file: str | None,
 ) -> None:
     """
     Evaluate all models in the catalog directory.
@@ -368,7 +368,7 @@ def _read_from_file_or_stdin(path: str) -> str:
     return file_path.read_text()
 
 
-def _read_text_input(text: Optional[str], text_file: Optional[str]) -> Optional[str]:
+def _read_text_input(text: str | None, text_file: str | None) -> str | None:
     """
     Combine inline text and optional file/stdin payloads.
     """
@@ -388,7 +388,7 @@ def _read_text_input(text: Optional[str], text_file: Optional[str]) -> Optional[
     return "\n".join(blobs)
 
 
-def _collect_model_ids(models: tuple[str, ...], models_file: Optional[str]) -> list[str]:
+def _collect_model_ids(models: tuple[str, ...], models_file: str | None) -> list[str]:
     """
     Build an ordered, de-duplicated list of model IDs from CLI args and optional file/stdin.
     """

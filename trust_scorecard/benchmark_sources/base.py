@@ -78,8 +78,8 @@ class BenchmarkSourceBase(abc.ABC):
         self,
         model_id: str,
         value: float,
-        source_url: Optional[str] = None,
-        raw_payload: Optional[dict] = None,
+        source_url: str | None = None,
+        raw_payload: dict | None = None,
     ) -> BenchmarkResult:
         from datetime import datetime
 

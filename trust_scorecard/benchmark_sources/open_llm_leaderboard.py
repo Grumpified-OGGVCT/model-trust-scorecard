@@ -17,7 +17,7 @@ from __future__ import annotations
 import logging
 from typing import Optional
 
-import requests
+import requests  # type: ignore[import-untyped]
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.models import BenchmarkConfig, BenchmarkResult, MetricKind
@@ -90,7 +90,7 @@ class OpenLLMLeaderboardSource(BenchmarkSourceBase):
 
     def __init__(self, config: BenchmarkConfig) -> None:
         super().__init__(config)
-        self._cache: Optional[list[dict]] = None
+        self._cache: list[dict] | None = None
 
     def _fetch(self, model_id: str) -> list[BenchmarkResult]:
         rows = self._load_leaderboard()
@@ -100,7 +100,7 @@ class OpenLLMLeaderboardSource(BenchmarkSourceBase):
             row_model = _normalise(str(row.get("model", "")))
             if target not in row_model and row_model not in target:
                 continue
-            for col, metric_name in _COLUMN_TO_METRIC.items():
+            for col, _metric_name in _COLUMN_TO_METRIC.items():
                 val = row.get(col)
                 if val is None:
                     continue
