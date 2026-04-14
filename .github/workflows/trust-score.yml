@@ -120,7 +120,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: verify
     permissions:
-      contents: write  # For pushing to gh-pages
+      contents: write
+      pages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v6
 
@@ -163,6 +165,16 @@ jobs:
             trust_scores.md
             docs/index.html
 
+      - name: Setup Pages
+        if: github.ref == 'refs/heads/main'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
       - name: Commit results to repository
         if: github.ref == 'refs/heads/main'
         run: |
@@ -172,18 +184,26 @@ jobs:
           git diff --quiet && git diff --staged --quiet || git commit -m "Update trust scores [skip ci]"
           git push
 
+  deploy-pages:
+    name: Deploy GitHub Pages
+    if: github.ref == 'refs/heads/main'
+    needs: aggregate
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          publish_branch: gh-pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 
   build-image:
     name: Build & Push GHCR Image
     runs-on: ubuntu-latest
-    needs: aggregate
+    needs: deploy-pages
     if: github.ref == 'refs/heads/main' && secrets.GHCR_TOKEN != ''
     permissions:
       contents: read

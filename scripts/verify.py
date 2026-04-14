@@ -64,15 +64,18 @@ def main():
         "model_id": evaluation.model_id,
         "display_name": evaluation.card.display_name,
         "vendor": evaluation.card.vendor,
+        "license": evaluation.card.license_kind.value,
         "evaluated_at": evaluation.evaluated_at.isoformat(),
         "trust_score": evaluation.trust_score.score if evaluation.trust_score else None,
         "breakdown": evaluation.trust_score.breakdown.model_dump() if evaluation.trust_score else None,
         "use_case_scores": evaluation.trust_score.breakdown.use_case_scores if evaluation.trust_score else {},
         "claims": [c.model_dump() for c in evaluation.claims],
         "outcomes": [o.model_dump() for o in evaluation.outcomes],
+        "benchmark_results": [b.model_dump(mode="json") for b in evaluation.benchmark_results],
         "verified_count": sum(1 for o in evaluation.outcomes if o.status.value == "verified"),
         "refuted_count": sum(1 for o in evaluation.outcomes if o.status.value == "refuted"),
         "unverifiable_count": sum(1 for o in evaluation.outcomes if o.status.value == "unverifiable"),
+        "pending_count": sum(1 for o in evaluation.outcomes if o.status.value == "pending"),
     }
 
     # Write output
