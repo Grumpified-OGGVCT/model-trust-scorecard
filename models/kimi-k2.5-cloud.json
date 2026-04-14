@@ -2,7 +2,12 @@
   "model_id": "kimi-k2.5-cloud",
   "display_name": "Kimi K2.5 Cloud",
   "vendor": "Moonshot",
-  "card_text": "Kimi K2.5 Cloud - Achieves 76.8% on SWE-bench Verified.\nState-of-the-art MoE language models with native multimodal agentic capabilities.\nInstant and thinking modes for different latency requirements.",
+  "card_text": "Kimi K2.5 Cloud - MoE model with 1T total parameters, 32B activated per token.\n\nBenchmarks:\n- SWE-bench Verified: 76.8% (Pass@1)\n\nCapabilities: Multimodal agentic capabilities with visual perception.\nSupports extended context up to 256K tokens.\nFunction calling, long-context processing, advanced reasoning.\n\nArchitecture: Mixture-of-Experts architecture.\nLicense: Commercial API access only.",
   "license_kind": "proprietary",
-  "card_url": "https://ollama.com/library/kimi-k2.5"
+  "card_url": "https://ollama.com/library/kimi-k2.5",
+  "parameter_count_billions": 32,
+  "context_window_tokens": 256000,
+  "tags": ["text", "coding", "multimodal", "vision", "agentic", "function-calling", "long-context", "reasoning"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

@@ -2,7 +2,12 @@
   "model_id": "minimax-m2.7-cloud",
   "display_name": "MiniMax M2.7 Cloud",
   "vendor": "MiniMax",
-  "card_text": "MiniMax M2.7 Cloud - Achieves 78% on SWE-bench Verified multi-benchmark coverage.\nBest-in-class coverage across multiple evaluation suites for coding tasks.",
+  "card_text": "MiniMax M2.7 Cloud - Achieves 78% on SWE-bench multi-benchmark coverage.\n\nBenchmarks:\n- SWE-bench: 78% (multi-benchmark coverage)\n\nCapabilities: Best-in-class coverage across multiple evaluation suites.\nAdvanced coding capabilities, software engineering tasks.\n\nArchitecture: Dense transformer with comprehensive benchmark optimization.\nLicense: Commercial API access.",
   "license_kind": "proprietary",
-  "card_url": "https://ollama.com/library/minimax-m2.7"
+  "card_url": "https://ollama.com/library/minimax-m2.7",
+  "parameter_count_billions": 32,
+  "context_window_tokens": 128000,
+  "tags": ["text", "coding", "software-engineering", "long-context"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

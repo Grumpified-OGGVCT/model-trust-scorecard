@@ -2,6 +2,11 @@
   "model_id": "qwen3-embedding-0.6b",
   "display_name": "Qwen3 Embedding 0.6B",
   "vendor": "Alibaba",
-  "card_text": "Qwen3 Embedding 0.6B - Comprehensive text embeddings built on Qwen3 foundation.\nOptimized for vector search and RAG applications.\nBenchmarks: Not specified by provider.",
-  "license_kind": "open"
+  "card_text": "Qwen3 Embedding 0.6B - Compact text embeddings built on Qwen3 foundation.\nOptimized for vector search and RAG applications.\n\nArchitecture: 0.6B parameter dense transformer.\nContext: 32K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), vector similarity,\nMultilingual support (Qwen3 heritage).\n\nLicense: Apache 2.0",
+  "license_kind": "open",
+  "parameter_count_billions": 0.6,
+  "context_window_tokens": 32000,
+  "tags": ["text", "embeddings", "retrieval", "semantic-search", "rag", "multilingual"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

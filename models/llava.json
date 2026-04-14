@@ -2,6 +2,11 @@
   "model_id": "llava",
   "display_name": "LLaVA",
   "vendor": "Community",
-  "card_text": "LLaVA - Novel end-to-end multimodal combining vision encoder + Vicuna.\nGeneral visual and language understanding capabilities.\nImplements visual instruction tuning.",
-  "license_kind": "open"
+  "card_text": "LLaVA (Large Language and Vision Assistant) - End-to-end multimodal model combining vision encoder with Vicuna language model.\n\nArchitecture: Vision encoder + Vicuna LLM.\nParameters: 7B / 13B variants available.\nContext: 4K tokens (Vicuna base).\n\nCapabilities: Visual question answering, image captioning,\nmultimodal conversation, OCR, visual reasoning.\n\nBenchmar ks:\n- VQAv2: ~71% (7B variant)\n- OKVQA: ~45%\n- GQA: ~60%\n\nLicense: Apache 2.0 (vicuna weights subject to LLaMA license)",
+  "license_kind": "open",
+  "parameter_count_billions": 7,
+  "context_window_tokens": 4096,
+  "tags": ["vision", "multimodal", "text", "vqa", "ocr", "image-captioning"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

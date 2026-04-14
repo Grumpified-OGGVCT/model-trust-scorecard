@@ -2,6 +2,11 @@
   "model_id": "embeddinggemma",
   "display_name": "Embedding Gemma",
   "vendor": "Google",
-  "card_text": "Embedding Gemma - 300M parameter embedding model from Google.\nBuilt on Gemma architecture for efficient text embedding.",
-  "license_kind": "open"
+  "card_text": "Embedding Gemma - 300M parameter text embedding model from Google.\nBuilt on Gemma architecture for efficient text embedding.\n\nArchitecture: 300M dense transformer.\nContext: 8K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), sentence similarity.\n\nLicense: Gemma Terms of Use",
+  "license_kind": "open",
+  "parameter_count_billions": 0.3,
+  "context_window_tokens": 8192,
+  "tags": ["text", "embeddings", "retrieval", "semantic-search", "rag"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

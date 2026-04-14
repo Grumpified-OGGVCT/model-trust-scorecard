@@ -2,7 +2,12 @@
   "model_id": "cogito-2.1-671b-cloud",
   "display_name": "Cogito 2.1 671B Cloud",
   "vendor": "Deep Cogito",
-  "card_text": "Cogito 2.1 671B Cloud - Instruction-tuned generative models, MIT licensed.\nHybrid reasoning capable. Massive 671B parameters available only via cloud API.",
+  "card_text": "Cogito 2.1 671B Cloud - Largest Cogito model with hybrid reasoning.\n\nArchitecture: Dense transformer, 671B parameters.\nContext: 128K tokens.\n\nCapabilities: Hybrid reasoning (instant vs deep thinking modes),\ncoding, STEM tasks, mathematical reasoning, advanced problem solving.\nInstruction-tuned with human feedback.\n\nLicense: MIT",
   "license_kind": "open",
-  "card_url": "https://ollama.com/library/cogito-2.1"
+  "card_url": "https://ollama.com/library/cogito-2.1",
+  "parameter_count_billions": 671,
+  "context_window_tokens": 128000,
+  "tags": ["text", "reasoning", "coding", "stem", "thinking-modes", "hybrid-reasoning", "long-context"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

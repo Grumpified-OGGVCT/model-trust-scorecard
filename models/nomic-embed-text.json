@@ -2,6 +2,11 @@
   "model_id": "nomic-embed-text",
   "display_name": "Nomic Embed Text",
   "vendor": "Nomic",
-  "card_text": "Nomic Embed Text - High-performing open embedding model with large token context window.\nCompetitive with commercial embedding models.",
-  "license_kind": "open"
+  "card_text": "Nomic Embed Text - High-performing open embedding model with large token context window.\n\nArchitecture: BERT-based embedding model.\nContext: 8K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), sentence similarity,\nlarge context window for document embeddings.\n\nBenchmar ks:\n- Competitive with commercial embedding models\n- Long context capability (8192 tokens)\n\nLicense: Apache 2.0",
+  "license_kind": "open",
+  "parameter_count_billions": 0.137,
+  "context_window_tokens": 8192,
+  "tags": ["text", "embeddings", "retrieval", "semantic-search", "rag", "long-context"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

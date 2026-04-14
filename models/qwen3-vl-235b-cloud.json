@@ -2,7 +2,12 @@
   "model_id": "qwen3-vl-235b-cloud",
   "display_name": "Qwen3 VL 235B Cloud",
   "vendor": "Alibaba",
-  "card_text": "Qwen3 VL 235B Cloud - Most powerful vision-language model in Qwen family to date.\nAdvanced multimodal reasoning capabilities.\nAchieves strong performance on vision-language benchmarks via cloud API.",
+  "card_text": "Qwen3 VL 235B Cloud - Most powerful vision-language model in Qwen family.\n\nArchitecture: MoE (Mixture-of-Experts) 235B total, 22B activated per token.\nContext: 128K tokens.\n\nCapabilities: Advanced multimodal reasoning, image understanding,\nvisual question answering, document analysis, OCR,\ncomplex vision-language tasks.\n\nSupports 119 languages for text, vision tasks primarily in English.\nLicense: Commercial API via Alibaba Cloud.",
   "license_kind": "proprietary",
-  "card_url": "https://ollama.com/library/qwen3-vl"
+  "card_url": "https://ollama.com/library/qwen3-vl",
+  "parameter_count_billions": 235,
+  "context_window_tokens": 128000,
+  "tags": ["vision", "multimodal", "text", "ocr", "document-analysis", "long-context", "multilingual"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

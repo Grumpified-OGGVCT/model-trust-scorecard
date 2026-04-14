@@ -2,6 +2,11 @@
   "model_id": "hermes3-8b",
   "display_name": "Hermes 3 8B",
   "vendor": "Nous",
-  "card_text": "Hermes 3 8B - Generalist model with advanced agentic capabilities.\nFunction calling, structured output, roleplaying.\nDesigned for agent workflows and tool use.",
-  "license_kind": "open"
+  "card_text": "Hermes 3 8B - Generalist model with advanced agentic capabilities.\n\nCapabilities: Function calling, structured output, roleplaying,\ntool use, agentic workflows.\nBased on Llama 3.1 architecture with extended capabilities.\n\nArchitecture: 8B parameter dense transformer.\nContext: 128K tokens.\nLicense: MIT (Llama 3.1 based)",
+  "license_kind": "open",
+  "parameter_count_billions": 8,
+  "context_window_tokens": 128000,
+  "tags": ["text", "coding", "function-calling", "agentic", "tool-use", "long-context"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

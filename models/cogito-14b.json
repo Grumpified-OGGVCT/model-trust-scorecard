@@ -2,6 +2,11 @@
   "model_id": "cogito-14b",
   "display_name": "Cogito 14B",
   "vendor": "Deep Cogito",
-  "card_text": "Cogito 14B - Hybrid reasoning models optimized for coding and STEM.\nEnable 'deep thinking subroutine' for complex reasoning tasks.\nStrong performance on coding benchmarks with hybrid reasoning.",
-  "license_kind": "open"
+  "card_text": "Cogito 14B - Hybrid reasoning models optimized for coding and STEM.\nEnable 'deep thinking subroutine' for complex reasoning tasks.\nStrong performance on coding benchmarks with hybrid reasoning modes.\n\nArchitecture: Based on Llama architecture with hybrid reasoning enhancements.\nParameters: 14B active during inference.\n\nCapabilities: Hybrid reasoning (instant vs deep thinking modes),\ncoding, STEM tasks, mathematical reasoning.\n\nLicense: MIT",
+  "license_kind": "open",
+  "parameter_count_billions": 14,
+  "context_window_tokens": 128000,
+  "tags": ["text", "reasoning", "coding", "stem", "thinking-modes", "hybrid-reasoning"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

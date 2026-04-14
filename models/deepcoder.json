@@ -2,6 +2,11 @@
   "model_id": "deepcoder",
   "display_name": "DeepCoder",
   "vendor": "Community",
-  "card_text": "DeepCoder - Fully open-source 14B coder model at O3-mini level.\nLiveCodeBench optimized for code generation and programming tasks.\nCompetitive with frontier coding models.",
-  "license_kind": "open"
+  "card_text": "DeepCoder - Fully open-source 14B parameter code generation model.\n\nBenchmarks:\n- LiveCodeBench optimized for code generation\n- Comparable to O3-mini level on coding tasks\n\nArchitecture: 14B dense transformer optimized for code.\nContext: 8K tokens.\n\nCapabilities: Code completion, code generation, programming tasks,\nmultiple programming languages support.\n\nLicense: Open source (community model)",
+  "license_kind": "open",
+  "parameter_count_billions": 14,
+  "context_window_tokens": 8192,
+  "tags": ["text", "coding", "code-generation", "multiple-languages"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

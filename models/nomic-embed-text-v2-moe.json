@@ -2,6 +2,11 @@
   "model_id": "nomic-embed-text-v2-moe",
   "display_name": "Nomic Embed Text v2 MoE",
   "vendor": "Nomic",
-  "card_text": "Nomic Embed Text v2 MoE - Multilingual MoE text embedding model excelling at multilingual retrieval.\nOptimized for long-context embedding and cross-lingual tasks.",
-  "license_kind": "open"
+  "card_text": "Nomic Embed Text v2 MoE - Multilingual Mixture-of-Experts text embedding model.\n\nArchitecture: MoE-based embedding architecture.\nParameters: Efficient MoE design.\nContext: 8K tokens.\n\nCapabilities: Multilingual embeddings, semantic search,\nretrieval-augmented generation (RAG), cross-lingual tasks,\nlong-context embedding for documents.\n\nBenchmar ks:\n- Excelling at multilingual retrieval\n- Competitive with larger dense models\n\nLicense: Apache 2.0",
+  "license_kind": "open",
+  "parameter_count_billions": 0.55,
+  "context_window_tokens": 8192,
+  "tags": ["text", "embeddings", "retrieval", "semantic-search", "rag", "multilingual", "moe"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

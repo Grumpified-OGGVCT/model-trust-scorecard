@@ -2,7 +2,12 @@
   "model_id": "devstral-2-123b-cloud",
   "display_name": "Devstral 2 123B Cloud",
   "vendor": "Mistral",
-  "card_text": "Devstral 2 123B Cloud - Software engineering agent capabilities.\nAchieves 72.2% on SWE-bench Verified.\nExcels at using tools to explore codebases and editing multiple files.",
+  "card_text": "Devstral 2 123B Cloud - Software engineering agent capabilities built by Mistral.\n\nBenchmarks:\n- SWE-bench Verified: 72.2%\n\nCapabilities: Excels at using tools to explore codebases,\nediting multiple files, agentic software development workflows.\n\nArchitecture: 123B parameter dense transformer.\nLicense: Commercial API via Mistral/La Plateforme.",
   "license_kind": "proprietary",
-  "card_url": "https://ollama.com/library/devstral-2"
+  "card_url": "https://ollama.com/library/devstral-2",
+  "parameter_count_billions": 123,
+  "context_window_tokens": 128000,
+  "tags": ["text", "coding", "agentic", "software-engineering", "function-calling", "tool-use", "long-context"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

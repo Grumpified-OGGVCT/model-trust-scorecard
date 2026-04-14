@@ -2,7 +2,12 @@
   "model_id": "glm-5.1-cloud",
   "display_name": "GLM 5.1 Cloud",
   "vendor": "Z.ai",
-  "card_text": "GLM 5.1 Cloud - Advanced agentic, reasoning and coding capabilities.\nAchieves 78.5% on SWE-bench Verified.\nStrong performance on agentic workflows and reasoning tasks.",
+  "card_text": "GLM 5.1 Cloud - Advanced agentic, reasoning and coding capabilities.\n\nBenchmarks:\n- SWE-bench Verified: 78.5%\n\nCapabilities: Software engineering, agentic workflows, reasoning tasks.\nExtended context window for document processing.\n\nArchitecture: Dense transformer with agentic capabilities.\nLicense: Commercial API via Z.ai.",
   "license_kind": "proprietary",
-  "card_url": "https://ollama.com/library/glm"
+  "card_url": "https://ollama.com/library/glm",
+  "parameter_count_billions": 32,
+  "context_window_tokens": 128000,
+  "tags": ["text", "coding", "agentic", "reasoning", "software-engineering", "function-calling", "long-context"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

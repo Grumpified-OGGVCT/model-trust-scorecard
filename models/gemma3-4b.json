@@ -2,6 +2,11 @@
   "model_id": "gemma3-4b",
   "display_name": "Gemma 3 4B",
   "vendor": "Google",
-  "card_text": "Gemma 3 4B - Most capable single-GPU multimodal model (text + image).\n128K context, 140+ languages.\nDesigned for vision-language tasks including captioning and visual QA.",
-  "license_kind": "open"
+  "card_text": "Gemma 3 4B - Google's compact multimodal model for single-GPU deployment.\n\nBenchmarks:\n- MMLU: ~72%\n- Multimodal reasoning (MMMU-class tasks)\n\nArchitecture: Dense transformer, 4B parameters.\nContext: 128K tokens.\n\nCapabilities: Multimodal (text + image), 128K context,\n140+ languages, vision-language tasks including captioning and visual QA.\n\nLicense: Gemma Terms of Use",
+  "license_kind": "open",
+  "parameter_count_billions": 4,
+  "context_window_tokens": 128000,
+  "tags": ["text", "vision", "multimodal", "image-captioning", "vqa", "long-context", "multilingual"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }
