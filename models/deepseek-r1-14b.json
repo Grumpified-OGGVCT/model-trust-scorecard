@@ -2,6 +2,6 @@
   "model_id": "deepseek-r1-14b",
   "display_name": "DeepSeek R1 14B",
   "vendor": "DeepSeek",
-  "card_text": "DeepSeek R1 14B - Open reasoning models approaching O3/Gemini 2.5 Pro performance.\nDistilled variant for high-quality reasoning and chain-of-thought.\nAchieves competitive results on mathematical and logical reasoning benchmarks.",
+  "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- MATH-500: 97.3%\n\nDistilled 14B variant optimized for local deployment with high-quality reasoning.",
   "license_kind": "open"
 }

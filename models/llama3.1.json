@@ -2,6 +2,6 @@
   "model_id": "llama3.1",
   "display_name": "Llama 3.1",
   "vendor": "Meta",
-  "card_text": "Llama 3.1 - State-of-the-art from Meta.\nMultilingual, 128K context, tool use.\nGeneral-purpose instruction-tuned model for broad applications.",
+  "card_text": "Llama 3.1 405B - State-of-the-art open model from Meta.\n\nBenchmarks:\n- MMLU: 85.2% (5-shot)\n- HumanEval: 89% (0-shot)\n- GSM8K: 96.8% (8-shot, CoT)\n- DROP: 84.8% (F1 score)\n- ARC-Challenge: 96.1%\n\nMultilingual, 128K context, tool use. General-purpose instruction-tuned model.",
   "license_kind": "open"
 }

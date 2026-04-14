@@ -2,6 +2,6 @@
   "model_id": "llama3.2-vision",
   "display_name": "Llama 3.2 Vision",
   "vendor": "Meta",
-  "card_text": "Llama 3.2 Vision - Instruction-tuned image reasoning, visual recognition, OCR.\n11B parameter multimodal model with 128K context window.\nSupports visual question answering and document understanding.",
+  "card_text": "Llama 3.2 Vision 11B - Multimodal instruction-tuned model.\n\nVision Benchmarks:\n- MMMU: 50.7% (0-shot, CoT)\n- MathVista: 51.5% (testmini)\n- ChartQA: 83.4% (test, CoT)\n- DocVQA: 88.4% (test, ANLS)\n- VQAv2: 75.2% (test)\n- TextVQA: 73.1% (val)\n\nImage reasoning, visual recognition, OCR, 128K context window.",
   "license_kind": "open"
 }

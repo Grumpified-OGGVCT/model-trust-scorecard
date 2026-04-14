@@ -2,6 +2,6 @@
   "model_id": "qwen3-14b",
   "display_name": "Qwen3 14B",
   "vendor": "Alibaba",
-  "card_text": "Qwen3 14B - General instruction-tuned generative models.\nStrong multilingual capabilities and tool use.\nCompetitive general-purpose model from Qwen family.",
+  "card_text": "Qwen3 14B - General instruction-tuned generative model.\n\nBenchmarks:\n- MMLU: 81.05% (5-shot)\n- MMLU-Pro: 61.03% (5-shot, CoT)\n- GSM8K: 92.49% (4-shot, CoT)\n- MATH: 62.02% (4-shot, CoT)\n- HumanEval (EvalPlus): 72.23% (0-shot)\n- MBPP: 73.40% (3-shot)\n\n128K context, multilingual (119 languages), Apache 2.0 license.",
   "license_kind": "open"
 }
