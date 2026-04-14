@@ -353,7 +353,10 @@ def _render_benchmark_list(score: dict) -> str:
     for result in benchmark_results[:6]:
         source_label = ""
         if result.get("source_url"):
-            source_label = f' <a href="{escape(result["source_url"])}" target="_blank" rel="noreferrer">source</a>'
+            source_label = (
+                f' <a href="{escape(result["source_url"])}" target="_blank" rel="noopener noreferrer" '
+                'aria-label="Open benchmark source in a new tab">source</a>'
+            )
         items.append(
             "<li><strong>{}</strong>: {}{}</li>".format(
                 escape(result["benchmark_id"]),
@@ -666,7 +669,7 @@ def build_dashboard_html(aggregated: dict) -> str:
             <div class="info-card">
                 <h3>Request a review for a model not listed here</h3>
                 <ul>
-                    <li>Open the <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link">Model Submission issue</a>.</li>
+                    <li>Open the <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="Open the Model Submission issue form in a new tab">Model Submission issue</a>.</li>
                     <li>Or submit a PR that adds <code>models/&lt;model-id&gt;.json</code> to the catalog.</li>
                     <li>For one-off checks, run the CLI with pasted claims via <code>trust-scorecard score --text</code> or <code>--text-file</code>.</li>
                     <li>Local <code>score</code>/<code>batch</code> runs refresh <code>trust_scores.json</code>, <code>trust_scores.md</code>, and <code>docs/index.html</code>.</li>
@@ -677,9 +680,9 @@ def build_dashboard_html(aggregated: dict) -> str:
         <div class="footer">
             <p>Last updated: {updated_at}</p>
             <p style="margin-top: 10px;">
-                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard" class="github-link">View on GitHub</a> |
-                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard#how-it-works" class="github-link">Methodology</a> |
-                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link">Submit model</a>
+                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="Open the GitHub repository in a new tab">View on GitHub</a> |
+                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard#how-it-works" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="Open the methodology section on GitHub in a new tab">Methodology</a> |
+                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="Open the model submission issue form in a new tab">Submit model</a>
             </p>
         </div>
     </div>
