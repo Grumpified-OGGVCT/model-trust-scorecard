@@ -247,11 +247,12 @@ def main():
 
     # Load scores
     data = json.loads(args.input.read_text())
-    scores = sorted(data["scores"], key=lambda x: x["trust_score"], reverse=True)
+    scores = sorted(data["scores"], key=lambda x: (x["trust_score"] if x["trust_score"] is not None else -1), reverse=True)
 
-    # Calculate stats
+    # Calculate stats (skip None values)
     total_models = len(scores)
-    avg_score = sum(s["trust_score"] for s in scores) / total_models if total_models > 0 else 0
+    valid_scores = [s["trust_score"] for s in scores if s["trust_score"] is not None]
+    avg_score = sum(valid_scores) / len(valid_scores) if valid_scores else 0
     total_claims = sum(s["total_claims"] for s in scores)
     total_verified = sum(s["verified_count"] for s in scores)
     verified_pct = (total_verified / total_claims * 100) if total_claims > 0 else 0
@@ -259,11 +260,13 @@ def main():
     # Generate table rows
     rows = []
     for rank, score in enumerate(scores, 1):
+        trust_score = score["trust_score"]
         badge_class = (
-            "score-high" if score["trust_score"] >= 80
-            else "score-medium" if score["trust_score"] >= 60
+            "score-high" if trust_score and trust_score >= 80
+            else "score-medium" if trust_score and trust_score >= 60
             else "score-low"
         )
+        score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
         use_case_scores = score.get("use_case_scores", {}) or {}
         use_case_label = ", ".join(f"{k}: {v:.1f}" for k, v in use_case_scores.items()) or "—"
         rows.append(
@@ -271,7 +274,7 @@ def main():
                 <td>{rank}</td>
                 <td><strong>{score['display_name']}</strong></td>
                 <td>{score['vendor'] or '—'}</td>
-                <td><span class="score-badge {badge_class}">{score['trust_score']:.1f}</span></td>
+                <td><span class="score-badge {badge_class}">{score_display}</span></td>
                 <td>{score['verified_count']}/{score['total_claims']}</td>
                 <td>{use_case_label}</td>
                 <td>{score.get('license', 'unknown')}</td>
