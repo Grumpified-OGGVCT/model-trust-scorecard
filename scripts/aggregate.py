@@ -43,7 +43,7 @@ def main() -> int:
         try:
             reports.append(json.loads(report_file.read_text()))
             logger.info("Loaded %s", report_file.name)
-        except Exception as exc:  # noqa: BLE001
+        except (json.JSONDecodeError, OSError) as exc:
             logger.warning("Failed to load %s, skipping file: %s", report_file.name, exc)
 
     if not reports:

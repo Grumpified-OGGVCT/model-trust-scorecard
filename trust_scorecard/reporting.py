@@ -48,7 +48,7 @@ def _serialize_benchmark_results(results: list[BenchmarkResult]) -> list[dict]:
     return serialized
 
 
-def _normalize_benchmark_name(name: str) -> str:
+def _normalize_benchmark_key(name: str) -> str:
     return name.lower().replace(" ", "").replace("-", "").replace("_", "")
 
 
@@ -81,23 +81,23 @@ def _build_benchmark_knowledge(
     unverifiable_count: int,
 ) -> dict:
     all_claim_norms = {
-        _normalize_benchmark_name(str(claim.get("metric", "")))
+        _normalize_benchmark_key(str(claim.get("metric", "")))
         for claim in claim_details
         if claim.get("metric")
     }
     comparable_claim_norms = {
-        _normalize_benchmark_name(str(claim.get("metric", "")))
+        _normalize_benchmark_key(str(claim.get("metric", "")))
         for claim in claim_details
         if claim.get("metric") and claim.get("official_value") is not None
     }
 
     comparable_results = [
         result for result in benchmark_results
-        if _normalize_benchmark_name(result["benchmark_id"]) in comparable_claim_norms
+        if _normalize_benchmark_key(result["benchmark_id"]) in comparable_claim_norms
     ]
     unclaimed_results = [
         result for result in benchmark_results
-        if _normalize_benchmark_name(result["benchmark_id"]) not in all_claim_norms
+        if _normalize_benchmark_key(result["benchmark_id"]) not in all_claim_norms
     ]
     claims_without_data = [
         claim for claim in claim_details
@@ -642,7 +642,7 @@ def build_dashboard_html(aggregated: dict) -> str:
                     <th>Trust Score</th>
                     <th>Verified</th>
                     <th>Status</th>
-                    <th>Known Benchmark Rows</th>
+                    <th>Official Benchmarks</th>
                     <th>License</th>
                 </tr>
             </thead>
