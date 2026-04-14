@@ -1,0 +1,14 @@
+{
+  "id": "gpqa",
+  "display_name": "GPQA Diamond",
+  "description": "Graduate-level questions in biology, physics, chemistry - PhD-level difficulty",
+  "metric_kind": "accuracy",
+  "weight_max": 8.0,
+  "data_source": "static_json",
+  "data_source_params": {
+    "file": "benchmarks/data/gpqa_results.json"
+  },
+  "tolerance_default": 2.0,
+  "enabled": true,
+  "tags": ["reasoning", "expert-level", "science"]
+}

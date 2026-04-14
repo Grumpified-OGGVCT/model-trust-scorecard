@@ -1,0 +1,15 @@
+{
+  "id": "gsm8k",
+  "display_name": "GSM8K",
+  "description": "Grade School Math 8K - linguistically diverse grade school math word problems",
+  "metric_kind": "accuracy",
+  "weight_max": 7.0,
+  "data_source": "hf_leaderboard",
+  "data_source_params": {
+    "dataset": "open-llm-leaderboard/contents",
+    "metric": "gsm8k"
+  },
+  "tolerance_default": 2.0,
+  "enabled": true,
+  "tags": ["math", "reasoning"]
+}

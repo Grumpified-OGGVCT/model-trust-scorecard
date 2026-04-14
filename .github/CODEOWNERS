@@ -1,0 +1,16 @@
+# Code Owners
+
+# Core trust-scorecard engine
+/trust_scorecard/ @AccidentalJedi
+/scripts/ @AccidentalJedi
+/benchmarks/ @AccidentalJedi
+
+# Documentation
+/docs/ @AccidentalJedi
+README.md @AccidentalJedi
+
+# CI/CD
+/.github/workflows/ @AccidentalJedi
+
+# Model catalog
+/models/ @AccidentalJedi

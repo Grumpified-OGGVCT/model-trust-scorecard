@@ -1,0 +1,14 @@
+{
+  "id": "humaneval",
+  "display_name": "HumanEval",
+  "description": "HumanEval pass@1 - coding problems measuring program synthesis capability",
+  "metric_kind": "pass_at_k",
+  "weight_max": 7.0,
+  "data_source": "static_json",
+  "data_source_params": {
+    "file": "benchmarks/data/humaneval_results.json"
+  },
+  "tolerance_default": 2.0,
+  "enabled": true,
+  "tags": ["coding", "synthesis"]
+}

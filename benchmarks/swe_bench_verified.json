@@ -1,0 +1,15 @@
+{
+  "id": "swe_bench_verified",
+  "display_name": "SWE-bench Verified",
+  "description": "Official SWE-bench Verified leaderboard - % of real-world GitHub issues correctly resolved",
+  "metric_kind": "percent_resolved",
+  "weight_max": 10.0,
+  "data_source": "swe_bench_html",
+  "data_source_params": {
+    "url": "https://www.swebench.com/api/results",
+    "fallback_enabled": true
+  },
+  "tolerance_default": 2.0,
+  "enabled": true,
+  "tags": ["coding", "agentic", "real-world", "flagship"]
+}
