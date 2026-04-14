@@ -3,19 +3,19 @@
 import pytest
 
 from trust_scorecard.models import (
+    Claim,
     LicenseKind,
     ModelCard,
     VerificationOutcome,
     VerificationStatus,
-    Claim,
 )
 from trust_scorecard.scoring import (
     compute_coverage_score,
-    compute_verification_score,
     compute_openness_score,
     compute_safety_score,
     compute_trust_score,
     compute_use_case_scores,
+    compute_verification_score,
 )
 
 
@@ -56,6 +56,7 @@ def test_coverage_score(sample_outcomes):
     """Test coverage score calculation."""
     score = compute_coverage_score(sample_outcomes)
     assert 0 <= score <= 30.0
+    assert score > 10.0
 
 
 def test_verification_score(sample_outcomes):

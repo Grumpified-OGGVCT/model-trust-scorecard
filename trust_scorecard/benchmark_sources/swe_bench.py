@@ -18,7 +18,6 @@ import json
 import logging
 import re
 from pathlib import Path
-from typing import Optional
 
 import requests  # type: ignore[import-untyped]
 
@@ -70,7 +69,7 @@ class SWEBenchSource(BenchmarkSourceBase):
 
     def __init__(self, config: BenchmarkConfig) -> None:
         super().__init__(config)
-        self._cache: Optional[list[dict]] = None
+        self._cache: list[dict] | None = None
 
     # ------------------------------------------------------------------
     # BenchmarkSourceBase implementation

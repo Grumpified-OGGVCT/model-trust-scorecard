@@ -18,10 +18,15 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
+def _numeric_trust_score(score: dict) -> float:
+    value = score.get("trust_score")
+    return float(value) if value is not None else 0.0
+
+
 def generate_markdown_table(scores: list[dict]) -> str:
     """Generate markdown badge table."""
     # Sort by trust score descending
-    sorted_scores = sorted(scores, key=lambda x: x["trust_score"], reverse=True)
+    sorted_scores = sorted(scores, key=_numeric_trust_score, reverse=True)
 
     lines = [
         "# Trust Scorecard Rankings",
@@ -31,13 +36,16 @@ def generate_markdown_table(scores: list[dict]) -> str:
     ]
 
     for rank, score in enumerate(sorted_scores, 1):
+        trust_score = score.get("trust_score")
         # Badge color based on score
-        if score["trust_score"] >= 80:
-            badge = f"![{score['trust_score']:.1f}](https://img.shields.io/badge/Trust-{score['trust_score']:.1f}-brightgreen)"
-        elif score["trust_score"] >= 60:
-            badge = f"![{score['trust_score']:.1f}](https://img.shields.io/badge/Trust-{score['trust_score']:.1f}-yellow)"
+        if trust_score is None:
+            badge = "![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey)"
+        elif trust_score >= 80:
+            badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-brightgreen)"
+        elif trust_score >= 60:
+            badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-yellow)"
         else:
-            badge = f"![{score['trust_score']:.1f}](https://img.shields.io/badge/Trust-{score['trust_score']:.1f}-orange)"
+            badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-orange)"
 
         lines.append(
             f"| {rank} | {score['display_name']} | {score['vendor'] or '—'} | {badge} | "
@@ -92,7 +100,7 @@ def main():
             logger.warning(f"Failed to load {report_file.name}: {e}")
 
     if not reports:
-        logger.error("No reports found in {args.reports_dir}")
+        logger.error("No reports found in %s", args.reports_dir)
         return 1
 
     logger.info(f"Aggregating {len(reports)} reports")
@@ -100,13 +108,14 @@ def main():
     # Prepare aggregated scores
     scores = []
     for report in reports:
+        breakdown = report.get("breakdown") or {}
         scores.append({
             "model_id": report["model_id"],
             "display_name": report["display_name"],
             "vendor": report.get("vendor"),
             "trust_score": report["trust_score"],
-            "breakdown": report.get("breakdown"),
-            "use_case_scores": report.get("breakdown", {}).get("use_case_scores", {}),
+            "breakdown": breakdown,
+            "use_case_scores": breakdown.get("use_case_scores", {}),
             "total_claims": len(report.get("claims", [])),
             "verified_count": report.get("verified_count", 0),
             "refuted_count": report.get("refuted_count", 0),

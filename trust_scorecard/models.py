@@ -9,10 +9,9 @@ from __future__ import annotations
 
 import enum
 from datetime import datetime
-from typing import Any, Optional
+from typing import Any
 
 from pydantic import BaseModel, Field, field_validator
-
 
 # ---------------------------------------------------------------------------
 # Enumerations
@@ -54,8 +53,8 @@ class Claim(BaseModel):
     metric: str = Field(..., description="Canonical benchmark name, e.g. 'SWE-bench Verified'")
     value: float = Field(..., ge=0.0, le=100.0, description="Claimed value in [0, 100]")
     raw: str = Field(..., description="Verbatim text fragment that produced this claim")
-    target: Optional[str] = Field(None, description="Benchmark variant, e.g. 'Verified', 'Lite'")
-    source_url: Optional[str] = Field(None, description="URL of the source document")
+    target: str | None = Field(None, description="Benchmark variant, e.g. 'Verified', 'Lite'")
+    source_url: str | None = Field(None, description="URL of the source document")
 
     @field_validator("metric")
     @classmethod
@@ -71,8 +70,8 @@ class BenchmarkResult(BaseModel):
     metric_kind: MetricKind
     value: float = Field(..., description="Result value in [0, 100]")
     retrieved_at: datetime = Field(default_factory=datetime.utcnow)
-    source_url: Optional[str] = None
-    raw_payload: Optional[dict[str, Any]] = Field(
+    source_url: str | None = None
+    raw_payload: dict[str, Any] | None = Field(
         None, description="Raw JSON from the data source for full auditability"
     )
 
@@ -82,10 +81,10 @@ class VerificationOutcome(BaseModel):
 
     claim: Claim
     status: VerificationStatus
-    official_value: Optional[float] = None
-    delta: Optional[float] = Field(None, description="|claim.value - official_value|")
+    official_value: float | None = None
+    delta: float | None = Field(None, description="|claim.value - official_value|")
     tolerance: float = Field(2.0, description="Max |delta| to count as verified")
-    benchmark_result: Optional[BenchmarkResult] = None
+    benchmark_result: BenchmarkResult | None = None
     notes: str = ""
 
 
@@ -126,16 +125,16 @@ class ModelCard(BaseModel):
 
     model_id: str
     display_name: str
-    vendor: Optional[str] = None
-    card_url: Optional[str] = None
-    card_text: Optional[str] = None
+    vendor: str | None = None
+    card_url: str | None = None
+    card_text: str | None = None
     license_kind: LicenseKind = LicenseKind.UNKNOWN
-    parameter_count_billions: Optional[float] = None
-    context_window_tokens: Optional[int] = None
-    release_date: Optional[datetime] = None
+    parameter_count_billions: float | None = None
+    context_window_tokens: int | None = None
+    release_date: datetime | None = None
     tags: list[str] = Field(default_factory=list)
-    pricing_per_1k_input_usd: Optional[float] = None
-    pricing_per_1k_output_usd: Optional[float] = None
+    pricing_per_1k_input_usd: float | None = None
+    pricing_per_1k_output_usd: float | None = None
 
 
 class ModelEvaluation(BaseModel):
@@ -151,7 +150,7 @@ class ModelEvaluation(BaseModel):
     claims: list[Claim] = Field(default_factory=list)
     outcomes: list[VerificationOutcome] = Field(default_factory=list)
     benchmark_results: list[BenchmarkResult] = Field(default_factory=list)
-    trust_score: Optional[TrustScore] = None
+    trust_score: TrustScore | None = None
     evaluated_at: datetime = Field(default_factory=datetime.utcnow)
     pipeline_version: str = "1"
     notes: str = ""

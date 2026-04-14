@@ -12,8 +12,8 @@ import logging
 from pathlib import Path
 
 from trust_scorecard.benchmark_sources import get_default_sources
-from trust_scorecard.pipeline import EvaluationPipeline, load_model_card_from_json
 from trust_scorecard.persistence import EvaluationStore
+from trust_scorecard.pipeline import EvaluationPipeline, load_model_card_from_json
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -79,7 +79,11 @@ def main():
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2))
     logger.info(f"Wrote verification report to {args.output}")
-    logger.info(f"Trust score: {report['trust_score']:.1f}/100")
+    trust_score = report["trust_score"]
+    logger.info(
+        "Trust score: %s",
+        f"{trust_score:.1f}/100" if trust_score is not None else "N/A",
+    )
 
     return 0
 

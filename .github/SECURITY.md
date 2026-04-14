@@ -6,7 +6,9 @@ If you discover a security vulnerability in the Trust Scorecard project, please 
 
 **DO NOT** open a public issue for security vulnerabilities.
 
-Instead, please email security concerns to: **[Your Email]**
+Instead, please use GitHub's private vulnerability reporting mechanism for this
+repository (see the repository's **Security** tab and submit a private report
+there).
 
 Include:
 - Description of the vulnerability

@@ -16,7 +16,6 @@ from __future__ import annotations
 
 import logging
 import re
-from typing import Optional
 
 from trust_scorecard.models import Claim
 
@@ -175,7 +174,7 @@ def _deduplicate(claims: list[Claim]) -> list[Claim]:
 
 def extract_claims(
     text: str,
-    source_url: Optional[str] = None,
+    source_url: str | None = None,
     deduplicate: bool = True,
 ) -> list[Claim]:
     """
@@ -209,7 +208,7 @@ def extract_claims(
                     continue
                 canonical = _resolve_alias(raw_metric)
                 # Determine variant / target (e.g. "Verified", "Lite")
-                target: Optional[str] = None
+                target: str | None = None
                 lc = canonical.lower()
                 if "verified" in lc:
                     target = "Verified"

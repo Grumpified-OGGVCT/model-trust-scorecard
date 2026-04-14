@@ -3,7 +3,6 @@
 import pytest
 
 from trust_scorecard.models import (
-    BenchmarkConfig,
     BenchmarkResult,
     Claim,
     MetricKind,
@@ -15,14 +14,6 @@ from trust_scorecard.verification_engine import VerificationEngine
 @pytest.fixture
 def sample_benchmark_results():
     """Sample benchmark results for testing."""
-    config = BenchmarkConfig(
-        id="swe_bench_verified",
-        display_name="SWE-bench Verified",
-        metric_kind=MetricKind.PERCENT_RESOLVED,
-        weight_max=10.0,
-        data_source="test",
-    )
-
     return [
         BenchmarkResult(
             benchmark_id="swe_bench_verified",

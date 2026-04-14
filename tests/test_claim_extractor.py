@@ -1,9 +1,6 @@
 """Tests for claim extraction."""
 
-import pytest
-
 from trust_scorecard.claim_extractor import extract_claims
-from trust_scorecard.models import Claim
 
 
 def test_extract_swe_bench_claim():
@@ -55,7 +52,7 @@ def test_extract_with_different_formats():
         ("90.1% MMLU", "MMLU", 90.1),
     ]
 
-    for text, expected_metric, expected_value in test_cases:
+    for text, _expected_metric, expected_value in test_cases:
         claims = extract_claims(text)
         assert len(claims) >= 1
         # Find the MMLU claim

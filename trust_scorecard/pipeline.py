@@ -18,7 +18,6 @@ import json
 import logging
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.claim_extractor import extract_claims

@@ -75,6 +75,10 @@ def _normalise(name: str) -> str:
     return re.sub(r"[^a-z0-9]", "", name.lower())
 
 
+def _canonical_benchmark_id(name: str) -> str:
+    return _normalise(name)
+
+
 class OpenLLMLeaderboardSource(BenchmarkSourceBase):
     """
     Fetches per-task accuracy scores from the Open LLM Leaderboard.
@@ -94,12 +98,15 @@ class OpenLLMLeaderboardSource(BenchmarkSourceBase):
     def _fetch(self, model_id: str) -> list[BenchmarkResult]:
         rows = self._load_leaderboard()
         target = _normalise(model_id)
+        configured_metric = self.config.data_source_params.get("metric")
         results = []
         for row in rows:
             row_model = _normalise(str(row.get("model", "")))
             if target not in row_model and row_model not in target:
                 continue
             for col, _metric_name in _COLUMN_TO_METRIC.items():
+                if configured_metric and col != configured_metric:
+                    continue
                 val = row.get(col)
                 if val is None:
                     continue
@@ -109,7 +116,7 @@ class OpenLLMLeaderboardSource(BenchmarkSourceBase):
                     continue
                 results.append(
                     BenchmarkResult(
-                        benchmark_id=f"open_llm_{col}",
+                        benchmark_id=_canonical_benchmark_id(_COLUMN_TO_METRIC[col]),
                         model_id=model_id,
                         metric_kind=MetricKind.ACCURACY,
                         value=value,
@@ -136,7 +143,7 @@ class OpenLLMLeaderboardSource(BenchmarkSourceBase):
                     continue
                 results.append(
                     BenchmarkResult(
-                        benchmark_id=f"open_llm_{col}",
+                        benchmark_id=_canonical_benchmark_id(_COLUMN_TO_METRIC[col]),
                         model_id=model_id,
                         metric_kind=MetricKind.ACCURACY,
                         value=value,

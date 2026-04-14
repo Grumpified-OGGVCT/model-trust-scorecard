@@ -3,12 +3,12 @@ trust_scorecard – transparent, reproducible trust-score engine for AI model be
 """
 
 from trust_scorecard.models import (
-    Claim,
-    BenchmarkResult,
-    VerificationOutcome,
-    TrustScore,
-    ModelEvaluation,
     BenchmarkConfig,
+    BenchmarkResult,
+    Claim,
+    ModelEvaluation,
+    TrustScore,
+    VerificationOutcome,
 )
 
 __all__ = [

@@ -31,6 +31,7 @@ from trust_scorecard.models import (
 
 logger = logging.getLogger(__name__)
 
+
 def _normalize_metric(name: str) -> str:
     return name.lower().replace("-", "").replace(" ", "").replace("_", "")
 
@@ -75,6 +76,16 @@ USE_CASE_BENCHMARKS: dict[str, list[str]] = {
     "commonsense": ["HellaSwag", "WinoGrande", "ARC", "ARC Challenge"],
 }
 
+STANDARD_BENCHMARK_ALIASES: dict[str, set[str]] = {
+    _normalize_metric("SWE-bench"): {
+        _normalize_metric("SWE-bench"),
+        _normalize_metric("SWE-bench Verified"),
+        _normalize_metric("SWE-bench Verified (mini)"),
+        _normalize_metric("SWE-bench Lite"),
+        _normalize_metric("SWE-bench Pro"),
+    },
+}
+
 
 def compute_coverage_score(
     outcomes: list[VerificationOutcome],
@@ -100,15 +111,14 @@ def compute_coverage_score(
     # Extract unique benchmarks from outcomes
     reported_benchmarks = set()
     for outcome in outcomes:
-        # Normalize benchmark name
-        metric = outcome.claim.metric.lower().replace("-", "").replace(" ", "")
-        reported_benchmarks.add(metric)
+        reported_benchmarks.add(_normalize_metric(outcome.claim.metric))
 
     # Count how many standard benchmarks are covered
     covered = 0
     for benchmark in STANDARD_BENCHMARKS:
-        normalized = benchmark.lower().replace("-", "").replace(" ", "")
-        if normalized in reported_benchmarks:
+        normalized = _normalize_metric(benchmark)
+        aliases = STANDARD_BENCHMARK_ALIASES.get(normalized, {normalized})
+        if reported_benchmarks.intersection(aliases):
             covered += 1
 
     # Score scales linearly with coverage
