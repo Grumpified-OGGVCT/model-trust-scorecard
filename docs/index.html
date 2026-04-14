@@ -138,15 +138,15 @@
                 <div class="stat-label">Models Evaluated</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">29.8</div>
+                <div class="stat-value">29.9</div>
                 <div class="stat-label">Average Trust Score</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">38</div>
+                <div class="stat-value">46</div>
                 <div class="stat-label">Total Claims</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">18%</div>
+                <div class="stat-value">15%</div>
                 <div class="stat-label">Claims Verified</div>
             </div>
         </div>
@@ -156,10 +156,10 @@
             <thead>
                 <tr>
                     <th>Rank</th>
-                    <th>Model</th>
-                    <th>Vendor</th>
-                    <th>Trust Score</th>
-                    <th>Verified</th>
+                    <th>Model (Vendor)</th>
+                    <th>Parameters / Context</th>
+                    <th>Trust Score (Verified)</th>
+                    <th>Capabilities</th>
                     <th>Use-Case Strengths</th>
                     <th>License</th>
                 </tr>
@@ -167,235 +167,235 @@
             <tbody>
                 <tr>
                 <td>1</td>
-                <td><strong>MiniMax M2.5 Cloud</strong></td>
-                <td>MiniMax</td>
-                <td><span class="score-badge score-medium">63.8</span></td>
-                <td>1/1</td>
+                <td><strong>MiniMax M2.5 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">MiniMax</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-medium">63.8</span><br><span style="color:#718096; font-size:0.85em;">1/1 verified</span></td>
+                <td>—</td>
                 <td>coding: 80.2</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>2</td>
-                <td><strong>DeepSeek V3.2</strong></td>
-                <td>DeepSeek</td>
-                <td><span class="score-badge score-low">57.1</span></td>
-                <td>2/6</td>
+                <td><strong>DeepSeek V3.2</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek</span></td>
+                <td>671.0B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">57.1</span><br><span style="color:#718096; font-size:0.85em;">2/6 verified</span></td>
+                <td>Code</td>
                 <td>coding: 80.8, reasoning: 84.9</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>3</td>
-                <td><strong>Llama 3.1</strong></td>
-                <td>Meta</td>
-                <td><span class="score-badge score-low">49.5</span></td>
-                <td>1/3</td>
-                <td>coding: 89.0, reasoning: 92.4</td>
+                <td><strong>Llama 3.1 405B</strong><br><span style="color:#718096; font-size:0.85em;">Meta</span></td>
+                <td>405.0B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">51.8</span><br><span style="color:#718096; font-size:0.85em;">1/5 verified</span></td>
+                <td>Code • Tools • Multi-Lang</td>
+                <td>coding: 89.0, reasoning: 86.5, multilingual: 87.5</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>4</td>
-                <td><strong>GPT-4.1</strong></td>
-                <td>OpenAI</td>
-                <td><span class="score-badge score-low">43.7</span></td>
-                <td>2/5</td>
+                <td><strong>GPT-4.1</strong><br><span style="color:#718096; font-size:0.85em;">OpenAI</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">43.7</span><br><span style="color:#718096; font-size:0.85em;">2/5 verified</span></td>
+                <td>Code</td>
                 <td>coding: 72.8, reasoning: 86.5</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>5</td>
-                <td><strong>Claude Opus 4.5</strong></td>
-                <td>Anthropic</td>
-                <td><span class="score-badge score-low">33.2</span></td>
-                <td>1/7</td>
+                <td><strong>Claude Opus 4.5</strong><br><span style="color:#718096; font-size:0.85em;">Anthropic</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">200K ctx</span></td>
+                <td><span class="score-badge score-low">33.2</span><br><span style="color:#718096; font-size:0.85em;">1/7 verified</span></td>
+                <td>Code</td>
                 <td>coding: 89.3, reasoning: 88.3, safety: 69.8</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>6</td>
-                <td><strong>Gemini 2.5 Pro</strong></td>
-                <td>Google</td>
-                <td><span class="score-badge score-low">29.8</span></td>
-                <td>0/6</td>
+                <td><strong>Gemini 2.5 Pro</strong><br><span style="color:#718096; font-size:0.85em;">Google</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">2097K ctx</span></td>
+                <td><span class="score-badge score-low">29.8</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
+                <td>Code</td>
                 <td>coding: 75.0, reasoning: 84.8, safety: 68.1</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>7</td>
-                <td><strong>Qwen3 14B</strong></td>
-                <td>Alibaba</td>
-                <td><span class="score-badge score-low">22.2</span></td>
-                <td>0/4</td>
-                <td>reasoning: 78.5</td>
+                <td><strong>Qwen3 14B</strong><br><span style="color:#718096; font-size:0.85em;">Alibaba</span></td>
+                <td>14.0B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/5 verified</span></td>
+                <td>Code • Tools • Agent • Multi-Lang</td>
+                <td>reasoning: 79.2, multilingual: 81.1</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>8</td>
-                <td><strong>DeepSeek R1 14B</strong></td>
-                <td>DeepSeek</td>
-                <td><span class="score-badge score-low">18.5</span></td>
-                <td>0/2</td>
-                <td>reasoning: 81.2</td>
+                <td><strong>Llama 3.2 Vision 11B</strong><br><span style="color:#718096; font-size:0.85em;">Meta</span></td>
+                <td>11.0B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
+                <td>Vision</td>
+                <td>reasoning: 52.6</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>9</td>
-                <td><strong>GLM 5.1 Cloud</strong></td>
-                <td>Z.ai</td>
-                <td><span class="score-badge score-low">9.8</span></td>
-                <td>0/1</td>
-                <td>coding: 78.5</td>
+                <td><strong>DeepSeek R1 14B</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek</span></td>
+                <td>14.0B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
+                <td>Code</td>
+                <td>coding: 57.6, reasoning: 81.2</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>10</td>
-                <td><strong>MiniMax M2.7 Cloud</strong></td>
-                <td>MiniMax</td>
-                <td><span class="score-badge score-low">9.8</span></td>
-                <td>0/1</td>
-                <td>coding: 78.0</td>
+                <td><strong>GLM 5.1 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Z.ai</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">9.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
+                <td>—</td>
+                <td>coding: 78.5</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>11</td>
-                <td><strong>Devstral 2 123B Cloud</strong></td>
-                <td>Mistral</td>
-                <td><span class="score-badge score-low">9.8</span></td>
-                <td>0/1</td>
-                <td>coding: 72.2</td>
+                <td><strong>MiniMax M2.7 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">MiniMax</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">9.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
+                <td>—</td>
+                <td>coding: 78.0</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>12</td>
-                <td><strong>Kimi K2.5 Cloud</strong></td>
-                <td>Moonshot</td>
-                <td><span class="score-badge score-low">9.8</span></td>
-                <td>0/1</td>
-                <td>coding: 79.8</td>
+                <td><strong>Devstral 2 123B Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Mistral</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">9.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
+                <td>—</td>
+                <td>coding: 72.2</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>13</td>
-                <td><strong>Llama 3.2 Vision</strong></td>
-                <td>Meta</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Kimi K2.5 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Moonshot</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">9.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
                 <td>—</td>
+                <td>coding: 79.8</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>14</td>
-                <td><strong>Granite 3.3 8B</strong></td>
-                <td>IBM</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Granite 3.3 8B</strong><br><span style="color:#718096; font-size:0.85em;">IBM</span></td>
+                <td>8.0B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Code</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>15</td>
-                <td><strong>Hermes 3 8B</strong></td>
-                <td>Nous</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Hermes 3 8B</strong><br><span style="color:#718096; font-size:0.85em;">Nous</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>16</td>
-                <td><strong>Nomic Embed Text v2 MoE</strong></td>
-                <td>Nomic</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Nomic Embed Text v2 MoE</strong><br><span style="color:#718096; font-size:0.85em;">Nomic</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>17</td>
-                <td><strong>Qwen3 VL 235B Cloud</strong></td>
-                <td>Alibaba</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Qwen3 VL 235B Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Alibaba</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>18</td>
-                <td><strong>DeepCoder</strong></td>
-                <td>Community</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>DeepCoder</strong><br><span style="color:#718096; font-size:0.85em;">Community</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>19</td>
-                <td><strong>Cogito 14B</strong></td>
-                <td>Deep Cogito</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Cogito 14B</strong><br><span style="color:#718096; font-size:0.85em;">Deep Cogito</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>20</td>
-                <td><strong>Cogito 2.1 671B Cloud</strong></td>
-                <td>Deep Cogito</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Cogito 2.1 671B Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Deep Cogito</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>21</td>
-                <td><strong>Embedding Gemma</strong></td>
-                <td>Google</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Embedding Gemma</strong><br><span style="color:#718096; font-size:0.85em;">Google</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>22</td>
-                <td><strong>LLaVA</strong></td>
-                <td>Community</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>LLaVA</strong><br><span style="color:#718096; font-size:0.85em;">Community</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>23</td>
-                <td><strong>Qwen3 Embedding 0.6B</strong></td>
-                <td>Alibaba</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Qwen3 Embedding 0.6B</strong><br><span style="color:#718096; font-size:0.85em;">Alibaba</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>24</td>
-                <td><strong>Nomic Embed Text</strong></td>
-                <td>Nomic</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Nomic Embed Text</strong><br><span style="color:#718096; font-size:0.85em;">Nomic</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>25</td>
-                <td><strong>MXBAI Embed Large</strong></td>
-                <td>Mixedbread</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>MXBAI Embed Large</strong><br><span style="color:#718096; font-size:0.85em;">Mixedbread</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>26</td>
-                <td><strong>Gemma 3 4B</strong></td>
-                <td>Google</td>
-                <td><span class="score-badge score-low">N/A</span></td>
-                <td>0/0</td>
+                <td><strong>Gemma 3 4B</strong><br><span style="color:#718096; font-size:0.85em;">Google</span></td>
+                <td>—<br><span style="color:#718096; font-size:0.85em;">— ctx</span></td>
+                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>—</td>
                 <td>—</td>
                 <td>unknown</td>
             </tr>
@@ -424,7 +424,7 @@
         </div>
 
         <div class="footer">
-            <p>Last updated: 2026-04-14T20:15:19.772169</p>
+            <p>Last updated: 2026-04-14T20:28:09.419642</p>
             <p style="margin-top: 10px;">
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard" class="github-link">
                     View on GitHub
