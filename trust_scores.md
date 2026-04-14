@@ -36,4 +36,4 @@
 - 🟡 **60-79**: Moderately trustworthy - some claims verified
 - 🟠 **<60**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-04-14T21:11:20.430563*
+*Last updated: 2026-04-14T21:16:08.946239*
