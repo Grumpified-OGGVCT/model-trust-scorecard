@@ -42,6 +42,13 @@ def sample_evaluation() -> ModelEvaluation:
         value=30.9,
         source_url="https://example.com/leaderboard",
     )
+    extra_benchmark = BenchmarkResult(
+        benchmark_id="mmlu",
+        model_id="deepseek-v3.2-cloud",
+        metric_kind=MetricKind.ACCURACY,
+        value=74.2,
+        source_url="https://example.com/mmlu",
+    )
     outcome = VerificationOutcome(
         claim=claim,
         status=VerificationStatus.VERIFIED,
@@ -67,7 +74,7 @@ def sample_evaluation() -> ModelEvaluation:
         card=card,
         claims=[claim],
         outcomes=[outcome],
-        benchmark_results=[benchmark],
+        benchmark_results=[benchmark, extra_benchmark],
         trust_score=trust_score,
     )
 
@@ -86,8 +93,9 @@ def test_summarize_evaluation_includes_benchmark_evidence():
     summary = summarize_evaluation(sample_evaluation())
 
     assert summary["status_summary"] == "1 verified"
-    assert summary["benchmark_results"][0]["benchmark_id"] == "swe_bench_verified"
+    assert summary["benchmark_results"][0]["benchmark_id"] == "mmlu"
     assert summary["claim_details"][0]["official_value"] == 30.9
+    assert summary["benchmark_knowledge"]["unclaimed_benchmarks"][0]["benchmark_id"] == "mmlu"
 
 
 def test_summarize_report_round_trips_verify_shape():
@@ -143,3 +151,5 @@ def test_build_dashboard_html_renders_status_and_evidence():
 
     assert "1 verified" in html
     assert "swe_bench_verified" in html
+    assert "What we actually know from benchmarks" in html
+    assert "Established facts" in html

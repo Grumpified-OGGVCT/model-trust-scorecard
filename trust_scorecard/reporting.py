@@ -47,6 +47,83 @@ def _serialize_benchmark_results(results: list[BenchmarkResult]) -> list[dict]:
     return serialized
 
 
+def _normalize_benchmark_name(name: str) -> str:
+    return name.lower().replace(" ", "").replace("-", "").replace("_", "")
+
+
+def _build_benchmark_knowledge(
+    benchmark_results: list[dict],
+    claim_details: list[dict],
+    *,
+    verified_count: int,
+    refuted_count: int,
+    unverifiable_count: int,
+) -> dict:
+    all_claim_norms = {
+        _normalize_benchmark_name(str(claim.get("metric", "")))
+        for claim in claim_details
+        if claim.get("metric")
+    }
+    comparable_claim_norms = {
+        _normalize_benchmark_name(str(claim.get("metric", "")))
+        for claim in claim_details
+        if claim.get("metric") and claim.get("official_value") is not None
+    }
+
+    comparable_results = [
+        result for result in benchmark_results
+        if _normalize_benchmark_name(result["benchmark_id"]) in comparable_claim_norms
+    ]
+    unclaimed_results = [
+        result for result in benchmark_results
+        if _normalize_benchmark_name(result["benchmark_id"]) not in all_claim_norms
+    ]
+    claims_without_data = [
+        claim for claim in claim_details
+        if claim.get("official_value") is None
+    ]
+
+    facts = [
+        f"Independent sources contain {len(benchmark_results)} benchmark row(s) for this model."
+        if benchmark_results
+        else "No independent benchmark rows were found for this model in the current source set.",
+        f"We can directly compare {len(comparable_results)} extracted claim(s) against official benchmark rows."
+        if comparable_results
+        else "None of the extracted claims can be directly checked against an official benchmark row yet.",
+    ]
+
+    comparisons: list[str] = []
+    if verified_count:
+        comparisons.append(f"{verified_count} claim(s) line up with official benchmark data.")
+    if refuted_count:
+        comparisons.append(f"{refuted_count} claim(s) conflict with official benchmark data.")
+    if not comparisons:
+        comparisons.append("No claim-to-benchmark comparisons have been confirmed yet.")
+
+    gaps: list[str] = []
+    if claims_without_data:
+        gaps.append(
+            f"{len(claims_without_data)} extracted claim(s) still lack a matching official benchmark row."
+        )
+    if unclaimed_results:
+        gaps.append(
+            f"{len(unclaimed_results)} benchmark row(s) are known for this model but were not part of the extracted claims."
+        )
+    if not gaps and not benchmark_results:
+        gaps.append("The current benchmark sources do not expose any rows for this model yet.")
+    elif not gaps and unverifiable_count == 0:
+        gaps.append("Current benchmark coverage is good for the claims we extracted.")
+
+    return {
+        "facts": facts,
+        "comparisons": comparisons,
+        "gaps": gaps,
+        "comparable_benchmarks": comparable_results,
+        "unclaimed_benchmarks": unclaimed_results,
+        "claims_without_data": claims_without_data,
+    }
+
+
 def summarize_evaluation(evaluation: ModelEvaluation) -> dict:
     """Convert a model evaluation into a dashboard-ready summary row."""
     verified_count = sum(1 for outcome in evaluation.outcomes if outcome.status.value == "verified")
@@ -90,6 +167,24 @@ def summarize_evaluation(evaluation: ModelEvaluation) -> dict:
             }
             for outcome in evaluation.outcomes
         ],
+        "benchmark_knowledge": _build_benchmark_knowledge(
+            _serialize_benchmark_results(evaluation.benchmark_results),
+            [
+                {
+                    "metric": outcome.claim.metric,
+                    "claimed_value": outcome.claim.value,
+                    "status": outcome.status.value,
+                    "official_value": outcome.official_value,
+                    "delta": outcome.delta,
+                    "notes": outcome.notes,
+                    "source_url": outcome.claim.source_url,
+                }
+                for outcome in evaluation.outcomes
+            ],
+            verified_count=verified_count,
+            refuted_count=refuted_count,
+            unverifiable_count=unverifiable_count,
+        ),
     }
 
 
@@ -143,6 +238,31 @@ def summarize_report(report: dict) -> dict:
             }
             for item in report.get("outcomes", [])
         ],
+        "benchmark_knowledge": _build_benchmark_knowledge(
+            [
+                {
+                    "benchmark_id": item["benchmark_id"],
+                    "value": item["value"],
+                    "source_url": item.get("source_url"),
+                }
+                for item in report.get("benchmark_results", [])
+            ],
+            [
+                {
+                    "metric": item.get("claim", {}).get("metric", item.get("metric", "Unknown benchmark")),
+                    "claimed_value": item.get("claim", {}).get("value", item.get("claimed_value")),
+                    "status": item.get("status"),
+                    "official_value": item.get("official_value"),
+                    "delta": item.get("delta"),
+                    "notes": item.get("notes", ""),
+                    "source_url": item.get("claim", {}).get("source_url", item.get("source_url")),
+                }
+                for item in report.get("outcomes", [])
+            ],
+            verified_count=verified_count,
+            refuted_count=refuted_count,
+            unverifiable_count=unverifiable_count,
+        ),
     }
 
 
@@ -250,6 +370,31 @@ def _render_claim_list(score: dict) -> str:
     return "".join(items)
 
 
+def _render_bullet_list(items: list[str]) -> str:
+    return "".join(f"<li>{escape(item)}</li>" for item in items)
+
+
+def _render_knowledge_snapshot(score: dict) -> str:
+    knowledge = score.get("benchmark_knowledge", {})
+    return f"""<div class="knowledge-section">
+        <h4>What we actually know from benchmarks</h4>
+        <div class="knowledge-grid">
+            <div class="knowledge-card">
+                <h5>Established facts</h5>
+                <ul>{_render_bullet_list(knowledge.get("facts", []))}</ul>
+            </div>
+            <div class="knowledge-card">
+                <h5>Direct comparisons</h5>
+                <ul>{_render_bullet_list(knowledge.get("comparisons", []))}</ul>
+            </div>
+            <div class="knowledge-card">
+                <h5>Remaining gaps</h5>
+                <ul>{_render_bullet_list(knowledge.get("gaps", []))}</ul>
+            </div>
+        </div>
+    </div>"""
+
+
 def build_dashboard_html(aggregated: dict) -> str:
     """Render the GitHub Pages dashboard HTML."""
     scores = aggregated["scores"]
@@ -288,6 +433,7 @@ def build_dashboard_html(aggregated: dict) -> str:
                 <h3>{rank}. {escape(score['display_name'])}</h3>
                 <p><strong>Status:</strong> {escape(score['status_summary'])}</p>
                 <p><strong>Use-case strengths:</strong> {escape(use_case_label)}</p>
+                {_render_knowledge_snapshot(score)}
                 <div class="detail-grid">
                     <div>
                         <h4>Known benchmark evidence</h4>
@@ -368,11 +514,31 @@ def build_dashboard_html(aggregated: dict) -> str:
         }}
         .detail-card h3 {{ margin-bottom: 10px; }}
         .detail-card h4 {{ margin-bottom: 8px; }}
+        .detail-card h5 {{ margin-bottom: 8px; color: #2d3748; }}
         .detail-card p, .detail-card li {{
             color: #4a5568;
             line-height: 1.6;
         }}
         .detail-card ul {{ padding-left: 18px; }}
+        .knowledge-section {{
+            margin-top: 16px;
+            padding: 18px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }}
+        .knowledge-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+            margin-top: 12px;
+        }}
+        .knowledge-card {{
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 14px;
+        }}
         .detail-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
