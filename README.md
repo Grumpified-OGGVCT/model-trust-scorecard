@@ -71,6 +71,8 @@ trust-scorecard export --db trust_scores.db --output results.json
 
 # Storage and history (SQLite by default; reruns append)
 # trust_scores.db accumulates every evaluation so you can track drift over time.
+# Local score/batch runs also refresh trust_scores.json, trust_scores.md, and docs/index.html
+# so the local dashboard stays populated with the latest results.
 ```
 
 ## Anti-Simplification Protocol

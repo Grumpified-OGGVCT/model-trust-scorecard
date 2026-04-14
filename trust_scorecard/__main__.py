@@ -42,6 +42,7 @@ from trust_scorecard.pipeline import (
     load_model_card_from_json,
     load_model_cards_from_directory,
 )
+from trust_scorecard.reporting import build_status_summary, write_local_artifacts
 
 console = Console()
 
@@ -163,6 +164,7 @@ def score(
 
     # Display results
     _display_evaluation(evaluation)
+    _refresh_local_artifacts(store)
 
 
 @cli.command()
@@ -237,6 +239,7 @@ def batch(
 
     # Display summary
     _display_batch_summary(evaluations)
+    _refresh_local_artifacts(store)
 
 
 @cli.command(name="list")
@@ -341,8 +344,12 @@ def _display_evaluation(evaluation) -> None:
             console.print(f"{icon} {outcome.claim.metric}: {outcome.claim.value}% ({outcome.status.value})")
             if outcome.official_value is not None:
                 console.print(f"   Official: {outcome.official_value}% (delta={outcome.delta:.2f}%)")
+                if outcome.benchmark_result:
+                    console.print(f"   Source: {outcome.benchmark_result.source_url or '—'}")
             console.print(f"   {outcome.notes}")
             console.print()
+
+    _display_benchmark_evidence(evaluation)
 
 
 def _display_batch_summary(evaluations) -> None:
@@ -357,6 +364,8 @@ def _display_batch_summary(evaluations) -> None:
     table.add_column("Trust Score", justify="right", style="green")
     table.add_column("Claims", justify="right")
     table.add_column("Verified", justify="right", style="green")
+    table.add_column("Evidence", justify="right", style="cyan")
+    table.add_column("Status", style="yellow")
 
     # Sort by trust score descending
     sorted_evals = sorted(
@@ -368,6 +377,16 @@ def _display_batch_summary(evaluations) -> None:
     for rank, evaluation in enumerate(sorted_evals, 1):
         score = evaluation.trust_score.score if evaluation.trust_score else 0.0
         verified = sum(1 for o in evaluation.outcomes if o.status.value == "verified")
+        refuted = sum(1 for o in evaluation.outcomes if o.status.value == "refuted")
+        unverifiable = sum(1 for o in evaluation.outcomes if o.status.value == "unverifiable")
+        pending = sum(1 for o in evaluation.outcomes if o.status.value == "pending")
+        status = build_status_summary(
+            total_claims=len(evaluation.claims),
+            verified_count=verified,
+            refuted_count=refuted,
+            unverifiable_count=unverifiable,
+            pending_count=pending,
+        )
 
         table.add_row(
             str(rank),
@@ -375,9 +394,53 @@ def _display_batch_summary(evaluations) -> None:
             f"{score:.1f}",
             str(len(evaluation.claims)),
             str(verified),
+            str(len(evaluation.benchmark_results)),
+            status,
         )
 
     console.print(table)
+
+
+def _display_benchmark_evidence(evaluation) -> None:
+    """Display independent benchmark rows that were found for the model."""
+    console.print(f"\n[bold cyan]{SECTION_BAR} Known Benchmark Evidence {SECTION_BAR}[/bold cyan]")
+
+    if not evaluation.benchmark_results:
+        console.print(
+            "[yellow]No independent benchmark rows were found for this model in the current sources.[/yellow]"
+        )
+        return
+
+    table = Table(title="Official Benchmark Data")
+    table.add_column("Benchmark", style="cyan")
+    table.add_column("Official", justify="right", style="green")
+    table.add_column("Source", style="blue")
+
+    for result in sorted(evaluation.benchmark_results, key=lambda item: item.benchmark_id):
+        table.add_row(
+            result.benchmark_id,
+            f"{result.value:.1f}%",
+            result.source_url or "—",
+        )
+
+    console.print(table)
+
+
+def _refresh_local_artifacts(store: EvaluationStore) -> None:
+    """Refresh trust_scores outputs and dashboard from the latest saved evaluations."""
+    try:
+        evaluations = store.get_all_latest()
+        if not evaluations:
+            return
+        write_local_artifacts(evaluations)
+        console.print(
+            "\n[dim]Updated local outputs: trust_scores.json, trust_scores.md, docs/index.html[/dim]"
+        )
+    except (OSError, ValueError) as exc:
+        console.print(
+            "[yellow]Warning: failed to refresh trust_scores.json, trust_scores.md, "
+            f"or docs/index.html: {exc}[/yellow]"
+        )
 
 
 def _read_from_file_or_stdin(path: str) -> str:

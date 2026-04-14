@@ -1,73 +1,22 @@
 #!/usr/bin/env python3
 """
-Aggregate individual verification reports into final trust_scores.json and markdown table.
-
-Input: reports/*.json (individual verification reports)
-Output: trust_scores.json, trust_scores.md
-
-Usage:
-  python scripts/aggregate.py --reports-dir reports/ --output trust_scores.json --md trust_scores.md
+Aggregate individual verification reports into trust_scores.json and trust_scores.md.
 """
+
+from __future__ import annotations
 
 import argparse
 import json
 import logging
 from pathlib import Path
 
+from trust_scorecard.reporting import aggregate_summaries, generate_markdown_table, summarize_report
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
-def _numeric_trust_score(score: dict) -> float:
-    value = score.get("trust_score")
-    return float(value) if value is not None else 0.0
-
-
-def generate_markdown_table(scores: list[dict]) -> str:
-    """Generate markdown badge table."""
-    # Sort by trust score descending
-    sorted_scores = sorted(scores, key=_numeric_trust_score, reverse=True)
-
-    lines = [
-        "# Trust Scorecard Rankings",
-        "",
-        "| Rank | Model | Vendor | Trust Score | Verified Claims | License |",
-        "|------|-------|--------|-------------|-----------------|---------|",
-    ]
-
-    for rank, score in enumerate(sorted_scores, 1):
-        trust_score = score.get("trust_score")
-        # Badge color based on score
-        if trust_score is None:
-            badge = "![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey)"
-        elif trust_score >= 80:
-            badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-brightgreen)"
-        elif trust_score >= 60:
-            badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-yellow)"
-        else:
-            badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-orange)"
-
-        lines.append(
-            f"| {rank} | {score['display_name']} | {score['vendor'] or '—'} | {badge} | "
-            f"{score['verified_count']}/{score['total_claims']} | {score['license']} |"
-        )
-
-    lines.extend([
-        "",
-        "---",
-        "",
-        "**Legend:**",
-        "- 🟢 **80-100**: Highly trustworthy - most claims verified",
-        "- 🟡 **60-79**: Moderately trustworthy - some claims verified",
-        "- 🟠 **<60**: Low trust - few claims verified or significant gaps",
-        "",
-        f"*Last updated: {scores[0]['evaluated_at'] if scores else 'N/A'}*",
-    ])
-
-    return "\n".join(lines)
-
-
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description="Aggregate verification reports")
     parser.add_argument(
         "--reports-dir",
@@ -89,57 +38,26 @@ def main():
     )
     args = parser.parse_args()
 
-    # Load all reports
-    reports = []
+    reports: list[dict] = []
     for report_file in args.reports_dir.glob("*.json"):
         try:
-            data = json.loads(report_file.read_text())
-            reports.append(data)
-            logger.info(f"Loaded {report_file.name}")
-        except Exception as e:
-            logger.warning(f"Failed to load {report_file.name}: {e}")
+            reports.append(json.loads(report_file.read_text()))
+            logger.info("Loaded %s", report_file.name)
+        except (json.JSONDecodeError, OSError) as exc:
+            logger.warning("Failed to load %s, skipping file: %s", report_file.name, exc)
 
     if not reports:
         logger.error("No reports found in %s", args.reports_dir)
         return 1
 
-    logger.info(f"Aggregating {len(reports)} reports")
-
-    # Prepare aggregated scores
-    scores = []
-    for report in reports:
-        breakdown = report.get("breakdown") or {}
-        scores.append({
-            "model_id": report["model_id"],
-            "display_name": report["display_name"],
-            "vendor": report.get("vendor"),
-            "trust_score": report["trust_score"],
-            "breakdown": breakdown,
-            "use_case_scores": breakdown.get("use_case_scores", {}),
-            "total_claims": len(report.get("claims", [])),
-            "verified_count": report.get("verified_count", 0),
-            "refuted_count": report.get("refuted_count", 0),
-            "unverifiable_count": report.get("unverifiable_count", 0),
-            "evaluated_at": report.get("evaluated_at"),
-            "license": report.get("license", "unknown"),
-        })
-
-    # Write JSON
-    aggregated = {
-        "generated_at": reports[0]["evaluated_at"] if reports else None,
-        "total_models": len(scores),
-        "scores": scores,
-    }
+    aggregated = aggregate_summaries([summarize_report(report) for report in reports])
     args.output.write_text(json.dumps(aggregated, indent=2))
-    logger.info(f"Wrote aggregated scores to {args.output}")
+    logger.info("Wrote aggregated scores to %s", args.output)
 
-    # Write markdown
-    markdown = generate_markdown_table(scores)
-    args.md.write_text(markdown)
-    logger.info(f"Wrote markdown table to {args.md}")
-
+    args.md.write_text(generate_markdown_table(aggregated["scores"]))
+    logger.info("Wrote markdown table to %s", args.md)
     return 0
 
 
 if __name__ == "__main__":
-    exit(main())
+    raise SystemExit(main())
