@@ -1,0 +1,14 @@
+{
+  "model_id": "deepseek-v3.2",
+  "display_name": "DeepSeek V3.2",
+  "vendor": "DeepSeek",
+  "card_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+  "card_text": "DeepSeek V3.2 is an open-source model achieving 76.8% on SWE-bench Verified, 86.4% on MMLU, and 87.9% on HumanEval pass@1. It scores 72.3% on GPQA Diamond, 94.1% on GSM8K, and 79.8% on MATH. Performance on TruthfulQA stands at 68.9%.",
+  "license_kind": "open",
+  "parameter_count_billions": 671,
+  "context_window_tokens": 128000,
+  "release_date": "2025-12-26T00:00:00",
+  "tags": ["open-source", "coding", "reasoning", "moe"],
+  "pricing_per_1k_input_usd": null,
+  "pricing_per_1k_output_usd": null
+}

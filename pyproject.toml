@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trust-scorecard"
+version = "0.1.0"
+description = "Transparent, reproducible trust-score engine for AI model benchmark claims"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+keywords = ["llm", "benchmark", "trust", "evaluation", "swe-bench", "leaderboard"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "requests>=2.31.0",
+    "pandas>=2.0.0",
+    "pydantic>=2.5.0",
+    "tqdm>=4.66.0",
+    "rich>=13.7.0",
+    "click>=8.1.0",
+    "fastapi>=0.109.0",
+    "uvicorn[standard]>=0.27.0",
+    "httpx>=0.26.0",
+    "python-dateutil>=2.8.2",
+    "huggingface-hub>=0.20.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-cov>=4.1.0",
+    "pytest-asyncio>=0.23.0",
+    "respx>=0.20.0",
+    "ruff>=0.3.0",
+    "mypy>=1.8.0",
+    "types-requests>=2.31.0",
+    "types-python-dateutil>=2.8.0",
+]
+hf = [
+    "datasets>=2.17.0",
+]
+full = [
+    "trust-scorecard[hf]",
+]
+
+[project.scripts]
+trust-scorecard = "trust_scorecard.__main__:cli"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["trust_scorecard*", "api*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+addopts = "-v --tb=short"

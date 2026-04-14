@@ -1,0 +1,15 @@
+{
+  "id": "truthfulqa",
+  "display_name": "TruthfulQA",
+  "description": "TruthfulQA - measuring truthfulness in responses to questions that humans might answer falsely",
+  "metric_kind": "accuracy",
+  "weight_max": 6.0,
+  "data_source": "hf_leaderboard",
+  "data_source_params": {
+    "dataset": "open-llm-leaderboard/contents",
+    "metric": "truthfulqa"
+  },
+  "tolerance_default": 2.0,
+  "enabled": true,
+  "tags": ["safety", "truthfulness", "ethics"]
+}

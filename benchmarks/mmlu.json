@@ -1,0 +1,15 @@
+{
+  "id": "mmlu",
+  "display_name": "MMLU",
+  "description": "Massive Multitask Language Understanding - 57 subjects across STEM, humanities, social sciences",
+  "metric_kind": "accuracy",
+  "weight_max": 8.0,
+  "data_source": "hf_leaderboard",
+  "data_source_params": {
+    "dataset": "open-llm-leaderboard/contents",
+    "metric": "mmlu"
+  },
+  "tolerance_default": 2.0,
+  "enabled": true,
+  "tags": ["knowledge", "reasoning", "academic"]
+}

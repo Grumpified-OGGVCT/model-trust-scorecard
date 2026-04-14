@@ -1,0 +1,73 @@
+name: Model Submission
+description: Submit a new model for trust score evaluation
+title: "[Model Submission] "
+labels: ["model-submission"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for submitting a model! Please provide the following information.
+
+  - type: input
+    id: model_name
+    attributes:
+      label: Model Name
+      description: Official name of the model
+      placeholder: "GPT-4.1"
+    validations:
+      required: true
+
+  - type: input
+    id: vendor
+    attributes:
+      label: Vendor/Provider
+      description: Organization that created the model
+      placeholder: "OpenAI"
+    validations:
+      required: true
+
+  - type: textarea
+    id: claims
+    attributes:
+      label: Benchmark Claims
+      description: Copy and paste the benchmark performance claims from the model card or announcement
+      placeholder: |
+        GPT-4.1 achieves:
+        - 85.4% on SWE-bench Verified
+        - 88.7% on MMLU
+        - 92.3% on HumanEval
+        - 78.2% on GPQA Diamond
+      render: markdown
+    validations:
+      required: true
+
+  - type: input
+    id: source_url
+    attributes:
+      label: Source URL
+      description: Link to the model card, blog post, or announcement
+      placeholder: "https://..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: license
+    attributes:
+      label: License Type
+      options:
+        - Open Source (MIT, Apache, etc.)
+        - Restricted (Research only, CC-BY-NC)
+        - Proprietary
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Any other relevant details (parameter count, context window, etc.)
+      placeholder: |
+        - Parameters: 671B (MoE)
+        - Context window: 128K tokens
+        - Release date: 2025-12-26

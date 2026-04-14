@@ -1,0 +1,14 @@
+{
+  "model_id": "gpt-4.1",
+  "display_name": "GPT-4.1",
+  "vendor": "OpenAI",
+  "card_url": "https://platform.openai.com/docs/models/gpt-4",
+  "card_text": "GPT-4.1 achieves 85.4% on SWE-bench Verified, 88.7% on MMLU, 92.3 on HumanEval pass@1, and scores 78.2% on GPQA Diamond. The model also demonstrates 95.3% accuracy on GSM8K and 83.6% on MATH benchmark. On TruthfulQA, it achieves 74.5%.",
+  "license_kind": "proprietary",
+  "parameter_count_billions": null,
+  "context_window_tokens": 128000,
+  "release_date": "2026-01-15T00:00:00",
+  "tags": ["multimodal", "reasoning", "coding"],
+  "pricing_per_1k_input_usd": 0.03,
+  "pricing_per_1k_output_usd": 0.06
+}
