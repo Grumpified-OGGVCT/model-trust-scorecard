@@ -46,6 +46,24 @@ from trust_scorecard.pipeline import (
 console = Console()
 
 
+def _safe_symbol(preferred: str, fallback: str) -> str:
+    """Return a symbol that the active stdout encoding can render."""
+    encoding = sys.stdout.encoding or "utf-8"
+    try:
+        preferred.encode(encoding)
+        return preferred
+    except Exception:  # noqa: BLE001
+        return fallback
+
+
+CHECK_MARK = _safe_symbol("✓", "OK")
+CROSS_MARK = _safe_symbol("✗", "X")
+UNKNOWN_MARK = _safe_symbol("?", "?")
+PENDING_MARK = _safe_symbol("…", "...")
+SECTION_BAR = "=" * 19
+LIST_BULLET = _safe_symbol("·", "*")
+
+
 def setup_logging(verbose: bool = False) -> None:
     """Configure logging with rich handler."""
     level = logging.DEBUG if verbose else logging.INFO
@@ -260,7 +278,7 @@ def export(db: str, output: str) -> None:
 
 def _display_evaluation(evaluation) -> None:
     """Display a single evaluation result."""
-    console.print("\n[bold cyan]═══ Trust Score ═══[/bold cyan]")
+    console.print(f"\n[bold cyan]{SECTION_BAR} Trust Score {SECTION_BAR}[/bold cyan]")
 
     if not evaluation.trust_score:
         console.print("[yellow]No trust score computed (no claims extracted)[/yellow]")
@@ -295,26 +313,34 @@ def _display_evaluation(evaluation) -> None:
         console.print(uc_table)
 
     # Claims summary
-    console.print("\n[bold cyan]═══ Claims ═══[/bold cyan]")
+    console.print(f"\n[bold cyan]{SECTION_BAR} Claims {SECTION_BAR}[/bold cyan]")
     console.print(f"Total claims: {len(evaluation.claims)}")
 
     verified = sum(1 for o in evaluation.outcomes if o.status.value == "verified")
     refuted = sum(1 for o in evaluation.outcomes if o.status.value == "refuted")
     unverifiable = sum(1 for o in evaluation.outcomes if o.status.value == "unverifiable")
+    pending = sum(1 for o in evaluation.outcomes if o.status.value == "pending")
 
-    console.print(f"[green]✓ Verified:[/green] {verified}")
-    console.print(f"[red]✗ Refuted:[/red] {refuted}")
-    console.print(f"[yellow]? Unverifiable:[/yellow] {unverifiable}")
+    console.print(f"[green]{CHECK_MARK} Verified:[/green] {verified}")
+    console.print(f"[red]{CROSS_MARK} Refuted:[/red] {refuted}")
+    console.print(f"[yellow]{UNKNOWN_MARK} Unverifiable:[/yellow] {unverifiable}")
+    if pending:
+        console.print(f"[cyan]{PENDING_MARK} Pending:[/cyan] {pending}")
 
     # Show individual outcomes
     if evaluation.outcomes:
-        console.print("\n[bold cyan]═══ Verification Details ═══[/bold cyan]\n")
+        console.print(f"\n[bold cyan]{SECTION_BAR} Verification Details {SECTION_BAR}[/bold cyan]\n")
         for outcome in evaluation.outcomes:
-            status_icon = {"verified": "[green]✓[/green]", "refuted": "[red]✗[/red]", "unverifiable": "[yellow]?[/yellow]"}
-            icon = status_icon.get(outcome.status.value, "·")
-            console.print(f"{icon} {outcome.claim.metric}: {outcome.claim.value}%")
+            status_icon = {
+                "verified": f"[green]{CHECK_MARK}[/green]",
+                "refuted": f"[red]{CROSS_MARK}[/red]",
+                "unverifiable": f"[yellow]{UNKNOWN_MARK}[/yellow]",
+                "pending": f"[cyan]{PENDING_MARK}[/cyan]",
+            }
+            icon = status_icon.get(outcome.status.value, LIST_BULLET)
+            console.print(f"{icon} {outcome.claim.metric}: {outcome.claim.value}% ({outcome.status.value})")
             if outcome.official_value is not None:
-                console.print(f"   Official: {outcome.official_value}% (Δ={outcome.delta:.2f}%)")
+                console.print(f"   Official: {outcome.official_value}% (delta={outcome.delta:.2f}%)")
             console.print(f"   {outcome.notes}")
             console.print()
 
