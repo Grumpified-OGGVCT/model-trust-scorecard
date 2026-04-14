@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T20:15:19.772169",
+  "generated_at": "2026-04-14T20:28:09.419642",
   "total_models": 26,
   "scores": [
     {
@@ -28,22 +28,93 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T20:15:19.772169",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:09.419642",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "claude-opus-4.5",
+        "display_name": "Claude Opus 4.5",
+        "vendor": "Anthropic",
+        "card_url": "https://www.anthropic.com/claude",
+        "card_text": "Claude Opus 4.5 demonstrates exceptional performance across multiple benchmarks: 89.2% on SWE-bench Verified, 90.1% on MMLU, 94.7% on HumanEval, 82.4% on GPQA Diamond, and 96.8% on GSM8K. The model achieves 85.3% on MATH and 76.2% on TruthfulQA, showcasing strong reasoning and safety characteristics.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": 200000,
+        "release_date": "2025-11-01T00:00:00",
+        "tags": [
+          "reasoning",
+          "coding",
+          "long-context",
+          "safety"
+        ],
+        "pricing_per_1k_input_usd": 0.015,
+        "pricing_per_1k_output_usd": 0.075
+      },
+      "tags": [
+        "reasoning",
+        "coding",
+        "long-context",
+        "safety"
+      ]
     },
     {
       "model_id": "llama3.2-vision",
-      "display_name": "Llama 3.2 Vision",
+      "display_name": "Llama 3.2 Vision 11B",
       "vendor": "Meta",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
+      "trust_score": 22.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "reasoning": 52.6
+        }
+      },
+      "use_case_scores": {
+        "reasoning": 52.6
+      },
+      "total_claims": 3,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:24.383207",
-      "license": "unknown"
+      "unverifiable_count": 3,
+      "evaluated_at": "2026-04-14T20:28:10.724749",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "llama3.2-vision",
+        "display_name": "Llama 3.2 Vision 11B",
+        "vendor": "Meta",
+        "card_url": null,
+        "card_text": "Llama 3.2 Vision 11B - Multimodal Transformer with vision adapter. Parameters: 11B (10.6B active). Architecture: Cross-attention vision adapter + Llama 3.1 language model. Max context: 128K tokens. Trained on 6B image-text pairs.\n\nVision Benchmarks:\n- MMMU (val, CoT): 50.7% (0-shot, college-level reasoning)\n- MMMU-Pro Standard: 33.0% (10 options, test)\n- MMMU-Pro Vision: 23.7% (test)\n- MathVista: 51.5% (testmini, mathematical reasoning + vision)\n- ChartQA: 83.4% (test, CoT, chart understanding)\n- AI2 Diagram: 91.1% (test, diagram understanding)\n- DocVQA: 88.4% (test, ANLS, document OCR + understanding)\n- VQAv2: 75.2% (test, visual question answering)\n- TextVQA: 73.1% (val, text in images)\n\nText Benchmarks:\n- MMLU: 73.0%\n- MATH: 51.9%\n- GPQA: 32.8%\n\nCapabilities: Visual question answering, image captioning, document OCR and analysis, chart/diagram understanding, visual reasoning, multilingual text (8 languages). Supports commercial use.",
+        "license_kind": "open",
+        "parameter_count_billions": 11.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "vision",
+          "multimodal",
+          "text",
+          "ocr",
+          "document-analysis",
+          "chart-understanding",
+          "long-context",
+          "vqav2",
+          "docvqa"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
+      },
+      "tags": [
+        "vision",
+        "multimodal",
+        "text",
+        "ocr",
+        "document-analysis",
+        "chart-understanding",
+        "long-context",
+        "vqav2",
+        "docvqa"
+      ]
     },
     {
       "model_id": "granite3.3-8b",
@@ -56,8 +127,37 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:23.765433",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:05.752825",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "granite3.3-8b",
+        "display_name": "Granite 3.3 8B",
+        "vendor": "IBM",
+        "card_url": null,
+        "card_text": "Granite 3.3 8B - IBM's enterprise-grade code model. Parameters: 8B. Architecture: Dense Transformer with Fill-in-the-Middle (FIM) code completion. Max context: 128K tokens.\n\nCapabilities: Fill-in-the-Middle code completion, function calling, structured reasoning, extended context. Optimized for enterprise coding workflows.\n\nBenchmarks:\n- Strong performance on code completion benchmarks\n- Function calling capabilities\n- 128K context window for large codebase understanding",
+        "license_kind": "open",
+        "parameter_count_billions": 8.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "coding",
+          "fim",
+          "function-calling",
+          "long-context",
+          "enterprise"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
+      },
+      "tags": [
+        "text",
+        "coding",
+        "fim",
+        "function-calling",
+        "long-context",
+        "enterprise"
+      ]
     },
     {
       "model_id": "glm-5.1-cloud",
@@ -81,8 +181,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:15:22.488447",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:14.038104",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-5.1-cloud",
+        "display_name": "GLM 5.1 Cloud",
+        "vendor": "Z.ai",
+        "card_url": "https://ollama.com/library/glm",
+        "card_text": "GLM 5.1 Cloud - Advanced agentic, reasoning and coding capabilities.\nAchieves 78.5% on SWE-bench Verified.\nStrong performance on agentic workflows and reasoning tasks.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "hermes3-8b",
@@ -95,33 +210,81 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:22.906856",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:05.968517",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "hermes3-8b",
+        "display_name": "Hermes 3 8B",
+        "vendor": "Nous",
+        "card_url": null,
+        "card_text": "Hermes 3 8B - Generalist model with advanced agentic capabilities.\nFunction calling, structured output, roleplaying.\nDesigned for agent workflows and tool use.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "deepseek-r1-14b",
       "display_name": "DeepSeek R1 14B",
       "vendor": "DeepSeek",
-      "trust_score": 18.5,
+      "trust_score": 22.2,
       "breakdown": {
-        "coverage_score": 7.5,
+        "coverage_score": 11.2,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
+          "coding": 57.6,
           "reasoning": 81.2
         }
       },
       "use_case_scores": {
+        "coding": 57.6,
         "reasoning": 81.2
       },
-      "total_claims": 2,
+      "total_claims": 4,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:15:19.236252",
-      "license": "unknown"
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-14T20:28:40.026651",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "deepseek-r1-14b",
+        "display_name": "DeepSeek R1 14B",
+        "vendor": "DeepSeek",
+        "card_url": null,
+        "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher. Architecture: MoE (Mixture-of-Experts). Activated parameters: 14B. Total teacher parameters: 671B. Max context: 128K tokens.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- AIME 2025: 81.5%\n- MATH-500: 97.3%\n- LiveCodeBench: 65.9%\n- SWE-bench Verified: 49.2%\n\nCapabilities: Chain-of-thought reasoning, STEM problem solving, coding, long-context understanding. Distilled version for local deployment. MIT license. Licensed under MIT.",
+        "license_kind": "open",
+        "parameter_count_billions": 14.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "reasoning",
+          "coding",
+          "stem",
+          "chain-of-thought",
+          "long-context",
+          "distilled"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
+      },
+      "tags": [
+        "text",
+        "reasoning",
+        "coding",
+        "stem",
+        "chain-of-thought",
+        "long-context",
+        "distilled"
+      ]
     },
     {
       "model_id": "minimax-m2.7-cloud",
@@ -145,8 +308,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:15:23.581925",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:31.898320",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "minimax-m2.7-cloud",
+        "display_name": "MiniMax M2.7 Cloud",
+        "vendor": "MiniMax",
+        "card_url": "https://ollama.com/library/minimax-m2.7",
+        "card_text": "MiniMax M2.7 Cloud - Achieves 78% on SWE-bench Verified multi-benchmark coverage.\nBest-in-class coverage across multiple evaluation suites for coding tasks.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "gpt-4.1",
@@ -172,8 +350,31 @@
       "verified_count": 2,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:15:24.403055",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:30.567756",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "gpt-4.1",
+        "display_name": "GPT-4.1",
+        "vendor": "OpenAI",
+        "card_url": "https://platform.openai.com/docs/models/gpt-4",
+        "card_text": "GPT-4.1 achieves 85.4% on SWE-bench Verified, 88.7% on MMLU, 92.3 on HumanEval pass@1, and scores 78.2% on GPQA Diamond. The model also demonstrates 95.3% accuracy on GSM8K and 83.6% on MATH benchmark. On TruthfulQA, it achieves 74.5%.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": "2026-01-15T00:00:00",
+        "tags": [
+          "multimodal",
+          "reasoning",
+          "coding"
+        ],
+        "pricing_per_1k_input_usd": 0.03,
+        "pricing_per_1k_output_usd": 0.06
+      },
+      "tags": [
+        "multimodal",
+        "reasoning",
+        "coding"
+      ]
     },
     {
       "model_id": "devstral-2-123b-cloud",
@@ -197,8 +398,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:15:21.905458",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:32.563773",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "devstral-2-123b-cloud",
+        "display_name": "Devstral 2 123B Cloud",
+        "vendor": "Mistral",
+        "card_url": "https://ollama.com/library/devstral-2",
+        "card_text": "Devstral 2 123B Cloud - Software engineering agent capabilities.\nAchieves 72.2% on SWE-bench Verified.\nExcels at using tools to explore codebases and editing multiple files.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "minimax-m2.5-cloud",
@@ -222,8 +438,23 @@
       "verified_count": 1,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:32.590714",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:09.027754",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "minimax-m2.5-cloud",
+        "display_name": "MiniMax M2.5 Cloud",
+        "vendor": "MiniMax",
+        "card_url": "https://ollama.com/library/minimax-m2.5",
+        "card_text": "MiniMax M2.5 Cloud - High-efficiency LLM built for coding and agentic workflows.\nAchieves 80.2% on SWE-bench Verified benchmark.\nStrong performance on software engineering tasks via cloud API.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "nomic-embed-text-v2-moe",
@@ -236,8 +467,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:44.445385",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:13.527961",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "nomic-embed-text-v2-moe",
+        "display_name": "Nomic Embed Text v2 MoE",
+        "vendor": "Nomic",
+        "card_url": null,
+        "card_text": "Nomic Embed Text v2 MoE - Multilingual MoE text embedding model excelling at multilingual retrieval.\nOptimized for long-context embedding and cross-lingual tasks.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "kimi-k2.5-cloud",
@@ -261,8 +507,23 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:22.893812",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:05.524328",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "kimi-k2.5-cloud",
+        "display_name": "Kimi K2.5 Cloud",
+        "vendor": "Moonshot",
+        "card_url": "https://ollama.com/library/kimi-k2.5",
+        "card_text": "Kimi K2.5 Cloud - Achieves 76.8% on SWE-bench Verified.\nState-of-the-art MoE language models with native multimodal agentic capabilities.\nInstant and thinking modes for different latency requirements.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "qwen3-vl-235b-cloud",
@@ -275,8 +536,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:22.276062",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:45.553104",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "qwen3-vl-235b-cloud",
+        "display_name": "Qwen3 VL 235B Cloud",
+        "vendor": "Alibaba",
+        "card_url": "https://ollama.com/library/qwen3-vl",
+        "card_text": "Qwen3 VL 235B Cloud - Most powerful vision-language model in Qwen family to date.\nAdvanced multimodal reasoning capabilities.\nAchieves strong performance on vision-language benchmarks via cloud API.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "gemini-2.5-pro",
@@ -304,33 +580,95 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:15:46.770173",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:11.482754",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "gemini-2.5-pro",
+        "display_name": "Gemini 2.5 Pro",
+        "vendor": "Google",
+        "card_url": "https://deepmind.google/technologies/gemini/",
+        "card_text": "Gemini 2.5 Pro achieves 82.7% on SWE-bench Verified, 89.3% on MMLU, 91.6% on HumanEval, and 80.1% on GPQA Diamond. The model demonstrates 95.7% accuracy on GSM8K and 82.9% on MATH benchmark. It scores 72.8% on TruthfulQA.",
+        "license_kind": "proprietary",
+        "parameter_count_billions": null,
+        "context_window_tokens": 2097152,
+        "release_date": "2026-02-12T00:00:00",
+        "tags": [
+          "multimodal",
+          "long-context",
+          "reasoning",
+          "coding"
+        ],
+        "pricing_per_1k_input_usd": 0.0125,
+        "pricing_per_1k_output_usd": 0.0375
+      },
+      "tags": [
+        "multimodal",
+        "long-context",
+        "reasoning",
+        "coding"
+      ]
     },
     {
       "model_id": "qwen3-14b",
       "display_name": "Qwen3 14B",
       "vendor": "Alibaba",
-      "trust_score": 22.2,
+      "trust_score": 26.0,
       "breakdown": {
-        "coverage_score": 11.2,
+        "coverage_score": 15.0,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "reasoning": 78.5
+          "reasoning": 79.2,
+          "multilingual": 81.1
         }
       },
       "use_case_scores": {
-        "reasoning": 78.5
+        "reasoning": 79.2,
+        "multilingual": 81.1
       },
-      "total_claims": 4,
+      "total_claims": 5,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-04-14T20:15:29.488722",
-      "license": "unknown"
+      "unverifiable_count": 5,
+      "evaluated_at": "2026-04-14T20:28:08.374501",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "qwen3-14b",
+        "display_name": "Qwen3 14B",
+        "vendor": "Alibaba",
+        "card_url": null,
+        "card_text": "Qwen3 14B - Dense Transformer with QK-Norm. Parameter count: 14B. Max context: 128K tokens. Trained on 36T tokens across 119 languages. Apache 2.0 license.\n\nBenchmarks:\n- MMLU: 81.05% (5-shot)\n- MMLU-Pro: 61.03% (5-shot, CoT)\n- GSM8K: 92.49% (4-shot, CoT)\n- MATH: 62.02% (4-shot, CoT)\n- HumanEval (EvalPlus): 72.23% (0-shot)\n- MBPP: 73.40% (3-shot)\n- BBH: 81.07% (3-shot, CoT)\n\nCapabilities: Text generation, reasoning, coding, multilingual (119 languages), tool use (MCP protocol), thinking/non-thinking modes, agentic capabilities.",
+        "license_kind": "open",
+        "parameter_count_billions": 14.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "reasoning",
+          "coding",
+          "multilingual",
+          "tool-calling",
+          "long-context",
+          "agentic",
+          "thinking-modes",
+          "mcp"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
+      },
+      "tags": [
+        "text",
+        "reasoning",
+        "coding",
+        "multilingual",
+        "tool-calling",
+        "long-context",
+        "agentic",
+        "thinking-modes",
+        "mcp"
+      ]
     },
     {
       "model_id": "deepcoder",
@@ -343,8 +681,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:21.842276",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:09.604766",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "deepcoder",
+        "display_name": "DeepCoder",
+        "vendor": "Community",
+        "card_url": null,
+        "card_text": "DeepCoder - Fully open-source 14B coder model at O3-mini level.\nLiveCodeBench optimized for code generation and programming tasks.\nCompetitive with frontier coding models.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "cogito-14b",
@@ -357,8 +710,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:20.563796",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:06.630738",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "cogito-14b",
+        "display_name": "Cogito 14B",
+        "vendor": "Deep Cogito",
+        "card_url": null,
+        "card_text": "Cogito 14B - Hybrid reasoning models optimized for coding and STEM.\nEnable 'deep thinking subroutine' for complex reasoning tasks.\nStrong performance on coding benchmarks with hybrid reasoning.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "cogito-2.1-671b-cloud",
@@ -371,8 +739,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:22.039086",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:06.106924",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "cogito-2.1-671b-cloud",
+        "display_name": "Cogito 2.1 671B Cloud",
+        "vendor": "Deep Cogito",
+        "card_url": "https://ollama.com/library/cogito-2.1",
+        "card_text": "Cogito 2.1 671B Cloud - Instruction-tuned generative models, MIT licensed.\nHybrid reasoning capable. Massive 671B parameters available only via cloud API.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "embeddinggemma",
@@ -385,35 +768,81 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:41.530956",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:07.404984",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "embeddinggemma",
+        "display_name": "Embedding Gemma",
+        "vendor": "Google",
+        "card_url": null,
+        "card_text": "Embedding Gemma - 300M parameter embedding model from Google.\nBuilt on Gemma architecture for efficient text embedding.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "llama3.1",
-      "display_name": "Llama 3.1",
+      "display_name": "Llama 3.1 405B",
       "vendor": "Meta",
-      "trust_score": 49.5,
+      "trust_score": 51.8,
       "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 13.3,
+        "coverage_score": 18.8,
+        "verification_score": 8.0,
         "performance_gap_score": 20.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
           "coding": 89.0,
-          "reasoning": 92.4
+          "reasoning": 86.5,
+          "multilingual": 87.5
         }
       },
       "use_case_scores": {
         "coding": 89.0,
-        "reasoning": 92.4
+        "reasoning": 86.5,
+        "multilingual": 87.5
       },
-      "total_claims": 3,
+      "total_claims": 5,
       "verified_count": 1,
       "refuted_count": 1,
-      "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:15:47.895456",
-      "license": "unknown"
+      "unverifiable_count": 3,
+      "evaluated_at": "2026-04-14T20:28:10.712634",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "llama3.1",
+        "display_name": "Llama 3.1 405B",
+        "vendor": "Meta",
+        "card_url": null,
+        "card_text": "Llama 3.1 405B - State-of-the-art open model from Meta. Parameter count: 405B. Architecture: Dense Transformer with Grouped Query Attention. Max context length: 128K tokens.\n\nBenchmarks:\n- MMLU: 85.2% (5-shot)\n- HumanEval: 89% (0-shot)\n- GSM8K: 96.8% (8-shot, CoT)\n- DROP: 84.8% (F1 score)\n- ARC-Challenge: 96.1%\n- BBH: 87.5%\n- MATH: 73.8%\n\nCapabilities: Text generation, reasoning, coding, multilingual (8 languages), tool use, long context.\n\nMultilingual, 128K context, tool use, Apache 2.0 license.",
+        "license_kind": "open",
+        "parameter_count_billions": 405.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "reasoning",
+          "coding",
+          "multilingual",
+          "tool-calling",
+          "long-context"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
+      },
+      "tags": [
+        "text",
+        "reasoning",
+        "coding",
+        "multilingual",
+        "tool-calling",
+        "long-context"
+      ]
     },
     {
       "model_id": "llava",
@@ -426,8 +855,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:56.320431",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:08.527428",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "llava",
+        "display_name": "LLaVA",
+        "vendor": "Community",
+        "card_url": null,
+        "card_text": "LLaVA - Novel end-to-end multimodal combining vision encoder + Vicuna.\nGeneral visual and language understanding capabilities.\nImplements visual instruction tuning.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "qwen3-embedding-0.6b",
@@ -440,8 +884,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:23.697479",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:10.652394",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "qwen3-embedding-0.6b",
+        "display_name": "Qwen3 Embedding 0.6B",
+        "vendor": "Alibaba",
+        "card_url": null,
+        "card_text": "Qwen3 Embedding 0.6B - Comprehensive text embeddings built on Qwen3 foundation.\nOptimized for vector search and RAG applications.\nBenchmarks: Not specified by provider.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "nomic-embed-text",
@@ -454,8 +913,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:21.596875",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:30.066893",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "nomic-embed-text",
+        "display_name": "Nomic Embed Text",
+        "vendor": "Nomic",
+        "card_url": null,
+        "card_text": "Nomic Embed Text - High-performing open embedding model with large token context window.\nCompetitive with commercial embedding models.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "deepseek-v3.2",
@@ -481,8 +955,33 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:16:01.025984",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:10.179606",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "deepseek-v3.2",
+        "display_name": "DeepSeek V3.2",
+        "vendor": "DeepSeek",
+        "card_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+        "card_text": "DeepSeek V3.2 is an open-source model achieving 76.8% on SWE-bench Verified, 86.4% on MMLU, and 87.9% on HumanEval pass@1. It scores 72.3% on GPQA Diamond, 94.1% on GSM8K, and 79.8% on MATH. Performance on TruthfulQA stands at 68.9%.",
+        "license_kind": "open",
+        "parameter_count_billions": 671.0,
+        "context_window_tokens": 128000,
+        "release_date": "2025-12-26T00:00:00",
+        "tags": [
+          "open-source",
+          "coding",
+          "reasoning",
+          "moe"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "open-source",
+        "coding",
+        "reasoning",
+        "moe"
+      ]
     },
     {
       "model_id": "mxbai-embed-large",
@@ -495,8 +994,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:46.899790",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:06.175563",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "mxbai-embed-large",
+        "display_name": "MXBAI Embed Large",
+        "vendor": "Mixedbread",
+        "card_url": null,
+        "card_text": "MXBAI Embed Large - State-of-the-art large embedding model from mixedbread.ai.\nDesigned for high-quality document retrieval and semantic search.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     },
     {
       "model_id": "gemma3-4b",
@@ -509,8 +1023,23 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:15:22.598979",
-      "license": "unknown"
+      "evaluated_at": "2026-04-14T20:28:32.112735",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "gemma3-4b",
+        "display_name": "Gemma 3 4B",
+        "vendor": "Google",
+        "card_url": null,
+        "card_text": "Gemma 3 4B - Most capable single-GPU multimodal model (text + image).\n128K context, 140+ languages.\nDesigned for vision-language tasks including captioning and visual QA.",
+        "license_kind": "open",
+        "parameter_count_billions": null,
+        "context_window_tokens": null,
+        "release_date": null,
+        "tags": [],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": []
     }
   ]
 }
