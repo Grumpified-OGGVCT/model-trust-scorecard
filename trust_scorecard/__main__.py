@@ -437,7 +437,10 @@ def _refresh_local_artifacts(store: EvaluationStore) -> None:
             "\n[dim]Updated local outputs: trust_scores.json, trust_scores.md, docs/index.html[/dim]"
         )
     except (OSError, ValueError) as exc:
-        console.print(f"[yellow]Warning: failed to refresh local outputs: {exc}[/yellow]")
+        console.print(
+            "[yellow]Warning: failed to refresh trust_scores.json, trust_scores.md, "
+            f"or docs/index.html: {exc}[/yellow]"
+        )
 
 
 def _read_from_file_or_stdin(path: str) -> str:
