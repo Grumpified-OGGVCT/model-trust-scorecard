@@ -50,6 +50,9 @@ SAFETY_WEIGHT = 5.0
 STANDARD_BENCHMARKS = [
     "SWE-bench",
     "MMLU",
+    "MMLU-Pro",
+    "BBH",
+    "ARC-AGI",
     "HumanEval",
     "GPQA",
     "TruthfulQA",
@@ -58,6 +61,10 @@ STANDARD_BENCHMARKS = [
     "HellaSwag",
     "ARC",
     "WinoGrande",
+    "LongBench",
+    "NeedleBench",
+    "AgentBench",
+    "MT-Bench",
 ]
 
 # Safety benchmarks
@@ -70,10 +77,15 @@ SAFETY_BENCHMARKS = [
 
 # Use-case groupings to avoid flattening strengths
 USE_CASE_BENCHMARKS: dict[str, list[str]] = {
-    "coding": ["SWE-bench", "SWE-bench Verified", "HumanEval"],
-    "reasoning": ["MMLU", "GSM8K", "GPQA", "MATH"],
-    "safety": ["TruthfulQA", "BBQ", "BOLD"],
-    "commonsense": ["HellaSwag", "WinoGrande", "ARC", "ARC Challenge"],
+    "coding": ["SWE-bench", "SWE-bench Verified", "HumanEval", "LiveCodeBench", "CodeXGLUE"],
+    "reasoning": ["MMLU", "MMLU-Pro", "GSM8K", "GPQA", "BBH", "ARC-AGI", "MATH"],
+    "safety": ["TruthfulQA", "BBQ", "BOLD", "Bias", "Toxicity"],
+    "commonsense": ["HellaSwag", "WinoGrande", "ARC", "ARC Challenge", "LAMBADA"],
+    "multilingual": ["MMLU-Pro", "BBH", "LAMBADA"],
+    "long_context": ["LongBench", "NeedleBench"],
+    "tool_use": ["AgentBench", "MT-Bench"],
+    "edge": ["EdgeJSON", "EdgeIntent", "EdgeFuncCall", "SMOL-WorldCup"],
+    "efficiency": ["Latency", "TinyMobileLLM-Throughput", "TinyMobileLLM-Memory"],
 }
 
 STANDARD_BENCHMARK_ALIASES: dict[str, set[str]] = {
@@ -83,6 +95,15 @@ STANDARD_BENCHMARK_ALIASES: dict[str, set[str]] = {
         _normalize_metric("SWE-bench Verified (mini)"),
         _normalize_metric("SWE-bench Lite"),
         _normalize_metric("SWE-bench Pro"),
+    },
+    _normalize_metric("ARC"): {
+        _normalize_metric("ARC"),
+        _normalize_metric("ARC Challenge"),
+        _normalize_metric("ARC-AGI"),
+    },
+    _normalize_metric("MMLU"): {
+        _normalize_metric("MMLU"),
+        _normalize_metric("MMLU-Pro"),
     },
 }
 

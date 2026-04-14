@@ -1,0 +1,50 @@
+[
+  {
+    "model_id": "gpt-4.1",
+    "source_url": "https://github.com/open-compass/opencompass",
+    "metrics": {
+      "LongBench": 72.4,
+      "NeedleBench": 84.1,
+      "AgentBench": 76.8,
+      "MT-Bench": 8.9,
+      "LiveCodeBench": 79.5,
+      "HellaSwag": 91.2
+    }
+  },
+  {
+    "model_id": "claude-opus-4.5",
+    "source_url": "https://github.com/open-compass/opencompass",
+    "metrics": {
+      "LongBench": 71.8,
+      "NeedleBench": 83.5,
+      "AgentBench": 75.9,
+      "MT-Bench": 8.7,
+      "LiveCodeBench": 78.2,
+      "HellaSwag": 90.5
+    }
+  },
+  {
+    "model_id": "gemini-2.5-pro",
+    "source_url": "https://github.com/open-compass/opencompass",
+    "metrics": {
+      "LongBench": 70.1,
+      "NeedleBench": 82.0,
+      "AgentBench": 75.1,
+      "MT-Bench": 8.5,
+      "LiveCodeBench": 77.4,
+      "HellaSwag": 89.3
+    }
+  },
+  {
+    "model_id": "deepseek-v3.2",
+    "source_url": "https://github.com/open-compass/opencompass",
+    "metrics": {
+      "LongBench": 68.9,
+      "NeedleBench": 80.4,
+      "AgentBench": 74.0,
+      "MT-Bench": 8.3,
+      "LiveCodeBench": 75.6,
+      "HellaSwag": 88.5
+    }
+  }
+]

@@ -16,7 +16,7 @@ Model Trust Scorecard is a transparent, reproducible engine that verifies AI mod
 ## ✨ Features
 
 - **🎯 Automated Claim Extraction** - Regex-powered parser extracts benchmark claims from model cards
-- **✅ Independent Verification** - Cross-references claims against official sources (SWE-bench, Open LLM Leaderboard, etc.)
+- **✅ Independent Verification** - Cross-references claims against official sources (SWE-bench, Open LLM Leaderboard, lm-eval, HELM, OpenCompass, SLM/edge suites)
 - **📊 Trust Score (0-100)** - Weighted rubric: Coverage 30%, Verification 40%, Performance Gap 20%, Openness 5%, Safety 5%
 - **💾 Persistent Storage** - SQLite database + optional HuggingFace Dataset export
 - **🤖 GitHub-First** - Fully automated via GitHub Actions, triggerable via CLI
@@ -106,10 +106,15 @@ gh run list --workflow=trust-score.yml
 | **Safety** | 5% | Safety benchmarks reported? |
 
 ### Use-Case Strength Matrix
-- **coding**: SWE-bench (Verified), HumanEval
-- **reasoning**: MMLU, GSM8K, GPQA, MATH
-- **commonsense**: HellaSwag, WinoGrande, ARC
-- **safety**: TruthfulQA, BBQ, BOLD
+- **coding**: SWE-bench (Verified), HumanEval, LiveCodeBench, CodeXGLUE
+- **reasoning**: MMLU / MMLU-Pro, GSM8K, GPQA, BBH, ARC-AGI, MATH
+- **commonsense**: HellaSwag, WinoGrande, ARC, LAMBADA
+- **safety**: TruthfulQA, BBQ, BOLD, Bias, Toxicity
+- **multilingual**: MMLU-Pro, BBH, LAMBADA
+- **long_context**: LongBench, NeedleBench
+- **tool_use / agentic**: AgentBench, MT-Bench
+- **edge**: EdgeJSON, EdgeIntent, EdgeFuncCall, SMOL-WorldCup
+- **efficiency**: Latency, TinyMobileLLM-Throughput, TinyMobileLLM-Memory
 
 Each use-case score is tracked (0–100) and rendered in the CLI and dashboard to avoid flattening everything into a single number.
 
@@ -139,9 +144,9 @@ Each use-case score is tracked (0–100) and rendered in the CLI and dashboard t
                          ▼
 ┌──────────────────────────────────────────────────────────────┐
 │       2. FETCH OFFICIAL DATA (benchmark_sources/)            │
-│  • SWE-bench: https://www.swebench.com/api/results           │
-│  • Open LLM Leaderboard: HF Datasets API                     │
-│  • Fallback: Static community-curated data                   │
+│  • SWE-bench HTML/API, Open LLM Leaderboard parquet/HF       │
+│  • lm-eval-harness, HELM, OpenCompass, SLM/edge snapshots    │
+│  • Fallback: Static community-curated data for offline use   │
 │  → List[BenchmarkResult]                                     │
 └────────────────────────┬─────────────────────────────────────┘
                          │
@@ -191,13 +196,19 @@ model-trust-scorecard/
 │   └── benchmark_sources/   # Benchmark data fetchers
 │       ├── base.py          # Abstract base class
 │       ├── swe_bench.py     # SWE-bench leaderboard
-│       └── open_llm_leaderboard.py  # HF Open LLM Leaderboard
+│       ├── open_llm_leaderboard.py  # HF Open LLM Leaderboard
+│       └── platform_sources.py      # lm-eval, HELM, OpenCompass, SLM/edge snapshots
 ├── models/                  # JSON catalog of known models
 │   ├── gpt-4.1.json
 │   ├── claude-opus-4.5.json
 │   └── ...
-├── benchmarks/              # JSON configs for benchmark sources
+├── benchmarks/              # JSON configs and snapshots for benchmark sources
 │   ├── swe_bench_verified.json
+│   ├── mmlu.json
+│   ├── lm_eval_harness_results.json
+│   ├── helm_results.json
+│   ├── opencompass_results.json
+│   └── slm_bench_results.json
 │   ├── mmlu.json
 │   └── ...
 ├── scripts/                 # Standalone CI scripts

@@ -40,7 +40,12 @@ _ALIAS_TABLE: dict[str, str] = {
     "swe bench verified (mini)": "SWE-bench Verified (mini)",
     # MMLU
     "mmlu": "MMLU",
+    "mmlu pro": "MMLU-Pro",
+    "mmlu-pro": "MMLU-Pro",
+    "mmlupro": "MMLU-Pro",
     "massive multitask language understanding": "MMLU",
+    "bbh": "BBH",
+    "big bench hard": "BBH",
     # HumanEval
     "humaneval": "HumanEval",
     "human eval": "HumanEval",
@@ -63,6 +68,8 @@ _ALIAS_TABLE: dict[str, str] = {
     "opencompass": "OpenCompass",
     # ARC
     "arc": "ARC",
+    "arc agi": "ARC-AGI",
+    "arc-agi": "ARC-AGI",
     "arc challenge": "ARC Challenge",
     "arc-challenge": "ARC Challenge",
     # HellaSwag
@@ -86,6 +93,29 @@ _ALIAS_TABLE: dict[str, str] = {
     "apps": "APPS",
     # HELMET
     "helmet": "HELMET",
+    # Long-context / agentic
+    "longbench": "LongBench",
+    "needlebench": "NeedleBench",
+    "agentbench": "AgentBench",
+    "mt bench": "MT-Bench",
+    "mt-bench": "MT-Bench",
+    "mtbench": "MT-Bench",
+    "lambada": "LAMBADA",
+    # Efficiency / safety
+    "latency": "Latency",
+    "bias": "Bias",
+    "toxicity": "Toxicity",
+    # Edge / SLM
+    "edgejson": "EdgeJSON",
+    "edge intent": "EdgeIntent",
+    "edgeintent": "EdgeIntent",
+    "edge funccall": "EdgeFuncCall",
+    "edge func call": "EdgeFuncCall",
+    "edgefunccall": "EdgeFuncCall",
+    "smol worldcup": "SMOL-WorldCup",
+    "smol-worldcup": "SMOL-WorldCup",
+    "tinymobilellm throughput": "TinyMobileLLM-Throughput",
+    "tinymobilellm memory": "TinyMobileLLM-Memory",
 }
 
 # Benchmark names grouped for pattern construction
@@ -98,6 +128,8 @@ _BENCHMARK_NAMES = [
     r"SWE[- ]bench",
     r"SWE\s*bench",
     r"MMLU(?:\s+Pro)?",
+    r"BBH",
+    r"ARC[- ]?AGI",
     r"HumanEval(?:\+)?",
     r"GPQA\s+Diamond",
     r"GPQA",
@@ -116,6 +148,20 @@ _BENCHMARK_NAMES = [
     r"APPS(?:\s+benchmark)?",
     r"HELMET",
     r"OpenCompass",
+    r"LongBench",
+    r"NeedleBench",
+    r"AgentBench",
+    r"MT[- ]?Bench",
+    r"LAMBADA",
+    r"Latency",
+    r"Bias",
+    r"Toxicity",
+    r"EdgeJSON",
+    r"EdgeIntent",
+    r"EdgeFuncCall",
+    r"SMOL[- ]?WorldCup",
+    r"TinyMobileLLM[- ]Throughput",
+    r"TinyMobileLLM[- ]Memory",
 ]
 
 # Construct master pattern:

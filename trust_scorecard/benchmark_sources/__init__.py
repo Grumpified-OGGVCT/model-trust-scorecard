@@ -11,6 +11,12 @@ All public exports:
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.benchmark_sources.open_llm_leaderboard import OpenLLMLeaderboardSource
+from trust_scorecard.benchmark_sources.platform_sources import (
+    HELMSource,
+    LMEvalHarnessSource,
+    OpenCompassSource,
+    SLMBenchSource,
+)
 from trust_scorecard.benchmark_sources.swe_bench import SWEBenchSource
 from trust_scorecard.models import BenchmarkConfig, MetricKind
 
@@ -100,6 +106,66 @@ def get_default_sources() -> list[BenchmarkSourceBase]:
     )
     sources.append(OpenLLMLeaderboardSource(truthfulqa_config))
 
+    # lm-eval-harness aggregate (broad, multi-genre)
+    lm_eval_config = BenchmarkConfig(
+        id="lm_eval_harness",
+        display_name="LM Evaluation Harness",
+        description="EleutherAI lm-evaluation-harness aggregate tasks",
+        metric_kind=MetricKind.ACCURACY,
+        weight_max=7.0,
+        data_source="lm_eval_harness",
+        data_source_params={"url": "https://github.com/EleutherAI/lm-evaluation-harness"},
+        tolerance_default=2.0,
+        enabled=True,
+        tags=["coding", "reasoning", "commonsense", "multilingual"],
+    )
+    sources.append(LMEvalHarnessSource(lm_eval_config))
+
+    # HELM (holistic safety/latency/harms + capability)
+    helm_config = BenchmarkConfig(
+        id="helm",
+        display_name="HELM",
+        description="Holistic Evaluation of Language Models (capability + safety)",
+        metric_kind=MetricKind.SCORE,
+        weight_max=6.0,
+        data_source="helm",
+        data_source_params={"url": "https://github.com/stanford-crfm/helm"},
+        tolerance_default=2.0,
+        enabled=True,
+        tags=["safety", "long-context", "efficiency"],
+    )
+    sources.append(HELMSource(helm_config))
+
+    # OpenCompass (long-context + agent/tool-use + robustness)
+    opencompass_config = BenchmarkConfig(
+        id="opencompass",
+        display_name="OpenCompass",
+        description="OpenCompass consolidated benchmarks (LongBench, NeedleBench, AgentBench, MT-Bench)",
+        metric_kind=MetricKind.SCORE,
+        weight_max=7.0,
+        data_source="opencompass",
+        data_source_params={"url": "https://github.com/open-compass/opencompass"},
+        tolerance_default=2.0,
+        enabled=True,
+        tags=["long-context", "agentic", "robustness"],
+    )
+    sources.append(OpenCompassSource(opencompass_config))
+
+    # Small/edge model benchmarks
+    slm_config = BenchmarkConfig(
+        id="slm_bench",
+        display_name="SLM Benchmarks",
+        description="Edge/SLM benchmarks (SLM-Bench, SMOL WorldCup, TinyMobileLLM)",
+        metric_kind=MetricKind.SCORE,
+        weight_max=5.0,
+        data_source="slm_bench",
+        data_source_params={"url": "https://slmbench.com"},
+        tolerance_default=2.0,
+        enabled=True,
+        tags=["edge", "multilingual", "efficiency"],
+    )
+    sources.append(SLMBenchSource(slm_config))
+
     return sources
 
 
@@ -108,5 +174,9 @@ __all__ = [
     "BenchmarkSource",
     "SWEBenchSource",
     "OpenLLMLeaderboardSource",
+    "LMEvalHarnessSource",
+    "HELMSource",
+    "OpenCompassSource",
+    "SLMBenchSource",
     "get_default_sources",
 ]

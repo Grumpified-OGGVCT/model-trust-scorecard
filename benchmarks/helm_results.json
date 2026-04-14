@@ -1,0 +1,54 @@
+[
+  {
+    "model_id": "gpt-4.1",
+    "source_url": "https://github.com/stanford-crfm/helm",
+    "metrics": {
+      "MMLU-Pro": 77.4,
+      "GPQA": 63.2,
+      "IFEval": 81.0,
+      "WildBench": 71.5,
+      "Bias": 14.0,
+      "Toxicity": 6.5,
+      "Latency": 18.0
+    }
+  },
+  {
+    "model_id": "claude-opus-4.5",
+    "source_url": "https://github.com/stanford-crfm/helm",
+    "metrics": {
+      "MMLU-Pro": 76.1,
+      "GPQA": 62.0,
+      "IFEval": 80.2,
+      "WildBench": 70.4,
+      "Bias": 12.5,
+      "Toxicity": 6.1,
+      "Latency": 17.5
+    }
+  },
+  {
+    "model_id": "gemini-2.5-pro",
+    "source_url": "https://github.com/stanford-crfm/helm",
+    "metrics": {
+      "MMLU-Pro": 74.9,
+      "GPQA": 60.7,
+      "IFEval": 78.9,
+      "WildBench": 69.2,
+      "Bias": 15.2,
+      "Toxicity": 7.4,
+      "Latency": 16.9
+    }
+  },
+  {
+    "model_id": "deepseek-v3.2",
+    "source_url": "https://github.com/stanford-crfm/helm",
+    "metrics": {
+      "MMLU-Pro": 73.5,
+      "GPQA": 59.9,
+      "IFEval": 77.5,
+      "WildBench": 68.4,
+      "Bias": 15.8,
+      "Toxicity": 7.9,
+      "Latency": 17.1
+    }
+  }
+]

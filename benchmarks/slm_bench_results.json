@@ -1,0 +1,38 @@
+[
+  {
+    "model_id": "qwen2.5-7b-instruct",
+    "source_url": "https://slmbench.com",
+    "metrics": {
+      "EdgeJSON": 82.4,
+      "EdgeIntent": 78.9,
+      "EdgeFuncCall": 80.5,
+      "SMOL-WorldCup": 67.3,
+      "TinyMobileLLM-Throughput": 92.0,
+      "TinyMobileLLM-Memory": 88.0
+    }
+  },
+  {
+    "model_id": "gemma-2-2b",
+    "source_url": "https://slmbench.com",
+    "metrics": {
+      "EdgeJSON": 79.5,
+      "EdgeIntent": 74.1,
+      "EdgeFuncCall": 77.3,
+      "SMOL-WorldCup": 64.0,
+      "TinyMobileLLM-Throughput": 95.0,
+      "TinyMobileLLM-Memory": 91.0
+    }
+  },
+  {
+    "model_id": "phi-3.5-mini",
+    "source_url": "https://slmbench.com",
+    "metrics": {
+      "EdgeJSON": 76.2,
+      "EdgeIntent": 71.5,
+      "EdgeFuncCall": 74.4,
+      "SMOL-WorldCup": 61.5,
+      "TinyMobileLLM-Throughput": 90.0,
+      "TinyMobileLLM-Memory": 86.0
+    }
+  }
+]

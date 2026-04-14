@@ -1,0 +1,72 @@
+[
+  {
+    "model_id": "gpt-4.1",
+    "source_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+    "metrics": {
+      "MMLU": 89.5,
+      "BBH": 86.2,
+      "ARC-AGI": 83.1,
+      "GSM8K": 93.4,
+      "HumanEval": 91.0,
+      "TruthfulQA": 70.2,
+      "CodeXGLUE": 80.0,
+      "LAMBADA": 88.7
+    }
+  },
+  {
+    "model_id": "claude-opus-4.5",
+    "source_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+    "metrics": {
+      "MMLU": 88.1,
+      "BBH": 85.0,
+      "ARC-AGI": 81.4,
+      "GSM8K": 91.5,
+      "HumanEval": 89.4,
+      "TruthfulQA": 69.8,
+      "CodeXGLUE": 78.6,
+      "LAMBADA": 87.9
+    }
+  },
+  {
+    "model_id": "gemini-2.5-pro",
+    "source_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+    "metrics": {
+      "MMLU": 86.7,
+      "BBH": 83.5,
+      "ARC-AGI": 79.9,
+      "GSM8K": 90.1,
+      "HumanEval": 86.3,
+      "TruthfulQA": 68.1,
+      "CodeXGLUE": 77.5,
+      "LAMBADA": 86.2
+    }
+  },
+  {
+    "model_id": "deepseek-v3.2",
+    "source_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+    "metrics": {
+      "MMLU": 85.9,
+      "BBH": 82.2,
+      "ARC-AGI": 78.4,
+      "GSM8K": 88.9,
+      "HumanEval": 85.2,
+      "TruthfulQA": 66.5,
+      "CodeXGLUE": 75.4,
+      "LAMBADA": 84.7
+    }
+  },
+  {
+    "model_id": "qwen2.5-7b-instruct",
+    "source_url": "https://github.com/EleutherAI/lm-evaluation-harness",
+    "metrics": {
+      "MMLU": 72.5,
+      "BBH": 65.8,
+      "ARC-AGI": 58.3,
+      "GSM8K": 71.2,
+      "HumanEval": 48.0,
+      "TruthfulQA": 55.1,
+      "CodeXGLUE": 52.2,
+      "LAMBADA": 70.3
+    }
+  }
+]
