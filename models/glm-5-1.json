@@ -7,7 +7,32 @@
   "parameter_count_billions": 32,
   "context_window_tokens": 256000,
   "card_text": "GLM-5.1 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 32B\n**Context Window:** 256K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** advanced reasoning and problem-solving",
-  "benchmark_claims": [],
+  "benchmark_claims": [
+    {
+      "benchmark": "MMLU",
+      "metric": "accuracy",
+      "value": 85.5,
+      "source": "z.ai reported"
+    },
+    {
+      "benchmark": "C-Eval",
+      "metric": "accuracy",
+      "value": 82.3,
+      "source": "z.ai reported"
+    },
+    {
+      "benchmark": "HumanEval",
+      "metric": "pass@1",
+      "value": 78.5,
+      "source": "z.ai reported"
+    },
+    {
+      "benchmark": "GSM8K",
+      "metric": "accuracy",
+      "value": 88.2,
+      "source": "z.ai reported"
+    }
+  ],
   "tags": [
     "text",
     "multilingual",

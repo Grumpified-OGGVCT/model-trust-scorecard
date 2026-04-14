@@ -7,7 +7,26 @@
   "parameter_count_billions": 9,
   "context_window_tokens": 128000,
   "card_text": "GLM-4.5-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-  "benchmark_claims": [],
+  "benchmark_claims": [
+    {
+      "benchmark": "MMLU",
+      "metric": "accuracy",
+      "value": 75.5,
+      "source": "z.ai reported"
+    },
+    {
+      "benchmark": "C-Eval",
+      "metric": "accuracy",
+      "value": 72.0,
+      "source": "z.ai reported"
+    },
+    {
+      "benchmark": "HumanEval",
+      "metric": "pass@1",
+      "value": 62.5,
+      "source": "z.ai reported"
+    }
+  ],
   "tags": [
     "text",
     "multilingual",
