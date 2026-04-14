@@ -15,7 +15,6 @@ present we also try the Dataset API as a fallback.
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 import requests  # type: ignore[import-untyped]
 

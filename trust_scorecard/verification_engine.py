@@ -13,7 +13,6 @@ when sufficient leaderboard data is available.
 from __future__ import annotations
 
 import logging
-from typing import Optional
 
 from trust_scorecard.models import (
     BenchmarkResult,
