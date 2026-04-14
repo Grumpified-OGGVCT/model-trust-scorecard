@@ -48,12 +48,29 @@ trust-scorecard score my-model \
   --vendor "MyCompany" \
   --display-name "My Model"
 
+# Evaluate from a pasted list / file (supports '-' for stdin)
+trust-scorecard score my-model --text-file claims.txt
+pbpaste | trust-scorecard score my-model --text-file -
+
 # Batch evaluate all catalog models
 trust-scorecard batch
 
+# Batch evaluate an explicit subset (repeat or comma-list); works with stdin/file lists
+trust-scorecard batch --models gpt-4.1 --models "gemini-2.5-pro,claude-opus-4.5"
+cat models.txt | trust-scorecard batch --models-file -
+
 # Export results
 trust-scorecard export --db trust_scores.db --output results.json
+
+# Storage and history (SQLite by default; reruns append)
+# trust_scores.db accumulates every evaluation so you can track drift over time.
 ```
+
+**Requesting which models are analyzed**
+- Use `--models` or `--models-file` with `trust-scorecard batch` to target a specific set (comma-separated, repeatable, or newline file/STDIN).
+- Paste provider claim lists directly via `--text-file -`; the parser handles multi-line/bullet inputs and keeps source URLs with each claim.
+- Evaluations are stored in `trust_scores.db` with timestamps; rerunning a model creates a new record instead of overwriting, so history stays intact.
+- `trust-scorecard list` shows the catalog; add more JSON entries under `models/` to make them available to batch runs and GitHub Actions.
 
 ### GitHub Actions Integration
 

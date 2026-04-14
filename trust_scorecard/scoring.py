@@ -18,6 +18,7 @@ The rubric is designed to incentivize:
 from __future__ import annotations
 
 import logging
+from typing import cast
 
 from trust_scorecard.models import (
     LicenseKind,
@@ -182,7 +183,8 @@ def compute_performance_gap_score(
         return max_score * 0.3
 
     # Average absolute deviation
-    avg_delta = sum(o.delta for o in verified) / len(verified)
+    deltas = [cast(float, o.delta) for o in verified]
+    avg_delta = sum(deltas) / len(deltas)
 
     # Score decreases with average delta
     # Full marks if avg_delta <= 0.5%

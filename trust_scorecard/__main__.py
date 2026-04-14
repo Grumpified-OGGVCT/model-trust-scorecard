@@ -24,7 +24,6 @@ Example usage:
 
 from __future__ import annotations
 
-import json
 import logging
 import sys
 from pathlib import Path
@@ -71,6 +70,10 @@ def cli(ctx, verbose: bool) -> None:
 @cli.command()
 @click.argument("model_id", required=False)
 @click.option("--text", help="Model card text to analyze")
+@click.option(
+    "--text-file",
+    help="Path to a file (or '-' for stdin) containing pasted claims/model card text",
+)
 @click.option("--url", help="Source URL for attribution")
 @click.option("--display-name", help="Display name for the model")
 @click.option("--vendor", help="Model vendor/provider")
@@ -83,6 +86,7 @@ def score(
     ctx,
     model_id: Optional[str],
     text: Optional[str],
+    text_file: Optional[str],
     url: Optional[str],
     display_name: Optional[str],
     vendor: Optional[str],
@@ -94,9 +98,11 @@ def score(
     """
     Evaluate a single model and compute its trust score.
 
-    Can evaluate models from the catalog (by MODEL_ID) or from raw text (--text).
+    Can evaluate models from the catalog (by MODEL_ID) or from raw text (--text/--text-file/-).
     """
-    if not model_id and not text:
+    card_text = _read_text_input(text, text_file)
+
+    if not model_id and not card_text:
         console.print("[red]Error: Either MODEL_ID or --text must be provided[/red]")
         sys.exit(1)
 
@@ -106,7 +112,7 @@ def score(
     pipeline = EvaluationPipeline(sources, store, tolerance)
 
     # Load or create model card
-    if text:
+    if card_text:
         # Create model card from text input
         if not model_id:
             model_id = "custom-model"
@@ -117,7 +123,7 @@ def score(
         model_card = create_model_card_from_text(
             model_id=model_id,
             display_name=display_name,
-            card_text=text,
+            card_text=card_text,
             vendor=vendor,
             card_url=url,
             license_kind=license_kind,
@@ -136,7 +142,7 @@ def score(
     console.print(f"\n[bold]Evaluating: {model_card.display_name}[/bold]")
     console.print(f"Model ID: {model_card.model_id}")
 
-    evaluation = pipeline.evaluate_model(model_card)
+    evaluation = pipeline.evaluate_model(model_card, card_text=card_text, source_url=url)
 
     # Display results
     _display_evaluation(evaluation)
@@ -147,6 +153,16 @@ def score(
 @click.option("--db", type=click.Path(), default="trust_scores.db", help="Database path")
 @click.option("--tolerance", type=float, default=2.0, help="Verification tolerance (percentage points)")
 @click.option("--filter", "model_filter", help="Only evaluate models matching this pattern")
+@click.option(
+    "--models",
+    "models",
+    multiple=True,
+    help="Explicit model IDs to evaluate (repeatable or comma-separated)",
+)
+@click.option(
+    "--models-file",
+    help="Path to a file (or '-' for stdin) containing model IDs, one per line",
+)
 @click.pass_context
 def batch(
     ctx,
@@ -154,6 +170,8 @@ def batch(
     db: str,
     tolerance: float,
     model_filter: Optional[str],
+    models: tuple[str, ...],
+    models_file: Optional[str],
 ) -> None:
     """
     Evaluate all models in the catalog directory.
@@ -165,6 +183,20 @@ def batch(
         console.print(f"[yellow]No model cards found in {models_dir}[/yellow]")
         sys.exit(0)
 
+    # Apply explicit selection first (from CLI list and/or file/stdin)
+    selected_ids = _collect_model_ids(models, models_file)
+    if selected_ids:
+        catalog_by_id = {c.model_id: c for c in model_cards}
+        missing = [mid for mid in selected_ids if mid not in catalog_by_id]
+        model_cards = [catalog_by_id[mid] for mid in selected_ids if mid in catalog_by_id]
+
+        if missing:
+            console.print(
+                f"[yellow]Skipped {len(missing)} IDs not in catalog:[/yellow] {', '.join(missing)}"
+            )
+
+        console.print(f"Selected {len(model_cards)} models from provided list")
+
     # Apply filter if specified
     if model_filter:
         model_cards = [
@@ -172,6 +204,10 @@ def batch(
             if model_filter.lower() in c.model_id.lower() or model_filter.lower() in c.display_name.lower()
         ]
         console.print(f"Filtered to {len(model_cards)} models matching '{model_filter}'")
+
+    if not model_cards:
+        console.print("[yellow]No models selected for evaluation[/yellow]")
+        sys.exit(0)
 
     # Initialize pipeline
     sources = get_default_sources()
@@ -186,9 +222,9 @@ def batch(
     _display_batch_summary(evaluations)
 
 
-@cli.command()
+@cli.command(name="list")
 @click.option("--models-dir", type=click.Path(exists=True), default="models", help="Directory containing model catalog")
-def list(models_dir: str) -> None:
+def list_models(models_dir: str) -> None:
     """List all models in the catalog."""
     model_cards = load_model_cards_from_directory(models_dir)
 
@@ -309,6 +345,70 @@ def _display_batch_summary(evaluations) -> None:
         )
 
     console.print(table)
+
+
+def _read_from_file_or_stdin(path: str) -> str:
+    """Read text from a file path or stdin sentinel ('-')."""
+    if path == "-":
+        return sys.stdin.read()
+
+    file_path = Path(path)
+    if not file_path.exists():
+        console.print(f"[red]File not found: {path}[/red]")
+        sys.exit(1)
+
+    return file_path.read_text()
+
+
+def _read_text_input(text: Optional[str], text_file: Optional[str]) -> Optional[str]:
+    """
+    Combine inline text and optional file/stdin payloads.
+    """
+    blobs: list[str] = []
+
+    if text and text.strip():
+        blobs.append(text.strip())
+
+    if text_file:
+        file_text = _read_from_file_or_stdin(text_file)
+        if file_text.strip():
+            blobs.append(file_text.strip())
+
+    if not blobs:
+        return None
+
+    return "\n".join(blobs)
+
+
+def _collect_model_ids(models: tuple[str, ...], models_file: Optional[str]) -> list[str]:
+    """
+    Build an ordered, de-duplicated list of model IDs from CLI args and optional file/stdin.
+    """
+    ids: list[str] = []
+
+    for entry in models:
+        for token in entry.split(","):
+            token = token.strip()
+            if token:
+                ids.append(token)
+
+    if models_file:
+        content = _read_from_file_or_stdin(models_file)
+        for line in content.splitlines():
+            stripped = line.strip()
+            if not stripped or stripped.startswith("#"):
+                continue
+            ids.append(stripped)
+
+    seen = set()
+    ordered: list[str] = []
+    for mid in ids:
+        if mid in seen:
+            continue
+        seen.add(mid)
+        ordered.append(mid)
+
+    return ordered
 
 
 if __name__ == "__main__":

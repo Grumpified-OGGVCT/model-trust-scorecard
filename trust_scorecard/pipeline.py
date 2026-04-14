@@ -185,23 +185,25 @@ class EvaluationPipeline:
         """
         Fetch benchmark results from all configured sources.
 
-        Parameters
-        ----------
-        model_id:
-            The model to fetch results for.
-
-        Returns
-        -------
-        List of BenchmarkResults.
+        Returns both the target model's rows and full leaderboards (when
+        available) so percentile calculations have global context.
         """
         results: list[BenchmarkResult] = []
+        seen: set[tuple[str, str]] = set()
+
+        def _add(items: list[BenchmarkResult]) -> None:
+            for item in items:
+                key = (item.model_id, item.benchmark_id)
+                if key in seen:
+                    continue
+                seen.add(key)
+                results.append(item)
 
         for source in self.benchmark_sources:
             try:
                 logger.debug("Fetching from %s for %s", source.__class__.__name__, model_id)
-                result = source.fetch_result(model_id)
-                if result:
-                    results.append(result)
+                _add(source.get_results(model_id))
+                _add(source.get_all_results())
             except Exception as exc:
                 logger.warning(
                     "Failed to fetch from %s for %s: %s",

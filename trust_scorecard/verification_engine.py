@@ -84,7 +84,10 @@ class VerificationEngine:
             return VerificationOutcome(
                 claim=claim,
                 status=VerificationStatus.UNVERIFIABLE,
+                official_value=None,
+                delta=None,
                 tolerance=tolerance,
+                benchmark_result=None,
                 notes=f"No official data found for {claim.metric}",
             )
 
@@ -254,19 +257,23 @@ def create_engine_from_sources(
     A configured VerificationEngine.
     """
     all_results: list[BenchmarkResult] = []
+    seen: set[tuple[str, str]] = set()
+
+    def _add(items: list[BenchmarkResult]) -> None:
+        for item in items:
+            key = (item.model_id, item.benchmark_id)
+            if key in seen:
+                continue
+            seen.add(key)
+            all_results.append(item)
 
     for source in sources:
         logger.info("Fetching results from %s", source.__class__.__name__)
         try:
             if model_ids:
                 for model_id in model_ids:
-                    result = source.fetch_result(model_id)
-                    if result:
-                        all_results.append(result)
-            else:
-                # Fetch all available results
-                results = source.fetch_all()
-                all_results.extend(results)
+                    _add(source.get_results(model_id))
+            _add(source.get_all_results())
         except Exception as exc:
             logger.warning(
                 "Failed to fetch from %s: %s",

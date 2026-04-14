@@ -141,6 +141,7 @@ class OpenLLMLeaderboardSource(BenchmarkSourceBase):
                         model_id=model_id,
                         metric_kind=MetricKind.ACCURACY,
                         value=value,
+                        raw_payload={"column": col, "row": row},
                     )
                 )
         return results

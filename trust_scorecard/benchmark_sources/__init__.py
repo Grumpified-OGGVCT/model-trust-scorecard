@@ -29,7 +29,7 @@ def get_default_sources() -> list[BenchmarkSourceBase]:
     -------
     List of configured BenchmarkSourceBase instances.
     """
-    sources = []
+    sources: list[BenchmarkSourceBase] = []
 
     # SWE-bench Verified leaderboard
     swe_bench_config = BenchmarkConfig(

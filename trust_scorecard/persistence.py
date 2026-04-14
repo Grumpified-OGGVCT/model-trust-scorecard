@@ -36,12 +36,25 @@ class EvaluationStore:
         db_path:
             Path to the SQLite database file. Created if it doesn't exist.
         """
-        self.db_path = Path(db_path)
+        db_path_str = str(db_path)
+        if db_path_str == ":memory:":
+            # Use a shared in-memory database so multiple connections see the same tables
+            self._db_target = "file:trust_scorecard?mode=memory&cache=shared"
+            self._connect_kwargs = {"uri": True}
+        else:
+            self.db_path = Path(db_path)
+            self._db_target = str(self.db_path)
+            self._connect_kwargs = {}
+
         self._init_db()
+
+    def _connect(self) -> sqlite3.Connection:
+        """Return a new SQLite connection with consistent settings."""
+        return sqlite3.connect(self._db_target, **self._connect_kwargs)
 
     def _init_db(self) -> None:
         """Create the evaluations table if it doesn't exist."""
-        with sqlite3.connect(self.db_path) as conn:
+        with self._connect() as conn:
             conn.execute("""
                 CREATE TABLE IF NOT EXISTS evaluations (
                     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -62,7 +75,7 @@ class EvaluationStore:
                 ON evaluations(evaluated_at DESC)
             """)
             conn.commit()
-        logger.info("Initialized database at %s", self.db_path)
+        logger.info("Initialized database at %s", self._db_target)
 
     def save(self, evaluation: ModelEvaluation) -> None:
         """
@@ -79,7 +92,7 @@ class EvaluationStore:
         data_json = evaluation.model_dump_json(indent=2)
         trust_score = evaluation.trust_score.score if evaluation.trust_score else None
 
-        with sqlite3.connect(self.db_path) as conn:
+        with self._connect() as conn:
             conn.execute(
                 """
                 INSERT OR REPLACE INTO evaluations
@@ -113,7 +126,7 @@ class EvaluationStore:
         -------
         The latest ModelEvaluation record, or None if not found.
         """
-        with sqlite3.connect(self.db_path) as conn:
+        with self._connect() as conn:
             cursor = conn.execute(
                 """
                 SELECT data FROM evaluations
@@ -137,7 +150,7 @@ class EvaluationStore:
         A list of ModelEvaluation records, one per model, ordered by trust score
         descending.
         """
-        with sqlite3.connect(self.db_path) as conn:
+        with self._connect() as conn:
             cursor = conn.execute("""
                 SELECT data FROM evaluations e1
                 WHERE evaluated_at = (
@@ -164,7 +177,7 @@ class EvaluationStore:
         -------
         A list of ModelEvaluation records ordered by evaluated_at descending.
         """
-        with sqlite3.connect(self.db_path) as conn:
+        with self._connect() as conn:
             cursor = conn.execute(
                 """
                 SELECT data FROM evaluations
