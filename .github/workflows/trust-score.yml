@@ -27,7 +27,7 @@ jobs:
     outputs:
       matrix: ${{ steps.emit.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare-matrix
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -88,7 +88,7 @@ jobs:
         model_id: ${{ fromJson(needs.prepare-matrix.outputs.matrix) }}
       fail-fast: false  # Continue even if one model fails
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -122,7 +122,7 @@ jobs:
     permissions:
       contents: write  # For pushing to gh-pages
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -135,7 +135,7 @@ jobs:
           pip install -e .
 
       - name: Download all verification reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: report-*
           path: reports/
@@ -189,20 +189,20 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
       - name: Login to GHCR
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GHCR_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: .
           push: true
