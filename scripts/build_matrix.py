@@ -33,6 +33,7 @@ POWERSHELL_OLLAMA_LIST_RE = re.compile(r"^PS .+>\s+ollama\s+list$", re.IGNORECAS
 def load_catalog_models(models_dir: Path) -> list[str]:
     """Return model IDs from local catalog JSON files."""
     ids: list[str] = []
+    # Keep ordering deterministic so matrix output and tests stay stable across platforms.
     for path in sorted(models_dir.glob("*.json")):
         ids.append(path.stem)
     return ids
@@ -46,8 +47,6 @@ def parse_inventory_models(text: str) -> list[str]:
         if not line:
             continue
         if POWERSHELL_OLLAMA_LIST_RE.match(line) or OLLAMA_LIST_HEADER_RE.match(line):
-            continue
-        if line == "NAME":
             continue
 
         columns = re.split(r"\s{2,}", line)
