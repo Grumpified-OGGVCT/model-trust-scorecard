@@ -204,7 +204,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <li>Open the <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link">Model Submission issue</a>.</li>
                     <li>Or submit a PR that adds <code>models/&lt;model-id&gt;.json</code> to the catalog.</li>
                     <li>For one-off checks, run the CLI with pasted claims via <code>trust-scorecard score --text</code> or <code>--text-file</code>.</li>
-                    <li>Raw <code>ollama list</code> inventories are valid input examples, but they are not treated as reviewed results until they map to a catalog entry or supplied claims.</li>
+                    <li>Raw <code>ollama list</code> inventories are valid input examples. Models that do not map to a catalog entry are skipped until catalog data or pasted claims are provided.</li>
                 </ul>
             </div>
         </div>
