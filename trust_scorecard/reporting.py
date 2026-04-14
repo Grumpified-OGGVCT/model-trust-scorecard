@@ -38,7 +38,7 @@ def build_status_summary(
 
 def _serialize_benchmark_results(results: list[BenchmarkResult]) -> list[dict]:
     serialized = []
-    for result in sorted(results, key=lambda item: (item.benchmark_id, item.value), reverse=False):
+    for result in sorted(results, key=lambda item: (item.benchmark_id, item.value)):
         serialized.append({
             "benchmark_id": result.benchmark_id,
             "value": result.value,
@@ -254,10 +254,8 @@ def build_dashboard_html(aggregated: dict) -> str:
     """Render the GitHub Pages dashboard HTML."""
     scores = aggregated["scores"]
     total_models = len(scores)
-    avg_score = (
-        sum(item["trust_score"] for item in scores if item["trust_score"] is not None) / total_models
-        if total_models > 0 else 0.0
-    )
+    scored_values = [item["trust_score"] for item in scores if item["trust_score"] is not None]
+    avg_score = (sum(scored_values) / len(scored_values)) if scored_values else 0.0
     total_claims = sum(item["total_claims"] for item in scores)
     total_verified = sum(item["verified_count"] for item in scores)
     verified_pct = (total_verified / total_claims * 100.0) if total_claims else 0.0

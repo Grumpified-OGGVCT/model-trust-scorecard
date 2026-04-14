@@ -436,7 +436,7 @@ def _refresh_local_artifacts(store: EvaluationStore) -> None:
         console.print(
             "\n[dim]Updated local outputs: trust_scores.json, trust_scores.md, docs/index.html[/dim]"
         )
-    except Exception as exc:  # noqa: BLE001
+    except (OSError, ValueError) as exc:
         console.print(f"[yellow]Warning: failed to refresh local outputs: {exc}[/yellow]")
 
 
