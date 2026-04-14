@@ -26,7 +26,9 @@ import requests
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
+# Ollama inventory parsing patterns.
 OLLAMA_LIST_HEADER_RE = re.compile(r"^NAME\s+ID\s+SIZE\s+MODIFIED$", re.IGNORECASE)
+OLLAMA_COLUMN_SPLIT_RE = re.compile(r"\s{2,}")  # `ollama list` uses 2+ spaces between columns.
 POWERSHELL_OLLAMA_LIST_RE = re.compile(r"^PS .+>\s+ollama\s+list$", re.IGNORECASE)
 
 
@@ -49,7 +51,7 @@ def parse_inventory_models(text: str) -> list[str]:
         if POWERSHELL_OLLAMA_LIST_RE.match(line) or OLLAMA_LIST_HEADER_RE.match(line):
             continue
 
-        columns = re.split(r"\s{2,}", line)
+        columns = OLLAMA_COLUMN_SPLIT_RE.split(line)
         candidate = columns[0] if columns else line
 
         if " " in candidate:
