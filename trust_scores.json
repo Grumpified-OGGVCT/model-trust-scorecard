@@ -1,0 +1,481 @@
+{
+  "generated_at": "2026-04-14T20:03:35.594743",
+  "total_models": 26,
+  "scores": [
+    {
+      "model_id": "claude-opus-4.5",
+      "display_name": "Claude Opus 4.5",
+      "vendor": "Anthropic",
+      "trust_score": 33.2,
+      "breakdown": {
+        "coverage_score": 22.5,
+        "verification_score": 5.7,
+        "performance_gap_score": 0.0,
+        "openness_score": 0.0,
+        "safety_score": 5.0,
+        "use_case_scores": {
+          "coding": 89.3,
+          "reasoning": 88.3,
+          "safety": 69.8
+        }
+      },
+      "use_case_scores": {
+        "coding": 89.3,
+        "reasoning": 88.3,
+        "safety": 69.8
+      },
+      "total_claims": 7,
+      "verified_count": 1,
+      "refuted_count": 3,
+      "unverifiable_count": 3,
+      "evaluated_at": "2026-04-14T20:03:35.594743",
+      "license": "unknown"
+    },
+    {
+      "model_id": "llama3.2-vision",
+      "display_name": "Llama 3.2 Vision",
+      "vendor": "Meta",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:06.453254",
+      "license": "unknown"
+    },
+    {
+      "model_id": "granite3.3-8b",
+      "display_name": "Granite 3.3 8B",
+      "vendor": "IBM",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:05.270826",
+      "license": "unknown"
+    },
+    {
+      "model_id": "glm-5.1-cloud",
+      "display_name": "GLM 5.1 Cloud",
+      "vendor": "Z.ai",
+      "trust_score": 9.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 78.5
+        }
+      },
+      "use_case_scores": {
+        "coding": 78.5
+      },
+      "total_claims": 1,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 1,
+      "evaluated_at": "2026-04-14T20:03:06.413649",
+      "license": "unknown"
+    },
+    {
+      "model_id": "hermes3-8b",
+      "display_name": "Hermes 3 8B",
+      "vendor": "Nous",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:06.815240",
+      "license": "unknown"
+    },
+    {
+      "model_id": "deepseek-r1-14b",
+      "display_name": "DeepSeek R1 14B",
+      "vendor": "DeepSeek",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:07.301642",
+      "license": "unknown"
+    },
+    {
+      "model_id": "minimax-m2.7-cloud",
+      "display_name": "MiniMax M2.7 Cloud",
+      "vendor": "MiniMax",
+      "trust_score": 9.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 78.0
+        }
+      },
+      "use_case_scores": {
+        "coding": 78.0
+      },
+      "total_claims": 1,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 1,
+      "evaluated_at": "2026-04-14T20:03:09.187206",
+      "license": "unknown"
+    },
+    {
+      "model_id": "gpt-4.1",
+      "display_name": "GPT-4.1",
+      "vendor": "OpenAI",
+      "trust_score": 43.7,
+      "breakdown": {
+        "coverage_score": 15.0,
+        "verification_score": 16.0,
+        "performance_gap_score": 12.7,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.8,
+          "reasoning": 86.5
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.8,
+        "reasoning": 86.5
+      },
+      "total_claims": 5,
+      "verified_count": 2,
+      "refuted_count": 1,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-14T20:03:35.805126",
+      "license": "unknown"
+    },
+    {
+      "model_id": "devstral-2-123b-cloud",
+      "display_name": "Devstral 2 123B Cloud",
+      "vendor": "Mistral",
+      "trust_score": 9.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.2
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.2
+      },
+      "total_claims": 1,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 1,
+      "evaluated_at": "2026-04-14T20:03:10.624683",
+      "license": "unknown"
+    },
+    {
+      "model_id": "minimax-m2.5-cloud",
+      "display_name": "MiniMax M2.5 Cloud",
+      "vendor": "MiniMax",
+      "trust_score": 63.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 40.0,
+        "performance_gap_score": 20.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 80.2
+        }
+      },
+      "use_case_scores": {
+        "coding": 80.2
+      },
+      "total_claims": 1,
+      "verified_count": 1,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:05.902317",
+      "license": "unknown"
+    },
+    {
+      "model_id": "nomic-embed-text-v2-moe",
+      "display_name": "Nomic Embed Text v2 MoE",
+      "vendor": "Nomic",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:29.175983",
+      "license": "unknown"
+    },
+    {
+      "model_id": "kimi-k2.5-cloud",
+      "display_name": "Kimi K2.5 Cloud",
+      "vendor": "Moonshot",
+      "trust_score": 9.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 79.8
+        }
+      },
+      "use_case_scores": {
+        "coding": 79.8
+      },
+      "total_claims": 1,
+      "verified_count": 0,
+      "refuted_count": 1,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:08.158933",
+      "license": "unknown"
+    },
+    {
+      "model_id": "qwen3-vl-235b-cloud",
+      "display_name": "Qwen3 VL 235B Cloud",
+      "vendor": "Alibaba",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:05.125438",
+      "license": "unknown"
+    },
+    {
+      "model_id": "gemini-2.5-pro",
+      "display_name": "Gemini 2.5 Pro",
+      "vendor": "Google",
+      "trust_score": 29.8,
+      "breakdown": {
+        "coverage_score": 18.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 5.0,
+        "use_case_scores": {
+          "coding": 75.0,
+          "reasoning": 84.8,
+          "safety": 68.1
+        }
+      },
+      "use_case_scores": {
+        "coding": 75.0,
+        "reasoning": 84.8,
+        "safety": 68.1
+      },
+      "total_claims": 6,
+      "verified_count": 0,
+      "refuted_count": 4,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-14T20:03:07.503085",
+      "license": "unknown"
+    },
+    {
+      "model_id": "qwen3-14b",
+      "display_name": "Qwen3 14B",
+      "vendor": "Alibaba",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:05.782850",
+      "license": "unknown"
+    },
+    {
+      "model_id": "deepcoder",
+      "display_name": "DeepCoder",
+      "vendor": "Community",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:07.598171",
+      "license": "unknown"
+    },
+    {
+      "model_id": "cogito-14b",
+      "display_name": "Cogito 14B",
+      "vendor": "Deep Cogito",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:33.973533",
+      "license": "unknown"
+    },
+    {
+      "model_id": "cogito-2.1-671b-cloud",
+      "display_name": "Cogito 2.1 671B Cloud",
+      "vendor": "Deep Cogito",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:07.793109",
+      "license": "unknown"
+    },
+    {
+      "model_id": "embeddinggemma",
+      "display_name": "Embedding Gemma",
+      "vendor": "Google",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:31.362066",
+      "license": "unknown"
+    },
+    {
+      "model_id": "llama3.1",
+      "display_name": "Llama 3.1",
+      "vendor": "Meta",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:08.537274",
+      "license": "unknown"
+    },
+    {
+      "model_id": "llava",
+      "display_name": "LLaVA",
+      "vendor": "Community",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:33.587071",
+      "license": "unknown"
+    },
+    {
+      "model_id": "qwen3-embedding-0.6b",
+      "display_name": "Qwen3 Embedding 0.6B",
+      "vendor": "Alibaba",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:19.399897",
+      "license": "unknown"
+    },
+    {
+      "model_id": "nomic-embed-text",
+      "display_name": "Nomic Embed Text",
+      "vendor": "Nomic",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:08.819891",
+      "license": "unknown"
+    },
+    {
+      "model_id": "deepseek-v3.2",
+      "display_name": "DeepSeek V3.2",
+      "vendor": "DeepSeek",
+      "trust_score": 57.1,
+      "breakdown": {
+        "coverage_score": 18.8,
+        "verification_score": 13.3,
+        "performance_gap_score": 20.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 80.8,
+          "reasoning": 84.9
+        }
+      },
+      "use_case_scores": {
+        "coding": 80.8,
+        "reasoning": 84.9
+      },
+      "total_claims": 6,
+      "verified_count": 2,
+      "refuted_count": 2,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-14T20:03:38.919687",
+      "license": "unknown"
+    },
+    {
+      "model_id": "mxbai-embed-large",
+      "display_name": "MXBAI Embed Large",
+      "vendor": "Mixedbread",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:33.251419",
+      "license": "unknown"
+    },
+    {
+      "model_id": "gemma3-4b",
+      "display_name": "Gemma 3 4B",
+      "vendor": "Google",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T20:03:09.379974",
+      "license": "unknown"
+    }
+  ]
+}
