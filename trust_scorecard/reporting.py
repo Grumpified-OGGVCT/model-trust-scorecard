@@ -5,6 +5,7 @@ Reporting helpers for local artifacts, markdown summaries, and dashboard HTML.
 from __future__ import annotations
 
 import json
+from datetime import datetime
 from html import escape
 from pathlib import Path
 
@@ -38,7 +39,7 @@ def build_status_summary(
 
 def _serialize_benchmark_results(results: list[BenchmarkResult]) -> list[dict]:
     serialized = []
-    for result in sorted(results, key=lambda item: (item.benchmark_id, item.value)):
+    for result in sorted(results, key=lambda item: item.benchmark_id):
         serialized.append({
             "benchmark_id": result.benchmark_id,
             "value": result.value,
@@ -49,6 +50,26 @@ def _serialize_benchmark_results(results: list[BenchmarkResult]) -> list[dict]:
 
 def _normalize_benchmark_name(name: str) -> str:
     return name.lower().replace(" ", "").replace("-", "").replace("_", "")
+
+
+def _format_percentage(value: float | int | None) -> str:
+    if value is None:
+        return "N/A"
+    return f"{float(value):.1f}%"
+
+
+def _latest_timestamp(values: list[str | None]) -> str | None:
+    parsed: list[tuple[datetime, str]] = []
+    for value in values:
+        if not value:
+            continue
+        try:
+            parsed.append((datetime.fromisoformat(value.replace("Z", "+00:00")), value))
+        except ValueError:
+            continue
+    if not parsed:
+        return None
+    return max(parsed, key=lambda item: item[0])[1]
 
 
 def _build_benchmark_knowledge(
@@ -274,10 +295,7 @@ def aggregate_summaries(summaries: list[dict]) -> dict:
         reverse=True,
     )
 
-    generated_at = max(
-        (item["evaluated_at"] for item in sorted_scores if item.get("evaluated_at")),
-        default=None,
-    )
+    generated_at = _latest_timestamp([item.get("evaluated_at") for item in sorted_scores])
 
     return {
         "generated_at": generated_at,
@@ -337,9 +355,9 @@ def _render_benchmark_list(score: dict) -> str:
         if result.get("source_url"):
             source_label = f' <a href="{escape(result["source_url"])}" target="_blank" rel="noreferrer">source</a>'
         items.append(
-            "<li><strong>{}</strong>: {:.1f}%{}</li>".format(
+            "<li><strong>{}</strong>: {}{}</li>".format(
                 escape(result["benchmark_id"]),
-                result["value"],
+                _format_percentage(result["value"]),
                 source_label,
             )
         )
@@ -354,14 +372,14 @@ def _render_claim_list(score: dict) -> str:
     items = []
     for claim in claim_details[:6]:
         official = (
-            f" → official {claim['official_value']:.1f}%"
+            f" → official {_format_percentage(claim['official_value'])}"
             if claim.get("official_value") is not None
             else ""
         )
         items.append(
-            "<li><strong>{}</strong>: {:.1f}% ({}){}<br><span class=\"muted\">{}</span></li>".format(
+            "<li><strong>{}</strong>: {} ({}){}<br><span class=\"muted\">{}</span></li>".format(
                 escape(claim["metric"]),
-                claim["claimed_value"],
+                _format_percentage(claim["claimed_value"]),
                 escape(claim["status"]),
                 official,
                 escape(claim.get("notes", "")),

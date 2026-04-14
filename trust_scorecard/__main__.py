@@ -344,8 +344,8 @@ def _display_evaluation(evaluation) -> None:
             console.print(f"{icon} {outcome.claim.metric}: {outcome.claim.value}% ({outcome.status.value})")
             if outcome.official_value is not None:
                 console.print(f"   Official: {outcome.official_value}% (delta={outcome.delta:.2f}%)")
-                if outcome.benchmark_result and outcome.benchmark_result.source_url:
-                    console.print(f"   Source: {outcome.benchmark_result.source_url}")
+                if outcome.benchmark_result:
+                    console.print(f"   Source: {outcome.benchmark_result.source_url or 'Source URL unavailable'}")
             console.print(f"   {outcome.notes}")
             console.print()
 

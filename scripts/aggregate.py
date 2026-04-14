@@ -44,7 +44,7 @@ def main() -> int:
             reports.append(json.loads(report_file.read_text()))
             logger.info("Loaded %s", report_file.name)
         except Exception as exc:  # noqa: BLE001
-            logger.warning("Failed to load %s: %s", report_file.name, exc)
+            logger.warning("Failed to load %s, skipping file: %s", report_file.name, exc)
 
     if not reports:
         logger.error("No reports found in %s", args.reports_dir)
