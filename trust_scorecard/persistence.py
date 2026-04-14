@@ -17,7 +17,7 @@ import logging
 import sqlite3
 from datetime import datetime
 from pathlib import Path
-from typing import Optional
+from typing import Any, Optional
 
 from trust_scorecard.models import ModelEvaluation
 
@@ -40,7 +40,7 @@ class EvaluationStore:
         if db_path_str == ":memory:":
             # Use a shared in-memory database so multiple connections see the same tables
             self._db_target = "file:trust_scorecard?mode=memory&cache=shared"
-            self._connect_kwargs = {"uri": True}
+            self._connect_kwargs: dict[str, Any] = {"uri": True}
         else:
             self.db_path = Path(db_path)
             self._db_target = str(self.db_path)

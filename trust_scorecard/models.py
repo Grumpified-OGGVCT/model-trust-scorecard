@@ -97,6 +97,7 @@ class TrustScoreBreakdown(BaseModel):
     performance_gap_score: float = Field(..., ge=0.0, le=20.0)
     openness_score: float = Field(..., ge=0.0, le=5.0)
     safety_score: float = Field(..., ge=0.0, le=5.0)
+    use_case_scores: dict[str, float] = Field(default_factory=dict, description="Per use-case strengths (0-100)")
 
     @property
     def total(self) -> float:

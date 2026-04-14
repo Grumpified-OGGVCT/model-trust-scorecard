@@ -149,6 +149,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <th>Vendor</th>
                     <th>Trust Score</th>
                     <th>Verified</th>
+                    <th>Use-Case Strengths</th>
                     <th>License</th>
                 </tr>
             </thead>
@@ -209,6 +210,8 @@ def main():
             else "score-medium" if score["trust_score"] >= 60
             else "score-low"
         )
+        use_case_scores = score.get("use_case_scores", {}) or {}
+        use_case_label = ", ".join(f"{k}: {v:.1f}" for k, v in use_case_scores.items()) or "—"
         rows.append(
             f"""<tr>
                 <td>{rank}</td>
@@ -216,6 +219,7 @@ def main():
                 <td>{score['vendor'] or '—'}</td>
                 <td><span class="score-badge {badge_class}">{score['trust_score']:.1f}</span></td>
                 <td>{score['verified_count']}/{score['total_claims']}</td>
+                <td>{use_case_label}</td>
                 <td>{score.get('license', 'unknown')}</td>
             </tr>"""
         )

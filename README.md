@@ -66,6 +66,12 @@ trust-scorecard export --db trust_scores.db --output results.json
 # trust_scores.db accumulates every evaluation so you can track drift over time.
 ```
 
+## Anti-Simplification Protocol
+- Do not downgrade features to “MVP” without explicit approval.
+- Do not flatten architecture or remove components for “simplicity.”
+- If blocked, report the blocker instead of cutting scope.
+- If scope is unclear, ask first—do not reduce by default.
+
 **Requesting which models are analyzed**
 - Use `--models` or `--models-file` with `trust-scorecard batch` to target a specific set (comma-separated, repeatable, or newline file/STDIN).
 - Paste provider claim lists directly via `--text-file -`; the parser handles multi-line/bullet inputs and keeps source URLs with each claim.
@@ -98,6 +104,14 @@ gh run list --workflow=trust-score.yml
 | **Performance Gap** | 20% | Average deviation from official values |
 | **Openness** | 5% | Open-source vs proprietary license |
 | **Safety** | 5% | Safety benchmarks reported? |
+
+### Use-Case Strength Matrix
+- **coding**: SWE-bench (Verified), HumanEval
+- **reasoning**: MMLU, GSM8K, GPQA, MATH
+- **commonsense**: HellaSwag, WinoGrande, ARC
+- **safety**: TruthfulQA, BBQ, BOLD
+
+Each use-case score is tracked (0–100) and rendered in the CLI and dashboard to avoid flattening everything into a single number.
 
 **Example Scores:**
 - 🟢 **80-100**: Highly trustworthy - most claims verified
@@ -292,14 +306,20 @@ Each benchmark in `benchmarks/` is a JSON file:
 The trust score pipeline runs automatically on:
 - Push to `main` (when models/ or trust_scorecard/ changes)
 - Pull requests
-- Nightly schedule (2 AM UTC)
+- Twice-daily schedule (refreshes Ollama Cloud pool + catalog)
 - Manual trigger via GitHub CLI: `gh workflow run trust-score.yml`
 
 **Pipeline Stages:**
 1. **Extract Claims** - Parse all model cards → `claims.json`
-2. **Verify (Matrix)** - Parallel verification per model → `reports/*.json`
+2. **Verify (Dynamic Matrix)** - Parallel verification per model (Ollama Cloud + catalog + user list, capped by `MAX_MODELS`) → `reports/*.json`
 3. **Aggregate** - Merge reports → `trust_scores.json` + `trust_scores.md`
 4. **Publish** - Deploy dashboard to GitHub Pages
+
+### Cost & Secrets Guardrails
+- Dynamic matrix caps at `MAX_MODELS` (env, default 50) to prevent runaway spend.
+- Ollama Cloud fetch uses `OLLAMA_API_KEY` (optional); failures fall back to catalog-only.
+- GHCR pushes are optional (`GHCR_TOKEN` secret). Without it, builds are skipped.
+- No hardcoded cost assumptions; budgets should be set via repo/ORG secrets or Actions policies.
 
 ---
 

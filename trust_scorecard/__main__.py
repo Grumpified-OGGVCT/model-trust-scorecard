@@ -287,6 +287,14 @@ def _display_evaluation(evaluation) -> None:
 
     console.print(table)
 
+    if breakdown.use_case_scores:
+        uc_table = Table(title="Use-Case Strength (0-100)")
+        uc_table.add_column("Use Case", style="cyan")
+        uc_table.add_column("Score", justify="right", style="green")
+        for use_case, value in breakdown.use_case_scores.items():
+            uc_table.add_row(use_case, f"{value:.1f}")
+        console.print(uc_table)
+
     # Claims summary
     console.print("\n[bold cyan]═══ Claims ═══[/bold cyan]")
     console.print(f"Total claims: {len(evaluation.claims)}")

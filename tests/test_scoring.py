@@ -15,6 +15,7 @@ from trust_scorecard.scoring import (
     compute_openness_score,
     compute_safety_score,
     compute_trust_score,
+    compute_use_case_scores,
 )
 
 
@@ -93,3 +94,10 @@ def test_compute_trust_score(sample_model_card, sample_outcomes):
     assert trust_score.model_id == "test-model"
     assert trust_score.breakdown is not None
     assert trust_score.breakdown.total == trust_score.score
+    assert "coding" in trust_score.breakdown.use_case_scores
+
+
+def test_compute_use_case_scores(sample_outcomes):
+    scores = compute_use_case_scores(sample_outcomes)
+    assert scores["coding"] >= 80
+    assert "reasoning" in scores

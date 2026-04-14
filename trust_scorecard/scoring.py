@@ -31,6 +31,10 @@ from trust_scorecard.models import (
 
 logger = logging.getLogger(__name__)
 
+def _normalize_metric(name: str) -> str:
+    return name.lower().replace("-", "").replace(" ", "").replace("_", "")
+
+
 # ---------------------------------------------------------------------------
 # Scoring weights
 # ---------------------------------------------------------------------------
@@ -62,6 +66,14 @@ SAFETY_BENCHMARKS = [
     "BOLD",
     "RealToxicityPrompts",
 ]
+
+# Use-case groupings to avoid flattening strengths
+USE_CASE_BENCHMARKS: dict[str, list[str]] = {
+    "coding": ["SWE-bench", "SWE-bench Verified", "HumanEval"],
+    "reasoning": ["MMLU", "GSM8K", "GPQA", "MATH"],
+    "safety": ["TruthfulQA", "BBQ", "BOLD"],
+    "commonsense": ["HellaSwag", "WinoGrande", "ARC", "ARC Challenge"],
+}
 
 
 def compute_coverage_score(
@@ -260,14 +272,12 @@ def compute_safety_score(
     # Extract unique benchmarks from outcomes
     reported_benchmarks = set()
     for outcome in outcomes:
-        metric = outcome.claim.metric.lower().replace("-", "").replace(" ", "")
-        reported_benchmarks.add(metric)
+        reported_benchmarks.add(_normalize_metric(outcome.claim.metric))
 
     # Count safety benchmarks
     safety_count = 0
     for benchmark in SAFETY_BENCHMARKS:
-        normalized = benchmark.lower().replace("-", "").replace(" ", "")
-        if normalized in reported_benchmarks:
+        if _normalize_metric(benchmark) in reported_benchmarks:
             safety_count += 1
 
     # Full marks if >= 1 safety benchmark reported
@@ -278,6 +288,40 @@ def compute_safety_score(
 
     logger.debug("Safety: %d safety benchmarks → %.1f/%.1f", safety_count, score, max_score)
     return round(score, 1)
+
+
+def compute_use_case_scores(
+    outcomes: list[VerificationOutcome],
+) -> dict[str, float]:
+    """
+    Compute per-use-case strength (0-100) based on available benchmark signals.
+
+    A use-case score is the average of the best available value for its benchmarks,
+    using verified official values when present, else claimed values as a fallback.
+    """
+    use_case_scores: dict[str, float] = {}
+    if not outcomes:
+        return use_case_scores
+
+    # Build lookup by normalized metric
+    normalized_outcomes: dict[str, list[VerificationOutcome]] = {}
+    for outcome in outcomes:
+        norm = _normalize_metric(outcome.claim.metric)
+        normalized_outcomes.setdefault(norm, []).append(outcome)
+
+    for use_case, benchmarks in USE_CASE_BENCHMARKS.items():
+        values: list[float] = []
+        for benchmark in benchmarks:
+            norm_bm = _normalize_metric(benchmark)
+            candidates = normalized_outcomes.get(norm_bm, [])
+            for outcome in candidates:
+                value = outcome.official_value if outcome.official_value is not None else outcome.claim.value
+                values.append(value)
+                break  # prefer first match
+        if values:
+            use_case_scores[use_case] = round(sum(values) / len(values), 1)
+
+    return use_case_scores
 
 
 def compute_trust_score(
@@ -306,6 +350,7 @@ def compute_trust_score(
     performance_gap = compute_performance_gap_score(outcomes)
     openness = compute_openness_score(card)
     safety = compute_safety_score(outcomes)
+    use_case_scores = compute_use_case_scores(outcomes)
 
     breakdown = TrustScoreBreakdown(
         coverage_score=coverage,
@@ -313,6 +358,7 @@ def compute_trust_score(
         performance_gap_score=performance_gap,
         openness_score=openness,
         safety_score=safety,
+        use_case_scores=use_case_scores,
     )
 
     score = TrustScore(

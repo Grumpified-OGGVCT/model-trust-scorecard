@@ -106,6 +106,7 @@ def main():
             "vendor": report.get("vendor"),
             "trust_score": report["trust_score"],
             "breakdown": report.get("breakdown"),
+            "use_case_scores": report.get("breakdown", {}).get("use_case_scores", {}),
             "total_claims": len(report.get("claims", [])),
             "verified_count": report.get("verified_count", 0),
             "refuted_count": report.get("refuted_count", 0),
