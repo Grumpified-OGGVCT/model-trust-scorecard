@@ -1,0 +1,35 @@
+{
+  "model_id": "glm-asr-2512",
+  "display_name": "GLM-ASR-2512",
+  "vendor": "Zhipu AI",
+  "description": "Zhipu AI Real-Time Audio-Video model",
+  "release_date": null,
+  "parameter_count_billions": null,
+  "context_window_tokens": 8000,
+  "card_text": "GLM-ASR-2512 from Zhipu AI (z.ai).\n\n**Model Type:** Real-time Audio-Video Model\n**Family:** GLM-ASR\n**Concurrency Limit:** 5",
+  "benchmark_claims": [],
+  "tags": [
+    "multimodal",
+    "video-generation",
+    "generation",
+    "audio",
+    "speech",
+    "asr",
+    "speech-recognition"
+  ],
+  "architectures": null,
+  "license": "proprietary",
+  "capabilities": {
+    "chat": false,
+    "vision": true,
+    "embedding": false,
+    "function_calling": false,
+    "tool_use": false,
+    "code": false,
+    "reasoning": false,
+    "multilingual": true,
+    "generation": true
+  },
+  "api_endpoint": "https://open.bigmodel.cn/api/paas/v4/",
+  "documentation_url": "https://open.bigmodel.cn/"
+}

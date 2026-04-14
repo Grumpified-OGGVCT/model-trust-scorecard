@@ -1,0 +1,34 @@
+{
+  "model_id": "glm-5-1",
+  "display_name": "GLM-5.1",
+  "vendor": "Zhipu AI",
+  "description": "Zhipu AI GLM-5.1 is a large language model with 32B parameters featuring advanced reasoning capabilities",
+  "release_date": null,
+  "parameter_count_billions": 32,
+  "context_window_tokens": 256000,
+  "card_text": "GLM-5.1 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 32B\n**Context Window:** 256K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** advanced reasoning and problem-solving",
+  "benchmark_claims": [],
+  "tags": [
+    "text",
+    "multilingual",
+    "chinese",
+    "api",
+    "advanced",
+    "reasoning"
+  ],
+  "architectures": null,
+  "license": "proprietary",
+  "capabilities": {
+    "chat": true,
+    "vision": false,
+    "embedding": false,
+    "function_calling": true,
+    "tool_use": true,
+    "code": true,
+    "reasoning": true,
+    "multilingual": true,
+    "chinese_optimized": true
+  },
+  "api_endpoint": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+  "documentation_url": "https://open.bigmodel.cn/"
+}

@@ -1,0 +1,33 @@
+{
+  "model_id": "glm-4-5v",
+  "display_name": "GLM-4.5V",
+  "vendor": "Zhipu AI",
+  "description": "Zhipu AI GLM-4.5V is a large language model with 9B parameters supporting vision-language tasks",
+  "release_date": null,
+  "parameter_count_billions": 9,
+  "context_window_tokens": 128000,
+  "card_text": "GLM-4.5V from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
+  "benchmark_claims": [],
+  "tags": [
+    "text",
+    "multilingual",
+    "chinese",
+    "api",
+    "vision"
+  ],
+  "architectures": null,
+  "license": "proprietary",
+  "capabilities": {
+    "chat": true,
+    "vision": true,
+    "embedding": false,
+    "function_calling": false,
+    "tool_use": false,
+    "code": true,
+    "reasoning": false,
+    "multilingual": true,
+    "chinese_optimized": true
+  },
+  "api_endpoint": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+  "documentation_url": "https://open.bigmodel.cn/"
+}

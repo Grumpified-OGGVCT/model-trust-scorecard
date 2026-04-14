@@ -1,0 +1,33 @@
+{
+  "model_id": "cogview-4-250304",
+  "display_name": "CogView-4-250304",
+  "vendor": "Zhipu AI",
+  "description": "Zhipu AI Image Generation model",
+  "release_date": null,
+  "parameter_count_billions": null,
+  "context_window_tokens": 8000,
+  "card_text": "CogView-4-250304 from Zhipu AI (z.ai).\n\n**Model Type:** Image Generation Model\n**Family:** CogView\n**Concurrency Limit:** 5",
+  "benchmark_claims": [],
+  "tags": [
+    "multimodal",
+    "image-generation",
+    "vision",
+    "image",
+    "cogview"
+  ],
+  "architectures": null,
+  "license": "proprietary",
+  "capabilities": {
+    "chat": false,
+    "vision": true,
+    "embedding": false,
+    "function_calling": false,
+    "tool_use": false,
+    "code": false,
+    "reasoning": false,
+    "multilingual": true,
+    "generation": true
+  },
+  "api_endpoint": "https://open.bigmodel.cn/api/paas/v4/",
+  "documentation_url": "https://open.bigmodel.cn/"
+}

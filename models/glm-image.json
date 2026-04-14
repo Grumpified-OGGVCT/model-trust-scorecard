@@ -1,0 +1,32 @@
+{
+  "model_id": "glm-image",
+  "display_name": "GLM-Image",
+  "vendor": "Zhipu AI",
+  "description": "Zhipu AI Image Generation model",
+  "release_date": null,
+  "parameter_count_billions": null,
+  "context_window_tokens": 8000,
+  "card_text": "GLM-Image from Zhipu AI (z.ai).\n\n**Model Type:** Image Generation Model\n**Family:** GLM-Image\n**Concurrency Limit:** 1",
+  "benchmark_claims": [],
+  "tags": [
+    "multimodal",
+    "image-generation",
+    "vision",
+    "image-generation"
+  ],
+  "architectures": null,
+  "license": "proprietary",
+  "capabilities": {
+    "chat": false,
+    "vision": true,
+    "embedding": false,
+    "function_calling": false,
+    "tool_use": false,
+    "code": false,
+    "reasoning": false,
+    "multilingual": true,
+    "generation": true
+  },
+  "api_endpoint": "https://open.bigmodel.cn/api/paas/v4/",
+  "documentation_url": "https://open.bigmodel.cn/"
+}

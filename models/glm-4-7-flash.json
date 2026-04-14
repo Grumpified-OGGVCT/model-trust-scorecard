@@ -1,0 +1,34 @@
+{
+  "model_id": "glm-4-7-flash",
+  "display_name": "GLM-4.7-Flash",
+  "vendor": "Zhipu AI",
+  "description": "Zhipu AI GLM-4.7-Flash is a large language model with 9B parameters",
+  "release_date": null,
+  "parameter_count_billions": 9,
+  "context_window_tokens": 128000,
+  "card_text": "GLM-4.7-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+  "benchmark_claims": [],
+  "tags": [
+    "text",
+    "multilingual",
+    "chinese",
+    "api",
+    "fast",
+    "optimized"
+  ],
+  "architectures": null,
+  "license": "proprietary",
+  "capabilities": {
+    "chat": true,
+    "vision": false,
+    "embedding": false,
+    "function_calling": false,
+    "tool_use": false,
+    "code": true,
+    "reasoning": false,
+    "multilingual": true,
+    "chinese_optimized": true
+  },
+  "api_endpoint": "https://open.bigmodel.cn/api/paas/v4/chat/completions",
+  "documentation_url": "https://open.bigmodel.cn/"
+}
