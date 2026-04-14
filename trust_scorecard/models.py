@@ -1,0 +1,190 @@
+"""
+Pydantic data models for the trust-score engine.
+
+Every object that crosses a module boundary is typed here so that the
+whole pipeline remains serialisable to JSON / SQLite without effort.
+"""
+
+from __future__ import annotations
+
+import enum
+from datetime import datetime
+from typing import Any, Optional
+
+from pydantic import BaseModel, Field, field_validator
+
+
+# ---------------------------------------------------------------------------
+# Enumerations
+# ---------------------------------------------------------------------------
+
+
+class MetricKind(str, enum.Enum):
+    """The kind of numeric result a benchmark reports."""
+
+    PERCENT_RESOLVED = "percent_resolved"  # SWE-bench (0-100)
+    ACCURACY = "accuracy"                  # MMLU, TruthfulQA (0-100)
+    PASS_AT_K = "pass_at_k"               # HumanEval pass@1 (0-100)
+    SCORE = "score"                        # Generic normalised score (0-100)
+    BOOL = "bool"                          # Pass / fail flag
+
+
+class VerificationStatus(str, enum.Enum):
+    VERIFIED = "verified"       # Claim matches an independent source within tolerance
+    REFUTED = "refuted"         # Claim deviates beyond tolerance
+    UNVERIFIABLE = "unverifiable"  # No independent source found for this claim
+    PENDING = "pending"         # Not yet checked
+
+
+class LicenseKind(str, enum.Enum):
+    OPEN = "open"               # MIT, Apache-2, BSD, etc.
+    RESTRICTED = "restricted"   # CC-BY-NC, research-only, etc.
+    PROPRIETARY = "proprietary"
+    UNKNOWN = "unknown"
+
+
+# ---------------------------------------------------------------------------
+# Core data shapes
+# ---------------------------------------------------------------------------
+
+
+class Claim(BaseModel):
+    """A benchmark claim extracted from a model card or marketing text."""
+
+    metric: str = Field(..., description="Canonical benchmark name, e.g. 'SWE-bench Verified'")
+    value: float = Field(..., ge=0.0, le=100.0, description="Claimed value in [0, 100]")
+    raw: str = Field(..., description="Verbatim text fragment that produced this claim")
+    target: Optional[str] = Field(None, description="Benchmark variant, e.g. 'Verified', 'Lite'")
+    source_url: Optional[str] = Field(None, description="URL of the source document")
+
+    @field_validator("metric")
+    @classmethod
+    def normalise_metric(cls, v: str) -> str:
+        return v.strip()
+
+
+class BenchmarkResult(BaseModel):
+    """A single independently-sourced benchmark result."""
+
+    benchmark_id: str = Field(..., description="ID matching a BenchmarkConfig.id")
+    model_id: str = Field(..., description="Canonical model identifier")
+    metric_kind: MetricKind
+    value: float = Field(..., description="Result value in [0, 100]")
+    retrieved_at: datetime = Field(default_factory=datetime.utcnow)
+    source_url: Optional[str] = None
+    raw_payload: Optional[dict[str, Any]] = Field(
+        None, description="Raw JSON from the data source for full auditability"
+    )
+
+
+class VerificationOutcome(BaseModel):
+    """Result of matching one Claim against official benchmark data."""
+
+    claim: Claim
+    status: VerificationStatus
+    official_value: Optional[float] = None
+    delta: Optional[float] = Field(None, description="|claim.value - official_value|")
+    tolerance: float = Field(2.0, description="Max |delta| to count as verified")
+    benchmark_result: Optional[BenchmarkResult] = None
+    notes: str = ""
+
+
+class TrustScoreBreakdown(BaseModel):
+    """Per-component breakdown of a trust score."""
+
+    coverage_score: float = Field(..., ge=0.0, le=30.0)
+    verification_score: float = Field(..., ge=0.0, le=40.0)
+    performance_gap_score: float = Field(..., ge=0.0, le=20.0)
+    openness_score: float = Field(..., ge=0.0, le=5.0)
+    safety_score: float = Field(..., ge=0.0, le=5.0)
+
+    @property
+    def total(self) -> float:
+        return round(
+            self.coverage_score
+            + self.verification_score
+            + self.performance_gap_score
+            + self.openness_score
+            + self.safety_score,
+            1,
+        )
+
+
+class TrustScore(BaseModel):
+    """Final trust score (0-100) for a model with a full audit trail."""
+
+    model_id: str
+    score: float = Field(..., ge=0.0, le=100.0)
+    breakdown: TrustScoreBreakdown
+    computed_at: datetime = Field(default_factory=datetime.utcnow)
+    schema_version: str = "1"
+
+
+class ModelCard(BaseModel):
+    """Structured representation of metadata extracted from a model card."""
+
+    model_id: str
+    display_name: str
+    vendor: Optional[str] = None
+    card_url: Optional[str] = None
+    card_text: Optional[str] = None
+    license_kind: LicenseKind = LicenseKind.UNKNOWN
+    parameter_count_billions: Optional[float] = None
+    context_window_tokens: Optional[int] = None
+    release_date: Optional[datetime] = None
+    tags: list[str] = Field(default_factory=list)
+    pricing_per_1k_input_usd: Optional[float] = None
+    pricing_per_1k_output_usd: Optional[float] = None
+
+
+class ModelEvaluation(BaseModel):
+    """
+    Complete evaluation record for a single model.
+
+    This is the primary unit of persistence: one record = one model run,
+    stored verbatim in SQLite and optionally exported to a HF Dataset.
+    """
+
+    model_id: str
+    card: ModelCard
+    claims: list[Claim] = Field(default_factory=list)
+    outcomes: list[VerificationOutcome] = Field(default_factory=list)
+    benchmark_results: list[BenchmarkResult] = Field(default_factory=list)
+    trust_score: Optional[TrustScore] = None
+    evaluated_at: datetime = Field(default_factory=datetime.utcnow)
+    pipeline_version: str = "1"
+    notes: str = ""
+
+
+# ---------------------------------------------------------------------------
+# Configuration shapes
+# ---------------------------------------------------------------------------
+
+
+class BenchmarkConfig(BaseModel):
+    """
+    A JSON-first descriptor for a benchmark source.
+
+    Drop a new JSON file in benchmarks/ to register a new source – no code
+    change required.
+    """
+
+    id: str = Field(..., description="Snake-case identifier, e.g. 'swe_bench_verified'")
+    display_name: str
+    description: str = ""
+    metric_kind: MetricKind
+    weight_max: float = Field(
+        ...,
+        gt=0,
+        description="Maximum contribution to the trust score from this benchmark",
+    )
+    data_source: str = Field(
+        ...,
+        description=(
+            "One of: 'hf_dataset', 'hf_leaderboard', 'swe_bench_html', 'opencompass', 'static_json'"
+        ),
+    )
+    data_source_params: dict[str, Any] = Field(default_factory=dict)
+    tolerance_default: float = Field(2.0, description="Absolute tolerance for claim verification")
+    enabled: bool = True
+    tags: list[str] = Field(default_factory=list)
