@@ -249,7 +249,7 @@ def summarize_report(report: dict) -> dict:
         ],
         "claim_details": [
             {
-                "metric": item.get("claim", {}).get("metric", item.get("metric", "Unknown benchmark")),
+                "metric": item.get("claim", {}).get("metric", item.get("metric", "Unknown metric")),
                 "claimed_value": item.get("claim", {}).get("value", item.get("claimed_value")),
                 "status": item.get("status"),
                 "official_value": item.get("official_value"),
@@ -270,7 +270,7 @@ def summarize_report(report: dict) -> dict:
             ],
             [
                 {
-                    "metric": item.get("claim", {}).get("metric", item.get("metric", "Unknown benchmark")),
+                    "metric": item.get("claim", {}).get("metric", item.get("metric", "Unknown metric")),
                     "claimed_value": item.get("claim", {}).get("value", item.get("claimed_value")),
                     "status": item.get("status"),
                     "official_value": item.get("official_value"),
@@ -435,7 +435,7 @@ def build_dashboard_html(aggregated: dict) -> str:
             else "score-medium" if trust_score >= 60
             else "score-low"
         )
-        use_case_scores = score.get("use_case_scores", {}) or {}
+        use_case_scores = score.get("use_case_scores", {})
         use_case_label = ", ".join(f"{key}: {value:.1f}" for key, value in use_case_scores.items()) or "—"
         rows.append(
             f"""<tr>
