@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-14T21:16:08.946239",
-  "total_models": 26,
+  "generated_at": "2026-04-14T21:44:35.417134",
+  "total_models": 50,
   "scores": [
     {
       "model_id": "claude-opus-4.5",
@@ -28,7 +28,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T21:16:08.946239",
+      "evaluated_at": "2026-04-14T21:44:35.417134",
       "license": "unknown",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -57,6 +57,49 @@
       ]
     },
     {
+      "model_id": "glm-4-5-flash",
+      "display_name": "GLM-4.5-Flash",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:07.585412",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-5-flash",
+        "display_name": "GLM-4.5-Flash",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.5-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "fast",
+        "optimized"
+      ]
+    },
+    {
       "model_id": "llama3.2-vision",
       "display_name": "Llama 3.2 Vision 11B",
       "vendor": "Meta",
@@ -78,7 +121,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T21:16:29.000973",
+      "evaluated_at": "2026-04-14T21:44:00.966300",
       "license": "unknown",
       "model_card": {
         "model_id": "llama3.2-vision",
@@ -127,7 +170,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:06.163461",
+      "evaluated_at": "2026-04-14T21:44:37.152066",
       "license": "unknown",
       "model_card": {
         "model_id": "granite3.3-8b",
@@ -160,6 +203,133 @@
       ]
     },
     {
+      "model_id": "glm-4-6v-flashx",
+      "display_name": "GLM-4.6V-FlashX",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:34.796977",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-6v-flashx",
+        "display_name": "GLM-4.6V-FlashX",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.6V-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, fast, efficient inference",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "vision",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "vision",
+        "fast",
+        "optimized"
+      ]
+    },
+    {
+      "model_id": "glm-4-5-airx",
+      "display_name": "GLM-4.5-AirX",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:35.355782",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-5-airx",
+        "display_name": "GLM-4.5-AirX",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.5-AirX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 5\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "lightweight",
+          "efficient"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "lightweight",
+        "efficient"
+      ]
+    },
+    {
+      "model_id": "glm-4-32b-0414-128k",
+      "display_name": "GLM-4-32B-0414-128K",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:41.522362",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-32b-0414-128k",
+        "display_name": "GLM-4-32B-0414-128K",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4-32B-0414-128K from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 15\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api"
+      ]
+    },
+    {
       "model_id": "glm-5.1-cloud",
       "display_name": "GLM 5.1 Cloud",
       "vendor": "Z.ai",
@@ -181,7 +351,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T21:16:02.904212",
+      "evaluated_at": "2026-04-14T21:44:05.214057",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5.1-cloud",
@@ -237,7 +407,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T21:16:17.614392",
+      "evaluated_at": "2026-04-14T21:44:31.936470",
       "license": "unknown",
       "model_card": {
         "model_id": "hermes3-8b",
@@ -270,6 +440,131 @@
       ]
     },
     {
+      "model_id": "glm-4-6v",
+      "display_name": "GLM-4.6V",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:37.560387",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-6v",
+        "display_name": "GLM-4.6V",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.6V from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "vision"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "vision"
+      ]
+    },
+    {
+      "model_id": "glm-5-turbo",
+      "display_name": "GLM-5-Turbo",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:08.437811",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-5-turbo",
+        "display_name": "GLM-5-Turbo",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-5-Turbo from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api"
+      ]
+    },
+    {
+      "model_id": "glm-4-6v-flash",
+      "display_name": "GLM-4.6V-Flash",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:34.818012",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-6v-flash",
+        "display_name": "GLM-4.6V-Flash",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.6V-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, fast, efficient inference",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "vision",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "vision",
+        "fast",
+        "optimized"
+      ]
+    },
+    {
       "model_id": "deepseek-r1-14b",
       "display_name": "DeepSeek R1 14B",
       "vendor": "DeepSeek",
@@ -293,7 +588,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-14T21:16:06.432983",
+      "evaluated_at": "2026-04-14T21:44:37.729406",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-r1-14b",
@@ -328,6 +623,49 @@
       ]
     },
     {
+      "model_id": "glm-4-7-flash",
+      "display_name": "GLM-4.7-Flash",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:41.077087",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-7-flash",
+        "display_name": "GLM-4.7-Flash",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.7-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "fast",
+        "optimized"
+      ]
+    },
+    {
       "model_id": "minimax-m2.7-cloud",
       "display_name": "MiniMax M2.7 Cloud",
       "vendor": "MiniMax",
@@ -349,7 +687,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T21:16:06.362929",
+      "evaluated_at": "2026-04-14T21:44:41.433472",
       "license": "unknown",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
@@ -378,6 +716,47 @@
       ]
     },
     {
+      "model_id": "glm-4-5v",
+      "display_name": "GLM-4.5V",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:34.308116",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-5v",
+        "display_name": "GLM-4.5V",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.5V from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "vision"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "vision"
+      ]
+    },
+    {
       "model_id": "gpt-4.1",
       "display_name": "GPT-4.1",
       "vendor": "OpenAI",
@@ -401,7 +780,7 @@
       "verified_count": 2,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T21:16:37.751927",
+      "evaluated_at": "2026-04-14T21:43:38.335057",
       "license": "unknown",
       "model_card": {
         "model_id": "gpt-4.1",
@@ -428,6 +807,129 @@
       ]
     },
     {
+      "model_id": "cogvideox-3",
+      "display_name": "CogVideoX-3",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:37.022531",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "cogvideox-3",
+        "display_name": "CogVideoX-3",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "CogVideoX-3 from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Zhipu AI\n**Concurrency Limit:** 1",
+        "license_kind": "unknown",
+        "parameter_count_billions": null,
+        "context_window_tokens": 8000,
+        "release_date": null,
+        "tags": [
+          "multimodal",
+          "video-generation",
+          "generation"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "multimodal",
+        "video-generation",
+        "generation"
+      ]
+    },
+    {
+      "model_id": "glm-ocr",
+      "display_name": "GLM-OCR",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:42.921968",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-ocr",
+        "display_name": "GLM-OCR",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-OCR from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 32K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, document OCR and analysis, general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 32000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "ocr",
+          "document",
+          "vision"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "ocr",
+        "document",
+        "vision"
+      ]
+    },
+    {
+      "model_id": "glm-5v-turbo",
+      "display_name": "GLM-5V-Turbo",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:46.530477",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-5v-turbo",
+        "display_name": "GLM-5V-Turbo",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-5V-Turbo from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "vision"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "vision"
+      ]
+    },
+    {
       "model_id": "devstral-2-123b-cloud",
       "display_name": "Devstral 2 123B Cloud",
       "vendor": "Mistral",
@@ -449,7 +951,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T21:16:21.768198",
+      "evaluated_at": "2026-04-14T21:43:57.687620",
       "license": "unknown",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
@@ -505,7 +1007,7 @@
       "verified_count": 1,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:03.163681",
+      "evaluated_at": "2026-04-14T21:44:10.907297",
       "license": "unknown",
       "model_card": {
         "model_id": "minimax-m2.5-cloud",
@@ -550,7 +1052,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:03.148158",
+      "evaluated_at": "2026-04-14T21:44:07.982271",
       "license": "unknown",
       "model_card": {
         "model_id": "nomic-embed-text-v2-moe",
@@ -585,6 +1087,51 @@
       ]
     },
     {
+      "model_id": "glm-asr-2512",
+      "display_name": "GLM-ASR-2512",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:08.231378",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-asr-2512",
+        "display_name": "GLM-ASR-2512",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-ASR-2512 from Zhipu AI (z.ai).\n\n**Model Type:** Real-time Audio-Video Model\n**Family:** GLM-ASR\n**Concurrency Limit:** 5",
+        "license_kind": "unknown",
+        "parameter_count_billions": null,
+        "context_window_tokens": 8000,
+        "release_date": null,
+        "tags": [
+          "multimodal",
+          "video-generation",
+          "generation",
+          "audio",
+          "speech",
+          "asr",
+          "speech-recognition"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "multimodal",
+        "video-generation",
+        "generation",
+        "audio",
+        "speech",
+        "asr",
+        "speech-recognition"
+      ]
+    },
+    {
       "model_id": "kimi-k2.5-cloud",
       "display_name": "Kimi K2.5 Cloud",
       "vendor": "Moonshot",
@@ -606,7 +1153,7 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:09.664894",
+      "evaluated_at": "2026-04-14T21:44:03.164485",
       "license": "unknown",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
@@ -653,7 +1200,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:28.908477",
+      "evaluated_at": "2026-04-14T21:44:09.654059",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-vl-235b-cloud",
@@ -688,6 +1235,49 @@
       ]
     },
     {
+      "model_id": "glm-4-plus",
+      "display_name": "GLM-4-Plus",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:41.143222",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-plus",
+        "display_name": "GLM-4-Plus",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4-Plus from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 20\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "premium",
+          "reasoning"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "premium",
+        "reasoning"
+      ]
+    },
+    {
       "model_id": "gemini-2.5-pro",
       "display_name": "Gemini 2.5 Pro",
       "vendor": "Google",
@@ -713,7 +1303,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T21:16:02.691077",
+      "evaluated_at": "2026-04-14T21:43:39.595569",
       "license": "unknown",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -742,6 +1332,45 @@
       ]
     },
     {
+      "model_id": "glm-4-5",
+      "display_name": "GLM-4.5",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:27.223664",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-5",
+        "display_name": "GLM-4.5",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.5 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api"
+      ]
+    },
+    {
       "model_id": "qwen3-14b",
       "display_name": "Qwen3 14B",
       "vendor": "Alibaba",
@@ -765,7 +1394,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-04-14T21:16:03.591373",
+      "evaluated_at": "2026-04-14T21:44:05.668281",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-14b",
@@ -804,6 +1433,49 @@
       ]
     },
     {
+      "model_id": "glm-4-5-air",
+      "display_name": "GLM-4.5-Air",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:43.136326",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-5-air",
+        "display_name": "GLM-4.5-Air",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.5-Air from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 5\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "lightweight",
+          "efficient"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "lightweight",
+        "efficient"
+      ]
+    },
+    {
       "model_id": "deepcoder",
       "display_name": "DeepCoder",
       "vendor": "Community",
@@ -814,7 +1486,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:11.533749",
+      "evaluated_at": "2026-04-14T21:43:33.938882",
       "license": "unknown",
       "model_card": {
         "model_id": "deepcoder",
@@ -843,6 +1515,45 @@
       ]
     },
     {
+      "model_id": "glm-4-6",
+      "display_name": "GLM-4.6",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:09.373184",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-6",
+        "display_name": "GLM-4.6",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.6 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api"
+      ]
+    },
+    {
       "model_id": "cogito-14b",
       "display_name": "Cogito 14B",
       "vendor": "Deep Cogito",
@@ -853,7 +1564,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:30.436842",
+      "evaluated_at": "2026-04-14T21:44:11.737593",
       "license": "unknown",
       "model_card": {
         "model_id": "cogito-14b",
@@ -896,7 +1607,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:05.159471",
+      "evaluated_at": "2026-04-14T21:43:44.247116",
       "license": "unknown",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
@@ -931,6 +1642,47 @@
       ]
     },
     {
+      "model_id": "cogview-4-250304",
+      "display_name": "CogView-4-250304",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:36.947337",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "cogview-4-250304",
+        "display_name": "CogView-4-250304",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "CogView-4-250304 from Zhipu AI (z.ai).\n\n**Model Type:** Image Generation Model\n**Family:** CogView\n**Concurrency Limit:** 5",
+        "license_kind": "unknown",
+        "parameter_count_billions": null,
+        "context_window_tokens": 8000,
+        "release_date": null,
+        "tags": [
+          "multimodal",
+          "image-generation",
+          "vision",
+          "image",
+          "cogview"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "multimodal",
+        "image-generation",
+        "vision",
+        "image",
+        "cogview"
+      ]
+    },
+    {
       "model_id": "embeddinggemma",
       "display_name": "Embedding Gemma",
       "vendor": "Google",
@@ -941,7 +1693,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:28.170736",
+      "evaluated_at": "2026-04-14T21:43:36.056522",
       "license": "unknown",
       "model_card": {
         "model_id": "embeddinggemma",
@@ -997,7 +1749,7 @@
       "verified_count": 1,
       "refuted_count": 1,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T21:16:02.446209",
+      "evaluated_at": "2026-04-14T21:43:35.974194",
       "license": "unknown",
       "model_card": {
         "model_id": "llama3.1",
@@ -1030,6 +1782,45 @@
       ]
     },
     {
+      "model_id": "glm-image",
+      "display_name": "GLM-Image",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:12.851017",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-image",
+        "display_name": "GLM-Image",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-Image from Zhipu AI (z.ai).\n\n**Model Type:** Image Generation Model\n**Family:** GLM-Image\n**Concurrency Limit:** 1",
+        "license_kind": "unknown",
+        "parameter_count_billions": null,
+        "context_window_tokens": 8000,
+        "release_date": null,
+        "tags": [
+          "multimodal",
+          "image-generation",
+          "vision",
+          "image-generation"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "multimodal",
+        "image-generation",
+        "vision",
+        "image-generation"
+      ]
+    },
+    {
       "model_id": "llava",
       "display_name": "LLaVA",
       "vendor": "Community",
@@ -1040,7 +1831,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:09.011257",
+      "evaluated_at": "2026-04-14T21:44:36.602309",
       "license": "unknown",
       "model_card": {
         "model_id": "llava",
@@ -1083,7 +1874,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:00.980793",
+      "evaluated_at": "2026-04-14T21:44:30.521678",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-embedding-0.6b",
@@ -1116,6 +1907,49 @@
       ]
     },
     {
+      "model_id": "glm-4-7-flashx",
+      "display_name": "GLM-4.7-FlashX",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:59.949030",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-7-flashx",
+        "display_name": "GLM-4.7-FlashX",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.7-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "fast",
+        "optimized"
+      ]
+    },
+    {
       "model_id": "nomic-embed-text",
       "display_name": "Nomic Embed Text",
       "vendor": "Nomic",
@@ -1126,7 +1960,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:29.575005",
+      "evaluated_at": "2026-04-14T21:44:04.062523",
       "license": "unknown",
       "model_card": {
         "model_id": "nomic-embed-text",
@@ -1159,6 +1993,96 @@
       ]
     },
     {
+      "model_id": "glm-5-1",
+      "display_name": "GLM-5.1",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:43:34.311087",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-5-1",
+        "display_name": "GLM-5.1",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-5.1 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 32B\n**Context Window:** 256K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** advanced reasoning and problem-solving",
+        "license_kind": "unknown",
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 256000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "advanced",
+          "reasoning"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "advanced",
+        "reasoning"
+      ]
+    },
+    {
+      "model_id": "autoglm-phone-multilingual",
+      "display_name": "AutoGLM-Phone-Multilingual",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:23.238632",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "autoglm-phone-multilingual",
+        "display_name": "AutoGLM-Phone-Multilingual",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "AutoGLM-Phone-Multilingual from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 5\n**Parameters:** 9B\n**Context Window:** 32K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 32000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "agentic",
+          "phone-control",
+          "automation",
+          "tool-calling"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "agentic",
+        "phone-control",
+        "automation",
+        "tool-calling"
+      ]
+    },
+    {
       "model_id": "deepseek-v3.2",
       "display_name": "DeepSeek V3.2",
       "vendor": "DeepSeek",
@@ -1182,7 +2106,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T21:16:06.855997",
+      "evaluated_at": "2026-04-14T21:43:36.421987",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -1221,7 +2145,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:01.779347",
+      "evaluated_at": "2026-04-14T21:43:37.885715",
       "license": "unknown",
       "model_card": {
         "model_id": "mxbai-embed-large",
@@ -1254,6 +2178,84 @@
       ]
     },
     {
+      "model_id": "glm-5",
+      "display_name": "GLM-5",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:02.813993",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-5",
+        "display_name": "GLM-5",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-5 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 9.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api"
+      ]
+    },
+    {
+      "model_id": "glm-4-7",
+      "display_name": "GLM-4.7",
+      "vendor": "Zhipu AI",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-14T21:44:34.920704",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "glm-4-7",
+        "display_name": "GLM-4.7",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.7 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "unknown",
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api"
+      ]
+    },
+    {
       "model_id": "gemma3-4b",
       "display_name": "Gemma 3 4B",
       "vendor": "Google",
@@ -1264,7 +2266,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T21:16:06.024638",
+      "evaluated_at": "2026-04-14T21:44:29.382741",
       "license": "unknown",
       "model_card": {
         "model_id": "gemma3-4b",
