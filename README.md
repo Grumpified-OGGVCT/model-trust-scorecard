@@ -59,6 +59,12 @@ trust-scorecard batch
 trust-scorecard batch --models gpt-4.1 --models "gemini-2.5-pro,claude-opus-4.5"
 cat models.txt | trust-scorecard batch --models-file -
 
+# Build a tested matrix from a raw `ollama list` inventory example
+python scripts/build_matrix.py \
+  --inventory-file docs/examples/personal-ollama-list.txt \
+  --max-models 100 \
+  --output matrix.json
+
 # Export results
 trust-scorecard export --db trust_scores.db --output results.json
 
@@ -74,9 +80,11 @@ trust-scorecard export --db trust_scores.db --output results.json
 
 **Requesting which models are analyzed**
 - Use `--models` or `--models-file` with `trust-scorecard batch` to target a specific set (comma-separated, repeatable, or newline file/STDIN).
+- Use `python scripts/build_matrix.py --inventory-file <path>` to parse a raw `ollama list` export into a tested model selection input.
 - Paste provider claim lists directly via `--text-file -`; the parser handles multi-line/bullet inputs and keeps source URLs with each claim.
 - Evaluations are stored in `trust_scores.db` with timestamps; rerunning a model creates a new record instead of overwriting, so history stays intact.
 - `trust-scorecard list` shows the catalog; add more JSON entries under `models/` to make them available to batch runs and GitHub Actions.
+- Inventory files do not auto-review models; only IDs that already exist in the catalog are emitted into the verification matrix, and everything else should be submitted through the model review flow.
 
 ### GitHub Actions Integration
 
@@ -244,6 +252,7 @@ We welcome contributions! See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for gui
 
 1. **Via Issue**: Use the [Model Submission template](../../issues/new?template=model_submission.yml)
 2. **Via PR**: Add a JSON file to `models/`:
+3. **Via personal inventory**: Keep your raw `ollama list` export as an example input (see [`docs/examples/personal-ollama-list.txt`](docs/examples/personal-ollama-list.txt)), then submit any missing models through the issue or PR path instead of treating them as already reviewed.
 
 ```json
 {

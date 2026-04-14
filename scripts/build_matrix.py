@@ -17,6 +17,8 @@ import argparse
 import json
 import logging
 import os
+import re
+import sys
 from collections.abc import Iterable
 from pathlib import Path
 
@@ -29,9 +31,78 @@ logger = logging.getLogger(__name__)
 def load_catalog_models(models_dir: Path) -> list[str]:
     """Return model IDs from local catalog JSON files."""
     ids: list[str] = []
-    for path in models_dir.glob("*.json"):
+    for path in sorted(models_dir.glob("*.json")):
         ids.append(path.stem)
     return ids
+
+
+def parse_inventory_models(text: str) -> list[str]:
+    """Parse model IDs from plain lists or raw `ollama list` terminal output."""
+    models: list[str] = []
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        lower = line.lower()
+        if lower.startswith("ps ") or lower.startswith("name  "):
+            continue
+        if line == "NAME":
+            continue
+
+        columns = re.split(r"\s{2,}", line)
+        candidate = columns[0] if columns else line
+
+        if " " in candidate:
+            continue
+
+        models.append(candidate)
+    return models
+
+
+def load_inventory_models(inventory_files: list[str]) -> list[str]:
+    """Load model IDs from one or more inventory files or stdin."""
+    models: list[str] = []
+    for inventory_file in inventory_files:
+        text = sys.stdin.read() if inventory_file == "-" else Path(inventory_file).read_text()
+        models.extend(parse_inventory_models(text))
+    return models
+
+
+def candidate_model_ids(model_id: str) -> list[str]:
+    """Return exact and normalized variants that may map to a catalog model ID."""
+    candidates = [model_id]
+    if model_id.endswith(":latest"):
+        candidates.append(model_id[:-len(":latest")])
+    if model_id.endswith(":cloud"):
+        candidates.append(model_id[:-len(":cloud")])
+    if model_id.endswith("-cloud"):
+        candidates.append(model_id[:-len("-cloud")])
+    return dedupe_preserve_order(candidates)
+
+
+def prioritize_catalog_models(
+    catalog_ids: list[str],
+    requested_ids: Iterable[str],
+    max_items: int | None = None,
+) -> tuple[list[str], list[str]]:
+    """Keep catalog-backed model IDs first and return skipped non-catalog IDs."""
+    catalog_set = set(catalog_ids)
+    prioritized: list[str] = []
+    skipped: list[str] = []
+    for requested_id in requested_ids:
+        match = next(
+            (candidate for candidate in candidate_model_ids(requested_id) if candidate in catalog_set),
+            None,
+        )
+        if match:
+            prioritized.append(match)
+        else:
+            skipped.append(requested_id)
+    prioritized = dedupe_preserve_order(prioritized)
+    skipped = dedupe_preserve_order(skipped)
+    remaining_catalog = [mid for mid in catalog_ids if mid not in prioritized]
+    combined = dedupe_preserve_order([*prioritized, *remaining_catalog], max_items=max_items)
+    return combined, skipped
 
 
 def fetch_ollama_models(
@@ -88,6 +159,12 @@ def main() -> int:
     parser.add_argument("--models-dir", type=Path, default=Path("models"), help="Catalog directory")
     parser.add_argument("--output", type=Path, default=Path("matrix.json"), help="Output JSON file")
     parser.add_argument("--extra-models", nargs="*", default=[], help="Additional model IDs to include")
+    parser.add_argument(
+        "--inventory-file",
+        action="append",
+        default=[],
+        help="Path to a text file (or '-' for stdin) containing one model per line or raw `ollama list` output",
+    )
     parser.add_argument("--max-models", type=int, default=50, help="Safety cap on total models")
     parser.add_argument(
         "--ollama-base",
@@ -102,16 +179,24 @@ def main() -> int:
     args = parser.parse_args()
 
     catalog_ids = load_catalog_models(args.models_dir)
+    inventory_ids = load_inventory_models(args.inventory_file)
     ollama_ids = fetch_ollama_models(
         api_key=os.getenv("OLLAMA_API_KEY"),
         base_url=args.ollama_base,
         endpoint=args.ollama_endpoint,
     )
 
-    combined = dedupe_preserve_order(
-        [*ollama_ids, *catalog_ids, *args.extra_models],
+    combined, skipped = prioritize_catalog_models(
+        catalog_ids,
+        [*args.extra_models, *inventory_ids, *ollama_ids],
         max_items=args.max_models,
     )
+    if skipped:
+        logger.info(
+            "Skipped %d requested model(s) not present in the catalog: %s",
+            len(skipped),
+            ", ".join(skipped[:10]) + (" ..." if len(skipped) > 10 else ""),
+        )
 
     if not combined:
         logger.error("No models discovered; nothing to emit")
