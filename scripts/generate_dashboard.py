@@ -247,15 +247,16 @@ def main():
 
     # Load scores
     data = json.loads(args.input.read_text())
-    # Sort by ACTUAL CAPABILITY (use-case strength scores), not verification count
-    # Primary: coding score, Secondary: reasoning score, Tertiary: trust score
+    # Sort by ACTUAL CAPABILITY - prioritize CODING first, then REASONING
+    # This matches industry-standard rankings (OpenRouter Arena, etc.)
     def get_capability_score(score):
         use_cases = score.get("use_case_scores", {}) or {}
-        # Average of available use-case scores
-        if use_cases:
-            return sum(use_cases.values()) / len(use_cases)
-        return score.get("trust_score") or 0
-    
+        # Primary: coding score, Secondary: reasoning, Tertiary: any other score
+        coding = use_cases.get("coding", 0)
+        reasoning = use_cases.get("reasoning", 0)
+        other_avg = sum([v for k, v in use_cases.items() if k not in ("coding", "reasoning")]) / max(1, len([v for k, v in use_cases.items() if k not in ("coding", "reasoning")]))
+        return (coding, reasoning, other_avg)
+
     scores = sorted(
         data["scores"],
         key=lambda x: get_capability_score(x),
@@ -281,20 +282,20 @@ def main():
         )
         score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
         use_case_scores = score.get("use_case_scores", {}) or {}
-        use_case_label = ", ".join(f"{k}: {v:.1f}" for k, v in use_case_scores.items()) or "—"
-        
+        use_case_label = ", ".join(f"{k}: {v:.1f}" for k, v in use_case_scores.items()) or "-"
+
         # Extract metadata from model card
         model_card = score.get("model_card", {})
         params = model_card.get("parameter_count_billions")
-        params_display = f"{params}B" if params else "—"
-        
+        params_display = f"{params}B" if params else "-"
+
         ctx = model_card.get("context_window_tokens")
-        ctx_display = f"{ctx // 1000}K" if ctx else "—"
-        
+        ctx_display = f"{ctx // 1000}K" if ctx else "-"
+
         # Build capability tags string
         tags = score.get("tags", [])
-        tag_html = "".join([f'<span class="tag">{t}</span>' for t in tags[:5]]) if tags else "—"
-        
+        tag_html = "".join([f'<span class="tag">{t}</span>' for t in tags[:5]]) if tags else "-"
+
         # Build capabilities summary
         caps = []
         if any("vision" in t for t in tags):
@@ -307,12 +308,12 @@ def main():
             caps.append("Agent")
         if any("multilingual" in t for t in tags):
             caps.append("Multi-Lang")
-        caps_display = " • ".join(caps) if caps else "—"
-        
+        caps_display = " • ".join(caps) if caps else "-"
+
         rows.append(
             f"""<tr>
                 <td>{rank}</td>
-                <td><strong>{score['display_name']}</strong><br><span style="color:#718096; font-size:0.85em;">{score['vendor'] or '—'}</span></td>
+                <td><strong>{score['display_name']}</strong><br><span style="color:#718096; font-size:0.85em;">{score['vendor'] or '-'}</span></td>
                 <td>{params_display}<br><span style="color:#718096; font-size:0.85em;">{ctx_display} ctx</span></td>
                 <td><span class="score-badge {badge_class}">{score_display}</span><br><span style="color:#718096; font-size:0.85em;">{score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td>{caps_display}</td>
