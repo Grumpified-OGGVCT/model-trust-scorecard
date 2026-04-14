@@ -11,12 +11,12 @@
 | 7 | Qwen3 14B | Alibaba | ![26.0](https://img.shields.io/badge/Trust-26.0-orange) | 0/5 | unknown |
 | 8 | Llama 3.2 Vision 11B | Meta | ![22.2](https://img.shields.io/badge/Trust-22.2-orange) | 0/3 | unknown |
 | 9 | DeepSeek R1 14B | DeepSeek | ![22.2](https://img.shields.io/badge/Trust-22.2-orange) | 0/4 | unknown |
-| 10 | GLM 5.1 Cloud | Z.ai | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
-| 11 | MiniMax M2.7 Cloud | MiniMax | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
-| 12 | Devstral 2 123B Cloud | Mistral | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
-| 13 | Kimi K2.5 Cloud | Moonshot | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
-| 14 | Granite 3.3 8B | IBM | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 15 | Hermes 3 8B | Nous | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 10 | Hermes 3 8B | Nous | ![14.8](https://img.shields.io/badge/Trust-14.8-orange) | 0/1 | unknown |
+| 11 | GLM 5.1 Cloud | Z.ai | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
+| 12 | MiniMax M2.7 Cloud | MiniMax | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
+| 13 | Devstral 2 123B Cloud | Mistral | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
+| 14 | Kimi K2.5 Cloud | Moonshot | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
+| 15 | Granite 3.3 8B | IBM | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 16 | Nomic Embed Text v2 MoE | Nomic | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 17 | Qwen3 VL 235B Cloud | Alibaba | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 18 | DeepCoder | Community | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
@@ -36,4 +36,4 @@
 - 🟡 **60-79**: Moderately trustworthy - some claims verified
 - 🟠 **<60**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-04-14T20:28:09.419642*
+*Last updated: 2026-04-14T20:47:42.311286*

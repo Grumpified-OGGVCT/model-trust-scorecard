@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T20:28:09.419642",
+  "generated_at": "2026-04-14T20:47:42.311286",
   "total_models": 26,
   "scores": [
     {
@@ -28,7 +28,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T20:28:09.419642",
+      "evaluated_at": "2026-04-14T20:47:42.311286",
       "license": "unknown",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -78,7 +78,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T20:28:10.724749",
+      "evaluated_at": "2026-04-14T20:47:31.220745",
       "license": "unknown",
       "model_card": {
         "model_id": "llama3.2-vision",
@@ -127,7 +127,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:05.752825",
+      "evaluated_at": "2026-04-14T20:47:29.225347",
       "license": "unknown",
       "model_card": {
         "model_id": "granite3.3-8b",
@@ -181,52 +181,93 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:28:14.038104",
+      "evaluated_at": "2026-04-14T20:47:59.195903",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5.1-cloud",
         "display_name": "GLM 5.1 Cloud",
         "vendor": "Z.ai",
         "card_url": "https://ollama.com/library/glm",
-        "card_text": "GLM 5.1 Cloud - Advanced agentic, reasoning and coding capabilities.\nAchieves 78.5% on SWE-bench Verified.\nStrong performance on agentic workflows and reasoning tasks.",
+        "card_text": "GLM 5.1 Cloud - Advanced agentic, reasoning and coding capabilities.\n\nBenchmarks:\n- SWE-bench Verified: 78.5%\n\nCapabilities: Software engineering, agentic workflows, reasoning tasks.\nExtended context window for document processing.\n\nArchitecture: Dense transformer with agentic capabilities.\nLicense: Commercial API via Z.ai.",
         "license_kind": "proprietary",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "reasoning",
+          "software-engineering",
+          "function-calling",
+          "long-context"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "reasoning",
+        "software-engineering",
+        "function-calling",
+        "long-context"
+      ]
     },
     {
       "model_id": "hermes3-8b",
       "display_name": "Hermes 3 8B",
       "vendor": "Nous",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
+      "trust_score": 14.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "commonsense": 3.1
+        }
+      },
+      "use_case_scores": {
+        "commonsense": 3.1
+      },
+      "total_claims": 1,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:05.968517",
+      "unverifiable_count": 1,
+      "evaluated_at": "2026-04-14T20:47:24.000302",
       "license": "unknown",
       "model_card": {
         "model_id": "hermes3-8b",
         "display_name": "Hermes 3 8B",
         "vendor": "Nous",
         "card_url": null,
-        "card_text": "Hermes 3 8B - Generalist model with advanced agentic capabilities.\nFunction calling, structured output, roleplaying.\nDesigned for agent workflows and tool use.",
+        "card_text": "Hermes 3 8B - Generalist model with advanced agentic capabilities.\n\nCapabilities: Function calling, structured output, roleplaying,\ntool use, agentic workflows.\nBased on Llama 3.1 architecture with extended capabilities.\n\nArchitecture: 8B parameter dense transformer.\nContext: 128K tokens.\nLicense: MIT (Llama 3.1 based)",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 8.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "coding",
+          "function-calling",
+          "agentic",
+          "tool-use",
+          "long-context"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "coding",
+        "function-calling",
+        "agentic",
+        "tool-use",
+        "long-context"
+      ]
     },
     {
       "model_id": "deepseek-r1-14b",
@@ -252,7 +293,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-14T20:28:40.026651",
+      "evaluated_at": "2026-04-14T20:47:29.539308",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-r1-14b",
@@ -308,23 +349,33 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:28:31.898320",
+      "evaluated_at": "2026-04-14T20:48:03.042293",
       "license": "unknown",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
         "display_name": "MiniMax M2.7 Cloud",
         "vendor": "MiniMax",
         "card_url": "https://ollama.com/library/minimax-m2.7",
-        "card_text": "MiniMax M2.7 Cloud - Achieves 78% on SWE-bench Verified multi-benchmark coverage.\nBest-in-class coverage across multiple evaluation suites for coding tasks.",
+        "card_text": "MiniMax M2.7 Cloud - Achieves 78% on SWE-bench multi-benchmark coverage.\n\nBenchmarks:\n- SWE-bench: 78% (multi-benchmark coverage)\n\nCapabilities: Best-in-class coverage across multiple evaluation suites.\nAdvanced coding capabilities, software engineering tasks.\n\nArchitecture: Dense transformer with comprehensive benchmark optimization.\nLicense: Commercial API access.",
         "license_kind": "proprietary",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "coding",
+          "software-engineering",
+          "long-context"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "coding",
+        "software-engineering",
+        "long-context"
+      ]
     },
     {
       "model_id": "gpt-4.1",
@@ -350,7 +401,7 @@
       "verified_count": 2,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:28:30.567756",
+      "evaluated_at": "2026-04-14T20:47:26.499079",
       "license": "unknown",
       "model_card": {
         "model_id": "gpt-4.1",
@@ -398,23 +449,39 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:28:32.563773",
+      "evaluated_at": "2026-04-14T20:47:50.889435",
       "license": "unknown",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
         "display_name": "Devstral 2 123B Cloud",
         "vendor": "Mistral",
         "card_url": "https://ollama.com/library/devstral-2",
-        "card_text": "Devstral 2 123B Cloud - Software engineering agent capabilities.\nAchieves 72.2% on SWE-bench Verified.\nExcels at using tools to explore codebases and editing multiple files.",
+        "card_text": "Devstral 2 123B Cloud - Software engineering agent capabilities built by Mistral.\n\nBenchmarks:\n- SWE-bench Verified: 72.2%\n\nCapabilities: Excels at using tools to explore codebases,\nediting multiple files, agentic software development workflows.\n\nArchitecture: 123B parameter dense transformer.\nLicense: Commercial API via Mistral/La Plateforme.",
         "license_kind": "proprietary",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 123.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "software-engineering",
+          "function-calling",
+          "tool-use",
+          "long-context"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "software-engineering",
+        "function-calling",
+        "tool-use",
+        "long-context"
+      ]
     },
     {
       "model_id": "minimax-m2.5-cloud",
@@ -438,23 +505,39 @@
       "verified_count": 1,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:09.027754",
+      "evaluated_at": "2026-04-14T20:47:27.236094",
       "license": "unknown",
       "model_card": {
         "model_id": "minimax-m2.5-cloud",
         "display_name": "MiniMax M2.5 Cloud",
         "vendor": "MiniMax",
         "card_url": "https://ollama.com/library/minimax-m2.5",
-        "card_text": "MiniMax M2.5 Cloud - High-efficiency LLM built for coding and agentic workflows.\nAchieves 80.2% on SWE-bench Verified benchmark.\nStrong performance on software engineering tasks via cloud API.",
+        "card_text": "MiniMax M2.5 Cloud - High-efficiency LLM optimized for coding and agentic workflows.\n\nBenchmarks:\n- SWE-bench Verified: 80.2%\n\nCapabilities: Software engineering, coding tasks, agentic workflows,\nfunction calling, extended long-context understanding.\n\nArchitecture: Dense transformer optimized for reasoning and code generation.\nLicense: Commercial API access.",
         "license_kind": "proprietary",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "software-engineering",
+          "function-calling",
+          "long-context",
+          "reasoning"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "software-engineering",
+        "function-calling",
+        "long-context",
+        "reasoning"
+      ]
     },
     {
       "model_id": "nomic-embed-text-v2-moe",
@@ -467,23 +550,39 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:13.527961",
+      "evaluated_at": "2026-04-14T20:47:22.317938",
       "license": "unknown",
       "model_card": {
         "model_id": "nomic-embed-text-v2-moe",
         "display_name": "Nomic Embed Text v2 MoE",
         "vendor": "Nomic",
         "card_url": null,
-        "card_text": "Nomic Embed Text v2 MoE - Multilingual MoE text embedding model excelling at multilingual retrieval.\nOptimized for long-context embedding and cross-lingual tasks.",
+        "card_text": "Nomic Embed Text v2 MoE - Multilingual Mixture-of-Experts text embedding model.\n\nArchitecture: MoE-based embedding architecture.\nParameters: Efficient MoE design.\nContext: 8K tokens.\n\nCapabilities: Multilingual embeddings, semantic search,\nretrieval-augmented generation (RAG), cross-lingual tasks,\nlong-context embedding for documents.\n\nBenchmar ks:\n- Excelling at multilingual retrieval\n- Competitive with larger dense models\n\nLicense: Apache 2.0",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 0.55,
+        "context_window_tokens": 8192,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "embeddings",
+          "retrieval",
+          "semantic-search",
+          "rag",
+          "multilingual",
+          "moe"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "embeddings",
+        "retrieval",
+        "semantic-search",
+        "rag",
+        "multilingual",
+        "moe"
+      ]
     },
     {
       "model_id": "kimi-k2.5-cloud",
@@ -507,23 +606,41 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:05.524328",
+      "evaluated_at": "2026-04-14T20:47:29.771734",
       "license": "unknown",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
         "display_name": "Kimi K2.5 Cloud",
         "vendor": "Moonshot",
         "card_url": "https://ollama.com/library/kimi-k2.5",
-        "card_text": "Kimi K2.5 Cloud - Achieves 76.8% on SWE-bench Verified.\nState-of-the-art MoE language models with native multimodal agentic capabilities.\nInstant and thinking modes for different latency requirements.",
+        "card_text": "Kimi K2.5 Cloud - MoE model with 1T total parameters, 32B activated per token.\n\nBenchmarks:\n- SWE-bench Verified: 76.8% (Pass@1)\n\nCapabilities: Multimodal agentic capabilities with visual perception.\nSupports extended context up to 256K tokens.\nFunction calling, long-context processing, advanced reasoning.\n\nArchitecture: Mixture-of-Experts architecture.\nLicense: Commercial API access only.",
         "license_kind": "proprietary",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 32.0,
+        "context_window_tokens": 256000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "coding",
+          "multimodal",
+          "vision",
+          "agentic",
+          "function-calling",
+          "long-context",
+          "reasoning"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "coding",
+        "multimodal",
+        "vision",
+        "agentic",
+        "function-calling",
+        "long-context",
+        "reasoning"
+      ]
     },
     {
       "model_id": "qwen3-vl-235b-cloud",
@@ -536,23 +653,39 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:45.553104",
+      "evaluated_at": "2026-04-14T20:47:26.874720",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-vl-235b-cloud",
         "display_name": "Qwen3 VL 235B Cloud",
         "vendor": "Alibaba",
         "card_url": "https://ollama.com/library/qwen3-vl",
-        "card_text": "Qwen3 VL 235B Cloud - Most powerful vision-language model in Qwen family to date.\nAdvanced multimodal reasoning capabilities.\nAchieves strong performance on vision-language benchmarks via cloud API.",
+        "card_text": "Qwen3 VL 235B Cloud - Most powerful vision-language model in Qwen family.\n\nArchitecture: MoE (Mixture-of-Experts) 235B total, 22B activated per token.\nContext: 128K tokens.\n\nCapabilities: Advanced multimodal reasoning, image understanding,\nvisual question answering, document analysis, OCR,\ncomplex vision-language tasks.\n\nSupports 119 languages for text, vision tasks primarily in English.\nLicense: Commercial API via Alibaba Cloud.",
         "license_kind": "proprietary",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 235.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "vision",
+          "multimodal",
+          "text",
+          "ocr",
+          "document-analysis",
+          "long-context",
+          "multilingual"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "vision",
+        "multimodal",
+        "text",
+        "ocr",
+        "document-analysis",
+        "long-context",
+        "multilingual"
+      ]
     },
     {
       "model_id": "gemini-2.5-pro",
@@ -580,7 +713,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:28:11.482754",
+      "evaluated_at": "2026-04-14T20:47:48.030031",
       "license": "unknown",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -632,7 +765,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-04-14T20:28:08.374501",
+      "evaluated_at": "2026-04-14T20:47:26.335462",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-14b",
@@ -681,23 +814,33 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:09.604766",
+      "evaluated_at": "2026-04-14T20:47:55.831417",
       "license": "unknown",
       "model_card": {
         "model_id": "deepcoder",
         "display_name": "DeepCoder",
         "vendor": "Community",
         "card_url": null,
-        "card_text": "DeepCoder - Fully open-source 14B coder model at O3-mini level.\nLiveCodeBench optimized for code generation and programming tasks.\nCompetitive with frontier coding models.",
+        "card_text": "DeepCoder - Fully open-source 14B parameter code generation model.\n\nBenchmarks:\n- LiveCodeBench optimized for code generation\n- Comparable to O3-mini level on coding tasks\n\nArchitecture: 14B dense transformer optimized for code.\nContext: 8K tokens.\n\nCapabilities: Code completion, code generation, programming tasks,\nmultiple programming languages support.\n\nLicense: Open source (community model)",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 14.0,
+        "context_window_tokens": 8192,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "coding",
+          "code-generation",
+          "multiple-languages"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "coding",
+        "code-generation",
+        "multiple-languages"
+      ]
     },
     {
       "model_id": "cogito-14b",
@@ -710,23 +853,37 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:06.630738",
+      "evaluated_at": "2026-04-14T20:47:24.721251",
       "license": "unknown",
       "model_card": {
         "model_id": "cogito-14b",
         "display_name": "Cogito 14B",
         "vendor": "Deep Cogito",
         "card_url": null,
-        "card_text": "Cogito 14B - Hybrid reasoning models optimized for coding and STEM.\nEnable 'deep thinking subroutine' for complex reasoning tasks.\nStrong performance on coding benchmarks with hybrid reasoning.",
+        "card_text": "Cogito 14B - Hybrid reasoning models optimized for coding and STEM.\nEnable 'deep thinking subroutine' for complex reasoning tasks.\nStrong performance on coding benchmarks with hybrid reasoning modes.\n\nArchitecture: Based on Llama architecture with hybrid reasoning enhancements.\nParameters: 14B active during inference.\n\nCapabilities: Hybrid reasoning (instant vs deep thinking modes),\ncoding, STEM tasks, mathematical reasoning.\n\nLicense: MIT",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 14.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "reasoning",
+          "coding",
+          "stem",
+          "thinking-modes",
+          "hybrid-reasoning"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "reasoning",
+        "coding",
+        "stem",
+        "thinking-modes",
+        "hybrid-reasoning"
+      ]
     },
     {
       "model_id": "cogito-2.1-671b-cloud",
@@ -739,23 +896,39 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:06.106924",
+      "evaluated_at": "2026-04-14T20:47:23.926633",
       "license": "unknown",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
         "display_name": "Cogito 2.1 671B Cloud",
         "vendor": "Deep Cogito",
         "card_url": "https://ollama.com/library/cogito-2.1",
-        "card_text": "Cogito 2.1 671B Cloud - Instruction-tuned generative models, MIT licensed.\nHybrid reasoning capable. Massive 671B parameters available only via cloud API.",
+        "card_text": "Cogito 2.1 671B Cloud - Largest Cogito model with hybrid reasoning.\n\nArchitecture: Dense transformer, 671B parameters.\nContext: 128K tokens.\n\nCapabilities: Hybrid reasoning (instant vs deep thinking modes),\ncoding, STEM tasks, mathematical reasoning, advanced problem solving.\nInstruction-tuned with human feedback.\n\nLicense: MIT",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 671.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "reasoning",
+          "coding",
+          "stem",
+          "thinking-modes",
+          "hybrid-reasoning",
+          "long-context"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "reasoning",
+        "coding",
+        "stem",
+        "thinking-modes",
+        "hybrid-reasoning",
+        "long-context"
+      ]
     },
     {
       "model_id": "embeddinggemma",
@@ -768,23 +941,35 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:07.404984",
+      "evaluated_at": "2026-04-14T20:47:33.054273",
       "license": "unknown",
       "model_card": {
         "model_id": "embeddinggemma",
         "display_name": "Embedding Gemma",
         "vendor": "Google",
         "card_url": null,
-        "card_text": "Embedding Gemma - 300M parameter embedding model from Google.\nBuilt on Gemma architecture for efficient text embedding.",
+        "card_text": "Embedding Gemma - 300M parameter text embedding model from Google.\nBuilt on Gemma architecture for efficient text embedding.\n\nArchitecture: 300M dense transformer.\nContext: 8K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), sentence similarity.\n\nLicense: Gemma Terms of Use",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 0.3,
+        "context_window_tokens": 8192,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "embeddings",
+          "retrieval",
+          "semantic-search",
+          "rag"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "embeddings",
+        "retrieval",
+        "semantic-search",
+        "rag"
+      ]
     },
     {
       "model_id": "llama3.1",
@@ -812,7 +997,7 @@
       "verified_count": 1,
       "refuted_count": 1,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T20:28:10.712634",
+      "evaluated_at": "2026-04-14T20:47:52.798020",
       "license": "unknown",
       "model_card": {
         "model_id": "llama3.1",
@@ -855,23 +1040,37 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:08.527428",
+      "evaluated_at": "2026-04-14T20:47:56.620301",
       "license": "unknown",
       "model_card": {
         "model_id": "llava",
         "display_name": "LLaVA",
         "vendor": "Community",
         "card_url": null,
-        "card_text": "LLaVA - Novel end-to-end multimodal combining vision encoder + Vicuna.\nGeneral visual and language understanding capabilities.\nImplements visual instruction tuning.",
+        "card_text": "LLaVA (Large Language and Vision Assistant) - End-to-end multimodal model combining vision encoder with Vicuna language model.\n\nArchitecture: Vision encoder + Vicuna LLM.\nParameters: 7B / 13B variants available.\nContext: 4K tokens (Vicuna base).\n\nCapabilities: Visual question answering, image captioning,\nmultimodal conversation, OCR, visual reasoning.\n\nBenchmar ks:\n- VQAv2: ~71% (7B variant)\n- OKVQA: ~45%\n- GQA: ~60%\n\nLicense: Apache 2.0 (vicuna weights subject to LLaMA license)",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 7.0,
+        "context_window_tokens": 4096,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "vision",
+          "multimodal",
+          "text",
+          "vqa",
+          "ocr",
+          "image-captioning"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "vision",
+        "multimodal",
+        "text",
+        "vqa",
+        "ocr",
+        "image-captioning"
+      ]
     },
     {
       "model_id": "qwen3-embedding-0.6b",
@@ -884,23 +1083,37 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:10.652394",
+      "evaluated_at": "2026-04-14T20:47:26.969455",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-embedding-0.6b",
         "display_name": "Qwen3 Embedding 0.6B",
         "vendor": "Alibaba",
         "card_url": null,
-        "card_text": "Qwen3 Embedding 0.6B - Comprehensive text embeddings built on Qwen3 foundation.\nOptimized for vector search and RAG applications.\nBenchmarks: Not specified by provider.",
+        "card_text": "Qwen3 Embedding 0.6B - Compact text embeddings built on Qwen3 foundation.\nOptimized for vector search and RAG applications.\n\nArchitecture: 0.6B parameter dense transformer.\nContext: 32K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), vector similarity,\nMultilingual support (Qwen3 heritage).\n\nLicense: Apache 2.0",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 0.6,
+        "context_window_tokens": 32000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "embeddings",
+          "retrieval",
+          "semantic-search",
+          "rag",
+          "multilingual"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "embeddings",
+        "retrieval",
+        "semantic-search",
+        "rag",
+        "multilingual"
+      ]
     },
     {
       "model_id": "nomic-embed-text",
@@ -913,23 +1126,37 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:30.066893",
+      "evaluated_at": "2026-04-14T20:47:25.186513",
       "license": "unknown",
       "model_card": {
         "model_id": "nomic-embed-text",
         "display_name": "Nomic Embed Text",
         "vendor": "Nomic",
         "card_url": null,
-        "card_text": "Nomic Embed Text - High-performing open embedding model with large token context window.\nCompetitive with commercial embedding models.",
+        "card_text": "Nomic Embed Text - High-performing open embedding model with large token context window.\n\nArchitecture: BERT-based embedding model.\nContext: 8K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), sentence similarity,\nlarge context window for document embeddings.\n\nBenchmar ks:\n- Competitive with commercial embedding models\n- Long context capability (8192 tokens)\n\nLicense: Apache 2.0",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 0.137,
+        "context_window_tokens": 8192,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "embeddings",
+          "retrieval",
+          "semantic-search",
+          "rag",
+          "long-context"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "embeddings",
+        "retrieval",
+        "semantic-search",
+        "rag",
+        "long-context"
+      ]
     },
     {
       "model_id": "deepseek-v3.2",
@@ -955,7 +1182,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:28:10.179606",
+      "evaluated_at": "2026-04-14T20:47:26.808921",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -994,23 +1221,37 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:06.175563",
+      "evaluated_at": "2026-04-14T20:47:29.043177",
       "license": "unknown",
       "model_card": {
         "model_id": "mxbai-embed-large",
         "display_name": "MXBAI Embed Large",
         "vendor": "Mixedbread",
         "card_url": null,
-        "card_text": "MXBAI Embed Large - State-of-the-art large embedding model from mixedbread.ai.\nDesigned for high-quality document retrieval and semantic search.",
+        "card_text": "MXBAI Embed Large - State-of-the-art large embedding model from mixedbread.ai.\n\nArchitecture: Dense transformer optimized for embeddings.\nContext: 512 tokens (embedding model).\n\nCapabilities: High-quality text embeddings, semantic search,\nretrieval-augmented generation (RAG), document retrieval,\nsentence similarity, clustering.\n\nBenchmar ks:\n- MTEB leaderboard competitive performance\n- Optimized for retrieval tasks\n\nLicense: Apache 2.0",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 0.335,
+        "context_window_tokens": 512,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "embeddings",
+          "retrieval",
+          "semantic-search",
+          "rag",
+          "mteb"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "embeddings",
+        "retrieval",
+        "semantic-search",
+        "rag",
+        "mteb"
+      ]
     },
     {
       "model_id": "gemma3-4b",
@@ -1023,23 +1264,39 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:28:32.112735",
+      "evaluated_at": "2026-04-14T20:47:29.448551",
       "license": "unknown",
       "model_card": {
         "model_id": "gemma3-4b",
         "display_name": "Gemma 3 4B",
         "vendor": "Google",
         "card_url": null,
-        "card_text": "Gemma 3 4B - Most capable single-GPU multimodal model (text + image).\n128K context, 140+ languages.\nDesigned for vision-language tasks including captioning and visual QA.",
+        "card_text": "Gemma 3 4B - Google's compact multimodal model for single-GPU deployment.\n\nBenchmarks:\n- MMLU: ~72%\n- Multimodal reasoning (MMMU-class tasks)\n\nArchitecture: Dense transformer, 4B parameters.\nContext: 128K tokens.\n\nCapabilities: Multimodal (text + image), 128K context,\n140+ languages, vision-language tasks including captioning and visual QA.\n\nLicense: Gemma Terms of Use",
         "license_kind": "open",
-        "parameter_count_billions": null,
-        "context_window_tokens": null,
+        "parameter_count_billions": 4.0,
+        "context_window_tokens": 128000,
         "release_date": null,
-        "tags": [],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "tags": [
+          "text",
+          "vision",
+          "multimodal",
+          "image-captioning",
+          "vqa",
+          "long-context",
+          "multilingual"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0
       },
-      "tags": []
+      "tags": [
+        "text",
+        "vision",
+        "multimodal",
+        "image-captioning",
+        "vqa",
+        "long-context",
+        "multilingual"
+      ]
     }
   ]
 }
