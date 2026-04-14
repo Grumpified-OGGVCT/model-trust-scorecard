@@ -1,0 +1,14 @@
+{
+  "model_id": "gemini-2.5-pro",
+  "display_name": "Gemini 2.5 Pro",
+  "vendor": "Google",
+  "card_url": "https://deepmind.google/technologies/gemini/",
+  "card_text": "Gemini 2.5 Pro achieves 82.7% on SWE-bench Verified, 89.3% on MMLU, 91.6% on HumanEval, and 80.1% on GPQA Diamond. The model demonstrates 95.7% accuracy on GSM8K and 82.9% on MATH benchmark. It scores 72.8% on TruthfulQA.",
+  "license_kind": "proprietary",
+  "parameter_count_billions": null,
+  "context_window_tokens": 2097152,
+  "release_date": "2026-02-12T00:00:00",
+  "tags": ["multimodal", "long-context", "reasoning", "coding"],
+  "pricing_per_1k_input_usd": 0.0125,
+  "pricing_per_1k_output_usd": 0.0375
+}

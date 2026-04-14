@@ -10,7 +10,6 @@ from trust_scorecard.models import (
     ModelEvaluation,
     BenchmarkConfig,
 )
-from trust_scorecard.pipeline import evaluate_model, evaluate_batch
 
 __all__ = [
     "Claim",
@@ -19,8 +18,6 @@ __all__ = [
     "TrustScore",
     "ModelEvaluation",
     "BenchmarkConfig",
-    "evaluate_model",
-    "evaluate_batch",
 ]
 
 __version__ = "0.1.0"

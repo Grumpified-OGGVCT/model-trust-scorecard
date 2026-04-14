@@ -1,0 +1,14 @@
+{
+  "model_id": "claude-opus-4.5",
+  "display_name": "Claude Opus 4.5",
+  "vendor": "Anthropic",
+  "card_url": "https://www.anthropic.com/claude",
+  "card_text": "Claude Opus 4.5 demonstrates exceptional performance across multiple benchmarks: 89.2% on SWE-bench Verified, 90.1% on MMLU, 94.7% on HumanEval, 82.4% on GPQA Diamond, and 96.8% on GSM8K. The model achieves 85.3% on MATH and 76.2% on TruthfulQA, showcasing strong reasoning and safety characteristics.",
+  "license_kind": "proprietary",
+  "parameter_count_billions": null,
+  "context_window_tokens": 200000,
+  "release_date": "2025-11-01T00:00:00",
+  "tags": ["reasoning", "coding", "long-context", "safety"],
+  "pricing_per_1k_input_usd": 0.015,
+  "pricing_per_1k_output_usd": 0.075
+}
