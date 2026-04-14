@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-14T20:03:35.594743",
+  "generated_at": "2026-04-14T20:15:19.772169",
   "total_models": 26,
   "scores": [
     {
@@ -28,7 +28,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-14T20:03:35.594743",
+      "evaluated_at": "2026-04-14T20:15:19.772169",
       "license": "unknown"
     },
     {
@@ -42,7 +42,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:06.453254",
+      "evaluated_at": "2026-04-14T20:15:24.383207",
       "license": "unknown"
     },
     {
@@ -56,7 +56,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:05.270826",
+      "evaluated_at": "2026-04-14T20:15:23.765433",
       "license": "unknown"
     },
     {
@@ -81,7 +81,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:03:06.413649",
+      "evaluated_at": "2026-04-14T20:15:22.488447",
       "license": "unknown"
     },
     {
@@ -95,21 +95,32 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:06.815240",
+      "evaluated_at": "2026-04-14T20:15:22.906856",
       "license": "unknown"
     },
     {
       "model_id": "deepseek-r1-14b",
       "display_name": "DeepSeek R1 14B",
       "vendor": "DeepSeek",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
+      "trust_score": 18.5,
+      "breakdown": {
+        "coverage_score": 7.5,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "reasoning": 81.2
+        }
+      },
+      "use_case_scores": {
+        "reasoning": 81.2
+      },
+      "total_claims": 2,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:07.301642",
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-14T20:15:19.236252",
       "license": "unknown"
     },
     {
@@ -134,7 +145,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:03:09.187206",
+      "evaluated_at": "2026-04-14T20:15:23.581925",
       "license": "unknown"
     },
     {
@@ -161,7 +172,7 @@
       "verified_count": 2,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:03:35.805126",
+      "evaluated_at": "2026-04-14T20:15:24.403055",
       "license": "unknown"
     },
     {
@@ -186,7 +197,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-14T20:03:10.624683",
+      "evaluated_at": "2026-04-14T20:15:21.905458",
       "license": "unknown"
     },
     {
@@ -211,7 +222,7 @@
       "verified_count": 1,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:05.902317",
+      "evaluated_at": "2026-04-14T20:15:32.590714",
       "license": "unknown"
     },
     {
@@ -225,7 +236,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:29.175983",
+      "evaluated_at": "2026-04-14T20:15:44.445385",
       "license": "unknown"
     },
     {
@@ -250,7 +261,7 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:08.158933",
+      "evaluated_at": "2026-04-14T20:15:22.893812",
       "license": "unknown"
     },
     {
@@ -264,7 +275,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:05.125438",
+      "evaluated_at": "2026-04-14T20:15:22.276062",
       "license": "unknown"
     },
     {
@@ -293,21 +304,32 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:03:07.503085",
+      "evaluated_at": "2026-04-14T20:15:46.770173",
       "license": "unknown"
     },
     {
       "model_id": "qwen3-14b",
       "display_name": "Qwen3 14B",
       "vendor": "Alibaba",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
+      "trust_score": 22.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "reasoning": 78.5
+        }
+      },
+      "use_case_scores": {
+        "reasoning": 78.5
+      },
+      "total_claims": 4,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:05.782850",
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-14T20:15:29.488722",
       "license": "unknown"
     },
     {
@@ -321,7 +343,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:07.598171",
+      "evaluated_at": "2026-04-14T20:15:21.842276",
       "license": "unknown"
     },
     {
@@ -335,7 +357,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:33.973533",
+      "evaluated_at": "2026-04-14T20:15:20.563796",
       "license": "unknown"
     },
     {
@@ -349,7 +371,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:07.793109",
+      "evaluated_at": "2026-04-14T20:15:22.039086",
       "license": "unknown"
     },
     {
@@ -363,21 +385,34 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:31.362066",
+      "evaluated_at": "2026-04-14T20:15:41.530956",
       "license": "unknown"
     },
     {
       "model_id": "llama3.1",
       "display_name": "Llama 3.1",
       "vendor": "Meta",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:08.537274",
+      "trust_score": 49.5,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 13.3,
+        "performance_gap_score": 20.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 89.0,
+          "reasoning": 92.4
+        }
+      },
+      "use_case_scores": {
+        "coding": 89.0,
+        "reasoning": 92.4
+      },
+      "total_claims": 3,
+      "verified_count": 1,
+      "refuted_count": 1,
+      "unverifiable_count": 1,
+      "evaluated_at": "2026-04-14T20:15:47.895456",
       "license": "unknown"
     },
     {
@@ -391,7 +426,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:33.587071",
+      "evaluated_at": "2026-04-14T20:15:56.320431",
       "license": "unknown"
     },
     {
@@ -405,7 +440,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:19.399897",
+      "evaluated_at": "2026-04-14T20:15:23.697479",
       "license": "unknown"
     },
     {
@@ -419,7 +454,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:08.819891",
+      "evaluated_at": "2026-04-14T20:15:21.596875",
       "license": "unknown"
     },
     {
@@ -446,7 +481,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-14T20:03:38.919687",
+      "evaluated_at": "2026-04-14T20:16:01.025984",
       "license": "unknown"
     },
     {
@@ -460,7 +495,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:33.251419",
+      "evaluated_at": "2026-04-14T20:15:46.899790",
       "license": "unknown"
     },
     {
@@ -474,7 +509,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-14T20:03:09.379974",
+      "evaluated_at": "2026-04-14T20:15:22.598979",
       "license": "unknown"
     }
   ]
