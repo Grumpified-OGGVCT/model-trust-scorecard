@@ -97,7 +97,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }}
         .score-high {{ background: #48bb78; color: white; }}
         .score-medium {{ background: #ed8936; color: white; }}
-         .score-low {{ background: #f56565; color: white; }}
+        .score-low {{ background: #f56565; color: white; }}
         .info-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

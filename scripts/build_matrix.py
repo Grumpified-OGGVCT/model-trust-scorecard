@@ -26,6 +26,7 @@ import requests
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
+POWERSHELL_OLLAMA_LIST_RE = re.compile(r"^PS .+>\s+ollama\s+list$", re.IGNORECASE)
 
 
 def load_catalog_models(models_dir: Path) -> list[str]:
@@ -44,7 +45,7 @@ def parse_inventory_models(text: str) -> list[str]:
         if not line:
             continue
         lower = line.lower()
-        if lower.startswith("ps ") or lower.startswith("name  "):
+        if POWERSHELL_OLLAMA_LIST_RE.match(line) or lower.startswith("name  "):
             continue
         if line == "NAME":
             continue

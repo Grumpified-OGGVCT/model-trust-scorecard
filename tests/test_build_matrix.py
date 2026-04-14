@@ -37,6 +37,7 @@ def test_candidate_model_ids_normalize_ollama_tags():
         "gemini-3-flash-preview",
     ]
     assert candidate_model_ids("gemma3:27b-cloud") == ["gemma3:27b-cloud", "gemma3:27b"]
+    assert candidate_model_ids("model-name-cloud") == ["model-name-cloud", "model-name"]
 
 
 def test_prioritize_catalog_models_only_emits_supported_entries():
