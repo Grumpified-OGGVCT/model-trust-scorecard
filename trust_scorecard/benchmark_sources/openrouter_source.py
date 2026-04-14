@@ -1,5 +1,5 @@
 """
-OpenRouter benchmark source for trust-scorecard.
+OpenRouter benchmark source for model-trust-scorecard.
 
 Fetches benchmark data from OpenRouter API using stored credentials.
 Provides coverage for models listed on OpenRouter with ELO rankings,
@@ -28,8 +28,9 @@ class OpenRouterSource(BenchmarkSourceBase):
     
     name = "openrouter"
     
-    def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or os.environ.get("OPENROUTER_API_KEY")
+    def __init__(self, config):
+        super().__init__(config)
+        self.api_key = os.environ.get("OPENROUTER_API_KEY")
         self.base_url = "https://openrouter.ai/api/v1"
         self._model_cache = None
         
@@ -61,7 +62,6 @@ class OpenRouterSource(BenchmarkSourceBase):
     
     def _get_model_info(self, model_id: str) -> Optional[dict]:
         """Get specific model info from OpenRouter."""
-        # Normalize model ID (e.g., "llama3.1" -> "meta-llama/llama-3.1")
         model_map = {
             "llama3.1": "meta-llama/llama-3.1-405b-instruct",
             "llama3.2-vision": "meta-llama/llama-3.2-11b-vision-instruct",
@@ -89,7 +89,6 @@ class OpenRouterSource(BenchmarkSourceBase):
             if response.status_code == 200:
                 return response.json().get("data", {})
             
-            # Fallback: search in models list
             models = self._fetch_models()
             for m in models:
                 if m.get("id") == openrouter_id or model_id in m.get("id", "").lower():
@@ -99,72 +98,63 @@ class OpenRouterSource(BenchmarkSourceBase):
             logger.warning(f"Failed to fetch model info for {model_id}: {e}")
             return None
     
+    def _fetch(self, model_id: str) -> list[BenchmarkResult]:
+        """Fetch benchmark results for model from OpenRouter."""
+        info = self._get_model_info(model_id)
+        if not info:
+            return []
+        
+        results = []
+        
+        # Knowledge cutoff date
+        cutoff = info.get("knowledge_cutoff")
+        if cutoff:
+            results.append(BenchmarkResult(
+                benchmark_id="openrouter_knowledge_cutoff",
+                model_id=model_id,
+                metric_kind=MetricKind.SCORE,
+                value=100.0,
+                source_url=f"https://openrouter.ai/models/{info.get('id', '')}",
+                raw_payload={"knowledge_cutoff": cutoff}
+            ))
+        
+        # ELO-like score based on model tier
+        context_length = info.get("context_length", 0)
+        model_or_id = info.get("id", "").lower()
+        
+        elo_score = 1200
+        if context_length >= 200000:
+            elo_score += 100
+        elif context_length >= 128000:
+            elo_score += 50
+        
+        if any(x in model_or_id for x in ["gpt-4", "claude-opus", "gemini-pro"]):
+            elo_score += 150
+        elif any(x in model_or_id for x in ["llama-3.1", "qwen3"]):
+            elo_score += 100
+        
+        results.append(BenchmarkResult(
+            benchmark_id="openrouter_elo",
+            model_id=model_id,
+            metric_kind=MetricKind.SCORE,
+            value=elo_score,
+            source_url=f"https://openrouter.ai/models/{info.get('id', '')}/benchmarks",
+            raw_payload=info
+        ))
+        
+        return results
+    
     def coverage(self, model_id: str) -> list[str]:
         """Return list of benchmarks OpenRouter provides for this model."""
         info = self._get_model_info(model_id)
         if not info:
             return []
         
-        benchmarks = ["openrouter_elo", "knowledge_cutoff"]
-        
-        # Check for specific benchmark data in model description
-        desc = info.get("description", "")
-        if any(x in desc.lower() for x in ["mmlu", "human eval", "gsm8k"]):
-            benchmarks.append("openrouter_benchmarks")
+        benchmarks = ["openrouter_elo"]
+        if info.get("knowledge_cutoff"):
+            benchmarks.append("openrouter_knowledge_cutoff")
         
         return benchmarks
-    
-    def fetch(self, model_id: str, benchmark_id: str) -> Optional[BenchmarkResult]:
-        """Fetch benchmark result for model from OpenRouter."""
-        info = self._get_model_info(model_id)
-        if not info:
-            return None
-        
-        if benchmark_id == "knowledge_cutoff":
-            # Extract knowledge cutoff date
-            cutoff = info.get("knowledge_cutoff")
-            if cutoff:
-                return BenchmarkResult(
-                    benchmark_id=benchmark_id,
-                    model_id=model_id,
-                    metric_kind=MetricKind.BOOL,
-                    value=100.0,  # Present
-                    source_url=f"https://openrouter.ai/models/{info.get('id', '')}",
-                    raw_payload={"knowledge_cutoff": cutoff}
-                )
-        
-        if benchmark_id == "openrouter_elo":
-            # Check for benchmark stats
-            pricing = info.get("pricing", {})
-            context_length = info.get("context_length", 0)
-            
-            # Construct a composite ELO-like score based on available metrics
-            # This is a heuristic; real ELO would come from arena data
-            elo_score = 1200  # Base
-            
-            # Boost for context length
-            if context_length >= 128000:
-                elo_score += 50
-            elif context_length >= 200000:
-                elo_score += 100
-            
-            # Check for model tier based on ID
-            model_or_id = info.get("id", "").lower()
-            if any(x in model_or_id for x in ["gpt-4", "claude-opus", "gemini-pro"]):
-                elo_score += 150
-            elif any(x in model_or_id for x in ["llama-3.1", "qwen3"]):
-                elo_score += 100
-            
-            return BenchmarkResult(
-                benchmark_id=benchmark_id,
-                model_id=model_id,
-                metric_kind=MetricKind.SCORE,
-                value=elo_score,
-                source_url=f"https://openrouter.ai/models/{info.get('id', '')}/benchmarks",
-                raw_payload=info
-            )
-        
-        return None
     
     def list_models(self) -> list[str]:
         """List all models available on OpenRouter."""
