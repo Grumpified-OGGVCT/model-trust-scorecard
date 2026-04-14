@@ -42,7 +42,7 @@ def load_catalog_models(models_dir: Path) -> list[str]:
 
 
 def parse_inventory_models(text: str) -> list[str]:
-    """Parse model IDs from plain lists or raw `ollama list` terminal output."""
+    """Parse model IDs from plain lists, raw `ollama list`, or categorized Markdown."""
     models: list[str] = []
     for raw_line in text.splitlines():
         line = raw_line.strip()
@@ -55,6 +55,7 @@ def parse_inventory_models(text: str) -> list[str]:
         candidate = columns[0] if columns else line
 
         if " " in candidate:
+            models.extend(parse_markdown_inventory_line(line))
             continue
 
         models.append(candidate)
@@ -67,6 +68,33 @@ def load_inventory_models(inventory_files: list[str]) -> list[str]:
     for inventory_file in inventory_files:
         text = sys.stdin.read() if inventory_file == "-" else Path(inventory_file).read_text()
         models.extend(parse_inventory_models(text))
+    return models
+
+
+def parse_markdown_inventory_line(line: str) -> list[str]:
+    """
+    Parse model IDs from Markdown bullets such as:
+    "- qwen3-embedding:0.6b / 4b - description".
+    """
+    stripped = re.sub(r"^[#>*-]\s*", "", line)
+    stripped = stripped.replace("**", "").replace("__", "").replace("`", "")
+    stripped = stripped.split(" - ", 1)[0].strip()
+    if not stripped:
+        return []
+
+    segments = re.split(r"\s+/\s+", stripped) if "/" in stripped else [stripped]
+    models: list[str] = []
+    base_prefix: str | None = None
+    for segment in segments:
+        segment = segment.strip()
+        if not segment:
+            continue
+        if ":" in segment:
+            clean_segment = segment.split()[0]
+            models.append(clean_segment)
+            base_prefix = clean_segment.split(":", 1)[0]
+        elif base_prefix:
+            models.append(f"{base_prefix}:{segment.split()[0]}")
     return models
 
 
@@ -165,7 +193,10 @@ def main() -> int:
         "--inventory-file",
         action="append",
         default=[],
-        help="Path to a text file (or '-' for stdin) containing one model per line or raw `ollama list` output",
+        help=(
+            "Path to a text file (or '-' for stdin) containing one model per line, raw `ollama list`, "
+            "or categorized Markdown with model names"
+        ),
     )
     parser.add_argument("--max-models", type=int, default=50, help="Safety cap on total models")
     parser.add_argument(

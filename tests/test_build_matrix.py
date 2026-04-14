@@ -8,6 +8,7 @@ from scripts.build_matrix import (
 )
 
 EXAMPLE_INVENTORY = Path("docs/examples/personal-ollama-list.txt")
+ORGANIZED_INVENTORY = Path("docs/examples/personal-ollama-organized.md")
 
 
 def test_parse_inventory_models_from_raw_ollama_list_example():
@@ -28,6 +29,16 @@ def test_load_inventory_models_reads_example_file():
 
     assert len(models) > 50
     assert models[0] == "qwen3-embedding:0.6b"
+
+
+def test_parse_inventory_models_from_categorized_markdown():
+    models = parse_inventory_models(ORGANIZED_INVENTORY.read_text())
+
+    assert "qwen3-embedding:0.6b" in models
+    assert "qwen3-embedding:4b" in models
+    assert "llama3.2-vision:11b-instruct-q4_K_M" in models
+    assert "gemini-3-flash-preview:cloud" in models
+    assert "gemma3:27b-cloud" in models
 
 
 def test_candidate_model_ids_normalize_ollama_tags():
