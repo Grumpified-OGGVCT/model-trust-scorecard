@@ -7,10 +7,11 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            color: #2d3748;
         }
         .container {
             max-width: 1200px;
@@ -21,34 +22,106 @@
             padding: 40px;
         }
         h1 {
-            color: #2d3748;
             margin-bottom: 10px;
             font-size: 2.5rem;
         }
         .subtitle {
             color: #718096;
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             font-size: 1.1rem;
         }
-        .message {
-            text-align: center;
-            padding: 60px 20px;
+        .hero {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 28px;
+        }
+        .hero h2 {
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        .hero p {
+            color: #4a5568;
+            line-height: 1.7;
+            max-width: 850px;
+        }
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .button-primary {
+            background: #667eea;
+            color: white;
+        }
+        .button-secondary {
+            background: white;
+            color: #4c51bf;
+            border: 1px solid #c3dafe;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            margin: 28px 0 16px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+        }
+        .card {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+        .card p,
+        .card li {
+            color: #4a5568;
+            line-height: 1.65;
+        }
+        .card ul {
+            padding-left: 18px;
+        }
+        .muted {
             color: #718096;
         }
+        code {
+            background: #edf2f7;
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.95em;
+        }
         .footer {
-            margin-top: 40px;
+            margin-top: 36px;
             padding-top: 20px;
             border-top: 1px solid #e2e8f0;
             text-align: center;
             color: #718096;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
-        .github-link {
+        .footer a,
+        .link {
             color: #667eea;
             text-decoration: none;
             font-weight: 600;
         }
-        .github-link:hover {
+        .footer a:hover,
+        .link:hover,
+        .button:hover {
             text-decoration: underline;
         }
     </style>
@@ -58,22 +131,80 @@
         <h1>🔍 Model Trust Scorecard</h1>
         <p class="subtitle">Transparent, reproducible verification of AI model benchmark claims</p>
 
-        <div class="message">
-            <h2 style="color: #2d3748; margin-bottom: 20px;">Dashboard Coming Soon</h2>
-            <p style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
-                This dashboard will be automatically generated when the first trust score evaluation runs.
-                Check back soon or trigger an evaluation via GitHub Actions.
+        <div class="hero">
+            <h2>The dashboard is the result page.</h2>
+            <p>
+                When evaluations run, the published rankings appear on this site. Until then, this page explains
+                where each output lands and how to request a review for a model that is not yet in the catalog.
             </p>
+            <div class="button-row">
+                <a class="button button-primary" href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml">Request a model review</a>
+                <a class="button button-secondary" href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/actions/workflows/trust-score.yml">Open evaluation workflow</a>
+            </div>
+        </div>
+
+        <h2 class="section-title">Where the results go</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Published dashboard</h3>
+                <p>
+                    The current rankings are rendered into <code>docs/index.html</code> and served from GitHub Pages at this URL.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Machine-readable aggregate</h3>
+                <p>
+                    The workflow writes the combined scores to
+                    <a class="link" href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/blob/main/trust_scores.json"><code>trust_scores.json</code></a>.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Markdown rankings</h3>
+                <p>
+                    A repo-friendly table is also committed to
+                    <a class="link" href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/blob/main/trust_scores.md"><code>trust_scores.md</code></a>.
+                </p>
+            </div>
+            <div class="card">
+                <h3>Per-run artifacts</h3>
+                <p>
+                    Each workflow run uploads per-model JSON reports as GitHub Actions artifacts so the underlying verification output can be downloaded.
+                </p>
+            </div>
+        </div>
+
+        <h2 class="section-title">How to ask for a review of a model not shown here</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>1. Open a Model Submission issue</h3>
+                <ul>
+                    <li>Use the <a class="link" href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml">Model Submission template</a>.</li>
+                    <li>Include the model name, vendor, benchmark claims, source URL, and license.</li>
+                    <li>This is the clearest path if the model is not already in <code>models/</code>.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>2. Submit a catalog entry by PR</h3>
+                <p>
+                    If you already have the source details, add <code>models/&lt;model-id&gt;.json</code> in a pull request so the workflow can pick it up in normal runs.
+                </p>
+            </div>
+            <div class="card">
+                <h3>3. Run a one-off review yourself</h3>
+                <p>
+                    The CLI can score pasted claims without a catalog entry by using <code>trust-scorecard score ... --text</code> or <code>--text-file</code>.
+                </p>
+            </div>
         </div>
 
         <div class="footer">
-            <p>
-                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard" class="github-link">
-                    View on GitHub
-                </a> |
-                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard#readme" class="github-link">
-                    Documentation
-                </a>
+            <p class="muted">
+                Once the first evaluation is published, this page is replaced with the live rankings dashboard.
+            </p>
+            <p style="margin-top: 10px;">
+                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard">View on GitHub</a> |
+                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard#readme">Documentation</a> |
+                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml">Submit model</a>
             </p>
         </div>
     </div>

@@ -97,7 +97,37 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         }}
         .score-high {{ background: #48bb78; color: white; }}
         .score-medium {{ background: #ed8936; color: white; }}
-        .score-low {{ background: #f56565; color: white; }}
+         .score-low {{ background: #f56565; color: white; }}
+        .info-grid {{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 18px;
+            margin-top: 32px;
+        }}
+        .info-card {{
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 22px;
+        }}
+        .info-card h3 {{
+            margin-bottom: 10px;
+            color: #2d3748;
+        }}
+        .info-card p, .info-card li {{
+            color: #4a5568;
+            line-height: 1.65;
+        }}
+        .info-card ul {{
+            padding-left: 18px;
+        }}
+        code {{
+            background: #edf2f7;
+            border-radius: 6px;
+            padding: 2px 6px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.95em;
+        }}
         .footer {{
             margin-top: 40px;
             padding-top: 20px;
@@ -158,6 +188,26 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             </tbody>
         </table>
 
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Where results go</h3>
+                <ul>
+                    <li>This page is generated into <code>docs/index.html</code> for GitHub Pages.</li>
+                    <li>The machine-readable aggregate is committed as <code>trust_scores.json</code>.</li>
+                    <li>A markdown summary is committed as <code>trust_scores.md</code>.</li>
+                    <li>Per-model verification reports are attached to the workflow run as artifacts.</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Request a review for a model not listed here</h3>
+                <ul>
+                    <li>Open the <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link">Model Submission issue</a>.</li>
+                    <li>Or submit a PR that adds <code>models/&lt;model-id&gt;.json</code> to the catalog.</li>
+                    <li>For one-off checks, run the CLI with pasted claims via <code>trust-scorecard score --text</code> or <code>--text-file</code>.</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="footer">
             <p>Last updated: {updated_at}</p>
             <p style="margin-top: 10px;">
@@ -166,6 +216,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 </a> |
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard#how-it-works" class="github-link">
                     Methodology
+                </a> |
+                <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link">
+                    Submit model
                 </a>
             </p>
         </div>
