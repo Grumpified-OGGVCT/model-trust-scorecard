@@ -175,10 +175,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             <thead>
                 <tr>
                     <th>Rank</th>
-                    <th>Model</th>
-                    <th>Vendor</th>
-                    <th>Trust Score</th>
-                    <th>Verified</th>
+                    <th>Model (Vendor)</th>
+                    <th>Parameters / Context</th>
+                    <th>Trust Score (Verified)</th>
+                    <th>Capabilities</th>
                     <th>Use-Case Strengths</th>
                     <th>License</th>
                 </tr>
@@ -257,7 +257,7 @@ def main():
     total_verified = sum(s["verified_count"] for s in scores)
     verified_pct = (total_verified / total_claims * 100) if total_claims > 0 else 0
 
-    # Generate table rows
+    # Generate table rows with expanded metadata
     rows = []
     for rank, score in enumerate(scores, 1):
         trust_score = score["trust_score"]
@@ -269,13 +269,40 @@ def main():
         score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
         use_case_scores = score.get("use_case_scores", {}) or {}
         use_case_label = ", ".join(f"{k}: {v:.1f}" for k, v in use_case_scores.items()) or "—"
+        
+        # Extract metadata from model card
+        model_card = score.get("model_card", {})
+        params = model_card.get("parameter_count_billions")
+        params_display = f"{params}B" if params else "—"
+        
+        ctx = model_card.get("context_window_tokens")
+        ctx_display = f"{ctx // 1000}K" if ctx else "—"
+        
+        # Build capability tags string
+        tags = score.get("tags", [])
+        tag_html = "".join([f'<span class="tag">{t}</span>' for t in tags[:5]]) if tags else "—"
+        
+        # Build capabilities summary
+        caps = []
+        if any("vision" in t for t in tags):
+            caps.append("Vision")
+        if any("coding" in t for t in tags):
+            caps.append("Code")
+        if any("tool" in t for t in tags):
+            caps.append("Tools")
+        if any("agentic" in t for t in tags):
+            caps.append("Agent")
+        if any("multilingual" in t for t in tags):
+            caps.append("Multi-Lang")
+        caps_display = " • ".join(caps) if caps else "—"
+        
         rows.append(
             f"""<tr>
                 <td>{rank}</td>
-                <td><strong>{score['display_name']}</strong></td>
-                <td>{score['vendor'] or '—'}</td>
-                <td><span class="score-badge {badge_class}">{score_display}</span></td>
-                <td>{score['verified_count']}/{score['total_claims']}</td>
+                <td><strong>{score['display_name']}</strong><br><span style="color:#718096; font-size:0.85em;">{score['vendor'] or '—'}</span></td>
+                <td>{params_display}<br><span style="color:#718096; font-size:0.85em;">{ctx_display} ctx</span></td>
+                <td><span class="score-badge {badge_class}">{score_display}</span><br><span style="color:#718096; font-size:0.85em;">{score['verified_count']}/{score['total_claims']} verified</span></td>
+                <td>{caps_display}</td>
                 <td>{use_case_label}</td>
                 <td>{score.get('license', 'unknown')}</td>
             </tr>"""

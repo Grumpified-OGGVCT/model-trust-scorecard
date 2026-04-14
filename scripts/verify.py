@@ -73,6 +73,7 @@ def main():
         "verified_count": sum(1 for o in evaluation.outcomes if o.status.value == "verified"),
         "refuted_count": sum(1 for o in evaluation.outcomes if o.status.value == "refuted"),
         "unverifiable_count": sum(1 for o in evaluation.outcomes if o.status.value == "unverifiable"),
+        "model_card": evaluation.card.model_dump(mode="json"),
     }
 
     # Write output

@@ -2,6 +2,11 @@
   "model_id": "qwen3-14b",
   "display_name": "Qwen3 14B",
   "vendor": "Alibaba",
-  "card_text": "Qwen3 14B - General instruction-tuned generative model.\n\nBenchmarks:\n- MMLU: 81.05% (5-shot)\n- MMLU-Pro: 61.03% (5-shot, CoT)\n- GSM8K: 92.49% (4-shot, CoT)\n- MATH: 62.02% (4-shot, CoT)\n- HumanEval (EvalPlus): 72.23% (0-shot)\n- MBPP: 73.40% (3-shot)\n\n128K context, multilingual (119 languages), Apache 2.0 license.",
-  "license_kind": "open"
+  "card_text": "Qwen3 14B - Dense Transformer with QK-Norm. Parameter count: 14B. Max context: 128K tokens. Trained on 36T tokens across 119 languages. Apache 2.0 license.\n\nBenchmarks:\n- MMLU: 81.05% (5-shot)\n- MMLU-Pro: 61.03% (5-shot, CoT)\n- GSM8K: 92.49% (4-shot, CoT)\n- MATH: 62.02% (4-shot, CoT)\n- HumanEval (EvalPlus): 72.23% (0-shot)\n- MBPP: 73.40% (3-shot)\n- BBH: 81.07% (3-shot, CoT)\n\nCapabilities: Text generation, reasoning, coding, multilingual (119 languages), tool use (MCP protocol), thinking/non-thinking modes, agentic capabilities.",
+  "license_kind": "open",
+  "parameter_count_billions": 14,
+  "context_window_tokens": 128000,
+  "tags": ["text", "reasoning", "coding", "multilingual", "tool-calling", "long-context", "agentic", "thinking-modes", "mcp"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

@@ -122,6 +122,8 @@ def main():
             "unverifiable_count": report.get("unverifiable_count", 0),
             "evaluated_at": report.get("evaluated_at"),
             "license": report.get("license", "unknown"),
+            "model_card": report.get("model_card", {}),
+            "tags": report.get("model_card", {}).get("tags", []),
         })
 
     # Write JSON

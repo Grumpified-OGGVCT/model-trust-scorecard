@@ -2,6 +2,11 @@
   "model_id": "deepseek-r1-14b",
   "display_name": "DeepSeek R1 14B",
   "vendor": "DeepSeek",
-  "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- MATH-500: 97.3%\n\nDistilled 14B variant optimized for local deployment with high-quality reasoning.",
-  "license_kind": "open"
+  "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher. Architecture: MoE (Mixture-of-Experts). Activated parameters: 14B. Total teacher parameters: 671B. Max context: 128K tokens.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- AIME 2025: 81.5%\n- MATH-500: 97.3%\n- LiveCodeBench: 65.9%\n- SWE-bench Verified: 49.2%\n\nCapabilities: Chain-of-thought reasoning, STEM problem solving, coding, long-context understanding. Distilled version for local deployment. MIT license. Licensed under MIT.",
+  "license_kind": "open",
+  "parameter_count_billions": 14,
+  "context_window_tokens": 128000,
+  "tags": ["text", "reasoning", "coding", "stem", "chain-of-thought", "long-context", "distilled"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }

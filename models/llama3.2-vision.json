@@ -1,7 +1,12 @@
 {
   "model_id": "llama3.2-vision",
-  "display_name": "Llama 3.2 Vision",
+  "display_name": "Llama 3.2 Vision 11B",
   "vendor": "Meta",
-  "card_text": "Llama 3.2 Vision 11B - Multimodal instruction-tuned model.\n\nVision Benchmarks:\n- MMMU: 50.7% (0-shot, CoT)\n- MathVista: 51.5% (testmini)\n- ChartQA: 83.4% (test, CoT)\n- DocVQA: 88.4% (test, ANLS)\n- VQAv2: 75.2% (test)\n- TextVQA: 73.1% (val)\n\nImage reasoning, visual recognition, OCR, 128K context window.",
-  "license_kind": "open"
+  "card_text": "Llama 3.2 Vision 11B - Multimodal Transformer with vision adapter. Parameters: 11B (10.6B active). Architecture: Cross-attention vision adapter + Llama 3.1 language model. Max context: 128K tokens. Trained on 6B image-text pairs.\n\nVision Benchmarks:\n- MMMU (val, CoT): 50.7% (0-shot, college-level reasoning)\n- MMMU-Pro Standard: 33.0% (10 options, test)\n- MMMU-Pro Vision: 23.7% (test)\n- MathVista: 51.5% (testmini, mathematical reasoning + vision)\n- ChartQA: 83.4% (test, CoT, chart understanding)\n- AI2 Diagram: 91.1% (test, diagram understanding)\n- DocVQA: 88.4% (test, ANLS, document OCR + understanding)\n- VQAv2: 75.2% (test, visual question answering)\n- TextVQA: 73.1% (val, text in images)\n\nText Benchmarks:\n- MMLU: 73.0%\n- MATH: 51.9%\n- GPQA: 32.8%\n\nCapabilities: Visual question answering, image captioning, document OCR and analysis, chart/diagram understanding, visual reasoning, multilingual text (8 languages). Supports commercial use.",
+  "license_kind": "open",
+  "parameter_count_billions": 11,
+  "context_window_tokens": 128000,
+  "tags": ["vision", "multimodal", "text", "ocr", "document-analysis", "chart-understanding", "long-context", "vqav2", "docvqa"],
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0
 }
