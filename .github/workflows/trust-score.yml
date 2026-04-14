@@ -135,7 +135,7 @@ jobs:
           pip install -e .
 
       - name: Download all verification reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: report-*
           path: reports/
