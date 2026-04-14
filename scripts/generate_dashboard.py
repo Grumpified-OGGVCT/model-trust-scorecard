@@ -247,7 +247,12 @@ def main():
 
     # Load scores
     data = json.loads(args.input.read_text())
-    scores = sorted(data["scores"], key=lambda x: (x["trust_score"] if x["trust_score"] is not None else -1), reverse=True)
+    # Sort by verified count (absolute) descending, then trust score as tiebreaker
+    scores = sorted(
+        data["scores"],
+        key=lambda x: (x.get("verified_count", 0), x.get("trust_score") or 0),
+        reverse=True
+    )
 
     # Calculate stats (skip None values)
     total_models = len(scores)
