@@ -671,7 +671,7 @@ def build_dashboard_html(aggregated: dict) -> str:
                 <ul>
                     <li>Open the <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link" target="_blank" rel="noopener noreferrer" aria-label="Open the Model Submission issue form in a new tab">Model Submission issue</a>.</li>
                     <li>Or submit a PR that adds <code>models/&lt;model-id&gt;.json</code> to the catalog.</li>
-                    <li>For one-off checks, run the CLI with pasted claims via <code>trust-scorecard score --text</code> or <code>--text-file</code>.</li>
+                    <li>Via CLI: run one-off checks with pasted claims using <code>trust-scorecard score --text</code> or <code>--text-file</code>.</li>
                     <li>Local <code>score</code>/<code>batch</code> runs refresh <code>trust_scores.json</code>, <code>trust_scores.md</code>, and <code>docs/index.html</code>.</li>
                 </ul>
             </div>

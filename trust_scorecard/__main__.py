@@ -345,7 +345,7 @@ def _display_evaluation(evaluation) -> None:
             if outcome.official_value is not None:
                 console.print(f"   Official: {outcome.official_value}% (delta={outcome.delta:.2f}%)")
                 if outcome.benchmark_result:
-                    console.print(f"   Source: {outcome.benchmark_result.source_url or 'Source URL unavailable'}")
+                    console.print(f"   Source: {outcome.benchmark_result.source_url or '—'}")
             console.print(f"   {outcome.notes}")
             console.print()
 
