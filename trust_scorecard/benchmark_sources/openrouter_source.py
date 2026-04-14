@@ -12,13 +12,13 @@ import os
 from typing import Optional
 
 import requests
-from trust_scorecard.benchmark_sources.base import BenchmarkSource, BenchmarkResult
+from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase, BenchmarkResult
 from trust_scorecard.models import MetricKind
 
 logger = logging.getLogger(__name__)
 
 
-class OpenRouterSource(BenchmarkSource):
+class OpenRouterSource(BenchmarkSourceBase):
     """
     Benchmark source using OpenRouter API and leaderboard data.
     
