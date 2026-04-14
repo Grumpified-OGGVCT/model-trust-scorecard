@@ -247,10 +247,18 @@ def main():
 
     # Load scores
     data = json.loads(args.input.read_text())
-    # Sort by verified count (absolute) descending, then trust score as tiebreaker
+    # Sort by ACTUAL CAPABILITY (use-case strength scores), not verification count
+    # Primary: coding score, Secondary: reasoning score, Tertiary: trust score
+    def get_capability_score(score):
+        use_cases = score.get("use_case_scores", {}) or {}
+        # Average of available use-case scores
+        if use_cases:
+            return sum(use_cases.values()) / len(use_cases)
+        return score.get("trust_score") or 0
+    
     scores = sorted(
         data["scores"],
-        key=lambda x: (x.get("verified_count", 0), x.get("trust_score") or 0),
+        key=lambda x: get_capability_score(x),
         reverse=True
     )
 
