@@ -16,49 +16,42 @@
 | 12 | MiniMax M2.7 Cloud | MiniMax | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
 | 13 | Devstral 2 123B Cloud | Mistral | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
 | 14 | Kimi K2.5 Cloud | Moonshot | ![9.8](https://img.shields.io/badge/Trust-9.8-orange) | 0/1 | unknown |
-| 15 | ViduQ1-Start-End | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 16 | GLM-4.5-Flash | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 17 | Granite 3.3 8B | IBM | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 18 | GLM-4.6V-FlashX | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 19 | GLM-4.5-AirX | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 20 | GLM-4-32B-0414-128K | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 21 | GLM-4.6V | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 22 | GLM-5-Turbo | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 23 | GLM-4.6V-Flash | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 24 | GLM-4.7-Flash | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 25 | Vidu2-Image | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 26 | GLM-4.5V | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 27 | CogVideoX-3 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 28 | GLM-OCR | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 29 | Viduq1-Image | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 30 | GLM-5V-Turbo | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 31 | Vidu2-Reference | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 32 | Nomic Embed Text v2 MoE | Nomic | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 33 | GLM-ASR-2512 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 34 | Qwen3 VL 235B Cloud | Alibaba | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 35 | GLM-4-Plus | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 36 | GLM-4.5 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 37 | GLM-4.5-Air | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 38 | DeepCoder | Community | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 39 | GLM-4.6 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 40 | Cogito 14B | Deep Cogito | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 41 | Cogito 2.1 671B Cloud | Deep Cogito | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 42 | CogView-4-250304 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 43 | Embedding Gemma | Google | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 44 | GLM-Image | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 45 | LLaVA | Community | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 46 | Qwen3 Embedding 0.6B | Alibaba | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 47 | ViduQ1-text | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 48 | Vidu2-Start-End | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 49 | GLM-4.7-FlashX | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 50 | Nomic Embed Text | Nomic | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 51 | GLM-5.1 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 52 | AutoGLM-Phone-Multilingual | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 53 | ViduQ1-Reference | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 54 | MXBAI Embed Large | Mixedbread | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 55 | GLM-5 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 56 | GLM-4.7 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 57 | Gemma 3 4B | Google | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 15 | GLM-4.5-Flash | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 16 | Granite 3.3 8B | IBM | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 17 | GLM-4.6V-FlashX | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 18 | GLM-4.5-AirX | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 19 | GLM-4-32B-0414-128K | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 20 | GLM-4.6V | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 21 | GLM-5-Turbo | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 22 | GLM-4.6V-Flash | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 23 | GLM-4.7-Flash | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 24 | GLM-4.5V | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 25 | CogVideoX-3 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 26 | GLM-OCR | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 27 | GLM-5V-Turbo | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 28 | Nomic Embed Text v2 MoE | Nomic | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 29 | GLM-ASR-2512 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 30 | Qwen3 VL 235B Cloud | Alibaba | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 31 | GLM-4-Plus | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 32 | GLM-4.5 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 33 | GLM-4.5-Air | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 34 | DeepCoder | Community | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 35 | GLM-4.6 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 36 | Cogito 14B | Deep Cogito | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 37 | Cogito 2.1 671B Cloud | Deep Cogito | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 38 | CogView-4-250304 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 39 | Embedding Gemma | Google | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 40 | GLM-Image | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 41 | LLaVA | Community | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 42 | Qwen3 Embedding 0.6B | Alibaba | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 43 | GLM-4.7-FlashX | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 44 | Nomic Embed Text | Nomic | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 45 | GLM-5.1 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 46 | AutoGLM-Phone-Multilingual | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 47 | MXBAI Embed Large | Mixedbread | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 48 | GLM-5 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 49 | GLM-4.7 | Zhipu AI | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 50 | Gemma 3 4B | Google | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 
 ---
 
@@ -67,4 +60,4 @@
 - 🟡 **60-79**: Moderately trustworthy - some claims verified
 - 🟠 **<60**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-04-20T04:58:06.949447*
+*Last updated: 2026-04-20T13:21:30.424773*
