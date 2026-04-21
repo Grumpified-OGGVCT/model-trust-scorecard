@@ -74,7 +74,7 @@ jobs:
             --output claims.json
 
       - name: Upload claims artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: claims
           path: claims.json
@@ -110,7 +110,7 @@ jobs:
             --tolerance 2.0
 
       - name: Upload verification report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: report-${{ matrix.model_id }}
           path: reports/${{ matrix.model_id }}.json
@@ -155,7 +155,7 @@ jobs:
             --output docs/index.html
 
       - name: Upload results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: trust-scores
           path: |
