@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-04-22T04:46:42.550087",
-  "total_models": 57,
+  "generated_at": "2026-04-22T13:18:20.599820",
+  "total_models": 50,
   "scores": [
     {
       "model_id": "llama3.1",
@@ -28,7 +28,7 @@
       "verified_count": 1,
       "refuted_count": 1,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-22T04:46:42.550087",
+      "evaluated_at": "2026-04-22T13:18:20.599820",
       "license": "unknown",
       "model_card": {
         "model_id": "llama3.1",
@@ -71,7 +71,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:33.152997",
+      "evaluated_at": "2026-04-22T13:18:32.417669",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-7-flash",
@@ -114,7 +114,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:30.473666",
+      "evaluated_at": "2026-04-22T13:17:54.857924",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-32b-0414-128k",
@@ -164,7 +164,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-22T04:46:46.586373",
+      "evaluated_at": "2026-04-22T13:18:51.381389",
       "license": "unknown",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
@@ -203,7 +203,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:32.353731",
+      "evaluated_at": "2026-04-22T13:18:31.537173",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6v-flash",
@@ -248,7 +248,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:30.741663",
+      "evaluated_at": "2026-04-22T13:18:52.764755",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5-air",
@@ -291,7 +291,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:47.444594",
+      "evaluated_at": "2026-04-22T13:17:56.804653",
       "license": "unknown",
       "model_card": {
         "model_id": "nomic-embed-text",
@@ -334,7 +334,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:23.806626",
+      "evaluated_at": "2026-04-22T13:18:55.755781",
       "license": "unknown",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
@@ -392,7 +392,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-22T04:46:25.852582",
+      "evaluated_at": "2026-04-22T13:18:28.532629",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-r1-14b",
@@ -448,7 +448,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-22T04:46:35.644396",
+      "evaluated_at": "2026-04-22T13:18:59.406863",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5.1-cloud",
@@ -508,7 +508,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-22T04:46:29.907514",
+      "evaluated_at": "2026-04-22T13:18:51.796883",
       "license": "unknown",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -547,7 +547,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:21.984328",
+      "evaluated_at": "2026-04-22T13:17:54.511218",
       "license": "unknown",
       "model_card": {
         "model_id": "autoglm-phone-multilingual",
@@ -605,7 +605,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-22T04:46:43.799068",
+      "evaluated_at": "2026-04-22T13:18:47.227804",
       "license": "unknown",
       "model_card": {
         "model_id": "llama3.2-vision",
@@ -654,7 +654,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:37.068319",
+      "evaluated_at": "2026-04-22T13:18:25.029860",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-ocr",
@@ -710,7 +710,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-22T04:46:28.350983",
+      "evaluated_at": "2026-04-22T13:17:59.676126",
       "license": "unknown",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
@@ -755,7 +755,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:31.007064",
+      "evaluated_at": "2026-04-22T13:18:24.075561",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5-airx",
@@ -798,7 +798,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:38.542267",
+      "evaluated_at": "2026-04-22T13:18:22.081748",
       "license": "unknown",
       "model_card": {
         "model_id": "granite3.3-8b",
@@ -831,47 +831,6 @@
       ]
     },
     {
-      "model_id": "vidu2-start-end",
-      "display_name": "Vidu2-Start-End",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:50.073507",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "vidu2-start-end",
-        "display_name": "Vidu2-Start-End",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "Vidu2-Start-End from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Vidu\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "video",
-          "vidu"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "video",
-        "vidu"
-      ]
-    },
-    {
       "model_id": "glm-4-7-flashx",
       "display_name": "GLM-4.7-FlashX",
       "vendor": "Zhipu AI",
@@ -882,7 +841,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:33.418162",
+      "evaluated_at": "2026-04-22T13:18:55.270797",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-7-flashx",
@@ -915,47 +874,6 @@
       ]
     },
     {
-      "model_id": "vidu2-reference",
-      "display_name": "Vidu2-Reference",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:49.794135",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "vidu2-reference",
-        "display_name": "Vidu2-Reference",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "Vidu2-Reference from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Vidu\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "video",
-          "vidu"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "video",
-        "vidu"
-      ]
-    },
-    {
       "model_id": "cogito-14b",
       "display_name": "Cogito 14B",
       "vendor": "Deep Cogito",
@@ -966,7 +884,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:23.541957",
+      "evaluated_at": "2026-04-22T13:18:29.055686",
       "license": "unknown",
       "model_card": {
         "model_id": "cogito-14b",
@@ -1020,7 +938,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-22T04:46:40.055845",
+      "evaluated_at": "2026-04-22T13:18:00.989981",
       "license": "unknown",
       "model_card": {
         "model_id": "hermes3-8b",
@@ -1063,7 +981,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:24.077818",
+      "evaluated_at": "2026-04-22T13:18:24.447579",
       "license": "unknown",
       "model_card": {
         "model_id": "cogvideox-3",
@@ -1100,7 +1018,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:44.126984",
+      "evaluated_at": "2026-04-22T13:18:20.729527",
       "license": "unknown",
       "model_card": {
         "model_id": "llava",
@@ -1143,7 +1061,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:32.887537",
+      "evaluated_at": "2026-04-22T13:18:22.723343",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6v",
@@ -1197,7 +1115,7 @@
       "verified_count": 2,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-22T04:46:38.229934",
+      "evaluated_at": "2026-04-22T13:17:57.510944",
       "license": "unknown",
       "model_card": {
         "model_id": "gpt-4.1",
@@ -1234,7 +1152,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:32.620835",
+      "evaluated_at": "2026-04-22T13:17:50.866981",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6v-flashx",
@@ -1294,7 +1212,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-22T04:46:23.239910",
+      "evaluated_at": "2026-04-22T13:17:58.310846",
       "license": "unknown",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -1323,47 +1241,6 @@
       ]
     },
     {
-      "model_id": "viduq1-start-end",
-      "display_name": "ViduQ1-Start-End",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:50.899771",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "viduq1-start-end",
-        "display_name": "ViduQ1-Start-End",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "ViduQ1-Start-End from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Vidu\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "video",
-          "vidu"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "video",
-        "vidu"
-      ]
-    },
-    {
       "model_id": "glm-5-turbo",
       "display_name": "GLM-5-Turbo",
       "vendor": "Zhipu AI",
@@ -1374,7 +1251,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:34.485209",
+      "evaluated_at": "2026-04-22T13:18:28.080986",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5-turbo",
@@ -1413,7 +1290,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:36.519300",
+      "evaluated_at": "2026-04-22T13:17:54.304680",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-asr-2512",
@@ -1458,7 +1335,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:31.273664",
+      "evaluated_at": "2026-04-22T13:18:50.456189",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5-flash",
@@ -1501,7 +1378,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:49.238201",
+      "evaluated_at": "2026-04-22T13:17:54.536108",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-vl-235b-cloud",
@@ -1546,7 +1423,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:31.539081",
+      "evaluated_at": "2026-04-22T13:18:27.990142",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5",
@@ -1585,7 +1462,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:32.087624",
+      "evaluated_at": "2026-04-22T13:18:57.545334",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6",
@@ -1624,7 +1501,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:30.209251",
+      "evaluated_at": "2026-04-22T13:18:25.869511",
       "license": "unknown",
       "model_card": {
         "model_id": "gemma3-4b",
@@ -1669,7 +1546,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:47.170712",
+      "evaluated_at": "2026-04-22T13:17:51.928566",
       "license": "unknown",
       "model_card": {
         "model_id": "nomic-embed-text-v2-moe",
@@ -1727,7 +1604,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-04-22T04:46:48.637931",
+      "evaluated_at": "2026-04-22T13:17:54.658723",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-14b",
@@ -1776,7 +1653,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:36.239889",
+      "evaluated_at": "2026-04-22T13:17:54.491851",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5v-turbo",
@@ -1807,47 +1684,6 @@
       ]
     },
     {
-      "model_id": "viduq1-image",
-      "display_name": "Viduq1-Image",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:50.344545",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "viduq1-image",
-        "display_name": "Viduq1-Image",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "Viduq1-Image from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Vidu\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "video",
-          "vidu"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "video",
-        "vidu"
-      ]
-    },
-    {
       "model_id": "glm-4-5v",
       "display_name": "GLM-4.5V",
       "vendor": "Zhipu AI",
@@ -1858,7 +1694,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:31.806006",
+      "evaluated_at": "2026-04-22T13:18:22.175009",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5v",
@@ -1910,7 +1746,7 @@
       "verified_count": 1,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:45.345820",
+      "evaluated_at": "2026-04-22T13:18:51.300286",
       "license": "unknown",
       "model_card": {
         "model_id": "minimax-m2.5-cloud",
@@ -1955,7 +1791,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:46.895585",
+      "evaluated_at": "2026-04-22T13:17:56.698640",
       "license": "unknown",
       "model_card": {
         "model_id": "mxbai-embed-large",
@@ -2011,7 +1847,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-22T04:46:27.105071",
+      "evaluated_at": "2026-04-22T13:17:55.420915",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -2050,7 +1886,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:28.656941",
+      "evaluated_at": "2026-04-22T13:18:21.355030",
       "license": "unknown",
       "model_card": {
         "model_id": "embeddinggemma",
@@ -2091,7 +1927,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:24.614214",
+      "evaluated_at": "2026-04-22T13:18:31.600126",
       "license": "unknown",
       "model_card": {
         "model_id": "deepcoder",
@@ -2130,7 +1966,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:48.958673",
+      "evaluated_at": "2026-04-22T13:18:30.504999",
       "license": "unknown",
       "model_card": {
         "model_id": "qwen3-embedding-0.6b",
@@ -2173,7 +2009,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:33.682268",
+      "evaluated_at": "2026-04-22T13:18:24.012767",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-7",
@@ -2212,7 +2048,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:35.960839",
+      "evaluated_at": "2026-04-22T13:17:55.204421",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5",
@@ -2241,47 +2077,6 @@
       ]
     },
     {
-      "model_id": "viduq1-reference",
-      "display_name": "ViduQ1-Reference",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:50.623304",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "viduq1-reference",
-        "display_name": "ViduQ1-Reference",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "ViduQ1-Reference from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Vidu\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "video",
-          "vidu"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "video",
-        "vidu"
-      ]
-    },
-    {
       "model_id": "glm-5-1",
       "display_name": "GLM-5.1",
       "vendor": "Zhipu AI",
@@ -2292,7 +2087,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:34.216253",
+      "evaluated_at": "2026-04-22T13:17:52.860418",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5-1",
@@ -2335,7 +2130,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:24.345493",
+      "evaluated_at": "2026-04-22T13:19:16.021322",
       "license": "unknown",
       "model_card": {
         "model_id": "cogview-4-250304",
@@ -2376,7 +2171,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:36.792396",
+      "evaluated_at": "2026-04-22T13:18:29.427224",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-image",
@@ -2415,7 +2210,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:33.947087",
+      "evaluated_at": "2026-04-22T13:17:56.525787",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-plus",
@@ -2448,88 +2243,6 @@
       ]
     },
     {
-      "model_id": "vidu2-image",
-      "display_name": "Vidu2-Image",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:49.516486",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "vidu2-image",
-        "display_name": "Vidu2-Image",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "Vidu2-Image from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Vidu\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "video",
-          "vidu"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "video",
-        "vidu"
-      ]
-    },
-    {
-      "model_id": "viduq1-text",
-      "display_name": "ViduQ1-text",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:51.182394",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "viduq1-text",
-        "display_name": "ViduQ1-text",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "ViduQ1-text from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Vidu\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "video",
-          "vidu"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "video",
-        "vidu"
-      ]
-    },
-    {
       "model_id": "kimi-k2.5-cloud",
       "display_name": "Kimi K2.5 Cloud",
       "vendor": "Moonshot",
@@ -2551,7 +2264,7 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-22T04:46:41.251671",
+      "evaluated_at": "2026-04-22T13:17:56.594569",
       "license": "unknown",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
