@@ -11,7 +11,7 @@ import enum
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 
 # ---------------------------------------------------------------------------
 # Enumerations
@@ -74,6 +74,28 @@ class BenchmarkResult(BaseModel):
     raw_payload: dict[str, Any] | None = Field(
         None, description="Raw JSON from the data source for full auditability"
     )
+
+
+class BenchmarkClaim(BaseModel):
+    """A structured 0-100 benchmark claim supplied directly in a model catalog entry."""
+
+    benchmark: str = Field(
+        ...,
+        description=(
+            "Benchmark name, configured display name, or configured ID such as "
+            "'MMLU', 'SWE-bench Verified', or 'swe_bench_verified'."
+        ),
+    )
+    metric: str | None = Field(None, description="Reported metric, e.g. 'accuracy' or 'pass@1'")
+    value: float = Field(
+        ...,
+        ge=0.0,
+        le=100.0,
+        description="Claimed benchmark result normalized to the current 0-100 scoring scale.",
+    )
+    source: str | None = None
+    source_url: str | None = None
+    raw: str | None = None
 
 
 class VerificationOutcome(BaseModel):
@@ -144,6 +166,18 @@ class ModelCard(BaseModel):
     artificial_analysis_coding_index: float | None = None
     artificial_analysis_agentic_index: float | None = None
     capability_rank: int | None = None
+    benchmark_claims: list[BenchmarkClaim] = Field(default_factory=list)
+
+    @model_validator(mode="before")
+    @classmethod
+    def coerce_legacy_catalog_fields(cls, data: Any) -> Any:
+        """Accept older catalog fields used by supplied model JSON files."""
+        if not isinstance(data, dict):
+            return data
+        if "license_kind" not in data and "license" in data:
+            data = data.copy()
+            data["license_kind"] = data["license"]
+        return data
 
 
 class ModelEvaluation(BaseModel):

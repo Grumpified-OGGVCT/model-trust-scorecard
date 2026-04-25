@@ -21,12 +21,21 @@ from pathlib import Path
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.claim_extractor import extract_claims
-from trust_scorecard.models import BenchmarkResult, LicenseKind, ModelCard, ModelEvaluation
+from trust_scorecard.models import (
+    BenchmarkClaim,
+    BenchmarkResult,
+    Claim,
+    LicenseKind,
+    ModelCard,
+    ModelEvaluation,
+)
 from trust_scorecard.persistence import EvaluationStore
 from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
 
 logger = logging.getLogger(__name__)
+SWE_BENCH_NORMALIZED_NAME = "swebench"
+SWE_BENCH_VERIFIED_NORMALIZED_NAME = "swebenchverified"
 
 
 class EvaluationPipeline:
@@ -84,7 +93,17 @@ class EvaluationPipeline:
 
         # Stage 1: Extract claims
         text = card_text or model_card.card_text or ""
-        claims = extract_claims(text, source_url=source_url or model_card.card_url)
+        text_claims = extract_claims(text, source_url=source_url or model_card.card_url)
+        # Text-extracted claims come first so source-specific prose takes precedence
+        # over catalog fallback claims when both describe the same benchmark value.
+        claims = _dedupe_claims([
+            *text_claims,
+            *_claims_from_structured_benchmarks(
+                model_card.benchmark_claims,
+                self.benchmark_sources,
+                fallback_source_url=source_url or model_card.card_url,
+            ),
+        ])
         logger.info("Extracted %d claims", len(claims))
 
         if not claims:
@@ -229,6 +248,81 @@ def load_model_card_from_json(path: str | Path) -> ModelCard:
         data["release_date"] = datetime.fromisoformat(data["release_date"])
 
     return ModelCard(**data)
+
+
+def _claims_from_structured_benchmarks(
+    benchmark_claims: list[BenchmarkClaim],
+    benchmark_sources: list[BenchmarkSourceBase] | None = None,
+    fallback_source_url: str | None = None,
+) -> list[Claim]:
+    """Convert catalog-supplied benchmark_claims into verifier claims."""
+    claims: list[Claim] = []
+    for item in benchmark_claims:
+        source_url = _structured_claim_source_url(item, fallback_source_url)
+        benchmark = _canonical_structured_benchmark_name(item.benchmark, benchmark_sources)
+        metric_label = f" {item.metric}" if item.metric else ""
+        source_label = f" ({item.source})" if item.source else ""
+        raw = item.raw or f"{benchmark}{metric_label} result: {item.value}{source_label}"
+        claims.append(
+            Claim.model_validate(
+                {
+                    "metric": benchmark,
+                    "value": item.value,
+                    "raw": raw,
+                    "source_url": source_url,
+                }
+            )
+        )
+    return claims
+
+
+def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
+    """Deduplicate text-extracted and structured claims while preserving order."""
+    seen_metrics: set[str] = set()
+    deduped: list[Claim] = []
+    for claim in claims:
+        key = _normalize_claim_metric(claim.metric)
+        if key in seen_metrics:
+            continue
+        seen_metrics.add(key)
+        deduped.append(claim)
+    return deduped
+
+
+def _normalize_claim_metric(name: str) -> str:
+    return name.lower().replace(" ", "").replace("-", "").replace("_", "")
+
+
+def _canonical_structured_benchmark_name(
+    name: str,
+    benchmark_sources: list[BenchmarkSourceBase] | None = None,
+) -> str:
+    stripped = name.strip()
+    normalized = _normalize_claim_metric(stripped)
+
+    for source in benchmark_sources or []:
+        normalized_id = _normalize_claim_metric(source.config.id)
+        normalized_display_name = _normalize_claim_metric(source.config.display_name)
+        if normalized in {normalized_id, normalized_display_name}:
+            return source.config.display_name
+        if (
+            normalized == SWE_BENCH_NORMALIZED_NAME
+            and SWE_BENCH_VERIFIED_NORMALIZED_NAME in {normalized_id, normalized_display_name}
+        ):
+            return source.config.display_name
+
+    return stripped
+
+
+def _structured_claim_source_url(
+    item: BenchmarkClaim,
+    fallback_source_url: str | None = None,
+) -> str | None:
+    if item.source_url:
+        return item.source_url
+    if item.source and item.source.startswith("http"):
+        return item.source
+    return fallback_source_url
 
 
 def load_model_cards_from_directory(directory: str | Path) -> list[ModelCard]:
