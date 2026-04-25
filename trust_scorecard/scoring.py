@@ -190,11 +190,16 @@ STANDARD_BENCHMARK_ALIASES: dict[str, set[str]] = {
     },
 }
 
+LOWER_IS_BETTER_METRICS = {
+    _normalize_metric("Hallucination Rate"),
+    _normalize_metric("Structured Output Error Rate"),
+}
+
 
 def _value_for_outcome(outcome: VerificationOutcome) -> float:
     value = outcome.official_value if outcome.official_value is not None else outcome.claim.value
     norm = _normalize_metric(outcome.claim.metric)
-    if norm in {_normalize_metric("Hallucination Rate"), _normalize_metric("Structured Output Error Rate")}:
+    if norm in LOWER_IS_BETTER_METRICS:
         return max(0.0, 100.0 - value)
     return value
 

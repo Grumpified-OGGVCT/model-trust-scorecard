@@ -41,7 +41,7 @@ def load_catalog_models(models_dir: Path) -> list[str]:
         rank = None
         try:
             rank = json.loads(path.read_text()).get("capability_rank")
-        except Exception as exc:  # noqa: BLE001
+        except (json.JSONDecodeError, OSError, TypeError, ValueError) as exc:
             logger.warning("Failed to read capability rank from %s: %s", path, exc)
         ranked_ids.append((rank is None, int(rank or 0), path.stem))
     return [model_id for _, _, model_id in sorted(ranked_ids)]
