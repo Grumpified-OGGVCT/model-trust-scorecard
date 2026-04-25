@@ -36,6 +36,7 @@ AGENTIC_TAGS = {"agentic", "tool-use", "function-calling", "software-engineering
 
 
 def _numeric_scores(scores: Mapping[str, float]) -> dict[str, float]:
+    """Return score entries that can be safely converted to floats."""
     numeric_scores: dict[str, float] = {}
     for name, value in scores.items():
         try:
