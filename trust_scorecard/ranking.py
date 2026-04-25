@@ -7,20 +7,50 @@ from typing import Any
 
 from trust_scorecard.models import ModelCard, ModelEvaluation
 
-USE_CASE_PRIORITY = (
-    "coding",
-    "reasoning",
-    "tool_use",
-    "long_context",
-    "multilingual",
-    "safety",
-    "commonsense",
-    "efficiency",
-    "edge",
-)
+# Weights prioritize core frontier capabilities while including specialized metrics to reward
+# measured breadth without allowing niche performance to skew rankings.
+CAPABILITY_WEIGHTS = {
+    # Core frontier-model competencies get the highest weight because they are broad,
+    # heavily benchmarked predictors of general model quality.
+    "coding": 2.0,
+    "reasoning": 2.0,
+    "math": 1.5,
+    "tool_use": 1.5,
+    # Specialized modalities and reliability dimensions contribute meaningfully but
+    # should not outweigh core capability when fewer models report those scores.
+    "agent_swarm": 1.2,
+    "multimodal": 1.2,
+    "vision_coding": 1.0,
+    "ocr": 0.8,
+    "video_understanding": 0.8,
+    "multilingual": 0.8,
+    "multilingual_depth": 0.7,
+    "safety": 0.7,
+    "hallucination_fidelity": 0.7,
+    "long_context": 0.5,
+    "commonsense": 0.5,
+    "office_document": 0.5,
+    # Deployment-oriented metrics are useful tie-shapers, not primary capability signals.
+    "efficiency": 0.3,
+    "edge": 0.3,
+}
+
+MIN_SCORES_FOR_RANKING = 3
+DEFAULT_CAPABILITY_WEIGHT = 0.5
 
 MULTIMODAL_TAGS = {"multimodal", "vision", "video", "ocr", "document-analysis"}
 AGENTIC_TAGS = {"agentic", "tool-use", "function-calling", "software-engineering"}
+
+
+def _numeric_scores(scores: Mapping[str, float]) -> dict[str, float]:
+    """Return score entries that can be safely converted to floats."""
+    numeric_scores: dict[str, float] = {}
+    for name, value in scores.items():
+        try:
+            numeric_scores[name] = float(value)
+        except (TypeError, ValueError):
+            continue
+    return numeric_scores
 
 
 def capability_sort_key(
@@ -34,22 +64,33 @@ def capability_sort_key(
     tags = set(card.tags or [])
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
-    use_case_breadth = sum(1 for value in scores.values() if value > 0)
-    capability_rank = (
-        (0, card.capability_rank) if card.capability_rank is not None else (1, float("inf"))
-    )
+    valid_numeric_scores = _numeric_scores(scores)
+
+    if len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING:
+        weighted_score = sum(
+            value * CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
+            for name, value in valid_numeric_scores.items()
+        )
+        total_weight = sum(
+            CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
+            for name in valid_numeric_scores
+        )
+        composite = weighted_score / total_weight
+        capability_tier = (0, -composite)
+    elif valid_numeric_scores:
+        capability_tier = (1, 0.0)
+    else:
+        capability_tier = (2, 0.0)
 
     return (
-        capability_rank,
-        *(-float(scores.get(name, 0.0)) for name in USE_CASE_PRIORITY),
-        -use_case_breadth,
+        capability_tier,
+        -(trust_score or 0.0),
         -benchmark_evidence_count,
         -int(bool(tags & MULTIMODAL_TAGS)),
         -int(bool(tags & AGENTIC_TAGS)),
         -active_params,
         -total_params,
         -(card.context_window_tokens or 0),
-        -(trust_score or 0.0),
         card.display_name.lower(),
     )
 

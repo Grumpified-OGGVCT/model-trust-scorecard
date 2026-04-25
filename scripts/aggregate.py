@@ -34,7 +34,7 @@ def _numeric_trust_score(score: dict) -> float:
 
 
 def sort_scores_by_capability(scores: list[dict]) -> list[dict]:
-    """Sort scores by explicit capability priority, not by trust totals."""
+    """Sort scores by weighted demonstrated capability, not by static rank or trust totals."""
     return sorted(scores, key=score_record_sort_key)
 
 
@@ -77,7 +77,9 @@ def generate_markdown_table(scores: list[dict]) -> str:
         "---",
         "",
         "**Legend:**",
-        "- Rank order: demonstrated capability rank, use-case scores, benchmark breadth, capability metadata, scale/context, then trust score as a late tie-breaker.",
+        "- Rank order: models with at least three use-case scores are ranked by weighted demonstrated capability.",
+        "- Tie-breakers: trust score, evidence, capability metadata, scale/context, and name.",
+        "- Partial-data models follow the ranked tier, and models with no use-case scores are placed last.",
         "- 🟢 **50-100**: Higher relative trust in the current score distribution",
         "- 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage",
         "- 🟠 **<30**: Low trust - few claims verified or significant gaps",

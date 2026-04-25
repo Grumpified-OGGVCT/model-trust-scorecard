@@ -9,35 +9,55 @@ from trust_scorecard.models import (
     VerificationOutcome,
     VerificationStatus,
 )
-from trust_scorecard.ranking import capability_sort_key, evaluation_sort_key, score_record_sort_key
+from trust_scorecard.ranking import (
+    _numeric_scores,
+    capability_sort_key,
+    evaluation_sort_key,
+    score_record_sort_key,
+)
 
 
-def test_capability_rank_beats_trust_score():
-    higher_trust = ModelCard(
-        model_id="higher-trust",
-        display_name="Higher Trust",
+def test_numeric_scores_filters_invalid_values():
+    assert _numeric_scores(
+        {
+            "coding": 99.0,
+            "reasoning": "98.5",
+            "math": "n/a",
+            "safety": None,
+            "edge": "",
+            "multimodal": {"nested": "object"},
+            "agent_swarm": ["not", "numeric"],
+        }
+    ) == {"coding": 99.0, "reasoning": 98.5}
+
+
+def test_composite_capability_score_beats_static_capability_rank():
+    # Inverted legacy capability_rank values verify that the static field is ignored.
+    static_ranked = ModelCard(
+        model_id="static-ranked",
+        display_name="Static Ranked",
         capability_rank=5,
         tags=["text", "coding"],
     )
-    higher_capability = ModelCard(
-        model_id="higher-capability",
-        display_name="Higher Capability",
+    dynamically_stronger = ModelCard(
+        model_id="dynamically-stronger",
+        display_name="Dynamically Stronger",
         capability_rank=1,
         tags=["text", "coding"],
     )
 
     ranked = sorted(
         [
-            (higher_trust, {"coding": 95.0}, 99.0),
-            (higher_capability, {"coding": 70.0}, 10.0),
+            (static_ranked, {"coding": 70.0, "reasoning": 70.0, "math": 70.0}, 99.0),
+            (dynamically_stronger, {"coding": 90.0, "reasoning": 88.0, "math": 86.0}, 10.0),
         ],
         key=lambda item: capability_sort_key(item[0], item[1], item[2]),
     )
 
-    assert ranked[0][0].model_id == "higher-capability"
+    assert ranked[0][0].model_id == "dynamically-stronger"
 
 
-def test_benchmark_evidence_beats_trust_score_after_capability_scores():
+def test_minimum_score_count_gates_capability_ranking():
     sparse_high_trust = ModelCard(
         model_id="sparse-high-trust",
         display_name="Sparse High Trust",
@@ -55,13 +75,62 @@ def test_benchmark_evidence_beats_trust_score_after_capability_scores():
 
     ranked = sorted(
         [
-            (sparse_high_trust, {"coding": 80.0}, 99.0, 1),
-            (broad_low_trust, {"coding": 80.0, "reasoning": 80.0}, 10.0, 6),
+            (
+                sparse_high_trust,
+                {"coding": 99.0, "reasoning": 99.0, "math": "n/a", "safety": None, "edge": ""},
+                99.0,
+                1,
+            ),
+            (broad_low_trust, {"coding": 80.0, "reasoning": 80.0, "math": 80.0}, 10.0, 6),
         ],
         key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3]),
     )
 
     assert ranked[0][0].model_id == "broad-low-trust"
+
+
+def test_partial_data_sorts_by_trust_before_metadata():
+    lower_trust = ModelCard(
+        model_id="lower-trust",
+        display_name="Lower Trust",
+        tags=["text", "multimodal"],
+        parameter_count_billions=70,
+    )
+    higher_trust = ModelCard(
+        model_id="higher-trust",
+        display_name="Higher Trust",
+        tags=["text"],
+        parameter_count_billions=7,
+    )
+
+    ranked = sorted(
+        [
+            (lower_trust, {"coding": 95.0}, 25.0),
+            (higher_trust, {"coding": 70.0}, 50.0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2]),
+    )
+
+    assert ranked[0][0].model_id == "higher-trust"
+
+
+def test_zero_score_models_sort_after_partial_data():
+    no_scores = ModelCard(model_id="no-scores", display_name="No Scores", tags=["text"])
+    partial_scores = ModelCard(
+        model_id="partial-scores",
+        display_name="Partial Scores",
+        tags=["text"],
+    )
+
+    ranked = sorted(
+        [
+            (no_scores, {}, 99.0),
+            (partial_scores, {"coding": 70.0}, 10.0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2]),
+    )
+
+    assert ranked[0][0].model_id == "partial-scores"
 
 
 def test_evaluation_sort_prefers_broader_capability_profile():
