@@ -32,6 +32,7 @@ def test_numeric_scores_filters_invalid_values():
 
 
 def test_composite_capability_score_beats_static_capability_rank():
+    # Inverted legacy capability_rank values verify that the static field is ignored.
     static_ranked = ModelCard(
         model_id="static-ranked",
         display_name="Static Ranked",

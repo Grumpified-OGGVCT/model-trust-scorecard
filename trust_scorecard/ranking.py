@@ -75,7 +75,7 @@ def capability_sort_key(
             CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
             for name in valid_numeric_scores
         )
-        composite = weighted_score / total_weight if total_weight else 0.0
+        composite = weighted_score / total_weight
         capability_tier = (0, -composite)
     elif valid_numeric_scores:
         capability_tier = (1, 0.0)
