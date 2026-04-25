@@ -6,7 +6,7 @@
   "release_date": "2026-04-01T00:00:00",
   "parameter_count_billions": 9,
   "context_window_tokens": 202752,
-  "card_text": "GLM-5V-Turbo from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis\n\nComparative metadata: weekly tokens 8.42B; context window 202,752 tokens; released 2026-04-01; pricing $1.2/M input and $4/M output.",
+  "card_text": "GLM-5V-Turbo from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 202,752 tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis\n\nComparative metadata: weekly tokens 8.42B; context window 202,752 tokens; released 2026-04-01; pricing $1.2/M input and $4/M output.",
   "benchmark_claims": [
     {
       "benchmark": "MMLU",

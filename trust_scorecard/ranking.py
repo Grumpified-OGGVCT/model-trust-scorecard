@@ -69,11 +69,7 @@ def evaluation_sort_key(evaluation: ModelEvaluation) -> tuple[Any, ...]:
     """Sort key for ModelEvaluation objects."""
     trust_score = evaluation.trust_score.score if evaluation.trust_score else None
     use_case_scores = evaluation.trust_score.breakdown.use_case_scores if evaluation.trust_score else {}
-    benchmark_evidence_count = max(
-        len(evaluation.claims),
-        len(evaluation.outcomes),
-        len(evaluation.benchmark_results),
-    )
+    benchmark_evidence_count = len(evaluation.claims)
     return capability_sort_key(
         evaluation.card,
         use_case_scores,
