@@ -275,7 +275,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div class="info-grid">
             <div class="info-card">
                 <h3>How rankings are ordered</h3>
-                <p>Capability rank, use-case scores, benchmark breadth, multimodal/tool/agentic capability, model scale, and context window drive ordering. Trust score is informational and only used as a late tie-breaker.</p>
+                <p>Models with at least three use-case scores are ordered by a weighted composite of demonstrated capability. Partial-data models follow, zero-score models are placed last, and trust score plus capability metadata break ties within each tier.</p>
             </div>
             <div class="info-card">
                 <h3>Where results go</h3>
