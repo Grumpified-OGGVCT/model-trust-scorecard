@@ -84,7 +84,12 @@ class BenchmarkClaim(BaseModel):
         description="Benchmark name such as 'MMLU' or 'SWE-bench'; matching is case-insensitive.",
     )
     metric: str | None = Field(None, description="Reported metric, e.g. 'accuracy' or 'pass@1'")
-    value: float = Field(..., ge=0.0, le=100.0, description="Claimed benchmark score on a 0-100 scale.")
+    value: float = Field(
+        ...,
+        ge=0.0,
+        le=100.0,
+        description="Claimed benchmark result normalized to the current 0-100 scoring scale.",
+    )
     source: str | None = None
     source_url: str | None = None
     raw: str | None = None
