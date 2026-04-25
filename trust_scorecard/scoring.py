@@ -219,6 +219,7 @@ def _value_for_outcome(outcome: VerificationOutcome) -> float:
                 outcome.claim.metric,
                 value,
             )
+            return 0.0
         return max(0.0, 100.0 - value)
     return value
 

@@ -62,6 +62,12 @@ def _format_hallucination(value: float | int | None) -> str:
     return f"<strong style=\"color:{color};\">{value:.1f}%</strong><br><span style=\"color:#718096; font-size:0.85em;\">{risk} risk</span>"
 
 
+def _format_release_date(value: str | None) -> str:
+    if not value:
+        return "-"
+    return value.split("T", 1)[0]
+
+
 def _capabilities_from_tags(tags: list[str], context_window: int | None = None) -> str:
     normalized = {tag.lower() for tag in tags}
     caps: list[str] = []
@@ -365,7 +371,7 @@ def main():
         )
         hallucination_display = _format_hallucination(model_card.get("hallucination_rate"))
         license_display = model_card.get("license_kind") or score.get("license", "unknown")
-        release_date = (model_card.get("release_date") or "").split("T", 1)[0] or "-"
+        release_date = _format_release_date(model_card.get("release_date"))
 
         rows.append(
             f"""<tr>

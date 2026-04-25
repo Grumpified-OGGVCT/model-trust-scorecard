@@ -24,6 +24,9 @@ from trust_scorecard.ranking import score_record_sort_key  # noqa: E402
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
+HIGH_TRUST_THRESHOLD = 50
+MEDIUM_TRUST_THRESHOLD = 30
+
 
 def _numeric_trust_score(score: dict) -> float:
     value = score.get("trust_score")
@@ -51,9 +54,9 @@ def generate_markdown_table(scores: list[dict]) -> str:
         # Badge color based on score
         if trust_score is None:
             badge = "![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey)"
-        elif trust_score >= 80:
+        elif trust_score >= HIGH_TRUST_THRESHOLD:
             badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-brightgreen)"
-        elif trust_score >= 60:
+        elif trust_score >= MEDIUM_TRUST_THRESHOLD:
             badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-yellow)"
         else:
             badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-orange)"
@@ -68,9 +71,9 @@ def generate_markdown_table(scores: list[dict]) -> str:
         "---",
         "",
         "**Legend:**",
-        "- 🟢 **80-100**: Highly trustworthy - most claims verified",
-        "- 🟡 **60-79**: Moderately trustworthy - some claims verified",
-        "- 🟠 **<60**: Low trust - few claims verified or significant gaps",
+        "- 🟢 **50-100**: Higher relative trust in the current score distribution",
+        "- 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage",
+        "- 🟠 **<30**: Low trust - few claims verified or significant gaps",
         "",
         f"*Last updated: {scores[0]['evaluated_at'] if scores else 'N/A'}*",
     ])

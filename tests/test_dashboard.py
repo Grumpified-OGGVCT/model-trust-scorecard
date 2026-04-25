@@ -2,6 +2,7 @@ from scripts.generate_dashboard import (
     _capabilities_from_tags,
     _format_hallucination,
     _format_price,
+    _format_release_date,
 )
 
 
@@ -24,3 +25,8 @@ def test_dashboard_formats_pricing_and_hallucination():
     hallucination = _format_hallucination(4.2)
     assert "4.2%" in hallucination
     assert "Low risk" in hallucination
+
+
+def test_dashboard_formats_release_date():
+    assert _format_release_date("2026-04-23T00:00:00") == "2026-04-23"
+    assert _format_release_date(None) == "-"
