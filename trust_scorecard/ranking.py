@@ -10,10 +10,14 @@ from trust_scorecard.models import ModelCard, ModelEvaluation
 # Weights prioritize core frontier capabilities while including specialized metrics to reward
 # measured breadth without allowing niche performance to skew rankings.
 CAPABILITY_WEIGHTS = {
+    # Core frontier-model competencies get the highest weight because they are broad,
+    # heavily benchmarked predictors of general model quality.
     "coding": 2.0,
     "reasoning": 2.0,
     "math": 1.5,
     "tool_use": 1.5,
+    # Specialized modalities and reliability dimensions contribute meaningfully but
+    # should not outweigh core capability when fewer models report those scores.
     "agent_swarm": 1.2,
     "multimodal": 1.2,
     "vision_coding": 1.0,
@@ -26,6 +30,7 @@ CAPABILITY_WEIGHTS = {
     "long_context": 0.5,
     "commonsense": 0.5,
     "office_document": 0.5,
+    # Deployment-oriented metrics are useful tie-shapers, not primary capability signals.
     "efficiency": 0.3,
     "edge": 0.3,
 }
