@@ -81,7 +81,10 @@ class BenchmarkClaim(BaseModel):
 
     benchmark: str = Field(
         ...,
-        description="Benchmark name such as 'MMLU' or 'SWE-bench'; matching is case-insensitive.",
+        description=(
+            "Benchmark name, configured display name, or configured ID such as "
+            "'MMLU', 'SWE-bench Verified', or 'swe_bench_verified'."
+        ),
     )
     metric: str | None = Field(None, description="Reported metric, e.g. 'accuracy' or 'pass@1'")
     value: float = Field(

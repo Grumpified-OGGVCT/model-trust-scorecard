@@ -16,11 +16,11 @@ from trust_scorecard.verification_engine import create_engine_from_sources
 class DummySource(BenchmarkSourceBase):
     """Stub source that returns both targeted and leaderboard rows."""
 
-    def __init__(self) -> None:
+    def __init__(self, benchmark_id: str = "mmlu", display_name: str = "MMLU") -> None:
         super().__init__(
             BenchmarkConfig(
-                id="mmlu",
-                display_name="MMLU",
+                id=benchmark_id,
+                display_name=display_name,
                 description="Stubbed benchmark",
                 metric_kind=MetricKind.ACCURACY,
                 weight_max=1.0,
@@ -90,6 +90,40 @@ def test_pipeline_uses_structured_benchmark_claims_when_text_has_no_scores():
     assert evaluation.outcomes[0].status == VerificationStatus.VERIFIED
     assert evaluation.trust_score is not None
     assert evaluation.trust_score.breakdown.use_case_scores["reasoning"] == 80.0
+
+
+def test_structured_swe_bench_alias_uses_configured_source_name():
+    source = DummySource("swe_bench_verified", "SWE-bench Verified")
+    pipeline = EvaluationPipeline([source], EvaluationStore(":memory:"), default_tolerance=2.0)
+
+    card = ModelCard(
+        model_id="test-model",
+        display_name="Test Model",
+        benchmark_claims=[{"benchmark": "SWE-bench", "value": 80.0}],
+    )
+
+    evaluation = pipeline.evaluate_model(card)
+
+    assert evaluation.claims[0].metric == "SWE-bench Verified"
+    assert evaluation.outcomes[0].status == VerificationStatus.VERIFIED
+
+
+def test_text_claim_takes_precedence_over_structured_duplicate_metric():
+    source = DummySource()
+    pipeline = EvaluationPipeline([source], EvaluationStore(":memory:"), default_tolerance=2.0)
+
+    card = ModelCard(
+        model_id="test-model",
+        display_name="Test Model",
+        card_text="Model reports 80% on MMLU.",
+        benchmark_claims=[{"benchmark": "MMLU", "metric": "accuracy", "value": 79.8}],
+    )
+
+    evaluation = pipeline.evaluate_model(card)
+
+    assert len(evaluation.claims) == 1
+    assert evaluation.claims[0].value == 80.0
+    assert evaluation.outcomes[0].status == VerificationStatus.VERIFIED
 
 
 def test_model_card_accepts_legacy_license_field():

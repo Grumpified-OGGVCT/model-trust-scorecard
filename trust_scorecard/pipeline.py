@@ -34,7 +34,6 @@ from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
 
 logger = logging.getLogger(__name__)
-CLAIM_VALUE_ROUNDING_PRECISION = 4
 
 
 class EvaluationPipeline:
@@ -99,6 +98,7 @@ class EvaluationPipeline:
             *text_claims,
             *_claims_from_structured_benchmarks(
                 model_card.benchmark_claims,
+                self.benchmark_sources,
                 fallback_source_url=source_url or model_card.card_url,
             ),
         ])
@@ -250,20 +250,23 @@ def load_model_card_from_json(path: str | Path) -> ModelCard:
 
 def _claims_from_structured_benchmarks(
     benchmark_claims: list[BenchmarkClaim],
+    benchmark_sources: list[BenchmarkSourceBase] | None = None,
     fallback_source_url: str | None = None,
 ) -> list[Claim]:
     """Convert catalog-supplied benchmark_claims into verifier claims."""
     claims: list[Claim] = []
     for item in benchmark_claims:
         source_url = _structured_claim_source_url(item, fallback_source_url)
+        benchmark = _canonical_structured_benchmark_name(item.benchmark, benchmark_sources or [])
         metric_label = f" {item.metric}" if item.metric else ""
         source_label = f" ({item.source})" if item.source else ""
-        raw = item.raw or f"{item.benchmark}{metric_label} result: {item.value}{source_label}"
+        raw = item.raw or f"{benchmark}{metric_label} result: {item.value}{source_label}"
         claims.append(
             Claim(
-                metric=item.benchmark,
+                metric=benchmark,
                 value=item.value,
                 raw=raw,
+                target=None,
                 source_url=source_url,
             )
         )
@@ -272,10 +275,10 @@ def _claims_from_structured_benchmarks(
 
 def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
     """Deduplicate text-extracted and structured claims while preserving order."""
-    seen: set[tuple[str, float]] = set()
+    seen: set[str] = set()
     deduped: list[Claim] = []
     for claim in claims:
-        key = (_normalize_claim_metric(claim.metric), round(claim.value, CLAIM_VALUE_ROUNDING_PRECISION))
+        key = _normalize_claim_metric(claim.metric)
         if key in seen:
             continue
         seen.add(key)
@@ -285,6 +288,28 @@ def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
 
 def _normalize_claim_metric(name: str) -> str:
     return name.lower().replace(" ", "").replace("-", "").replace("_", "")
+
+
+def _canonical_structured_benchmark_name(
+    name: str,
+    benchmark_sources: list[BenchmarkSourceBase],
+) -> str:
+    stripped = name.strip()
+    normalized = _normalize_claim_metric(stripped)
+
+    for source in benchmark_sources:
+        if normalized in {
+            _normalize_claim_metric(source.config.id),
+            _normalize_claim_metric(source.config.display_name),
+        }:
+            return source.config.display_name
+
+    if normalized == "swebench":
+        for source in benchmark_sources:
+            if _normalize_claim_metric(source.config.display_name).startswith("swebench"):
+                return source.config.display_name
+
+    return stripped
 
 
 def _structured_claim_source_url(
