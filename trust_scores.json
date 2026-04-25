@@ -1,37 +1,49 @@
 {
-  "generated_at": "2026-04-25T16:26:26.817861",
+  "generated_at": "2026-04-25T16:58:46.531131",
   "total_models": 50,
   "scores": [
     {
       "model_id": "kimi-k2.6-cloud",
       "display_name": "Kimi K2.6 Cloud",
       "vendor": "Moonshot AI",
-      "trust_score": 14.8,
+      "trust_score": 22.2,
       "breakdown": {
-        "coverage_score": 3.8,
+        "coverage_score": 11.2,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 70.8
+          "coding": 68.7,
+          "reasoning": 54.0,
+          "multilingual": 76.7,
+          "multilingual_depth": 76.7,
+          "tool_use": 52.0,
+          "agent_swarm": 52.0,
+          "vision_coding": 76.7
         }
       },
       "use_case_scores": {
-        "coding": 70.8
+        "coding": 68.7,
+        "reasoning": 54.0,
+        "multilingual": 76.7,
+        "multilingual_depth": 76.7,
+        "tool_use": 52.0,
+        "agent_swarm": 52.0,
+        "vision_coding": 76.7
       },
-      "total_claims": 2,
+      "total_claims": 6,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:26:59.487049",
-      "license": "unknown",
+      "unverifiable_count": 6,
+      "evaluated_at": "2026-04-25T16:58:42.263347",
+      "license": "open",
       "model_card": {
         "model_id": "kimi-k2.6-cloud",
         "display_name": "Kimi K2.6 Cloud",
         "vendor": "Moonshot AI",
         "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.6",
-        "card_text": "Kimi K2.6 Cloud is Moonshot AI's highest-capability frontier model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 256K tokens.\nReleased: 2026-04-20.\nBenchmarks:\n- SWE-bench Pro: 58.6%\n- SWE-bench Verified: 70.8%\nCapabilities: native text, image, and video understanding, broad reasoning, coordinated swarms up to 300 sub-agents across 4,000 steps, configurable reasoning effort, advanced multimodal coding.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nPositioning: highest Artificial Analysis Intelligence Index in this frontier cloud set.",
+        "card_text": "Kimi K2.6 Cloud is Moonshot AI's highest-capability frontier model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 256K tokens.\nReleased: 2026-04-20.\nBenchmarks:\n- SWE-bench Pro: 58.6%\n- SWE-bench Verified: 70.8%\n- SWE-bench Multilingual: 76.7%\n- HLE with Tools: 54.0%\n- Toolathlon: 50.0%\n- AA Intelligence Index: 54.0\nCapabilities: native text, image, and video understanding, broad reasoning, coordinated swarms up to 300 sub-agents across 4,000 steps, configurable reasoning effort, advanced multimodal coding.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nPositioning: highest Artificial Analysis Intelligence Index in this frontier cloud set.",
         "license_kind": "open",
         "architecture": "MoE (384 experts, 8 active)",
         "parameter_count_billions": 32.0,
@@ -52,6 +64,11 @@
         ],
         "pricing_per_1k_input_usd": 0.00074,
         "pricing_per_1k_output_usd": 0.00466,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": 54.0,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": 1
       },
       "tags": [
@@ -71,34 +88,44 @@
       "model_id": "glm-5.1-cloud",
       "display_name": "GLM-5.1 Cloud",
       "vendor": "Z.ai",
-      "trust_score": 18.5,
+      "trust_score": 22.2,
       "breakdown": {
-        "coverage_score": 7.5,
+        "coverage_score": 11.2,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 77.8,
-          "reasoning": 86.8
+          "coding": 59.9,
+          "reasoning": 77.0,
+          "math": 89.8,
+          "safety": 29.4,
+          "tool_use": 67.0,
+          "agent_swarm": 67.0,
+          "hallucination_fidelity": 29.4
         }
       },
       "use_case_scores": {
-        "coding": 77.8,
-        "reasoning": 86.8
+        "coding": 59.9,
+        "reasoning": 77.0,
+        "math": 89.8,
+        "safety": 29.4,
+        "tool_use": 67.0,
+        "agent_swarm": 67.0,
+        "hallucination_fidelity": 29.4
       },
-      "total_claims": 3,
+      "total_claims": 8,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T16:27:03.649178",
-      "license": "unknown",
+      "unverifiable_count": 8,
+      "evaluated_at": "2026-04-25T16:58:42.773980",
+      "license": "open",
       "model_card": {
         "model_id": "glm-5.1-cloud",
         "display_name": "GLM-5.1 Cloud",
         "vendor": "Z.ai",
         "card_url": "https://openrouter.ai/models/zhipu/glm-5.1",
-        "card_text": "GLM-5.1 Cloud is Z.ai's frontier open-weight coding and agentic model.\n\nArchitecture: GlmMoeDsa sparse mixture-of-experts with 256 routed experts plus 1 shared expert, 40B active parameters from 754B total.\nContext Window: 200K tokens.\nReleased: 2026-04-07.\nBenchmarks:\n- SWE-bench Pro: 58.4%\n- SWE-bench Verified: 77.8%\n- GPQA: 86.8%\nCapabilities: marathon autonomous coding sessions up to 8+ hours, strong tool use, software engineering, multilingual text reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Z.ai developer docs, Artificial Analysis.\nNotable caution: hallucination rate reported at 70.6% by Artificial Analysis.",
+        "card_text": "GLM-5.1 Cloud is Z.ai's frontier open-weight coding and agentic model.\n\nArchitecture: GlmMoeDsa sparse mixture-of-experts with 256 routed experts plus 1 shared expert, 40B active parameters from 754B total.\nContext Window: 200K tokens.\nReleased: 2026-04-07.\nBenchmarks:\n- SWE-bench Pro: 58.4%\n- SWE-bench Verified: 77.8%\n- GPQA: 86.8%\n- AIME: 92.7%\n- AA Intelligence Index: 51.4\n- AA Coding Index: 43.4\n- AA Agentic Index: 67.0\n- Hallucination Rate: 70.6%\nCapabilities: marathon autonomous coding sessions up to 8+ hours, strong tool use, software engineering, multilingual text reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Z.ai developer docs, Artificial Analysis.\nNotable caution: hallucination rate reported at 70.6% by Artificial Analysis.",
         "license_kind": "open",
         "architecture": "MoE (256 routed experts + 1 shared, top-8+1)",
         "parameter_count_billions": 40.0,
@@ -118,6 +145,11 @@
         ],
         "pricing_per_1k_input_usd": 0.00105,
         "pricing_per_1k_output_usd": 0.0035,
+        "hallucination_rate": 70.6,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": 51.4,
+        "artificial_analysis_coding_index": 43.4,
+        "artificial_analysis_agentic_index": 67.0,
         "capability_rank": 2
       },
       "tags": [
@@ -133,31 +165,139 @@
       ]
     },
     {
+      "model_id": "qwen3.5-cloud",
+      "display_name": "Qwen 3.5 (397B) Cloud",
+      "vendor": "Alibaba / Qwen",
+      "trust_score": 41.0,
+      "breakdown": {
+        "coverage_score": 30.0,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.8,
+          "reasoning": 89.4,
+          "math": 90.8,
+          "multilingual": 80.6,
+          "multilingual_depth": 77.0,
+          "tool_use": 86.7,
+          "agent_swarm": 86.7,
+          "vision_coding": 83.7,
+          "multimodal": 90.0,
+          "ocr": 93.7,
+          "video_understanding": 87.5
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.8,
+        "reasoning": 89.4,
+        "math": 90.8,
+        "multilingual": 80.6,
+        "multilingual_depth": 77.0,
+        "tool_use": 86.7,
+        "agent_swarm": 86.7,
+        "vision_coding": 83.7,
+        "multimodal": 90.0,
+        "ocr": 93.7,
+        "video_understanding": 87.5
+      },
+      "total_claims": 14,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 14,
+      "evaluated_at": "2026-04-25T16:58:43.280032",
+      "license": "open",
+      "model_card": {
+        "model_id": "qwen3.5-cloud",
+        "display_name": "Qwen 3.5 (397B) Cloud",
+        "vendor": "Alibaba / Qwen",
+        "card_url": "https://openrouter.ai/models/qwen/qwen-3.5-397b",
+        "card_text": "Qwen 3.5 (397B) Cloud is Qwen's broadest-capability multimodal flagship.\n\nArchitecture: sparse mixture-of-experts with gated delta networks and 512 experts, 17B active parameters from 397B total.\nContext Window: 262K tokens.\nReleased: 2026-02-01.\nBenchmarks:\n- MMLU-Pro: 87.8%\n- GPQA: 88.4%\n- SWE-bench Verified: 76.4%\n- HMMT: 94.8\n- AIME26: 91.3\n- OCRBench: 93.1\n- MathVision: 88.6\n- OmniDocBench: 90.8\n- VideoMME: 87.5\n- MMLU-ProX: 84.7\n- TAU2-Bench: 86.7\n- SWE-bench Multi: 69.3\n- BrowseComp: 69.0 / 78.6\n- CountBench: 97.2\nCapabilities: strong coding, top-tier OCR and document reasoning, multilingual support across 201 languages and dialects, text-image-video input, strong math and vision.\nPublic sources: OpenRouter, HuggingFace model card, Qwen docs, Artificial Analysis.\nPositioning: the most rounded multimodal, multilingual, and coding-capable generalist in this set.",
+        "license_kind": "open",
+        "architecture": "MoE (Gated DeltaNet + Sparse MoE, 512 experts, 10+1 active)",
+        "parameter_count_billions": 17.0,
+        "total_parameter_count_billions": 397.0,
+        "context_window_tokens": 262000,
+        "release_date": "2026-02-01T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "multimodal",
+          "vision",
+          "video",
+          "ocr",
+          "document-analysis",
+          "reasoning",
+          "multilingual",
+          "image"
+        ],
+        "pricing_per_1k_input_usd": 0.00039,
+        "pricing_per_1k_output_usd": 0.00234,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": 3
+      },
+      "tags": [
+        "text",
+        "coding",
+        "multimodal",
+        "vision",
+        "video",
+        "ocr",
+        "document-analysis",
+        "reasoning",
+        "multilingual",
+        "image"
+      ]
+    },
+    {
       "model_id": "minimax-m2.7-cloud",
       "display_name": "MiniMax M2.7 Cloud",
       "vendor": "MiniMax",
-      "trust_score": 12.3,
+      "trust_score": 23.5,
       "breakdown": {
-        "coverage_score": 3.8,
+        "coverage_score": 15.0,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 2.5,
         "safety_score": 0.0,
-        "use_case_scores": {}
+        "use_case_scores": {
+          "coding": 56.6,
+          "reasoning": 68.5,
+          "math": 87.4,
+          "safety": 34.4,
+          "tool_use": 54.9,
+          "agent_swarm": 53.9,
+          "office_document": 57.0,
+          "hallucination_fidelity": 34.4
+        }
       },
-      "use_case_scores": {},
-      "total_claims": 2,
+      "use_case_scores": {
+        "coding": 56.6,
+        "reasoning": 68.5,
+        "math": 87.4,
+        "safety": 34.4,
+        "tool_use": 54.9,
+        "agent_swarm": 53.9,
+        "office_document": 57.0,
+        "hallucination_fidelity": 34.4
+      },
+      "total_claims": 7,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:27:24.452604",
-      "license": "unknown",
+      "unverifiable_count": 7,
+      "evaluated_at": "2026-04-25T16:58:43.784523",
+      "license": "restricted",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
         "display_name": "MiniMax M2.7 Cloud",
         "vendor": "MiniMax",
         "card_url": "https://openrouter.ai/models/minimax/minimax-m2.7",
-        "card_text": "MiniMax M2.7 Cloud is MiniMax's self-improving agentic frontier model.\n\nArchitecture: sparse mixture-of-experts with 256 experts and 8 active experts per token, 10B active parameters from 229B total.\nContext Window: 228K tokens.\nReleased: 2026-03-18.\nBenchmarks:\n- SWE-bench Pro: 56.2%\n- GPQA Diamond: 87.4%\nCapabilities: autonomous coding, debugging, root-cause analysis, office-document generation, continuous self-improvement scaffolds.\nPublic sources: OpenRouter, NVIDIA NGC, HuggingFace model card, Artificial Analysis.\nNotable caution: hallucination rate reported at 65.6% by Artificial Analysis.",
+        "card_text": "MiniMax M2.7 Cloud is MiniMax's self-improving agentic frontier model.\n\nArchitecture: sparse mixture-of-experts with 256 experts and 8 active experts per token, 10B active parameters from 229B total.\nContext Window: 228K tokens.\nReleased: 2026-03-18.\nBenchmarks:\n- SWE-bench Pro: 56.2%\n- GPQA Diamond: 87.4%\n- Terminal Bench 2: 57.0\n- Toolathlon: 46.3\n- AA Intelligence Index: 49.6\n- AA Agentic Index: 61.5\n- Hallucination Rate: 65.6%\nCapabilities: autonomous coding, debugging, root-cause analysis, office-document generation, continuous self-improvement scaffolds.\nPublic sources: OpenRouter, NVIDIA NGC, HuggingFace model card, Artificial Analysis.\nNotable caution: hallucination rate reported at 65.6% by Artificial Analysis.",
         "license_kind": "restricted",
         "architecture": "Sparse MoE (256 experts, 8 active)",
         "parameter_count_billions": 10.0,
@@ -176,6 +316,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0003,
         "pricing_per_1k_output_usd": 0.0012,
+        "hallucination_rate": 65.6,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": 49.6,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": 61.5,
         "capability_rank": 4
       },
       "tags": [
@@ -193,32 +338,36 @@
       "model_id": "kimi-k2.5-cloud",
       "display_name": "Kimi K2.5 Cloud",
       "vendor": "Moonshot AI",
-      "trust_score": 14.8,
+      "trust_score": 18.5,
       "breakdown": {
-        "coverage_score": 3.8,
+        "coverage_score": 7.5,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 79.8
+          "coding": 79.8,
+          "reasoning": 47.0,
+          "multimodal": 85.0
         }
       },
       "use_case_scores": {
-        "coding": 79.8
+        "coding": 79.8,
+        "reasoning": 47.0,
+        "multimodal": 85.0
       },
-      "total_claims": 1,
+      "total_claims": 3,
       "verified_count": 0,
       "refuted_count": 1,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:44.450461",
-      "license": "unknown",
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T16:58:44.286578",
+      "license": "open",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
         "display_name": "Kimi K2.5 Cloud",
         "vendor": "Moonshot AI",
         "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.5",
-        "card_text": "Kimi K2.5 Cloud is Moonshot AI's multimodal frontier agent model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 262K tokens.\nReleased: 2026-01-27.\nBenchmarks:\n- SWE-bench Verified: 70.8%\nCapabilities: native text and image understanding, strong multimodal coding, coordinated agent swarms up to 100 sub-agents and 1,500 tool calls, long-context reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nValue note: cheaper than K2.6 while keeping the slightly larger context window.",
+        "card_text": "Kimi K2.5 Cloud is Moonshot AI's multimodal frontier agent model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 262K tokens.\nReleased: 2026-01-27.\nBenchmarks:\n- SWE-bench Verified: 70.8%\n- MMMU: 85.0\n- AA Intelligence Index: 47.0\nCapabilities: native text and image understanding, strong multimodal coding, coordinated agent swarms up to 100 sub-agents and 1,500 tool calls, long-context reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nValue note: cheaper than K2.6 while keeping the slightly larger context window.",
         "license_kind": "open",
         "architecture": "MoE (384 experts, 8 active)",
         "parameter_count_billions": 32.0,
@@ -238,6 +387,11 @@
         ],
         "pricing_per_1k_input_usd": 0.00044,
         "pricing_per_1k_output_usd": 0.002,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": 47.0,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": 5
       },
       "tags": [
@@ -256,32 +410,40 @@
       "model_id": "deepseek-v4-flash-cloud",
       "display_name": "DeepSeek-V4-Flash Cloud",
       "vendor": "DeepSeek",
-      "trust_score": 14.8,
+      "trust_score": 26.0,
       "breakdown": {
-        "coverage_score": 3.8,
+        "coverage_score": 15.0,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 80.6
+          "coding": 80.6,
+          "reasoning": 76.9,
+          "math": 92.1,
+          "safety": 95.8,
+          "hallucination_fidelity": 95.8
         }
       },
       "use_case_scores": {
-        "coding": 80.6
+        "coding": 80.6,
+        "reasoning": 76.9,
+        "math": 92.1,
+        "safety": 95.8,
+        "hallucination_fidelity": 95.8
       },
-      "total_claims": 2,
+      "total_claims": 7,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:26:30.716472",
-      "license": "unknown",
+      "unverifiable_count": 7,
+      "evaluated_at": "2026-04-25T16:58:44.789165",
+      "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-flash-cloud",
         "display_name": "DeepSeek-V4-Flash Cloud",
         "vendor": "DeepSeek",
         "card_url": "https://openrouter.ai/models/deepseek/deepseek-v4-flash",
-        "card_text": "DeepSeek-V4-Flash Cloud is DeepSeek's ultra-efficient frontier long-context model.\n\nArchitecture: mixture-of-experts with compressed sparse attention and heavily compressed attention, 13B active parameters from 284B total.\nContext Window: 1048000 tokens.\nReleased: 2026-04-23.\nBenchmarks:\n- SWE-bench Verified: 80.6%\n- GPQA Diamond: 89.4%\nCapabilities: million-token retrieval and reasoning, low-cost coding, configurable reasoning modes, strong production software engineering, long-context research and RAG.\nPublic sources: OpenRouter, HuggingFace model card, DeepSeek docs, Artificial Analysis.\nNotable strength: 4.2% hallucination rate in public Artificial Analysis reporting.",
+        "card_text": "DeepSeek-V4-Flash Cloud is DeepSeek's ultra-efficient frontier long-context model.\n\nArchitecture: mixture-of-experts with compressed sparse attention and heavily compressed attention, 13B active parameters from 284B total.\nContext Window: 1048000 tokens.\nReleased: 2026-04-23.\nBenchmarks:\n- SWE-bench Verified: 80.6%\n- GPQA Diamond: 89.4%\n- HMMT: 94.8\n- ArenaHard: 92.3%\n- IFBench: 79.2%\n- AA Intelligence Index: 46.5\n- Hallucination Rate: 4.2%\nCapabilities: million-token retrieval and reasoning, low-cost coding, configurable reasoning modes, strong production software engineering, long-context research and RAG.\nPublic sources: OpenRouter, HuggingFace model card, DeepSeek docs, Artificial Analysis.\nNotable strength: 4.2% hallucination rate in public Artificial Analysis reporting.",
         "license_kind": "open",
         "architecture": "MoE (CSA + HCA hybrid attention)",
         "parameter_count_billions": 13.0,
@@ -300,6 +462,11 @@
         ],
         "pricing_per_1k_input_usd": 0.00014,
         "pricing_per_1k_output_usd": 0.00028,
+        "hallucination_rate": 4.2,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": 46.5,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": 6
       },
       "tags": [
@@ -317,34 +484,40 @@
       "model_id": "nemotron-3-super-cloud",
       "display_name": "Nemotron-3-Super Cloud",
       "vendor": "NVIDIA",
-      "trust_score": 14.8,
+      "trust_score": 26.0,
       "breakdown": {
-        "coverage_score": 3.8,
+        "coverage_score": 15.0,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
           "coding": 81.2,
-          "reasoning": 82.7
+          "reasoning": 88.9,
+          "math": 88.9,
+          "multilingual": 86.7,
+          "multilingual_depth": 86.7
         }
       },
       "use_case_scores": {
         "coding": 81.2,
-        "reasoning": 82.7
+        "reasoning": 88.9,
+        "math": 88.9,
+        "multilingual": 86.7,
+        "multilingual_depth": 86.7
       },
-      "total_claims": 2,
+      "total_claims": 5,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:27:18.323254",
-      "license": "unknown",
+      "unverifiable_count": 5,
+      "evaluated_at": "2026-04-25T16:58:45.297238",
+      "license": "open",
       "model_card": {
         "model_id": "nemotron-3-super-cloud",
         "display_name": "Nemotron-3-Super Cloud",
         "vendor": "NVIDIA",
         "card_url": "https://openrouter.ai/models/nvidia/nemotron-3-super",
-        "card_text": "Nemotron-3-Super Cloud is NVIDIA's long-context and IT-automation specialist.\n\nArchitecture: LatentMoE combining Mamba-2 state-space layers, MoE layers, attention, and multi-token prediction, 12B active parameters from 120B total.\nContext Window: 1000000 tokens natively.\nReleased: 2026-03-11.\nBenchmarks:\n- LiveCodeBench: 81.2%\n- GPQA: 82.7%\nCapabilities: million-token context, IT ticket automation, multilingual enterprise workflows across 7 languages, speculative decoding, low-cost agentic applications.\nPublic sources: OpenRouter, NVIDIA docs, HuggingFace model card, Artificial Analysis.\nValue note: cheapest input pricing in this frontier cloud set, with a free tier reported on OpenRouter.",
+        "card_text": "Nemotron-3-Super Cloud is NVIDIA's long-context and IT-automation specialist.\n\nArchitecture: LatentMoE combining Mamba-2 state-space layers, MoE layers, attention, and multi-token prediction, 12B active parameters from 120B total.\nContext Window: 1000000 tokens natively.\nReleased: 2026-03-11.\nBenchmarks:\n- LiveCodeBench: 81.2%\n- GPQA: 82.7%\n- AIME25: 90.2\n- HMMT: 93.7\n- WMT24++: 86.67\nCapabilities: million-token context, IT ticket automation, multilingual enterprise workflows across 7 languages, speculative decoding, low-cost agentic applications.\nPublic sources: OpenRouter, NVIDIA docs, HuggingFace model card, Artificial Analysis.\nValue note: cheapest input pricing in this frontier cloud set, with a free tier reported on OpenRouter.",
         "license_kind": "open",
         "architecture": "LatentMoE (Mamba-2 + MoE + Attention + MTP)",
         "parameter_count_billions": 12.0,
@@ -363,6 +536,11 @@
         ],
         "pricing_per_1k_input_usd": 9e-05,
         "pricing_per_1k_output_usd": 0.00045,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": 7
       },
       "tags": [
@@ -389,25 +567,31 @@
         "safety_score": 0.0,
         "use_case_scores": {
           "coding": 72.2,
-          "reasoning": 59.4
+          "reasoning": 59.4,
+          "math": 59.4,
+          "safety": 92.5,
+          "hallucination_fidelity": 92.5
         }
       },
       "use_case_scores": {
         "coding": 72.2,
-        "reasoning": 59.4
+        "reasoning": 59.4,
+        "math": 59.4,
+        "safety": 92.5,
+        "hallucination_fidelity": 92.5
       },
-      "total_claims": 2,
+      "total_claims": 4,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:27:17.203510",
-      "license": "unknown",
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-25T16:58:45.799019",
+      "license": "open",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
         "display_name": "Devstral 2 123B Cloud",
         "vendor": "Mistral AI",
         "card_url": "https://openrouter.ai/models/mistral/devstral-2",
-        "card_text": "Devstral 2 123B Cloud is Mistral AI's dense coding specialist.\n\nArchitecture: dense transformer with 123B active parameters.\nContext Window: 256K tokens.\nReleased: 2025-12-09.\nBenchmarks:\n- SWE-bench Verified: 72.2%\n- GPQA: 59.4%\nCapabilities: codebase exploration, multi-file edits, dependency-aware software engineering, retry-heavy coding agents, fine-tuning for enterprise codebases.\nPublic sources: OpenRouter, HuggingFace model card, Mistral AI docs, Artificial Analysis.\nNotable strength: 14.9% hallucination rate and 0.13% structured output error rate in reported public evaluations.",
+        "card_text": "Devstral 2 123B Cloud is Mistral AI's dense coding specialist.\n\nArchitecture: dense transformer with 123B active parameters.\nContext Window: 256K tokens.\nReleased: 2025-12-09.\nBenchmarks:\n- SWE-bench Verified: 72.2%\n- GPQA: 59.4%\n- Hallucination Rate: 14.9%\n- Structured Output Error Rate: 0.13%\nCapabilities: codebase exploration, multi-file edits, dependency-aware software engineering, retry-heavy coding agents, fine-tuning for enterprise codebases.\nPublic sources: OpenRouter, HuggingFace model card, Mistral AI docs, Artificial Analysis.\nNotable strength: 14.9% hallucination rate and 0.13% structured output error rate in reported public evaluations.",
         "license_kind": "open",
         "architecture": "Dense Transformer",
         "parameter_count_billions": 123.0,
@@ -426,6 +610,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0004,
         "pricing_per_1k_output_usd": 0.002,
+        "hallucination_rate": 14.9,
+        "structured_output_error_rate": 0.13,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": 8
       },
       "tags": [
@@ -443,30 +632,32 @@
       "model_id": "claude-opus-4.5",
       "display_name": "Claude Opus 4.5",
       "vendor": "Anthropic",
-      "trust_score": 33.2,
+      "trust_score": 36.9,
       "breakdown": {
-        "coverage_score": 22.5,
+        "coverage_score": 26.2,
         "verification_score": 5.7,
         "performance_gap_score": 0.0,
         "openness_score": 0.0,
         "safety_score": 5.0,
         "use_case_scores": {
           "coding": 89.3,
-          "reasoning": 88.3,
+          "reasoning": 86.8,
+          "math": 83.8,
           "safety": 69.8
         }
       },
       "use_case_scores": {
         "coding": 89.3,
-        "reasoning": 88.3,
+        "reasoning": 86.8,
+        "math": 83.8,
         "safety": 69.8
       },
       "total_claims": 7,
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T16:26:26.817861",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:46.531131",
+      "license": "proprietary",
       "model_card": {
         "model_id": "claude-opus-4.5",
         "display_name": "Claude Opus 4.5",
@@ -487,6 +678,11 @@
         ],
         "pricing_per_1k_input_usd": 0.015,
         "pricing_per_1k_output_usd": 0.075,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -510,20 +706,22 @@
         "use_case_scores": {
           "coding": 89.0,
           "reasoning": 86.5,
+          "math": 73.8,
           "multilingual": 87.5
         }
       },
       "use_case_scores": {
         "coding": 89.0,
         "reasoning": 86.5,
+        "math": 73.8,
         "multilingual": 87.5
       },
       "total_claims": 5,
       "verified_count": 1,
       "refuted_count": 1,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T16:26:52.963455",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:56.319328",
+      "license": "open",
       "model_card": {
         "model_id": "llama3.1",
         "display_name": "Llama 3.1 405B",
@@ -546,6 +744,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -561,28 +764,30 @@
       "model_id": "deepseek-v3.2",
       "display_name": "DeepSeek V3.2",
       "vendor": "DeepSeek",
-      "trust_score": 57.1,
+      "trust_score": 60.8,
       "breakdown": {
-        "coverage_score": 18.8,
+        "coverage_score": 22.5,
         "verification_score": 13.3,
         "performance_gap_score": 20.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
           "coding": 80.8,
-          "reasoning": 84.9
+          "reasoning": 81.7,
+          "math": 76.0
         }
       },
       "use_case_scores": {
         "coding": 80.8,
-        "reasoning": 84.9
+        "reasoning": 81.7,
+        "math": 76.0
       },
       "total_claims": 6,
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:27:06.094148",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:48.702732",
+      "license": "open",
       "model_card": {
         "model_id": "deepseek-v3.2",
         "display_name": "DeepSeek V3.2",
@@ -603,6 +808,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -634,8 +844,8 @@
       "verified_count": 1,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:28.489034",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:57.557060",
+      "license": "proprietary",
       "model_card": {
         "model_id": "minimax-m2.5-cloud",
         "display_name": "MiniMax M2.5 Cloud",
@@ -659,6 +869,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -675,30 +890,32 @@
       "model_id": "gemini-2.5-pro",
       "display_name": "Gemini 2.5 Pro",
       "vendor": "Google",
-      "trust_score": 29.8,
+      "trust_score": 33.5,
       "breakdown": {
-        "coverage_score": 18.8,
+        "coverage_score": 22.5,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 0.0,
         "safety_score": 5.0,
         "use_case_scores": {
           "coding": 75.0,
-          "reasoning": 84.8,
+          "reasoning": 83.2,
+          "math": 81.5,
           "safety": 68.1
         }
       },
       "use_case_scores": {
         "coding": 75.0,
-        "reasoning": 84.8,
+        "reasoning": 83.2,
+        "math": 81.5,
         "safety": 68.1
       },
       "total_claims": 6,
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:26:27.373804",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:49.450187",
+      "license": "proprietary",
       "model_card": {
         "model_id": "gemini-2.5-pro",
         "display_name": "Gemini 2.5 Pro",
@@ -719,6 +936,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0125,
         "pricing_per_1k_output_usd": 0.0375,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -732,28 +954,30 @@
       "model_id": "gpt-4.1",
       "display_name": "GPT-4.1",
       "vendor": "OpenAI",
-      "trust_score": 43.7,
+      "trust_score": 47.5,
       "breakdown": {
-        "coverage_score": 15.0,
+        "coverage_score": 18.8,
         "verification_score": 16.0,
         "performance_gap_score": 12.7,
         "openness_score": 0.0,
         "safety_score": 0.0,
         "use_case_scores": {
           "coding": 72.8,
-          "reasoning": 86.5
+          "reasoning": 83.8,
+          "math": 80.9
         }
       },
       "use_case_scores": {
         "coding": 72.8,
-        "reasoning": 86.5
+        "reasoning": 83.8,
+        "math": 80.9
       },
       "total_claims": 5,
       "verified_count": 2,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T16:26:36.115930",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:55.078310",
+      "license": "proprietary",
       "model_card": {
         "model_id": "gpt-4.1",
         "display_name": "GPT-4.1",
@@ -773,6 +997,11 @@
         ],
         "pricing_per_1k_input_usd": 0.03,
         "pricing_per_1k_output_usd": 0.06,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -785,28 +1014,32 @@
       "model_id": "deepseek-r1-14b",
       "display_name": "DeepSeek R1 14B",
       "vendor": "DeepSeek",
-      "trust_score": 22.2,
+      "trust_score": 29.8,
       "breakdown": {
-        "coverage_score": 11.2,
+        "coverage_score": 18.8,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
           "coding": 57.6,
-          "reasoning": 81.2
+          "reasoning": 82.0,
+          "math": 76.5,
+          "multilingual": 84.0
         }
       },
       "use_case_scores": {
         "coding": 57.6,
-        "reasoning": 81.2
+        "reasoning": 82.0,
+        "math": 76.5,
+        "multilingual": 84.0
       },
-      "total_claims": 4,
+      "total_claims": 6,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T16:26:25.425236",
-      "license": "unknown",
+      "unverifiable_count": 6,
+      "evaluated_at": "2026-04-25T16:58:48.196665",
+      "license": "open",
       "model_card": {
         "model_id": "deepseek-r1-14b",
         "display_name": "DeepSeek R1 14B",
@@ -830,6 +1063,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -854,18 +1092,20 @@
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "reasoning": 52.6
+          "reasoning": 52.6,
+          "math": 42.3
         }
       },
       "use_case_scores": {
-        "reasoning": 52.6
+        "reasoning": 52.6,
+        "math": 42.3
       },
       "total_claims": 3,
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T16:27:01.073270",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:56.822907",
+      "license": "open",
       "model_card": {
         "model_id": "llama3.2-vision",
         "display_name": "Llama 3.2 Vision 11B",
@@ -891,6 +1131,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -927,8 +1172,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 1,
-      "evaluated_at": "2026-04-25T16:27:01.667350",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:55.817732",
+      "license": "open",
       "model_card": {
         "model_id": "hermes3-8b",
         "display_name": "Hermes 3 8B",
@@ -951,6 +1196,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -973,7 +1223,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:09.832326",
+      "evaluated_at": "2026-04-25T16:58:51.571413",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6v",
@@ -996,6 +1246,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1017,7 +1272,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:50.693687",
+      "evaluated_at": "2026-04-25T16:58:51.107910",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5v",
@@ -1040,6 +1295,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1061,7 +1321,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:45.542341",
+      "evaluated_at": "2026-04-25T16:58:51.802116",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6v-flash",
@@ -1086,6 +1346,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1109,7 +1374,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:53.087491",
+      "evaluated_at": "2026-04-25T16:58:52.037555",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6v-flashx",
@@ -1134,6 +1399,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1157,7 +1427,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:56.045145",
+      "evaluated_at": "2026-04-25T16:58:53.908910",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5v-turbo",
@@ -1180,6 +1450,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1201,7 +1476,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:20.500406",
+      "evaluated_at": "2026-04-25T16:58:54.604790",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-ocr",
@@ -1226,6 +1501,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1249,8 +1529,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:24.011696",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:57.085638",
+      "license": "open",
       "model_card": {
         "model_id": "llava",
         "display_name": "LLaVA",
@@ -1273,6 +1553,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1295,8 +1580,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:52.367549",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:49.711352",
+      "license": "open",
       "model_card": {
         "model_id": "gemma3-4b",
         "display_name": "Gemma 3 4B",
@@ -1320,6 +1605,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1343,7 +1633,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:25.283939",
+      "evaluated_at": "2026-04-25T16:58:47.256066",
       "license": "unknown",
       "model_card": {
         "model_id": "cogvideox-3",
@@ -1364,6 +1654,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1383,7 +1678,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:06.973068",
+      "evaluated_at": "2026-04-25T16:58:47.488969",
       "license": "unknown",
       "model_card": {
         "model_id": "cogview-4-250304",
@@ -1406,6 +1701,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1427,7 +1727,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:38.532865",
+      "evaluated_at": "2026-04-25T16:58:54.141712",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-asr-2512",
@@ -1452,6 +1752,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1475,7 +1780,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:17.657368",
+      "evaluated_at": "2026-04-25T16:58:54.373030",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-image",
@@ -1497,6 +1802,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1517,7 +1827,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:32.530297",
+      "evaluated_at": "2026-04-25T16:58:46.060830",
       "license": "unknown",
       "model_card": {
         "model_id": "autoglm-phone-multilingual",
@@ -1543,6 +1853,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1567,8 +1882,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:20.803445",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:55.346326",
+      "license": "open",
       "model_card": {
         "model_id": "granite3.3-8b",
         "display_name": "Granite 3.3 8B",
@@ -1591,6 +1906,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1613,8 +1933,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:25.018776",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:47.025194",
+      "license": "open",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
         "display_name": "Cogito 2.1 671B Cloud",
@@ -1638,6 +1958,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1661,7 +1986,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:21.334382",
+      "evaluated_at": "2026-04-25T16:58:53.441017",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5-1",
@@ -1685,6 +2010,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1707,7 +2037,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:51.817777",
+      "evaluated_at": "2026-04-25T16:58:49.943809",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-32b-0414-128k",
@@ -1729,6 +2059,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1749,7 +2084,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:37.730239",
+      "evaluated_at": "2026-04-25T16:58:51.338692",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-6",
@@ -1771,6 +2106,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1791,7 +2131,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:52.453954",
+      "evaluated_at": "2026-04-25T16:58:52.271330",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-7",
@@ -1813,6 +2153,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1833,8 +2178,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:24.470558",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:46.794868",
+      "license": "open",
       "model_card": {
         "model_id": "cogito-14b",
         "display_name": "Cogito 14B",
@@ -1857,6 +2202,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1879,8 +2229,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:24.286585",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:47.720219",
+      "license": "open",
       "model_card": {
         "model_id": "deepcoder",
         "display_name": "DeepCoder",
@@ -1901,6 +2251,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1921,7 +2276,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:53.113912",
+      "evaluated_at": "2026-04-25T16:58:52.971615",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-plus",
@@ -1945,6 +2300,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -1967,7 +2327,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:25.910993",
+      "evaluated_at": "2026-04-25T16:58:50.176419",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5",
@@ -1989,6 +2349,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2009,7 +2374,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:03.217462",
+      "evaluated_at": "2026-04-25T16:58:50.408120",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5-air",
@@ -2033,6 +2398,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2055,7 +2425,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:32.897878",
+      "evaluated_at": "2026-04-25T16:58:50.640079",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5-airx",
@@ -2079,6 +2449,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2101,7 +2476,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:24.942878",
+      "evaluated_at": "2026-04-25T16:58:50.874205",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-5-flash",
@@ -2125,6 +2500,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2147,7 +2527,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:27.966189",
+      "evaluated_at": "2026-04-25T16:58:52.504995",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-7-flash",
@@ -2171,6 +2551,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2193,7 +2578,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:57.881117",
+      "evaluated_at": "2026-04-25T16:58:52.736665",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-4-7-flashx",
@@ -2217,6 +2602,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2239,7 +2629,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:54.009948",
+      "evaluated_at": "2026-04-25T16:58:53.206346",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5",
@@ -2261,6 +2651,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2281,7 +2676,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:31.126483",
+      "evaluated_at": "2026-04-25T16:58:53.673545",
       "license": "unknown",
       "model_card": {
         "model_id": "glm-5-turbo",
@@ -2303,6 +2698,11 @@
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2310,54 +2710,6 @@
         "multilingual",
         "chinese",
         "api"
-      ]
-    },
-    {
-      "model_id": "nomic-embed-text-v2-moe",
-      "display_name": "Nomic Embed Text v2 MoE",
-      "vendor": "Nomic",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:21.628167",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "nomic-embed-text-v2-moe",
-        "display_name": "Nomic Embed Text v2 MoE",
-        "vendor": "Nomic",
-        "card_url": null,
-        "card_text": "Nomic Embed Text v2 MoE - Multilingual Mixture-of-Experts text embedding model.\n\nArchitecture: MoE-based embedding architecture.\nParameters: Efficient MoE design.\nContext: 8K tokens.\n\nCapabilities: Multilingual embeddings, semantic search,\nretrieval-augmented generation (RAG), cross-lingual tasks,\nlong-context embedding for documents.\n\nBenchmar ks:\n- Excelling at multilingual retrieval\n- Competitive with larger dense models\n\nLicense: Apache 2.0",
-        "license_kind": "open",
-        "architecture": null,
-        "parameter_count_billions": 0.55,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 8192,
-        "release_date": null,
-        "tags": [
-          "text",
-          "embeddings",
-          "retrieval",
-          "semantic-search",
-          "rag",
-          "multilingual",
-          "moe"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0,
-        "capability_rank": null
-      },
-      "tags": [
-        "text",
-        "embeddings",
-        "retrieval",
-        "semantic-search",
-        "rag",
-        "multilingual",
-        "moe"
       ]
     },
     {
@@ -2371,8 +2723,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:11.027637",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:57.820251",
+      "license": "open",
       "model_card": {
         "model_id": "mxbai-embed-large",
         "display_name": "MXBAI Embed Large",
@@ -2395,6 +2747,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2417,8 +2774,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:26:24.741211",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:48.975294",
+      "license": "open",
       "model_card": {
         "model_id": "embeddinggemma",
         "display_name": "Embedding Gemma",
@@ -2440,6 +2797,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [
@@ -2461,8 +2823,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T16:27:23.189048",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T16:58:58.052187",
+      "license": "open",
       "model_card": {
         "model_id": "nomic-embed-text",
         "display_name": "Nomic Embed Text",
@@ -2485,6 +2847,11 @@
         ],
         "pricing_per_1k_input_usd": 0.0,
         "pricing_per_1k_output_usd": 0.0,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
         "capability_rank": null
       },
       "tags": [

@@ -79,6 +79,7 @@
         .score-high { background: #48bb78; color: white; }
         .score-medium { background: #ed8936; color: white; }
         .score-low { background: #f56565; color: white; }
+        .score-na { background: #a0aec0; color: white; }
         .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -138,15 +139,15 @@
                 <div class="stat-label">Models Evaluated</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">27.9</div>
+                <div class="stat-value">32.9</div>
                 <div class="stat-label">Average Trust Score</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">52</div>
+                <div class="stat-value">94</div>
                 <div class="stat-label">Total Claims</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">13%</div>
+                <div class="stat-value">7%</div>
                 <div class="stat-label">Claims Verified</div>
             </div>
         </div>
@@ -159,461 +160,563 @@
                     <th>Model (Vendor)</th>
                     <th>Parameters / Context</th>
                     <th>Trust Score (Verified)</th>
-                    <th>Capabilities</th>
-                    <th>Use-Case Strengths</th>
-                    <th>License</th>
-                </tr>
+                     <th>Capabilities</th>
+                     <th>Use-Case Strengths</th>
+                     <th>Pricing</th>
+                     <th>Hallucination</th>
+                     <th>License</th>
+                 </tr>
             </thead>
             <tbody>
                 <tr>
                 <td>1</td>
-                <td><strong>Kimi K2.6 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Moonshot AI</span></td>
+                <td><strong>Kimi K2.6 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Moonshot AI • 2026-04-20</span></td>
                 <td>32B / 1058B<br><span style="color:#718096; font-size:0.85em;">256K ctx</span></td>
-                <td><span class="score-badge score-low">14.8</span><br><span style="color:#718096; font-size:0.85em;">0/2 verified</span></td>
-                <td>Vision • Code • Agent</td>
-                <td>coding: 70.8</td>
-                <td>unknown</td>
+                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
+                <td>Vision • Video • Code • Tools • Agent • Reasoning • Long Context</td>
+                <td>coding: 68.7, reasoning: 54.0, multilingual: 76.7, multilingual_depth: 76.7, tool_use: 52.0, agent_swarm: 52.0, vision_coding: 76.7</td>
+                <td>$0.74 / $4.66<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>2</td>
-                <td><strong>GLM-5.1 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Z.ai</span></td>
+                <td><strong>GLM-5.1 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Z.ai • 2026-04-07</span></td>
                 <td>40B / 754B<br><span style="color:#718096; font-size:0.85em;">200K ctx</span></td>
-                <td><span class="score-badge score-low">18.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
-                <td>Code • Agent • Multi-Lang</td>
-                <td>coding: 77.8, reasoning: 86.8</td>
-                <td>unknown</td>
+                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/8 verified</span></td>
+                <td>Code • Tools • Agent • Reasoning • Multi-Lang • Open Weights • Long Context</td>
+                <td>coding: 59.9, reasoning: 77.0, math: 89.8, safety: 29.4, tool_use: 67.0, agent_swarm: 67.0, hallucination_fidelity: 29.4</td>
+                <td>$1.05 / $3.50<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#e53e3e;">70.6%</strong><br><span style="color:#718096; font-size:0.85em;">High risk</span></td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>3</td>
-                <td><strong>MiniMax M2.7 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">MiniMax</span></td>
-                <td>10B / 229B<br><span style="color:#718096; font-size:0.85em;">228K ctx</span></td>
-                <td><span class="score-badge score-low">12.3</span><br><span style="color:#718096; font-size:0.85em;">0/2 verified</span></td>
-                <td>Code • Agent</td>
+                <td><strong>Qwen 3.5 (397B) Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Alibaba / Qwen • 2026-02-01</span></td>
+                <td>17B / 397B<br><span style="color:#718096; font-size:0.85em;">262K ctx</span></td>
+                <td><span class="score-badge score-medium">41.0</span><br><span style="color:#718096; font-size:0.85em;">0/14 verified</span></td>
+                <td>Vision • Video • OCR • Docs • Code • Reasoning • Multi-Lang • Long Context</td>
+                <td>coding: 72.8, reasoning: 89.4, math: 90.8, multilingual: 80.6, multilingual_depth: 77.0, tool_use: 86.7, agent_swarm: 86.7, vision_coding: 83.7, multimodal: 90.0, ocr: 93.7, video_understanding: 87.5</td>
+                <td>$0.39 / $2.34<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>4</td>
-                <td><strong>Kimi K2.5 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Moonshot AI</span></td>
-                <td>32B / 1058B<br><span style="color:#718096; font-size:0.85em;">262K ctx</span></td>
-                <td><span class="score-badge score-low">14.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
-                <td>Vision • Code • Agent</td>
-                <td>coding: 79.8</td>
-                <td>unknown</td>
+                <td><strong>MiniMax M2.7 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">MiniMax • 2026-03-18</span></td>
+                <td>10B / 229B<br><span style="color:#718096; font-size:0.85em;">228K ctx</span></td>
+                <td><span class="score-badge score-low">23.5</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
+                <td>Docs • Code • Tools • Agent • Reasoning • Long Context</td>
+                <td>coding: 56.6, reasoning: 68.5, math: 87.4, safety: 34.4, tool_use: 54.9, agent_swarm: 53.9, office_document: 57.0, hallucination_fidelity: 34.4</td>
+                <td>$0.30 / $1.20<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#e53e3e;">65.6%</strong><br><span style="color:#718096; font-size:0.85em;">High risk</span></td>
+                <td>restricted</td>
             </tr>
 <tr>
                 <td>5</td>
-                <td><strong>DeepSeek-V4-Flash Cloud</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek</span></td>
-                <td>13B / 284B<br><span style="color:#718096; font-size:0.85em;">1048K ctx</span></td>
-                <td><span class="score-badge score-low">14.8</span><br><span style="color:#718096; font-size:0.85em;">0/2 verified</span></td>
-                <td>Code • Agent</td>
-                <td>coding: 80.6</td>
-                <td>unknown</td>
+                <td><strong>Kimi K2.5 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Moonshot AI • 2026-01-27</span></td>
+                <td>32B / 1058B<br><span style="color:#718096; font-size:0.85em;">262K ctx</span></td>
+                <td><span class="score-badge score-low">18.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
+                <td>Vision • Code • Tools • Agent • Reasoning • Long Context</td>
+                <td>coding: 79.8, reasoning: 47.0, multimodal: 85.0</td>
+                <td>$0.44 / $2.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>6</td>
-                <td><strong>Nemotron-3-Super Cloud</strong><br><span style="color:#718096; font-size:0.85em;">NVIDIA</span></td>
-                <td>12B / 120B<br><span style="color:#718096; font-size:0.85em;">1000K ctx</span></td>
-                <td><span class="score-badge score-low">14.8</span><br><span style="color:#718096; font-size:0.85em;">0/2 verified</span></td>
-                <td>Code • Tools • Agent • Multi-Lang</td>
-                <td>coding: 81.2, reasoning: 82.7</td>
-                <td>unknown</td>
+                <td><strong>DeepSeek-V4-Flash Cloud</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek • 2026-04-23</span></td>
+                <td>13B / 284B<br><span style="color:#718096; font-size:0.85em;">1048K ctx</span></td>
+                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
+                <td>Code • Tools • Agent • Reasoning • RAG • Open Weights • Long Context</td>
+                <td>coding: 80.6, reasoning: 76.9, math: 92.1, safety: 95.8, hallucination_fidelity: 95.8</td>
+                <td>$0.14 / $0.28<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#38a169;">4.2%</strong><br><span style="color:#718096; font-size:0.85em;">Low risk</span></td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>7</td>
-                <td><strong>Devstral 2 123B Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Mistral AI</span></td>
-                <td>123B<br><span style="color:#718096; font-size:0.85em;">256K ctx</span></td>
-                <td><span class="score-badge score-low">18.5</span><br><span style="color:#718096; font-size:0.85em;">0/2 verified</span></td>
-                <td>Code • Tools • Agent</td>
-                <td>coding: 72.2, reasoning: 59.4</td>
-                <td>unknown</td>
+                <td><strong>Nemotron-3-Super Cloud</strong><br><span style="color:#718096; font-size:0.85em;">NVIDIA • 2026-03-11</span></td>
+                <td>12B / 120B<br><span style="color:#718096; font-size:0.85em;">1000K ctx</span></td>
+                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/5 verified</span></td>
+                <td>Code • Tools • Agent • Reasoning • Multi-Lang • Enterprise • Long Context</td>
+                <td>coding: 81.2, reasoning: 88.9, math: 88.9, multilingual: 86.7, multilingual_depth: 86.7</td>
+                <td>$0.09 / $0.45<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>8</td>
-                <td><strong>Claude Opus 4.5</strong><br><span style="color:#718096; font-size:0.85em;">Anthropic</span></td>
-                <td>-<br><span style="color:#718096; font-size:0.85em;">200K ctx</span></td>
-                <td><span class="score-badge score-low">33.2</span><br><span style="color:#718096; font-size:0.85em;">1/7 verified</span></td>
-                <td>Code</td>
-                <td>coding: 89.3, reasoning: 88.3, safety: 69.8</td>
-                <td>unknown</td>
+                <td><strong>Devstral 2 123B Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Mistral AI • 2025-12-09</span></td>
+                <td>123B<br><span style="color:#718096; font-size:0.85em;">256K ctx</span></td>
+                <td><span class="score-badge score-low">18.5</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
+                <td>Code • Tools • Agent • Dense • Long Context</td>
+                <td>coding: 72.2, reasoning: 59.4, math: 59.4, safety: 92.5, hallucination_fidelity: 92.5</td>
+                <td>$0.40 / $2.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#38a169;">14.9%</strong><br><span style="color:#718096; font-size:0.85em;">Low risk</span></td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>9</td>
-                <td><strong>Llama 3.1 405B</strong><br><span style="color:#718096; font-size:0.85em;">Meta</span></td>
-                <td>405B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">51.8</span><br><span style="color:#718096; font-size:0.85em;">1/5 verified</span></td>
-                <td>Code • Tools • Multi-Lang</td>
-                <td>coding: 89.0, reasoning: 86.5, multilingual: 87.5</td>
-                <td>unknown</td>
+                <td><strong>Claude Opus 4.5</strong><br><span style="color:#718096; font-size:0.85em;">Anthropic • 2025-11-01</span></td>
+                <td>-<br><span style="color:#718096; font-size:0.85em;">200K ctx</span></td>
+                <td><span class="score-badge score-medium">36.9</span><br><span style="color:#718096; font-size:0.85em;">1/7 verified</span></td>
+                <td>Code • Reasoning • Long Context</td>
+                <td>coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8</td>
+                <td>$15.00 / $75.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
             </tr>
 <tr>
                 <td>10</td>
-                <td><strong>DeepSeek V3.2</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek</span></td>
-                <td>671B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">57.1</span><br><span style="color:#718096; font-size:0.85em;">2/6 verified</span></td>
-                <td>Code</td>
-                <td>coding: 80.8, reasoning: 84.9</td>
-                <td>unknown</td>
+                <td><strong>Llama 3.1 405B</strong><br><span style="color:#718096; font-size:0.85em;">Meta • -</span></td>
+                <td>405B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-high">51.8</span><br><span style="color:#718096; font-size:0.85em;">1/5 verified</span></td>
+                <td>Code • Reasoning • Multi-Lang • Long Context</td>
+                <td>coding: 89.0, reasoning: 86.5, math: 73.8, multilingual: 87.5</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>11</td>
-                <td><strong>MiniMax M2.5 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">MiniMax</span></td>
-                <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-medium">63.8</span><br><span style="color:#718096; font-size:0.85em;">1/1 verified</span></td>
-                <td>Code • Agent</td>
-                <td>coding: 80.2</td>
-                <td>unknown</td>
+                <td><strong>DeepSeek V3.2</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek • 2025-12-26</span></td>
+                <td>671B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-high">60.8</span><br><span style="color:#718096; font-size:0.85em;">2/6 verified</span></td>
+                <td>Code • Reasoning • Long Context</td>
+                <td>coding: 80.8, reasoning: 81.7, math: 76.0</td>
+                <td>-</td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>12</td>
-                <td><strong>Gemini 2.5 Pro</strong><br><span style="color:#718096; font-size:0.85em;">Google</span></td>
-                <td>-<br><span style="color:#718096; font-size:0.85em;">2097K ctx</span></td>
-                <td><span class="score-badge score-low">29.8</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
-                <td>Code</td>
-                <td>coding: 75.0, reasoning: 84.8, safety: 68.1</td>
-                <td>unknown</td>
+                <td><strong>MiniMax M2.5 Cloud</strong><br><span style="color:#718096; font-size:0.85em;">MiniMax • -</span></td>
+                <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-high">63.8</span><br><span style="color:#718096; font-size:0.85em;">1/1 verified</span></td>
+                <td>Code • Tools • Agent • Reasoning • Long Context</td>
+                <td>coding: 80.2</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
             </tr>
 <tr>
                 <td>13</td>
-                <td><strong>GPT-4.1</strong><br><span style="color:#718096; font-size:0.85em;">OpenAI</span></td>
-                <td>-<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">43.7</span><br><span style="color:#718096; font-size:0.85em;">2/5 verified</span></td>
-                <td>Code</td>
-                <td>coding: 72.8, reasoning: 86.5</td>
-                <td>unknown</td>
+                <td><strong>Gemini 2.5 Pro</strong><br><span style="color:#718096; font-size:0.85em;">Google • 2026-02-12</span></td>
+                <td>-<br><span style="color:#718096; font-size:0.85em;">2097K ctx</span></td>
+                <td><span class="score-badge score-medium">33.5</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
+                <td>Vision • Code • Reasoning • Long Context</td>
+                <td>coding: 75.0, reasoning: 83.2, math: 81.5, safety: 68.1</td>
+                <td>$12.50 / $37.50<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
             </tr>
 <tr>
                 <td>14</td>
-                <td><strong>DeepSeek R1 14B</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek</span></td>
-                <td>14B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
-                <td>Code</td>
-                <td>coding: 57.6, reasoning: 81.2</td>
-                <td>unknown</td>
+                <td><strong>GPT-4.1</strong><br><span style="color:#718096; font-size:0.85em;">OpenAI • 2026-01-15</span></td>
+                <td>-<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-medium">47.5</span><br><span style="color:#718096; font-size:0.85em;">2/5 verified</span></td>
+                <td>Vision • Code • Reasoning • Long Context</td>
+                <td>coding: 72.8, reasoning: 83.8, math: 80.9</td>
+                <td>$30.00 / $60.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
             </tr>
 <tr>
                 <td>15</td>
-                <td><strong>Llama 3.2 Vision 11B</strong><br><span style="color:#718096; font-size:0.85em;">Meta</span></td>
-                <td>11B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
-                <td>Vision</td>
-                <td>reasoning: 52.6</td>
-                <td>unknown</td>
+                <td><strong>DeepSeek R1 14B</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek • -</span></td>
+                <td>14B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">29.8</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
+                <td>Code • Reasoning • Long Context</td>
+                <td>coding: 57.6, reasoning: 82.0, math: 76.5, multilingual: 84.0</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>16</td>
-                <td><strong>Hermes 3 8B</strong><br><span style="color:#718096; font-size:0.85em;">Nous</span></td>
-                <td>8B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">14.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
-                <td>Code • Tools • Agent</td>
-                <td>commonsense: 3.1</td>
-                <td>unknown</td>
+                <td><strong>Llama 3.2 Vision 11B</strong><br><span style="color:#718096; font-size:0.85em;">Meta • -</span></td>
+                <td>11B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
+                <td>Vision • OCR • Docs • Long Context</td>
+                <td>reasoning: 52.6, math: 42.3</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>17</td>
-                <td><strong>GLM-4.6V</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision • Multi-Lang</td>
+                <td><strong>Hermes 3 8B</strong><br><span style="color:#718096; font-size:0.85em;">Nous • -</span></td>
+                <td>8B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-low">14.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
+                <td>Code • Tools • Agent • Long Context</td>
+                <td>commonsense: 3.1</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>18</td>
-                <td><strong>GLM-4.5V</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision • Multi-Lang</td>
+                <td><strong>GLM-4.6V</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>19</td>
-                <td><strong>GLM-4.6V-Flash</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.5V</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision • Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>20</td>
-                <td><strong>GLM-4.6V-FlashX</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.6V-Flash</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision • Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>21</td>
-                <td><strong>GLM-5V-Turbo</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.6V-FlashX</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision • Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>22</td>
-                <td><strong>GLM-OCR</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>9B<br><span style="color:#718096; font-size:0.85em;">32K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision • Multi-Lang</td>
+                <td><strong>GLM-5V-Turbo</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>23</td>
-                <td><strong>LLaVA</strong><br><span style="color:#718096; font-size:0.85em;">Community</span></td>
-                <td>7B<br><span style="color:#718096; font-size:0.85em;">4K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision</td>
+                <td><strong>GLM-OCR</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>9B<br><span style="color:#718096; font-size:0.85em;">32K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • OCR • Multi-Lang</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>24</td>
-                <td><strong>Gemma 3 4B</strong><br><span style="color:#718096; font-size:0.85em;">Google</span></td>
-                <td>4B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Vision • Multi-Lang</td>
+                <td><strong>LLaVA</strong><br><span style="color:#718096; font-size:0.85em;">Community • -</span></td>
+                <td>7B<br><span style="color:#718096; font-size:0.85em;">4K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • OCR</td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>25</td>
-                <td><strong>CogVideoX-3</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>-<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td><strong>Gemma 3 4B</strong><br><span style="color:#718096; font-size:0.85em;">Google • -</span></td>
+                <td>4B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision • Multi-Lang • Long Context</td>
                 <td>-</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>26</td>
-                <td><strong>CogView-4-250304</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>CogVideoX-3</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>-<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>Vision</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>27</td>
-                <td><strong>GLM-ASR-2512</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>CogView-4-250304</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>-<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision</td>
+                <td>-</td>
                 <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>28</td>
-                <td><strong>GLM-Image</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-ASR-2512</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>-<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>Vision</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>29</td>
-                <td><strong>AutoGLM-Phone-Multilingual</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>9B<br><span style="color:#718096; font-size:0.85em;">32K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Tools • Agent • Multi-Lang</td>
+                <td><strong>GLM-Image</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>-<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Vision</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>30</td>
-                <td><strong>Granite 3.3 8B</strong><br><span style="color:#718096; font-size:0.85em;">IBM</span></td>
-                <td>8B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Code</td>
+                <td><strong>AutoGLM-Phone-Multilingual</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>9B<br><span style="color:#718096; font-size:0.85em;">32K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Agent • Multi-Lang</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>31</td>
-                <td><strong>Cogito 2.1 671B Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Deep Cogito</span></td>
-                <td>671B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Code</td>
+                <td><strong>Granite 3.3 8B</strong><br><span style="color:#718096; font-size:0.85em;">IBM • -</span></td>
+                <td>8B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Code • Tools • Enterprise • Long Context</td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>32</td>
-                <td><strong>GLM-5.1</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>32B<br><span style="color:#718096; font-size:0.85em;">256K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><strong>Cogito 2.1 671B Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Deep Cogito • -</span></td>
+                <td>671B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Code • Reasoning • Long Context</td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>33</td>
-                <td><strong>GLM-4-32B-0414-128K</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><strong>GLM-5.1</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>32B<br><span style="color:#718096; font-size:0.85em;">256K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Reasoning • Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>34</td>
-                <td><strong>GLM-4.6</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4-32B-0414-128K</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>35</td>
-                <td><strong>GLM-4.7</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.6</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>36</td>
-                <td><strong>Cogito 14B</strong><br><span style="color:#718096; font-size:0.85em;">Deep Cogito</span></td>
-                <td>14B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Code</td>
+                <td><strong>GLM-4.7</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>32B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>37</td>
-                <td><strong>DeepCoder</strong><br><span style="color:#718096; font-size:0.85em;">Community</span></td>
-                <td>14B<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Code</td>
+                <td><strong>Cogito 14B</strong><br><span style="color:#718096; font-size:0.85em;">Deep Cogito • -</span></td>
+                <td>14B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Code • Reasoning • Long Context</td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>38</td>
-                <td><strong>GLM-4-Plus</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
-                <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><strong>DeepCoder</strong><br><span style="color:#718096; font-size:0.85em;">Community • -</span></td>
+                <td>14B<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Code</td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>39</td>
-                <td><strong>GLM-4.5</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4-Plus</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Reasoning • Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>40</td>
-                <td><strong>GLM-4.5-Air</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.5</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>41</td>
-                <td><strong>GLM-4.5-AirX</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.5-Air</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>42</td>
-                <td><strong>GLM-4.5-Flash</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.5-AirX</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>43</td>
-                <td><strong>GLM-4.7-Flash</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.5-Flash</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>44</td>
-                <td><strong>GLM-4.7-FlashX</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.7-Flash</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>45</td>
-                <td><strong>GLM-5</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-4.7-FlashX</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>46</td>
-                <td><strong>GLM-5-Turbo</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI</span></td>
+                <td><strong>GLM-5</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
                 <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>47</td>
-                <td><strong>Nomic Embed Text v2 MoE</strong><br><span style="color:#718096; font-size:0.85em;">Nomic</span></td>
-                <td>0.6B<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
-                <td>Multi-Lang</td>
+                <td><strong>GLM-5-Turbo</strong><br><span style="color:#718096; font-size:0.85em;">Zhipu AI • -</span></td>
+                <td>9B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>Multi-Lang • Long Context</td>
+                <td>-</td>
+                <td>-</td>
                 <td>-</td>
                 <td>unknown</td>
             </tr>
 <tr>
                 <td>48</td>
-                <td><strong>MXBAI Embed Large</strong><br><span style="color:#718096; font-size:0.85em;">Mixedbread</span></td>
+                <td><strong>MXBAI Embed Large</strong><br><span style="color:#718096; font-size:0.85em;">Mixedbread • -</span></td>
                 <td>0.3B<br><span style="color:#718096; font-size:0.85em;">0K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>RAG</td>
                 <td>-</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>49</td>
-                <td><strong>Embedding Gemma</strong><br><span style="color:#718096; font-size:0.85em;">Google</span></td>
+                <td><strong>Embedding Gemma</strong><br><span style="color:#718096; font-size:0.85em;">Google • -</span></td>
                 <td>0.3B<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>RAG</td>
                 <td>-</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>open</td>
             </tr>
 <tr>
                 <td>50</td>
-                <td><strong>Nomic Embed Text</strong><br><span style="color:#718096; font-size:0.85em;">Nomic</span></td>
+                <td><strong>Nomic Embed Text</strong><br><span style="color:#718096; font-size:0.85em;">Nomic • -</span></td>
                 <td>0.1B<br><span style="color:#718096; font-size:0.85em;">8K ctx</span></td>
-                <td><span class="score-badge score-low">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
+                <td>RAG • Long Context</td>
                 <td>-</td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
                 <td>-</td>
-                <td>unknown</td>
+                <td>open</td>
             </tr>
             </tbody>
         </table>
@@ -640,7 +743,7 @@
         </div>
 
         <div class="footer">
-            <p>Last updated: 2026-04-25T16:26:26.817861</p>
+            <p>Last updated: 2026-04-25T16:58:46.531131</p>
             <p style="margin-top: 10px;">
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard" class="github-link">
                     View on GitHub

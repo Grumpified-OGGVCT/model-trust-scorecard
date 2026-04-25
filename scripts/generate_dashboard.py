@@ -9,7 +9,7 @@ Usage:
 """
 
 import argparse
-import html
+import html as html_lib
 import json
 import logging
 import sys
@@ -365,14 +365,14 @@ def main():
         rows.append(
             f"""<tr>
                 <td>{rank}</td>
-                <td><strong>{html.escape(score['display_name'])}</strong><br><span style="color:#718096; font-size:0.85em;">{html.escape(score['vendor'] or '-')} • {release_date}</span></td>
+                <td><strong>{html_lib.escape(score['display_name'])}</strong><br><span style="color:#718096; font-size:0.85em;">{html_lib.escape(score['vendor'] or '-')} • {release_date}</span></td>
                 <td>{params_display}<br><span style="color:#718096; font-size:0.85em;">{ctx_display} ctx</span></td>
                 <td><span class="score-badge {badge_class}">{score_display}</span><br><span style="color:#718096; font-size:0.85em;">{score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td>{caps_display}</td>
                 <td>{use_case_label}</td>
                 <td>{price_display}</td>
                 <td>{hallucination_display}</td>
-                <td>{html.escape(str(license_display))}</td>
+                <td>{html_lib.escape(str(license_display))}</td>
             </tr>"""
         )
 

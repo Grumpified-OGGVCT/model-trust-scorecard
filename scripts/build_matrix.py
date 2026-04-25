@@ -35,11 +35,16 @@ POWERSHELL_OLLAMA_LIST_RE = re.compile(r"^PS .+>\s+ollama\s+list$", re.IGNORECAS
 
 def load_catalog_models(models_dir: Path) -> list[str]:
     """Return model IDs from local catalog JSON files."""
-    ids: list[str] = []
+    ranked_ids: list[tuple[bool, int, str]] = []
     # Keep ordering deterministic so matrix output and tests stay stable across platforms.
     for path in sorted(models_dir.glob("*.json")):
-        ids.append(path.stem)
-    return ids
+        rank = None
+        try:
+            rank = json.loads(path.read_text()).get("capability_rank")
+        except Exception as exc:  # noqa: BLE001
+            logger.warning("Failed to read capability rank from %s: %s", path, exc)
+        ranked_ids.append((rank is None, int(rank or 0), path.stem))
+    return [model_id for _, _, model_id in sorted(ranked_ids)]
 
 
 def parse_inventory_models(text: str) -> list[str]:
