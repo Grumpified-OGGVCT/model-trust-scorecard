@@ -206,10 +206,19 @@ def _value_for_outcome(outcome: VerificationOutcome) -> float:
     higher use-case score. The floor prevents negative scores if a noisy source
     reports a value above 100.
     """
+    if outcome.claim is None:
+        logger.warning("Skipping use-case value for outcome without a claim")
+        return 0.0
     value = outcome.official_value if outcome.official_value is not None else outcome.claim.value
     norm = _normalize_metric(outcome.claim.metric)
     if norm in LOWER_IS_BETTER_METRICS:
         # These lower-is-better metrics are extracted as percentages on the same 0-100 scale.
+        if value < 0.0 or value > 100.0:
+            logger.warning(
+                "Lower-is-better metric %s has out-of-range value %.2f",
+                outcome.claim.metric,
+                value,
+            )
         return max(0.0, 100.0 - value)
     return value
 

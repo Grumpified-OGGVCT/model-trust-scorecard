@@ -116,6 +116,9 @@ def _looks_like_cloud_family_variant(base_prefix: str, variant: str) -> bool:
     """
     Detect shorthand cloud family variants in organized inventories.
 
+    Returns True when a slash-separated shorthand variant should inherit the
+    CLOUD deployment marker from the previous family entry.
+
     Example: `minimax-m2:cloud / m2.1 / m2.5` should keep the CLOUD designation
     as `minimax-m2.1:cloud`, not flatten to the invalid `minimax-m2:m2.1`.
     """
