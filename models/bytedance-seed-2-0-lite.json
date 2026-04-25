@@ -1,0 +1,19 @@
+{
+  "model_id": "bytedance-seed-2-0-lite",
+  "display_name": "Seed-2.0-Lite",
+  "vendor": "ByteDance Seed",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "3.14B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-03-10T00:00:00",
+  "pricing_per_1k_input_usd": 0.00025,
+  "pricing_per_1k_output_usd": 0.002,
+  "card_url": "https://openrouter.ai/models/bytedance-seed-2-0-lite",
+  "card_text": "Seed-2.0-Lite is a comparative catalog entry for ByteDance Seed.\n\nWeekly tokens: 3.14B.\nContext Window: 262,144 tokens.\nReleased: 2026-03-10.\nPricing: $0.25 per 1M input tokens and $2 per 1M output tokens.\nCapabilities: text, reasoning, coding, long context."
+}

@@ -85,6 +85,7 @@ trust-scorecard export --db trust_scores.db --output results.json
 - Paste provider claim lists directly via `--text-file -`; the parser handles multi-line/bullet inputs and keeps source URLs with each claim.
 - Evaluations are stored in `trust_scores.db` with timestamps; rerunning a model creates a new record instead of overwriting, so history stays intact.
 - `trust-scorecard list` shows the catalog; add more JSON entries under `models/` to make them available to batch runs and GitHub Actions.
+- Comparative cloud model metadata can be checked against the OpenRouter filtered text-output model list: `https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1&output_modalities=text`.
 - Inventory files do not auto-review models; only IDs that already exist in the catalog are emitted into the verification matrix, and everything else should be submitted through the model review flow.
 
 ### GitHub Actions Integration

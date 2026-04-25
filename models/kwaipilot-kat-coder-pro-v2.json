@@ -1,0 +1,21 @@
+{
+  "model_id": "kwaipilot-kat-coder-pro-v2",
+  "display_name": "KAT-Coder-Pro V2",
+  "vendor": "Kwaipilot",
+  "license_kind": "unknown",
+  "tags": [
+    "agentic",
+    "coding",
+    "function-calling",
+    "long-context",
+    "software-engineering",
+    "text"
+  ],
+  "weekly_tokens": "4.3B",
+  "context_window_tokens": 256000,
+  "release_date": "2026-03-27T00:00:00",
+  "pricing_per_1k_input_usd": 0.0003,
+  "pricing_per_1k_output_usd": 0.0012,
+  "card_url": "https://openrouter.ai/models/kwaipilot-kat-coder-pro-v2",
+  "card_text": "KAT-Coder-Pro V2 is a comparative catalog entry for Kwaipilot.\n\nWeekly tokens: 4.3B.\nContext Window: 256,000 tokens.\nReleased: 2026-03-27.\nPricing: $0.3 per 1M input tokens and $1.2 per 1M output tokens.\nCapabilities: text, coding, software engineering, agentic, function calling, long context."
+}

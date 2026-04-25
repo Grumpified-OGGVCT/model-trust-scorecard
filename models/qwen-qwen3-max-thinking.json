@@ -1,0 +1,20 @@
+{
+  "model_id": "qwen-qwen3-max-thinking",
+  "display_name": "Qwen3 Max Thinking",
+  "vendor": "Qwen",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "multilingual",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "1.04B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-02-09T00:00:00",
+  "pricing_per_1k_input_usd": 0.00078,
+  "pricing_per_1k_output_usd": 0.0039,
+  "card_url": "https://openrouter.ai/models/qwen-qwen3-max-thinking",
+  "card_text": "Qwen3 Max Thinking is a comparative catalog entry for Qwen.\n\nWeekly tokens: 1.04B.\nContext Window: 262,144 tokens.\nReleased: 2026-02-09.\nPricing: $0.78 per 1M input tokens and $3.9 per 1M output tokens.\nCapabilities: text, reasoning, coding, multilingual, long context."
+}

@@ -1,0 +1,20 @@
+{
+  "model_id": "mistral-small-4",
+  "display_name": "Mistral Small 4",
+  "vendor": "Mistral",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "function-calling",
+    "long-context",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "13.1B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-03-16T00:00:00",
+  "pricing_per_1k_input_usd": 0.00015,
+  "pricing_per_1k_output_usd": 0.0006,
+  "card_url": "https://openrouter.ai/models/mistral-small-4",
+  "card_text": "Mistral Small 4 is a comparative catalog entry for Mistral.\n\nWeekly tokens: 13.1B.\nContext Window: 262,144 tokens.\nReleased: 2026-03-16.\nPricing: $0.15 per 1M input tokens and $0.6 per 1M output tokens.\nCapabilities: text, reasoning, coding, function calling, long context."
+}

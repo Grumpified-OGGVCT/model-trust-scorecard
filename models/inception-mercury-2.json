@@ -1,0 +1,18 @@
+{
+  "model_id": "inception-mercury-2",
+  "display_name": "Mercury 2",
+  "vendor": "Inception",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "4.2B",
+  "context_window_tokens": 128000,
+  "release_date": "2026-03-04T00:00:00",
+  "pricing_per_1k_input_usd": 0.00025,
+  "pricing_per_1k_output_usd": 0.00075,
+  "card_url": "https://openrouter.ai/models/inception-mercury-2",
+  "card_text": "Mercury 2 is a comparative catalog entry for Inception.\n\nWeekly tokens: 4.2B.\nContext Window: 128,000 tokens.\nReleased: 2026-03-04.\nPricing: $0.25 per 1M input tokens and $0.75 per 1M output tokens.\nCapabilities: text, reasoning, coding."
+}

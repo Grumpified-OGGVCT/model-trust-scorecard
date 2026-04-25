@@ -1,0 +1,19 @@
+{
+  "model_id": "aion-labs-aion-2-0",
+  "display_name": "Aion-2.0",
+  "vendor": "AionLabs",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "6.09B",
+  "context_window_tokens": 131072,
+  "release_date": "2026-02-23T00:00:00",
+  "pricing_per_1k_input_usd": 0.0008,
+  "pricing_per_1k_output_usd": 0.0016,
+  "card_url": "https://openrouter.ai/models/aion-labs-aion-2-0",
+  "card_text": "Aion-2.0 is a comparative catalog entry for AionLabs.\n\nWeekly tokens: 6.09B.\nContext Window: 131,072 tokens.\nReleased: 2026-02-23.\nPricing: $0.8 per 1M input tokens and $1.6 per 1M output tokens.\nCapabilities: text, reasoning, coding, long context."
+}

@@ -1,0 +1,20 @@
+{
+  "model_id": "qwen-qwen3-5-35b-a3b",
+  "display_name": "Qwen3.5-35B-A3B",
+  "vendor": "Qwen",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "multilingual",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "48B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-02-25T00:00:00",
+  "pricing_per_1k_input_usd": 0.0001625,
+  "pricing_per_1k_output_usd": 0.0013,
+  "card_url": "https://openrouter.ai/models/qwen-qwen3-5-35b-a3b",
+  "card_text": "Qwen3.5-35B-A3B is a comparative catalog entry for Qwen.\n\nWeekly tokens: 48B.\nContext Window: 262,144 tokens.\nReleased: 2026-02-25.\nPricing: $0.1625 per 1M input tokens and $1.3 per 1M output tokens.\nCapabilities: text, reasoning, coding, multilingual, long context."
+}

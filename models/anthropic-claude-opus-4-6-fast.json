@@ -1,0 +1,20 @@
+{
+  "model_id": "anthropic-claude-opus-4-6-fast",
+  "display_name": "Claude Opus 4.6 (Fast)",
+  "vendor": "Anthropic",
+  "license_kind": "proprietary",
+  "tags": [
+    "coding",
+    "long-context",
+    "reasoning",
+    "safety",
+    "text"
+  ],
+  "weekly_tokens": "8.79B",
+  "context_window_tokens": 1000000,
+  "release_date": "2026-04-07T00:00:00",
+  "pricing_per_1k_input_usd": 0.03,
+  "pricing_per_1k_output_usd": 0.15,
+  "card_url": "https://openrouter.ai/models/anthropic-claude-opus-4-6-fast",
+  "card_text": "Claude Opus 4.6 (Fast) is a comparative catalog entry for Anthropic.\n\nWeekly tokens: 8.79B.\nContext Window: 1,000,000 tokens.\nReleased: 2026-04-07.\nPricing: $30 per 1M input tokens and $150 per 1M output tokens.\nCapabilities: text, reasoning, coding, long context, safety."
+}
