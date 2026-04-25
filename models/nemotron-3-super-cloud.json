@@ -1,0 +1,17 @@
+{
+  "model_id": "nemotron-3-super-cloud",
+  "display_name": "Nemotron-3-Super Cloud",
+  "vendor": "NVIDIA",
+  "card_url": "https://openrouter.ai/models/nvidia/nemotron-3-super",
+  "card_text": "Nemotron-3-Super Cloud is NVIDIA's long-context and IT-automation specialist.\n\nArchitecture: LatentMoE combining Mamba-2 state-space layers, MoE layers, attention, and multi-token prediction, 12B active parameters from 120B total.\nContext Window: 1000000 tokens natively.\nReleased: 2026-03-11.\nBenchmarks:\n- LiveCodeBench: 81.2%\n- GPQA: 82.7%\nCapabilities: million-token context, IT ticket automation, multilingual enterprise workflows across 7 languages, speculative decoding, low-cost agentic applications.\nPublic sources: OpenRouter, NVIDIA docs, HuggingFace model card, Artificial Analysis.\nValue note: cheapest input pricing in this frontier cloud set, with a free tier reported on OpenRouter.",
+  "license_kind": "open",
+  "architecture": "LatentMoE (Mamba-2 + MoE + Attention + MTP)",
+  "parameter_count_billions": 12,
+  "total_parameter_count_billions": 120,
+  "context_window_tokens": 1000000,
+  "release_date": "2026-03-11T00:00:00",
+  "tags": ["text", "coding", "agentic", "tool-use", "long-context", "reasoning", "multilingual", "enterprise"],
+  "pricing_per_1k_input_usd": 0.00009,
+  "pricing_per_1k_output_usd": 0.00045,
+  "capability_rank": 7
+}

@@ -42,6 +42,7 @@ from trust_scorecard.pipeline import (
     load_model_card_from_json,
     load_model_cards_from_directory,
 )
+from trust_scorecard.ranking import evaluation_sort_key
 
 console = Console()
 
@@ -358,12 +359,7 @@ def _display_batch_summary(evaluations) -> None:
     table.add_column("Claims", justify="right")
     table.add_column("Verified", justify="right", style="green")
 
-    # Sort by trust score descending
-    sorted_evals = sorted(
-        evaluations,
-        key=lambda e: e.trust_score.score if e.trust_score else 0.0,
-        reverse=True,
-    )
+    sorted_evals = sorted(evaluations, key=evaluation_sort_key)
 
     for rank, evaluation in enumerate(sorted_evals, 1):
         score = evaluation.trust_score.score if evaluation.trust_score else 0.0

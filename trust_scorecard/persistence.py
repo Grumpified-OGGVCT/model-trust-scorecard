@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any
 
 from trust_scorecard.models import ModelEvaluation
+from trust_scorecard.ranking import evaluation_sort_key
 
 logger = logging.getLogger(__name__)
 
@@ -149,8 +150,8 @@ class EvaluationStore:
 
         Returns
         -------
-        A list of ModelEvaluation records, one per model, ordered by trust score
-        descending.
+        A list of ModelEvaluation records, one per model, ordered by capability
+        priority.
         """
         with self._connect() as conn:
             cursor = conn.execute("""
@@ -160,9 +161,9 @@ class EvaluationStore:
                     FROM evaluations e2
                     WHERE e2.model_id = e1.model_id
                 )
-                ORDER BY trust_score DESC NULLS LAST
             """)
-            return [ModelEvaluation.model_validate_json(row[0]) for row in cursor.fetchall()]
+            evaluations = [ModelEvaluation.model_validate_json(row[0]) for row in cursor.fetchall()]
+        return sorted(evaluations, key=evaluation_sort_key)
 
     def get_history(self, model_id: str, limit: int = 10) -> list[ModelEvaluation]:
         """

@@ -13,6 +13,8 @@ import json
 import logging
 from pathlib import Path
 
+from trust_scorecard.ranking import score_record_sort_key
+
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
@@ -247,21 +249,7 @@ def main():
 
     # Load scores
     data = json.loads(args.input.read_text())
-    # Sort by ACTUAL CAPABILITY - prioritize CODING first, then REASONING
-    # This matches industry-standard rankings (OpenRouter Arena, etc.)
-    def get_capability_score(score):
-        use_cases = score.get("use_case_scores", {}) or {}
-        # Primary: coding score, Secondary: reasoning, Tertiary: any other score
-        coding = use_cases.get("coding", 0)
-        reasoning = use_cases.get("reasoning", 0)
-        other_avg = sum([v for k, v in use_cases.items() if k not in ("coding", "reasoning")]) / max(1, len([v for k, v in use_cases.items() if k not in ("coding", "reasoning")]))
-        return (coding, reasoning, other_avg)
-
-    scores = sorted(
-        data["scores"],
-        key=lambda x: get_capability_score(x),
-        reverse=True
-    )
+    scores = sorted(data["scores"], key=score_record_sort_key)
 
     # Calculate stats (skip None values)
     total_models = len(scores)
@@ -287,14 +275,16 @@ def main():
         # Extract metadata from model card
         model_card = score.get("model_card", {})
         params = model_card.get("parameter_count_billions")
-        params_display = f"{params}B" if params else "-"
+        total_params = model_card.get("total_parameter_count_billions")
+        if params and total_params and total_params != params:
+            params_display = f"{params:g}B / {total_params:g}B"
+        else:
+            params_display = f"{params:g}B" if params else "-"
 
         ctx = model_card.get("context_window_tokens")
         ctx_display = f"{ctx // 1000}K" if ctx else "-"
 
-        # Build capability tags string
         tags = score.get("tags", [])
-        tag_html = "".join([f'<span class="tag">{t}</span>' for t in tags[:5]]) if tags else "-"
 
         # Build capabilities summary
         caps = []
