@@ -197,6 +197,15 @@ LOWER_IS_BETTER_METRICS = {
 
 
 def _value_for_outcome(outcome: VerificationOutcome) -> float:
+    """
+    Return the use-case scoring value for an outcome.
+
+    Most benchmark scores are higher-is-better percentages. Lower-is-better
+    trust metrics, such as hallucination and structured-output error rates, are
+    inverted onto the same 0-100 strength scale so lower risk contributes a
+    higher use-case score. The floor prevents negative scores if a noisy source
+    reports a value above 100.
+    """
     value = outcome.official_value if outcome.official_value is not None else outcome.claim.value
     norm = _normalize_metric(outcome.claim.metric)
     if norm in LOWER_IS_BETTER_METRICS:

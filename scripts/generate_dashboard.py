@@ -24,6 +24,9 @@ from trust_scorecard.ranking import score_record_sort_key  # noqa: E402
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
+HIGH_TRUST_THRESHOLD = 50
+MEDIUM_TRUST_THRESHOLD = 30
+
 
 def _format_param_count(value: float | int | None) -> str:
     if value is None:
@@ -334,8 +337,8 @@ def main():
         trust_score = score["trust_score"]
         badge_class = (
             "score-na" if trust_score is None
-            else "score-high" if trust_score >= 50
-            else "score-medium" if trust_score >= 30
+            else "score-high" if trust_score >= HIGH_TRUST_THRESHOLD
+            else "score-medium" if trust_score >= MEDIUM_TRUST_THRESHOLD
             else "score-low"
         )
         score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
