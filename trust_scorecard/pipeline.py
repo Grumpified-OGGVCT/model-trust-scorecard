@@ -305,15 +305,16 @@ def _canonical_structured_benchmark_name(
             return source.config.display_name
 
     if normalized == "swebench":
+        fallback_display_name: str | None = None
         for source in benchmark_sources:
-            if "swebenchverified" in {
-                _normalize_claim_metric(source.config.id),
-                _normalize_claim_metric(source.config.display_name),
-            }:
+            normalized_id = _normalize_claim_metric(source.config.id)
+            normalized_display_name = _normalize_claim_metric(source.config.display_name)
+            if "swebenchverified" in {normalized_id, normalized_display_name}:
                 return source.config.display_name
-        for source in benchmark_sources:
-            if _normalize_claim_metric(source.config.display_name).startswith("swebench"):
-                return source.config.display_name
+            if fallback_display_name is None and normalized_display_name.startswith("swebench"):
+                fallback_display_name = source.config.display_name
+        if fallback_display_name is not None:
+            return fallback_display_name
 
     return stripped
 
