@@ -275,13 +275,13 @@ def _claims_from_structured_benchmarks(
 
 def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
     """Deduplicate text-extracted and structured claims while preserving order."""
-    seen: set[str] = set()
+    seen_metrics: set[str] = set()
     deduped: list[Claim] = []
     for claim in claims:
         key = _normalize_claim_metric(claim.metric)
-        if key in seen:
+        if key in seen_metrics:
             continue
-        seen.add(key)
+        seen_metrics.add(key)
         deduped.append(claim)
     return deduped
 
@@ -305,6 +305,12 @@ def _canonical_structured_benchmark_name(
             return source.config.display_name
 
     if normalized == "swebench":
+        for source in benchmark_sources:
+            if "swebenchverified" in {
+                _normalize_claim_metric(source.config.id),
+                _normalize_claim_metric(source.config.display_name),
+            }:
+                return source.config.display_name
         for source in benchmark_sources:
             if _normalize_claim_metric(source.config.display_name).startswith("swebench"):
                 return source.config.display_name
