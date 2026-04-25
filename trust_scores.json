@@ -1,171 +1,81 @@
 {
-  "generated_at": "2026-04-25T20:23:34.112277",
+  "generated_at": "2026-04-25T20:56:14.885105",
   "total_models": 50,
   "scores": [
     {
-      "model_id": "kimi-k2.6-cloud",
-      "display_name": "Kimi K2.6 Cloud",
-      "vendor": "Moonshot AI",
-      "trust_score": 22.2,
+      "model_id": "nemotron-3-super-cloud",
+      "display_name": "Nemotron-3-Super Cloud",
+      "vendor": "NVIDIA",
+      "trust_score": 26.0,
       "breakdown": {
-        "coverage_score": 11.2,
+        "coverage_score": 15.0,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 68.7,
-          "reasoning": 54.0,
-          "multilingual": 76.7,
-          "multilingual_depth": 76.7,
-          "tool_use": 52.0,
-          "agent_swarm": 52.0,
-          "vision_coding": 76.7
+          "coding": 81.2,
+          "reasoning": 88.9,
+          "math": 88.9,
+          "multilingual": 86.7,
+          "multilingual_depth": 86.7
         }
       },
       "use_case_scores": {
-        "coding": 68.7,
-        "reasoning": 54.0,
-        "multilingual": 76.7,
-        "multilingual_depth": 76.7,
-        "tool_use": 52.0,
-        "agent_swarm": 52.0,
-        "vision_coding": 76.7
+        "coding": 81.2,
+        "reasoning": 88.9,
+        "math": 88.9,
+        "multilingual": 86.7,
+        "multilingual_depth": 86.7
       },
-      "total_claims": 6,
+      "total_claims": 5,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 6,
-      "evaluated_at": "2026-04-25T20:23:29.718768",
+      "unverifiable_count": 5,
+      "evaluated_at": "2026-04-25T20:56:17.329712",
       "license": "open",
       "model_card": {
-        "model_id": "kimi-k2.6-cloud",
-        "display_name": "Kimi K2.6 Cloud",
-        "vendor": "Moonshot AI",
-        "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.6",
-        "card_text": "Kimi K2.6 Cloud is Moonshot AI's highest-capability frontier model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 256K tokens.\nReleased: 2026-04-20.\nBenchmarks:\n- SWE-bench Pro: 58.6%\n- SWE-bench Verified: 70.8%\n- SWE-bench Multilingual: 76.7%\n- HLE with Tools: 54.0%\n- Toolathlon: 50.0%\n- AA Intelligence Index: 54.0\nCapabilities: native text, image, and video understanding, broad reasoning, coordinated swarms up to 300 sub-agents across 4,000 steps, configurable reasoning effort, advanced multimodal coding.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nPositioning: highest Artificial Analysis Intelligence Index in this frontier cloud set.\n\nComparative metadata: weekly tokens 1.28T; context window 256,000 tokens; released 2026-04-20; pricing $0.7448/M input and $4.655/M output.",
+        "model_id": "nemotron-3-super-cloud",
+        "display_name": "Nemotron-3-Super Cloud",
+        "vendor": "NVIDIA",
+        "card_url": "https://openrouter.ai/models/nvidia/nemotron-3-super",
+        "card_text": "Nemotron-3-Super Cloud is NVIDIA's long-context and IT-automation specialist.\n\nArchitecture: LatentMoE combining Mamba-2 state-space layers, MoE layers, attention, and multi-token prediction, 12B active parameters from 120B total.\nContext Window: 1000000 tokens natively.\nReleased: 2026-03-11.\nBenchmarks:\n- LiveCodeBench: 81.2%\n- GPQA: 82.7%\n- AIME25: 90.2\n- HMMT: 93.7\n- WMT24++: 86.67\nCapabilities: million-token context, IT ticket automation, multilingual enterprise workflows across 7 languages, speculative decoding, low-cost agentic applications.\nPublic sources: OpenRouter, NVIDIA docs, HuggingFace model card, Artificial Analysis.\nValue note: cheapest input pricing in this frontier cloud set, with a free tier reported on OpenRouter.",
         "license_kind": "open",
-        "architecture": "MoE (384 experts, 8 active)",
-        "parameter_count_billions": 32.0,
-        "total_parameter_count_billions": 1058.0,
-        "context_window_tokens": 256000,
-        "release_date": "2026-04-20T00:00:00",
+        "architecture": "LatentMoE (Mamba-2 + MoE + Attention + MTP)",
+        "parameter_count_billions": 12.0,
+        "total_parameter_count_billions": 120.0,
+        "context_window_tokens": 1000000,
+        "release_date": "2026-03-11T00:00:00",
         "tags": [
-          "agentic",
-          "coding",
-          "function-calling",
-          "image",
-          "long-context",
-          "multimodal",
-          "reasoning",
           "text",
-          "video",
-          "vision"
+          "coding",
+          "agentic",
+          "tool-use",
+          "long-context",
+          "reasoning",
+          "multilingual",
+          "enterprise"
         ],
-        "pricing_per_1k_input_usd": 0.0007448,
-        "pricing_per_1k_output_usd": 0.004655,
-        "weekly_tokens": "1.28T",
+        "pricing_per_1k_input_usd": 9e-05,
+        "pricing_per_1k_output_usd": 0.00045,
+        "weekly_tokens": null,
         "hallucination_rate": null,
         "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": 54.0,
+        "artificial_analysis_intelligence_index": null,
         "artificial_analysis_coding_index": null,
         "artificial_analysis_agentic_index": null,
-        "capability_rank": 1,
+        "capability_rank": 7,
         "benchmark_claims": []
       },
       "tags": [
-        "agentic",
-        "coding",
-        "function-calling",
-        "image",
-        "long-context",
-        "multimodal",
-        "reasoning",
         "text",
-        "video",
-        "vision"
-      ]
-    },
-    {
-      "model_id": "glm-5.1-cloud",
-      "display_name": "GLM 5.1",
-      "vendor": "Z.ai",
-      "trust_score": 22.2,
-      "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 5.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 59.9,
-          "reasoning": 77.0,
-          "math": 89.8,
-          "safety": 29.4,
-          "tool_use": 67.0,
-          "agent_swarm": 67.0,
-          "hallucination_fidelity": 29.4
-        }
-      },
-      "use_case_scores": {
-        "coding": 59.9,
-        "reasoning": 77.0,
-        "math": 89.8,
-        "safety": 29.4,
-        "tool_use": 67.0,
-        "agent_swarm": 67.0,
-        "hallucination_fidelity": 29.4
-      },
-      "total_claims": 8,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 8,
-      "evaluated_at": "2026-04-25T20:24:28.365539",
-      "license": "open",
-      "model_card": {
-        "model_id": "glm-5.1-cloud",
-        "display_name": "GLM 5.1",
-        "vendor": "Z.ai",
-        "card_url": "https://openrouter.ai/models/zhipu/glm-5.1",
-        "card_text": "GLM-5.1 Cloud is Z.ai's frontier open-weight coding and agentic model.\n\nArchitecture: GlmMoeDsa sparse mixture-of-experts with 256 routed experts plus 1 shared expert, 40B active parameters from 754B total.\nContext Window: 202,752 tokens.\nReleased: 2026-04-07.\nBenchmarks:\n- SWE-bench Pro: 58.4%\n- SWE-bench Verified: 77.8%\n- GPQA: 86.8%\n- AIME: 92.7%\n- AA Intelligence Index: 51.4\n- AA Coding Index: 43.4\n- AA Agentic Index: 67.0\n- Hallucination Rate: 70.6%\nCapabilities: marathon autonomous coding sessions up to 8+ hours, strong tool use, software engineering, multilingual text reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Z.ai developer docs, Artificial Analysis.\nNotable caution: hallucination rate reported at 70.6% by Artificial Analysis.\n\nComparative metadata: weekly tokens 455B; context window 202,752 tokens; released 2026-04-07; pricing $1.05/M input and $3.5/M output.",
-        "license_kind": "open",
-        "architecture": "MoE (256 routed experts + 1 shared, top-8+1)",
-        "parameter_count_billions": 40.0,
-        "total_parameter_count_billions": 754.0,
-        "context_window_tokens": 202752,
-        "release_date": "2026-04-07T00:00:00",
-        "tags": [
-          "agentic",
-          "coding",
-          "function-calling",
-          "long-context",
-          "multilingual",
-          "open-weight",
-          "reasoning",
-          "software-engineering",
-          "text"
-        ],
-        "pricing_per_1k_input_usd": 0.00105,
-        "pricing_per_1k_output_usd": 0.0035,
-        "weekly_tokens": "455B",
-        "hallucination_rate": 70.6,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": 51.4,
-        "artificial_analysis_coding_index": 43.4,
-        "artificial_analysis_agentic_index": 67.0,
-        "capability_rank": 2,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "agentic",
         "coding",
-        "function-calling",
+        "agentic",
+        "tool-use",
         "long-context",
-        "multilingual",
-        "open-weight",
         "reasoning",
-        "software-engineering",
-        "text"
+        "multilingual",
+        "enterprise"
       ]
     },
     {
@@ -210,7 +120,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 14,
-      "evaluated_at": "2026-04-25T20:23:32.208787",
+      "evaluated_at": "2026-04-25T20:56:14.140906",
       "license": "open",
       "model_card": {
         "model_id": "qwen3.5-cloud",
@@ -261,162 +171,6 @@
       ]
     },
     {
-      "model_id": "minimax-m2.7-cloud",
-      "display_name": "MiniMax M2.7 Cloud",
-      "vendor": "MiniMax",
-      "trust_score": 23.5,
-      "breakdown": {
-        "coverage_score": 15.0,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 2.5,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 56.6,
-          "reasoning": 68.5,
-          "math": 87.4,
-          "safety": 34.4,
-          "tool_use": 54.9,
-          "agent_swarm": 53.9,
-          "office_document": 57.0,
-          "hallucination_fidelity": 34.4
-        }
-      },
-      "use_case_scores": {
-        "coding": 56.6,
-        "reasoning": 68.5,
-        "math": 87.4,
-        "safety": 34.4,
-        "tool_use": 54.9,
-        "agent_swarm": 53.9,
-        "office_document": 57.0,
-        "hallucination_fidelity": 34.4
-      },
-      "total_claims": 7,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 7,
-      "evaluated_at": "2026-04-25T20:23:33.369345",
-      "license": "restricted",
-      "model_card": {
-        "model_id": "minimax-m2.7-cloud",
-        "display_name": "MiniMax M2.7 Cloud",
-        "vendor": "MiniMax",
-        "card_url": "https://openrouter.ai/models/minimax/minimax-m2.7",
-        "card_text": "MiniMax M2.7 Cloud is MiniMax's self-improving agentic frontier model.\n\nArchitecture: sparse mixture-of-experts with 256 experts and 8 active experts per token, 10B active parameters from 229B total.\nContext Window: 196,608 tokens.\nReleased: 2026-03-18.\nBenchmarks:\n- SWE-bench Pro: 56.2%\n- GPQA Diamond: 87.4%\n- Terminal Bench 2: 57.0\n- Toolathlon: 46.3\n- AA Intelligence Index: 49.6\n- AA Agentic Index: 61.5\n- Hallucination Rate: 65.6%\nCapabilities: autonomous coding, debugging, root-cause analysis, office-document generation, continuous self-improvement scaffolds.\nPublic sources: OpenRouter, NVIDIA NGC, HuggingFace model card, Artificial Analysis.\nNotable caution: hallucination rate reported at 65.6% by Artificial Analysis.\n\nComparative metadata: weekly tokens 882B; context window 196,608 tokens; released 2026-03-18; pricing $0.3/M input and $1.2/M output.",
-        "license_kind": "restricted",
-        "architecture": "Sparse MoE (256 experts, 8 active)",
-        "parameter_count_billions": 10.0,
-        "total_parameter_count_billions": 229.0,
-        "context_window_tokens": 196608,
-        "release_date": "2026-03-18T00:00:00",
-        "tags": [
-          "agentic",
-          "coding",
-          "function-calling",
-          "long-context",
-          "office-automation",
-          "reasoning",
-          "software-engineering",
-          "text"
-        ],
-        "pricing_per_1k_input_usd": 0.0003,
-        "pricing_per_1k_output_usd": 0.0012,
-        "weekly_tokens": "882B",
-        "hallucination_rate": 65.6,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": 49.6,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": 61.5,
-        "capability_rank": 4,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "agentic",
-        "coding",
-        "function-calling",
-        "long-context",
-        "office-automation",
-        "reasoning",
-        "software-engineering",
-        "text"
-      ]
-    },
-    {
-      "model_id": "kimi-k2.5-cloud",
-      "display_name": "Kimi K2.5 Cloud",
-      "vendor": "Moonshot AI",
-      "trust_score": 18.5,
-      "breakdown": {
-        "coverage_score": 7.5,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 5.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 79.8,
-          "reasoning": 47.0,
-          "multimodal": 85.0
-        }
-      },
-      "use_case_scores": {
-        "coding": 79.8,
-        "reasoning": 47.0,
-        "multimodal": 85.0
-      },
-      "total_claims": 3,
-      "verified_count": 0,
-      "refuted_count": 1,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T20:23:34.447560",
-      "license": "open",
-      "model_card": {
-        "model_id": "kimi-k2.5-cloud",
-        "display_name": "Kimi K2.5 Cloud",
-        "vendor": "Moonshot AI",
-        "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.5",
-        "card_text": "Kimi K2.5 Cloud is Moonshot AI's multimodal frontier agent model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 262K tokens.\nReleased: 2026-01-27.\nBenchmarks:\n- SWE-bench Verified: 70.8%\n- MMMU: 85.0\n- AA Intelligence Index: 47.0\nCapabilities: native text and image understanding, strong multimodal coding, coordinated agent swarms up to 100 sub-agents and 1,500 tool calls, long-context reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nValue note: cheaper than K2.6 while keeping the slightly larger context window.",
-        "license_kind": "open",
-        "architecture": "MoE (384 experts, 8 active)",
-        "parameter_count_billions": 32.0,
-        "total_parameter_count_billions": 1058.0,
-        "context_window_tokens": 262000,
-        "release_date": "2026-01-27T00:00:00",
-        "tags": [
-          "text",
-          "coding",
-          "multimodal",
-          "vision",
-          "agentic",
-          "function-calling",
-          "long-context",
-          "reasoning",
-          "image"
-        ],
-        "pricing_per_1k_input_usd": 0.00044,
-        "pricing_per_1k_output_usd": 0.002,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": 47.0,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "capability_rank": 5,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "text",
-        "coding",
-        "multimodal",
-        "vision",
-        "agentic",
-        "function-calling",
-        "long-context",
-        "reasoning",
-        "image"
-      ]
-    },
-    {
       "model_id": "deepseek-v4-flash-cloud",
       "display_name": "DeepSeek-V4-Flash Cloud",
       "vendor": "DeepSeek",
@@ -446,7 +200,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-04-25T20:23:39.280144",
+      "evaluated_at": "2026-04-25T20:56:12.441224",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-flash-cloud",
@@ -493,158 +247,6 @@
       ]
     },
     {
-      "model_id": "nemotron-3-super-cloud",
-      "display_name": "Nemotron-3-Super Cloud",
-      "vendor": "NVIDIA",
-      "trust_score": 26.0,
-      "breakdown": {
-        "coverage_score": 15.0,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 5.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 81.2,
-          "reasoning": 88.9,
-          "math": 88.9,
-          "multilingual": 86.7,
-          "multilingual_depth": 86.7
-        }
-      },
-      "use_case_scores": {
-        "coding": 81.2,
-        "reasoning": 88.9,
-        "math": 88.9,
-        "multilingual": 86.7,
-        "multilingual_depth": 86.7
-      },
-      "total_claims": 5,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 5,
-      "evaluated_at": "2026-04-25T20:24:27.123128",
-      "license": "open",
-      "model_card": {
-        "model_id": "nemotron-3-super-cloud",
-        "display_name": "Nemotron-3-Super Cloud",
-        "vendor": "NVIDIA",
-        "card_url": "https://openrouter.ai/models/nvidia/nemotron-3-super",
-        "card_text": "Nemotron-3-Super Cloud is NVIDIA's long-context and IT-automation specialist.\n\nArchitecture: LatentMoE combining Mamba-2 state-space layers, MoE layers, attention, and multi-token prediction, 12B active parameters from 120B total.\nContext Window: 1000000 tokens natively.\nReleased: 2026-03-11.\nBenchmarks:\n- LiveCodeBench: 81.2%\n- GPQA: 82.7%\n- AIME25: 90.2\n- HMMT: 93.7\n- WMT24++: 86.67\nCapabilities: million-token context, IT ticket automation, multilingual enterprise workflows across 7 languages, speculative decoding, low-cost agentic applications.\nPublic sources: OpenRouter, NVIDIA docs, HuggingFace model card, Artificial Analysis.\nValue note: cheapest input pricing in this frontier cloud set, with a free tier reported on OpenRouter.",
-        "license_kind": "open",
-        "architecture": "LatentMoE (Mamba-2 + MoE + Attention + MTP)",
-        "parameter_count_billions": 12.0,
-        "total_parameter_count_billions": 120.0,
-        "context_window_tokens": 1000000,
-        "release_date": "2026-03-11T00:00:00",
-        "tags": [
-          "text",
-          "coding",
-          "agentic",
-          "tool-use",
-          "long-context",
-          "reasoning",
-          "multilingual",
-          "enterprise"
-        ],
-        "pricing_per_1k_input_usd": 9e-05,
-        "pricing_per_1k_output_usd": 0.00045,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "capability_rank": 7,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "text",
-        "coding",
-        "agentic",
-        "tool-use",
-        "long-context",
-        "reasoning",
-        "multilingual",
-        "enterprise"
-      ]
-    },
-    {
-      "model_id": "devstral-2-123b-cloud",
-      "display_name": "Devstral 2 123B Cloud",
-      "vendor": "Mistral AI",
-      "trust_score": 18.5,
-      "breakdown": {
-        "coverage_score": 7.5,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 5.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 72.2,
-          "reasoning": 59.4,
-          "math": 59.4,
-          "safety": 92.5,
-          "hallucination_fidelity": 92.5
-        }
-      },
-      "use_case_scores": {
-        "coding": 72.2,
-        "reasoning": 59.4,
-        "math": 59.4,
-        "safety": 92.5,
-        "hallucination_fidelity": 92.5
-      },
-      "total_claims": 4,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:23:29.229435",
-      "license": "open",
-      "model_card": {
-        "model_id": "devstral-2-123b-cloud",
-        "display_name": "Devstral 2 123B Cloud",
-        "vendor": "Mistral AI",
-        "card_url": "https://openrouter.ai/models/mistral/devstral-2",
-        "card_text": "Devstral 2 123B Cloud is Mistral AI's dense coding specialist.\n\nArchitecture: dense transformer with 123B active parameters.\nContext Window: 256K tokens.\nReleased: 2025-12-09.\nBenchmarks:\n- SWE-bench Verified: 72.2%\n- GPQA: 59.4%\n- Hallucination Rate: 14.9%\n- Structured Output Error Rate: 0.13%\nCapabilities: codebase exploration, multi-file edits, dependency-aware software engineering, retry-heavy coding agents, fine-tuning for enterprise codebases.\nPublic sources: OpenRouter, HuggingFace model card, Mistral AI docs, Artificial Analysis.\nNotable strength: 14.9% hallucination rate and 0.13% structured output error rate in reported public evaluations.",
-        "license_kind": "open",
-        "architecture": "Dense Transformer",
-        "parameter_count_billions": 123.0,
-        "total_parameter_count_billions": 123.0,
-        "context_window_tokens": 256000,
-        "release_date": "2025-12-09T00:00:00",
-        "tags": [
-          "text",
-          "coding",
-          "agentic",
-          "software-engineering",
-          "function-calling",
-          "tool-use",
-          "long-context",
-          "dense"
-        ],
-        "pricing_per_1k_input_usd": 0.0004,
-        "pricing_per_1k_output_usd": 0.002,
-        "weekly_tokens": null,
-        "hallucination_rate": 14.9,
-        "structured_output_error_rate": 0.13,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "capability_rank": 8,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "text",
-        "coding",
-        "agentic",
-        "software-engineering",
-        "function-calling",
-        "tool-use",
-        "long-context",
-        "dense"
-      ]
-    },
-    {
       "model_id": "claude-opus-4.5",
       "display_name": "Claude Opus 4.5",
       "vendor": "Anthropic",
@@ -672,7 +274,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:23:34.112277",
+      "evaluated_at": "2026-04-25T20:56:14.885105",
       "license": "proprietary",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -736,7 +338,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T20:23:32.951392",
+      "evaluated_at": "2026-04-25T20:57:12.650300",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -775,105 +377,6 @@
       ]
     },
     {
-      "model_id": "glm-5-1",
-      "display_name": "GLM-5.1",
-      "vendor": "Zhipu AI",
-      "trust_score": 17.2,
-      "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 78.5,
-          "reasoning": 86.8
-        }
-      },
-      "use_case_scores": {
-        "coding": 78.5,
-        "reasoning": 86.8
-      },
-      "total_claims": 4,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:23:36.942204",
-      "license": "proprietary",
-      "model_card": {
-        "model_id": "glm-5-1",
-        "display_name": "GLM-5.1",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-5.1 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 32B\n**Context Window:** 256K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** advanced reasoning and problem-solving",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": 32.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 256000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "advanced",
-          "reasoning"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "capability_rank": null,
-        "benchmark_claims": [
-          {
-            "benchmark": "MMLU",
-            "metric": "accuracy",
-            "value": 85.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "C-Eval",
-            "metric": "accuracy",
-            "value": 82.3,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "HumanEval",
-            "metric": "pass@1",
-            "value": 78.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "GSM8K",
-            "metric": "accuracy",
-            "value": 88.2,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          }
-        ]
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "advanced",
-        "reasoning"
-      ]
-    },
-    {
       "model_id": "gemini-2.5-pro",
       "display_name": "Gemini 2.5 Pro",
       "vendor": "Google",
@@ -901,7 +404,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T20:24:03.100249",
+      "evaluated_at": "2026-04-25T20:56:41.588628",
       "license": "proprietary",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -940,296 +443,473 @@
       ]
     },
     {
-      "model_id": "glm-4-7",
-      "display_name": "GLM-4.7",
-      "vendor": "Zhipu AI",
-      "trust_score": 17.2,
+      "model_id": "deepseek-r1-14b",
+      "display_name": "DeepSeek R1 14B",
+      "vendor": "DeepSeek",
+      "trust_score": 29.8,
       "breakdown": {
-        "coverage_score": 11.2,
+        "coverage_score": 18.8,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
-        "openness_score": 0.0,
+        "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 72.0,
-          "reasoning": 83.3
+          "coding": 57.6,
+          "reasoning": 82.0,
+          "math": 76.5,
+          "multilingual": 84.0
         }
       },
       "use_case_scores": {
-        "coding": 72.0,
-        "reasoning": 83.3
+        "coding": 57.6,
+        "reasoning": 82.0,
+        "math": 76.5,
+        "multilingual": 84.0
+      },
+      "total_claims": 6,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 6,
+      "evaluated_at": "2026-04-25T20:56:41.223943",
+      "license": "open",
+      "model_card": {
+        "model_id": "deepseek-r1-14b",
+        "display_name": "DeepSeek R1 14B",
+        "vendor": "DeepSeek",
+        "card_url": null,
+        "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher. Architecture: MoE (Mixture-of-Experts). Activated parameters: 14B. Total teacher parameters: 671B. Max context: 128K tokens.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- AIME 2025: 81.5%\n- MATH-500: 97.3%\n- LiveCodeBench: 65.9%\n- SWE-bench Verified: 49.2%\n\nCapabilities: Chain-of-thought reasoning, STEM problem solving, coding, long-context understanding. Distilled version for local deployment. MIT license. Licensed under MIT.",
+        "license_kind": "open",
+        "architecture": null,
+        "parameter_count_billions": 14.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "reasoning",
+          "coding",
+          "stem",
+          "chain-of-thought",
+          "long-context",
+          "distilled"
+        ],
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": null,
+        "benchmark_claims": []
+      },
+      "tags": [
+        "text",
+        "reasoning",
+        "coding",
+        "stem",
+        "chain-of-thought",
+        "long-context",
+        "distilled"
+      ]
+    },
+    {
+      "model_id": "devstral-2-123b-cloud",
+      "display_name": "Devstral 2 123B Cloud",
+      "vendor": "Mistral AI",
+      "trust_score": 18.5,
+      "breakdown": {
+        "coverage_score": 7.5,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.2,
+          "reasoning": 59.4,
+          "math": 59.4,
+          "safety": 92.5,
+          "hallucination_fidelity": 92.5
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.2,
+        "reasoning": 59.4,
+        "math": 59.4,
+        "safety": 92.5,
+        "hallucination_fidelity": 92.5
       },
       "total_claims": 4,
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:24:04.379155",
-      "license": "proprietary",
+      "evaluated_at": "2026-04-25T20:57:03.505027",
+      "license": "open",
       "model_card": {
-        "model_id": "glm-4-7",
-        "display_name": "GLM-4.7",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "proprietary",
-        "architecture": null,
+        "model_id": "devstral-2-123b-cloud",
+        "display_name": "Devstral 2 123B Cloud",
+        "vendor": "Mistral AI",
+        "card_url": "https://openrouter.ai/models/mistral/devstral-2",
+        "card_text": "Devstral 2 123B Cloud is Mistral AI's dense coding specialist.\n\nArchitecture: dense transformer with 123B active parameters.\nContext Window: 256K tokens.\nReleased: 2025-12-09.\nBenchmarks:\n- SWE-bench Verified: 72.2%\n- GPQA: 59.4%\n- Hallucination Rate: 14.9%\n- Structured Output Error Rate: 0.13%\nCapabilities: codebase exploration, multi-file edits, dependency-aware software engineering, retry-heavy coding agents, fine-tuning for enterprise codebases.\nPublic sources: OpenRouter, HuggingFace model card, Mistral AI docs, Artificial Analysis.\nNotable strength: 14.9% hallucination rate and 0.13% structured output error rate in reported public evaluations.",
+        "license_kind": "open",
+        "architecture": "Dense Transformer",
+        "parameter_count_billions": 123.0,
+        "total_parameter_count_billions": 123.0,
+        "context_window_tokens": 256000,
+        "release_date": "2025-12-09T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "software-engineering",
+          "function-calling",
+          "tool-use",
+          "long-context",
+          "dense"
+        ],
+        "pricing_per_1k_input_usd": 0.0004,
+        "pricing_per_1k_output_usd": 0.002,
+        "weekly_tokens": null,
+        "hallucination_rate": 14.9,
+        "structured_output_error_rate": 0.13,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": 8,
+        "benchmark_claims": []
+      },
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "software-engineering",
+        "function-calling",
+        "tool-use",
+        "long-context",
+        "dense"
+      ]
+    },
+    {
+      "model_id": "kimi-k2.5-cloud",
+      "display_name": "Kimi K2.5 Cloud",
+      "vendor": "Moonshot AI",
+      "trust_score": 18.5,
+      "breakdown": {
+        "coverage_score": 7.5,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 79.8,
+          "reasoning": 47.0,
+          "multimodal": 85.0
+        }
+      },
+      "use_case_scores": {
+        "coding": 79.8,
+        "reasoning": 47.0,
+        "multimodal": 85.0
+      },
+      "total_claims": 3,
+      "verified_count": 0,
+      "refuted_count": 1,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T20:56:21.638702",
+      "license": "open",
+      "model_card": {
+        "model_id": "kimi-k2.5-cloud",
+        "display_name": "Kimi K2.5 Cloud",
+        "vendor": "Moonshot AI",
+        "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.5",
+        "card_text": "Kimi K2.5 Cloud is Moonshot AI's multimodal frontier agent model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 262K tokens.\nReleased: 2026-01-27.\nBenchmarks:\n- SWE-bench Verified: 70.8%\n- MMMU: 85.0\n- AA Intelligence Index: 47.0\nCapabilities: native text and image understanding, strong multimodal coding, coordinated agent swarms up to 100 sub-agents and 1,500 tool calls, long-context reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nValue note: cheaper than K2.6 while keeping the slightly larger context window.",
+        "license_kind": "open",
+        "architecture": "MoE (384 experts, 8 active)",
         "parameter_count_billions": 32.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 128000,
-        "release_date": null,
+        "total_parameter_count_billions": 1058.0,
+        "context_window_tokens": 262000,
+        "release_date": "2026-01-27T00:00:00",
         "tags": [
           "text",
-          "multilingual",
-          "chinese",
-          "api"
+          "coding",
+          "multimodal",
+          "vision",
+          "agentic",
+          "function-calling",
+          "long-context",
+          "reasoning",
+          "image"
         ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
+        "pricing_per_1k_input_usd": 0.00044,
+        "pricing_per_1k_output_usd": 0.002,
         "weekly_tokens": null,
         "hallucination_rate": null,
         "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_intelligence_index": 47.0,
         "artificial_analysis_coding_index": null,
         "artificial_analysis_agentic_index": null,
-        "capability_rank": null,
-        "benchmark_claims": [
-          {
-            "benchmark": "MMLU",
-            "metric": "accuracy",
-            "value": 82.1,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "C-Eval",
-            "metric": "accuracy",
-            "value": 79.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "HumanEval",
-            "metric": "pass@1",
-            "value": 72.0,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "GSM8K",
-            "metric": "accuracy",
-            "value": 84.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          }
-        ]
+        "capability_rank": 5,
+        "benchmark_claims": []
       },
       "tags": [
         "text",
-        "multilingual",
-        "chinese",
-        "api"
+        "coding",
+        "multimodal",
+        "vision",
+        "agentic",
+        "function-calling",
+        "long-context",
+        "reasoning",
+        "image"
       ]
     },
     {
-      "model_id": "glm-4-7-flash",
-      "display_name": "GLM-4.7-Flash",
-      "vendor": "Zhipu AI",
-      "trust_score": 17.2,
+      "model_id": "glm-5.1-cloud",
+      "display_name": "GLM 5.1",
+      "vendor": "Z.ai",
+      "trust_score": 22.2,
       "breakdown": {
         "coverage_score": 11.2,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
-        "openness_score": 0.0,
+        "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 72.0,
-          "reasoning": 83.3
+          "coding": 59.9,
+          "reasoning": 77.0,
+          "math": 89.8,
+          "safety": 29.4,
+          "tool_use": 67.0,
+          "agent_swarm": 67.0,
+          "hallucination_fidelity": 29.4
         }
       },
       "use_case_scores": {
-        "coding": 72.0,
-        "reasoning": 83.3
+        "coding": 59.9,
+        "reasoning": 77.0,
+        "math": 89.8,
+        "safety": 29.4,
+        "tool_use": 67.0,
+        "agent_swarm": 67.0,
+        "hallucination_fidelity": 29.4
       },
-      "total_claims": 4,
+      "total_claims": 8,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:23:32.794679",
-      "license": "proprietary",
+      "unverifiable_count": 8,
+      "evaluated_at": "2026-04-25T20:57:22.821069",
+      "license": "open",
       "model_card": {
-        "model_id": "glm-4-7-flash",
-        "display_name": "GLM-4.7-Flash",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": 9.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 128000,
-        "release_date": null,
+        "model_id": "glm-5.1-cloud",
+        "display_name": "GLM 5.1",
+        "vendor": "Z.ai",
+        "card_url": "https://openrouter.ai/models/zhipu/glm-5.1",
+        "card_text": "GLM-5.1 Cloud is Z.ai's frontier open-weight coding and agentic model.\n\nArchitecture: GlmMoeDsa sparse mixture-of-experts with 256 routed experts plus 1 shared expert, 40B active parameters from 754B total.\nContext Window: 202,752 tokens.\nReleased: 2026-04-07.\nBenchmarks:\n- SWE-bench Pro: 58.4%\n- SWE-bench Verified: 77.8%\n- GPQA: 86.8%\n- AIME: 92.7%\n- AA Intelligence Index: 51.4\n- AA Coding Index: 43.4\n- AA Agentic Index: 67.0\n- Hallucination Rate: 70.6%\nCapabilities: marathon autonomous coding sessions up to 8+ hours, strong tool use, software engineering, multilingual text reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Z.ai developer docs, Artificial Analysis.\nNotable caution: hallucination rate reported at 70.6% by Artificial Analysis.\n\nComparative metadata: weekly tokens 455B; context window 202,752 tokens; released 2026-04-07; pricing $1.05/M input and $3.5/M output.",
+        "license_kind": "open",
+        "architecture": "MoE (256 routed experts + 1 shared, top-8+1)",
+        "parameter_count_billions": 40.0,
+        "total_parameter_count_billions": 754.0,
+        "context_window_tokens": 202752,
+        "release_date": "2026-04-07T00:00:00",
         "tags": [
-          "text",
+          "agentic",
+          "coding",
+          "function-calling",
+          "long-context",
           "multilingual",
-          "chinese",
-          "api",
-          "fast",
-          "optimized"
+          "open-weight",
+          "reasoning",
+          "software-engineering",
+          "text"
         ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
+        "pricing_per_1k_input_usd": 0.00105,
+        "pricing_per_1k_output_usd": 0.0035,
+        "weekly_tokens": "455B",
+        "hallucination_rate": 70.6,
         "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "capability_rank": null,
-        "benchmark_claims": [
-          {
-            "benchmark": "MMLU",
-            "metric": "accuracy",
-            "value": 82.1,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "C-Eval",
-            "metric": "accuracy",
-            "value": 79.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "HumanEval",
-            "metric": "pass@1",
-            "value": 72.0,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "GSM8K",
-            "metric": "accuracy",
-            "value": 84.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          }
-        ]
+        "artificial_analysis_intelligence_index": 51.4,
+        "artificial_analysis_coding_index": 43.4,
+        "artificial_analysis_agentic_index": 67.0,
+        "capability_rank": 2,
+        "benchmark_claims": []
       },
       "tags": [
-        "text",
+        "agentic",
+        "coding",
+        "function-calling",
+        "long-context",
         "multilingual",
-        "chinese",
-        "api",
-        "fast",
-        "optimized"
+        "open-weight",
+        "reasoning",
+        "software-engineering",
+        "text"
       ]
     },
     {
-      "model_id": "glm-4-7-flashx",
-      "display_name": "GLM-4.7-FlashX",
-      "vendor": "Zhipu AI",
-      "trust_score": 17.2,
+      "model_id": "kimi-k2.6-cloud",
+      "display_name": "Kimi K2.6 Cloud",
+      "vendor": "Moonshot AI",
+      "trust_score": 22.2,
       "breakdown": {
         "coverage_score": 11.2,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
-        "openness_score": 0.0,
+        "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 72.0,
-          "reasoning": 83.3
+          "coding": 68.7,
+          "reasoning": 54.0,
+          "multilingual": 76.7,
+          "multilingual_depth": 76.7,
+          "tool_use": 52.0,
+          "agent_swarm": 52.0,
+          "vision_coding": 76.7
         }
       },
       "use_case_scores": {
-        "coding": 72.0,
-        "reasoning": 83.3
+        "coding": 68.7,
+        "reasoning": 54.0,
+        "multilingual": 76.7,
+        "multilingual_depth": 76.7,
+        "tool_use": 52.0,
+        "agent_swarm": 52.0,
+        "vision_coding": 76.7
       },
-      "total_claims": 4,
+      "total_claims": 6,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:23:32.120169",
-      "license": "proprietary",
+      "unverifiable_count": 6,
+      "evaluated_at": "2026-04-25T20:56:12.499501",
+      "license": "open",
       "model_card": {
-        "model_id": "glm-4-7-flashx",
-        "display_name": "GLM-4.7-FlashX",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": 9.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 128000,
-        "release_date": null,
+        "model_id": "kimi-k2.6-cloud",
+        "display_name": "Kimi K2.6 Cloud",
+        "vendor": "Moonshot AI",
+        "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.6",
+        "card_text": "Kimi K2.6 Cloud is Moonshot AI's highest-capability frontier model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 256K tokens.\nReleased: 2026-04-20.\nBenchmarks:\n- SWE-bench Pro: 58.6%\n- SWE-bench Verified: 70.8%\n- SWE-bench Multilingual: 76.7%\n- HLE with Tools: 54.0%\n- Toolathlon: 50.0%\n- AA Intelligence Index: 54.0\nCapabilities: native text, image, and video understanding, broad reasoning, coordinated swarms up to 300 sub-agents across 4,000 steps, configurable reasoning effort, advanced multimodal coding.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nPositioning: highest Artificial Analysis Intelligence Index in this frontier cloud set.\n\nComparative metadata: weekly tokens 1.28T; context window 256,000 tokens; released 2026-04-20; pricing $0.7448/M input and $4.655/M output.",
+        "license_kind": "open",
+        "architecture": "MoE (384 experts, 8 active)",
+        "parameter_count_billions": 32.0,
+        "total_parameter_count_billions": 1058.0,
+        "context_window_tokens": 256000,
+        "release_date": "2026-04-20T00:00:00",
         "tags": [
+          "agentic",
+          "coding",
+          "function-calling",
+          "image",
+          "long-context",
+          "multimodal",
+          "reasoning",
           "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "fast",
-          "optimized"
+          "video",
+          "vision"
         ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
-        "weekly_tokens": null,
+        "pricing_per_1k_input_usd": 0.0007448,
+        "pricing_per_1k_output_usd": 0.004655,
+        "weekly_tokens": "1.28T",
         "hallucination_rate": null,
         "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_intelligence_index": 54.0,
         "artificial_analysis_coding_index": null,
         "artificial_analysis_agentic_index": null,
-        "capability_rank": null,
-        "benchmark_claims": [
-          {
-            "benchmark": "MMLU",
-            "metric": "accuracy",
-            "value": 82.1,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "C-Eval",
-            "metric": "accuracy",
-            "value": 79.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "HumanEval",
-            "metric": "pass@1",
-            "value": 72.0,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "GSM8K",
-            "metric": "accuracy",
-            "value": 84.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          }
-        ]
+        "capability_rank": 1,
+        "benchmark_claims": []
       },
       "tags": [
+        "agentic",
+        "coding",
+        "function-calling",
+        "image",
+        "long-context",
+        "multimodal",
+        "reasoning",
         "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "fast",
-        "optimized"
+        "video",
+        "vision"
+      ]
+    },
+    {
+      "model_id": "minimax-m2.7-cloud",
+      "display_name": "MiniMax M2.7 Cloud",
+      "vendor": "MiniMax",
+      "trust_score": 23.5,
+      "breakdown": {
+        "coverage_score": 15.0,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 2.5,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 56.6,
+          "reasoning": 68.5,
+          "math": 87.4,
+          "safety": 34.4,
+          "tool_use": 54.9,
+          "agent_swarm": 53.9,
+          "office_document": 57.0,
+          "hallucination_fidelity": 34.4
+        }
+      },
+      "use_case_scores": {
+        "coding": 56.6,
+        "reasoning": 68.5,
+        "math": 87.4,
+        "safety": 34.4,
+        "tool_use": 54.9,
+        "agent_swarm": 53.9,
+        "office_document": 57.0,
+        "hallucination_fidelity": 34.4
+      },
+      "total_claims": 7,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 7,
+      "evaluated_at": "2026-04-25T20:56:13.056688",
+      "license": "restricted",
+      "model_card": {
+        "model_id": "minimax-m2.7-cloud",
+        "display_name": "MiniMax M2.7 Cloud",
+        "vendor": "MiniMax",
+        "card_url": "https://openrouter.ai/models/minimax/minimax-m2.7",
+        "card_text": "MiniMax M2.7 Cloud is MiniMax's self-improving agentic frontier model.\n\nArchitecture: sparse mixture-of-experts with 256 experts and 8 active experts per token, 10B active parameters from 229B total.\nContext Window: 196,608 tokens.\nReleased: 2026-03-18.\nBenchmarks:\n- SWE-bench Pro: 56.2%\n- GPQA Diamond: 87.4%\n- Terminal Bench 2: 57.0\n- Toolathlon: 46.3\n- AA Intelligence Index: 49.6\n- AA Agentic Index: 61.5\n- Hallucination Rate: 65.6%\nCapabilities: autonomous coding, debugging, root-cause analysis, office-document generation, continuous self-improvement scaffolds.\nPublic sources: OpenRouter, NVIDIA NGC, HuggingFace model card, Artificial Analysis.\nNotable caution: hallucination rate reported at 65.6% by Artificial Analysis.\n\nComparative metadata: weekly tokens 882B; context window 196,608 tokens; released 2026-03-18; pricing $0.3/M input and $1.2/M output.",
+        "license_kind": "restricted",
+        "architecture": "Sparse MoE (256 experts, 8 active)",
+        "parameter_count_billions": 10.0,
+        "total_parameter_count_billions": 229.0,
+        "context_window_tokens": 196608,
+        "release_date": "2026-03-18T00:00:00",
+        "tags": [
+          "agentic",
+          "coding",
+          "function-calling",
+          "long-context",
+          "office-automation",
+          "reasoning",
+          "software-engineering",
+          "text"
+        ],
+        "pricing_per_1k_input_usd": 0.0003,
+        "pricing_per_1k_output_usd": 0.0012,
+        "weekly_tokens": "882B",
+        "hallucination_rate": 65.6,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": 49.6,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": 61.5,
+        "capability_rank": 4,
+        "benchmark_claims": []
+      },
+      "tags": [
+        "agentic",
+        "coding",
+        "function-calling",
+        "long-context",
+        "office-automation",
+        "reasoning",
+        "software-engineering",
+        "text"
       ]
     },
     {
@@ -1256,7 +936,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:23:31.036440",
+      "evaluated_at": "2026-04-25T20:56:48.272111",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v",
@@ -1330,6 +1010,103 @@
       ]
     },
     {
+      "model_id": "glm-4-5v",
+      "display_name": "GLM-4.5V",
+      "vendor": "Zhipu AI",
+      "trust_score": 17.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 65.8,
+          "reasoning": 78.5
+        }
+      },
+      "use_case_scores": {
+        "coding": 65.8,
+        "reasoning": 78.5
+      },
+      "total_claims": 4,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-25T20:57:06.922484",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "glm-4-5v",
+        "display_name": "GLM-4.5V",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.5V from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": 9.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "vision"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": null,
+        "benchmark_claims": [
+          {
+            "benchmark": "MMLU",
+            "metric": "accuracy",
+            "value": 77.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "C-Eval",
+            "metric": "accuracy",
+            "value": 74.2,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "HumanEval",
+            "metric": "pass@1",
+            "value": 65.8,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "GSM8K",
+            "metric": "accuracy",
+            "value": 79.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          }
+        ]
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "vision"
+      ]
+    },
+    {
       "model_id": "glm-4-6v-flash",
       "display_name": "GLM-4.6V-Flash",
       "vendor": "Zhipu AI",
@@ -1353,7 +1130,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:24:05.930010",
+      "evaluated_at": "2026-04-25T20:56:19.998333",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flash",
@@ -1454,7 +1231,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:24:02.880591",
+      "evaluated_at": "2026-04-25T20:57:05.516363",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flashx",
@@ -1532,6 +1309,105 @@
       ]
     },
     {
+      "model_id": "glm-5-1",
+      "display_name": "GLM-5.1",
+      "vendor": "Zhipu AI",
+      "trust_score": 17.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 78.5,
+          "reasoning": 86.8
+        }
+      },
+      "use_case_scores": {
+        "coding": 78.5,
+        "reasoning": 86.8
+      },
+      "total_claims": 4,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-25T20:56:12.935126",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "glm-5-1",
+        "display_name": "GLM-5.1",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-5.1 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 32B\n**Context Window:** 256K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** advanced reasoning and problem-solving",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": 32.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 256000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "advanced",
+          "reasoning"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": null,
+        "benchmark_claims": [
+          {
+            "benchmark": "MMLU",
+            "metric": "accuracy",
+            "value": 85.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "C-Eval",
+            "metric": "accuracy",
+            "value": 82.3,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "HumanEval",
+            "metric": "pass@1",
+            "value": 78.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "GSM8K",
+            "metric": "accuracy",
+            "value": 88.2,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          }
+        ]
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "advanced",
+        "reasoning"
+      ]
+    },
+    {
       "model_id": "glm-4-6",
       "display_name": "GLM-4.6",
       "vendor": "Zhipu AI",
@@ -1555,7 +1431,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:24:36.192817",
+      "evaluated_at": "2026-04-25T20:56:48.756549",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6",
@@ -1627,8 +1503,8 @@
       ]
     },
     {
-      "model_id": "glm-4-5v",
-      "display_name": "GLM-4.5V",
+      "model_id": "glm-4-7",
+      "display_name": "GLM-4.7",
       "vendor": "Zhipu AI",
       "trust_score": 17.2,
       "breakdown": {
@@ -1638,29 +1514,29 @@
         "openness_score": 0.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 65.8,
-          "reasoning": 78.5
+          "coding": 72.0,
+          "reasoning": 83.3
         }
       },
       "use_case_scores": {
-        "coding": 65.8,
-        "reasoning": 78.5
+        "coding": 72.0,
+        "reasoning": 83.3
       },
       "total_claims": 4,
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:24:03.409308",
+      "evaluated_at": "2026-04-25T20:56:12.125031",
       "license": "proprietary",
       "model_card": {
-        "model_id": "glm-4-5v",
-        "display_name": "GLM-4.5V",
+        "model_id": "glm-4-7",
+        "display_name": "GLM-4.7",
         "vendor": "Zhipu AI",
         "card_url": null,
-        "card_text": "GLM-4.5V from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
+        "card_text": "GLM-4.7 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
         "license_kind": "proprietary",
         "architecture": null,
-        "parameter_count_billions": 9.0,
+        "parameter_count_billions": 32.0,
         "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
         "release_date": null,
@@ -1668,8 +1544,7 @@
           "text",
           "multilingual",
           "chinese",
-          "api",
-          "vision"
+          "api"
         ],
         "pricing_per_1k_input_usd": null,
         "pricing_per_1k_output_usd": null,
@@ -1684,7 +1559,7 @@
           {
             "benchmark": "MMLU",
             "metric": "accuracy",
-            "value": 77.5,
+            "value": 82.1,
             "source": "z.ai reported",
             "source_url": null,
             "raw": null
@@ -1692,7 +1567,7 @@
           {
             "benchmark": "C-Eval",
             "metric": "accuracy",
-            "value": 74.2,
+            "value": 79.5,
             "source": "z.ai reported",
             "source_url": null,
             "raw": null
@@ -1700,7 +1575,7 @@
           {
             "benchmark": "HumanEval",
             "metric": "pass@1",
-            "value": 65.8,
+            "value": 72.0,
             "source": "z.ai reported",
             "source_url": null,
             "raw": null
@@ -1708,7 +1583,7 @@
           {
             "benchmark": "GSM8K",
             "metric": "accuracy",
-            "value": 79.5,
+            "value": 84.5,
             "source": "z.ai reported",
             "source_url": null,
             "raw": null
@@ -1719,8 +1594,7 @@
         "text",
         "multilingual",
         "chinese",
-        "api",
-        "vision"
+        "api"
       ]
     },
     {
@@ -1747,7 +1621,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T20:24:27.436474",
+      "evaluated_at": "2026-04-25T20:56:55.334633",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5",
@@ -1819,37 +1693,37 @@
       ]
     },
     {
-      "model_id": "glm-4-5-flash",
-      "display_name": "GLM-4.5-Flash",
+      "model_id": "glm-4-7-flash",
+      "display_name": "GLM-4.7-Flash",
       "vendor": "Zhipu AI",
-      "trust_score": 13.5,
+      "trust_score": 17.2,
       "breakdown": {
-        "coverage_score": 7.5,
+        "coverage_score": 11.2,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
         "openness_score": 0.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 62.5,
-          "reasoning": 75.5
+          "coding": 72.0,
+          "reasoning": 83.3
         }
       },
       "use_case_scores": {
-        "coding": 62.5,
-        "reasoning": 75.5
+        "coding": 72.0,
+        "reasoning": 83.3
       },
-      "total_claims": 3,
+      "total_claims": 4,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:24:34.089353",
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-25T20:57:13.834741",
       "license": "proprietary",
       "model_card": {
-        "model_id": "glm-4-5-flash",
-        "display_name": "GLM-4.5-Flash",
+        "model_id": "glm-4-7-flash",
+        "display_name": "GLM-4.7-Flash",
         "vendor": "Zhipu AI",
         "card_url": null,
-        "card_text": "GLM-4.5-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "card_text": "GLM-4.7-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
         "license_kind": "proprietary",
         "architecture": null,
         "parameter_count_billions": 9.0,
@@ -1877,7 +1751,7 @@
           {
             "benchmark": "MMLU",
             "metric": "accuracy",
-            "value": 75.5,
+            "value": 82.1,
             "source": "z.ai reported",
             "source_url": null,
             "raw": null
@@ -1885,7 +1759,7 @@
           {
             "benchmark": "C-Eval",
             "metric": "accuracy",
-            "value": 72.0,
+            "value": 79.5,
             "source": "z.ai reported",
             "source_url": null,
             "raw": null
@@ -1893,7 +1767,114 @@
           {
             "benchmark": "HumanEval",
             "metric": "pass@1",
-            "value": 62.5,
+            "value": 72.0,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "GSM8K",
+            "metric": "accuracy",
+            "value": 84.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          }
+        ]
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "fast",
+        "optimized"
+      ]
+    },
+    {
+      "model_id": "glm-4-7-flashx",
+      "display_name": "GLM-4.7-FlashX",
+      "vendor": "Zhipu AI",
+      "trust_score": 17.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.0,
+          "reasoning": 83.3
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.0,
+        "reasoning": 83.3
+      },
+      "total_claims": 4,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-25T20:56:44.405106",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "glm-4-7-flashx",
+        "display_name": "GLM-4.7-FlashX",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.7-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": 9.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": null,
+        "benchmark_claims": [
+          {
+            "benchmark": "MMLU",
+            "metric": "accuracy",
+            "value": 82.1,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "C-Eval",
+            "metric": "accuracy",
+            "value": 79.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "HumanEval",
+            "metric": "pass@1",
+            "value": 72.0,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "GSM8K",
+            "metric": "accuracy",
+            "value": 84.5,
             "source": "z.ai reported",
             "source_url": null,
             "raw": null
@@ -1933,7 +1914,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:24:01.149065",
+      "evaluated_at": "2026-04-25T20:56:44.981570",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5v-turbo",
@@ -2028,7 +2009,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:23:58.231855",
+      "evaluated_at": "2026-04-25T20:57:09.096348",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-ocr",
@@ -2121,7 +2102,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:24:31.431955",
+      "evaluated_at": "2026-04-25T20:56:14.592497",
       "license": "proprietary",
       "model_card": {
         "model_id": "autoglm-phone-multilingual",
@@ -2216,7 +2197,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:23:31.906347",
+      "evaluated_at": "2026-04-25T20:56:44.430941",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-32b-0414-128k",
@@ -2303,7 +2284,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:24:27.181006",
+      "evaluated_at": "2026-04-25T20:56:46.843429",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5",
@@ -2396,7 +2377,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:23:31.232284",
+      "evaluated_at": "2026-04-25T20:56:14.352357",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-turbo",
@@ -2489,7 +2470,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:24:26.937046",
+      "evaluated_at": "2026-04-25T20:56:12.976982",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-plus",
@@ -2580,7 +2561,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:24:01.772486",
+      "evaluated_at": "2026-04-25T20:56:41.461598",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-air",
@@ -2671,7 +2652,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T20:24:05.156894",
+      "evaluated_at": "2026-04-25T20:56:11.809993",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-airx",
@@ -2739,58 +2720,53 @@
       ]
     },
     {
-      "model_id": "deepseek-r1-14b",
-      "display_name": "DeepSeek R1 14B",
-      "vendor": "DeepSeek",
-      "trust_score": 29.8,
+      "model_id": "glm-4-5-flash",
+      "display_name": "GLM-4.5-Flash",
+      "vendor": "Zhipu AI",
+      "trust_score": 13.5,
       "breakdown": {
-        "coverage_score": 18.8,
+        "coverage_score": 7.5,
         "verification_score": 0.0,
         "performance_gap_score": 6.0,
-        "openness_score": 5.0,
+        "openness_score": 0.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 57.6,
-          "reasoning": 82.0,
-          "math": 76.5,
-          "multilingual": 84.0
+          "coding": 62.5,
+          "reasoning": 75.5
         }
       },
       "use_case_scores": {
-        "coding": 57.6,
-        "reasoning": 82.0,
-        "math": 76.5,
-        "multilingual": 84.0
+        "coding": 62.5,
+        "reasoning": 75.5
       },
-      "total_claims": 6,
+      "total_claims": 3,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 6,
-      "evaluated_at": "2026-04-25T20:23:34.300299",
-      "license": "open",
+      "unverifiable_count": 3,
+      "evaluated_at": "2026-04-25T20:57:11.081639",
+      "license": "proprietary",
       "model_card": {
-        "model_id": "deepseek-r1-14b",
-        "display_name": "DeepSeek R1 14B",
-        "vendor": "DeepSeek",
+        "model_id": "glm-4-5-flash",
+        "display_name": "GLM-4.5-Flash",
+        "vendor": "Zhipu AI",
         "card_url": null,
-        "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher. Architecture: MoE (Mixture-of-Experts). Activated parameters: 14B. Total teacher parameters: 671B. Max context: 128K tokens.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- AIME 2025: 81.5%\n- MATH-500: 97.3%\n- LiveCodeBench: 65.9%\n- SWE-bench Verified: 49.2%\n\nCapabilities: Chain-of-thought reasoning, STEM problem solving, coding, long-context understanding. Distilled version for local deployment. MIT license. Licensed under MIT.",
-        "license_kind": "open",
+        "card_text": "GLM-4.5-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "license_kind": "proprietary",
         "architecture": null,
-        "parameter_count_billions": 14.0,
+        "parameter_count_billions": 9.0,
         "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
         "release_date": null,
         "tags": [
           "text",
-          "reasoning",
-          "coding",
-          "stem",
-          "chain-of-thought",
-          "long-context",
-          "distilled"
+          "multilingual",
+          "chinese",
+          "api",
+          "fast",
+          "optimized"
         ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0,
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
         "weekly_tokens": null,
         "hallucination_rate": null,
         "structured_output_error_rate": null,
@@ -2798,16 +2774,40 @@
         "artificial_analysis_coding_index": null,
         "artificial_analysis_agentic_index": null,
         "capability_rank": null,
-        "benchmark_claims": []
+        "benchmark_claims": [
+          {
+            "benchmark": "MMLU",
+            "metric": "accuracy",
+            "value": 75.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "C-Eval",
+            "metric": "accuracy",
+            "value": 72.0,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "HumanEval",
+            "metric": "pass@1",
+            "value": 62.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          }
+        ]
       },
       "tags": [
         "text",
-        "reasoning",
-        "coding",
-        "stem",
-        "chain-of-thought",
-        "long-context",
-        "distilled"
+        "multilingual",
+        "chinese",
+        "api",
+        "fast",
+        "optimized"
       ]
     },
     {
@@ -2821,7 +2821,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:58.794684",
+      "evaluated_at": "2026-04-25T20:56:38.494110",
       "license": "open",
       "model_card": {
         "model_id": "gemma3-4b",
@@ -2876,7 +2876,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:09.311574",
+      "evaluated_at": "2026-04-25T20:56:43.311740",
       "license": "proprietary",
       "model_card": {
         "model_id": "google-gemini-3-1-flash-lite-preview",
@@ -2929,7 +2929,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:03.140142",
+      "evaluated_at": "2026-04-25T20:56:13.526488",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogvideox-3",
@@ -2976,7 +2976,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:28.642664",
+      "evaluated_at": "2026-04-25T20:57:09.285951",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogview-4-250304",
@@ -3027,7 +3027,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:05.268935",
+      "evaluated_at": "2026-04-25T20:56:24.923286",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-asr-2512",
@@ -3082,7 +3082,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:01.227387",
+      "evaluated_at": "2026-04-25T20:56:13.343266",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-image",
@@ -3131,7 +3131,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:31.008767",
+      "evaluated_at": "2026-04-25T20:56:11.846643",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-v4-pro",
@@ -3186,7 +3186,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:29.711150",
+      "evaluated_at": "2026-04-25T20:56:39.056350",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-7",
@@ -3239,7 +3239,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:32.034131",
+      "evaluated_at": "2026-04-25T20:56:38.647049",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-sonnet-4-6",
@@ -3292,7 +3292,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:57.395821",
+      "evaluated_at": "2026-04-25T20:56:12.485522",
       "license": "open",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
@@ -3347,7 +3347,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:59.915706",
+      "evaluated_at": "2026-04-25T20:56:45.851520",
       "license": "open",
       "model_card": {
         "model_id": "cogito-14b",
@@ -3400,7 +3400,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:27.285827",
+      "evaluated_at": "2026-04-25T20:56:40.785403",
       "license": "open",
       "model_card": {
         "model_id": "deepcoder",
@@ -3449,7 +3449,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:00.809166",
+      "evaluated_at": "2026-04-25T20:56:13.884299",
       "license": "open",
       "model_card": {
         "model_id": "embeddinggemma",
@@ -3500,7 +3500,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:36.051470",
+      "evaluated_at": "2026-04-25T20:57:11.962854",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6-fast",
@@ -3551,7 +3551,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:02.262176",
+      "evaluated_at": "2026-04-25T20:56:46.832256",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-lite",
@@ -3600,7 +3600,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:24:03.799632",
+      "evaluated_at": "2026-04-25T20:56:42.964533",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-mini",
@@ -3649,7 +3649,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:56.762759",
+      "evaluated_at": "2026-04-25T20:56:41.648343",
       "license": "unknown",
       "model_card": {
         "model_id": "arcee-ai-trinity-large-thinking",
@@ -3698,7 +3698,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T20:23:32.096570",
+      "evaluated_at": "2026-04-25T20:57:13.977369",
       "license": "unknown",
       "model_card": {
         "model_id": "aion-labs-aion-2-0",
