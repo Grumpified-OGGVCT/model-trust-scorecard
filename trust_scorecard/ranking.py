@@ -7,8 +7,8 @@ from typing import Any
 
 from trust_scorecard.models import ModelCard, ModelEvaluation
 
-# Weight broad frontier-model strengths highest while keeping specialized capabilities in the
-# composite so models are rewarded for measured breadth without letting narrow edge metrics dominate.
+# Weights prioritize core frontier capabilities while including specialized metrics to reward
+# measured breadth without allowing niche performance to skew rankings.
 CAPABILITY_WEIGHTS = {
     "coding": 2.0,
     "reasoning": 2.0,
