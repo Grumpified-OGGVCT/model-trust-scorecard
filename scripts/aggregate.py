@@ -12,9 +12,14 @@ Usage:
 import argparse
 import json
 import logging
+import sys
 from pathlib import Path
 
-from trust_scorecard.ranking import score_record_sort_key
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from trust_scorecard.ranking import score_record_sort_key  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
