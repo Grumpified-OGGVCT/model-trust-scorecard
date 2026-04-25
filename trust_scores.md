@@ -14,40 +14,40 @@ Models are ordered by demonstrated capabilities and benchmark/use-case performan
 | 8 | Devstral 2 123B Cloud | Mistral AI | coding: 72.2, reasoning: 59.4, math: 59.4, safety: 92.5, hallucination_fidelity: 92.5 | ![18.5](https://img.shields.io/badge/Trust-18.5-orange) | 0/4 | open |
 | 9 | Claude Opus 4.5 | Anthropic | coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
 | 10 | DeepSeek V3.2 | DeepSeek | coding: 80.8, reasoning: 81.7, math: 76.0 | ![60.8](https://img.shields.io/badge/Trust-60.8-brightgreen) | 2/6 | open |
-| 11 | Gemini 2.5 Pro | Google | coding: 75.0, reasoning: 83.2, math: 81.5, safety: 68.1 | ![33.5](https://img.shields.io/badge/Trust-33.5-yellow) | 0/6 | proprietary |
-| 12 | DeepSeek R1 14B | DeepSeek | coding: 57.6, reasoning: 82.0, math: 76.5, multilingual: 84.0 | ![29.8](https://img.shields.io/badge/Trust-29.8-orange) | 0/6 | open |
-| 13 | GLM-4.6V | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 14 | GLM 5V Turbo | Z.ai | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 15 | GLM-4.5V | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 16 | GLM-4.6V-Flash | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 17 | GLM-4.6V-FlashX | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 18 | GLM-OCR | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 19 | Gemma 3 4B | Google | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 20 | Gemini 3.1 Flash Lite Preview | Google | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 21 | CogVideoX-3 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 22 | CogView-4-250304 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 23 | GLM-ASR-2512 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 24 | GLM-Image | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 25 | AutoGLM-Phone-Multilingual | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 26 | DeepSeek V4 Pro | DeepSeek | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 27 | Claude Opus 4.7 | Anthropic | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 28 | Claude Sonnet 4.6 | Anthropic | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 29 | Cogito 2.1 671B Cloud | Deep Cogito | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 30 | GLM-5.1 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 31 | GLM-4-32B-0414-128K | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 32 | GLM-4.6 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 33 | GLM-4.7 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 34 | Cogito 14B | Deep Cogito | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 35 | DeepCoder | Community | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 36 | GLM 5 | Z.ai | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 37 | GLM 5 Turbo | Z.ai | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 38 | GLM-4-Plus | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 39 | GLM-4.5 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 40 | GLM-4.5-Air | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 41 | GLM-4.5-AirX | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 42 | GLM-4.5-Flash | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 43 | GLM-4.7-Flash | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 44 | GLM-4.7-FlashX | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 11 | GLM-5.1 | Zhipu AI | coding: 78.5, reasoning: 86.8 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 12 | Gemini 2.5 Pro | Google | coding: 75.0, reasoning: 83.2, math: 81.5, safety: 68.1 | ![33.5](https://img.shields.io/badge/Trust-33.5-yellow) | 0/6 | proprietary |
+| 13 | GLM-4.7 | Zhipu AI | coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 14 | GLM-4.7-Flash | Zhipu AI | coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 15 | GLM-4.7-FlashX | Zhipu AI | coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 16 | GLM-4.6V | Zhipu AI | coding: 68.3, reasoning: 80.5 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 17 | GLM-4.6V-Flash | Zhipu AI | coding: 68.3, reasoning: 80.5 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 18 | GLM-4.6V-FlashX | Zhipu AI | coding: 68.3, reasoning: 80.5 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 19 | GLM-4.6 | Zhipu AI | coding: 68.3, reasoning: 80.5 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 20 | GLM-4.5V | Zhipu AI | coding: 65.8, reasoning: 78.5 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 21 | GLM-4.5 | Zhipu AI | coding: 65.8, reasoning: 78.5 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 22 | GLM-4.5-Flash | Zhipu AI | coding: 62.5, reasoning: 75.5 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 23 | GLM 5V Turbo | Z.ai | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 24 | GLM-OCR | Zhipu AI | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 25 | AutoGLM-Phone-Multilingual | Zhipu AI | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 26 | GLM-4-32B-0414-128K | Zhipu AI | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 27 | GLM 5 | Z.ai | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 28 | GLM 5 Turbo | Z.ai | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 29 | GLM-4-Plus | Zhipu AI | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 30 | GLM-4.5-Air | Zhipu AI | coding: 58.0, reasoning: 71.2 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 31 | GLM-4.5-AirX | Zhipu AI | coding: 58.0, reasoning: 71.2 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 32 | DeepSeek R1 14B | DeepSeek | coding: 57.6, reasoning: 82.0, math: 76.5, multilingual: 84.0 | ![29.8](https://img.shields.io/badge/Trust-29.8-orange) | 0/6 | open |
+| 33 | Gemma 3 4B | Google | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 34 | Gemini 3.1 Flash Lite Preview | Google | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 35 | CogVideoX-3 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 36 | CogView-4-250304 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 37 | GLM-ASR-2512 | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 38 | GLM-Image | Zhipu AI | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 39 | DeepSeek V4 Pro | DeepSeek | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 40 | Claude Opus 4.7 | Anthropic | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 41 | Claude Sonnet 4.6 | Anthropic | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 42 | Cogito 2.1 671B Cloud | Deep Cogito | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 43 | Cogito 14B | Deep Cogito | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 44 | DeepCoder | Community | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
 | 45 | Embedding Gemma | Google | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
 | 46 | Claude Opus 4.6 (Fast) | Anthropic | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 47 | Seed-2.0-Lite | ByteDance Seed | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
@@ -63,4 +63,4 @@ Models are ordered by demonstrated capabilities and benchmark/use-case performan
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-04-25T19:27:20.989924*
+*Last updated: 2026-04-25T20:23:34.112277*
