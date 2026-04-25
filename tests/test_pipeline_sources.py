@@ -1,7 +1,13 @@
 """Ensure benchmark sources are consumed via the public interface."""
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
-from trust_scorecard.models import BenchmarkConfig, LicenseKind, MetricKind, ModelCard, VerificationStatus
+from trust_scorecard.models import (
+    BenchmarkConfig,
+    LicenseKind,
+    MetricKind,
+    ModelCard,
+    VerificationStatus,
+)
 from trust_scorecard.persistence import EvaluationStore
 from trust_scorecard.pipeline import EvaluationPipeline
 from trust_scorecard.verification_engine import create_engine_from_sources

@@ -21,7 +21,14 @@ from pathlib import Path
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.claim_extractor import extract_claims
-from trust_scorecard.models import BenchmarkClaim, BenchmarkResult, Claim, LicenseKind, ModelCard, ModelEvaluation
+from trust_scorecard.models import (
+    BenchmarkClaim,
+    BenchmarkResult,
+    Claim,
+    LicenseKind,
+    ModelCard,
+    ModelEvaluation,
+)
 from trust_scorecard.persistence import EvaluationStore
 from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
