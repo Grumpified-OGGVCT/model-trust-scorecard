@@ -298,25 +298,21 @@ def _canonical_structured_benchmark_name(
 ) -> str:
     stripped = name.strip()
     normalized = _normalize_claim_metric(stripped)
+    first_swebench_display_name: str | None = None
 
     for source in benchmark_sources:
-        if normalized in {
-            _normalize_claim_metric(source.config.id),
-            _normalize_claim_metric(source.config.display_name),
-        }:
+        normalized_id = _normalize_claim_metric(source.config.id)
+        normalized_display_name = _normalize_claim_metric(source.config.display_name)
+        if normalized in {normalized_id, normalized_display_name}:
             return source.config.display_name
-
-    if normalized == SWE_BENCH_NORMALIZED:
-        first_swebench_display_name: str | None = None
-        for source in benchmark_sources:
-            normalized_id = _normalize_claim_metric(source.config.id)
-            normalized_display_name = _normalize_claim_metric(source.config.display_name)
+        if normalized == SWE_BENCH_NORMALIZED:
             if SWE_BENCH_VERIFIED_NORMALIZED in {normalized_id, normalized_display_name}:
                 return source.config.display_name
             if first_swebench_display_name is None and normalized_display_name.startswith(SWE_BENCH_NORMALIZED):
                 first_swebench_display_name = source.config.display_name
-        if first_swebench_display_name is not None:
-            return first_swebench_display_name
+
+    if first_swebench_display_name is not None:
+        return first_swebench_display_name
 
     return stripped
 
