@@ -102,3 +102,31 @@ def test_compute_use_case_scores(sample_outcomes):
     scores = compute_use_case_scores(sample_outcomes)
     assert scores["coding"] >= 80
     assert "reasoning" in scores
+
+
+def test_compute_expanded_use_case_scores_and_hallucination_fidelity():
+    outcomes = [
+        VerificationOutcome(
+            claim=Claim(metric="OCRBench", value=93.1, raw="OCRBench: 93.1"),
+            status=VerificationStatus.UNVERIFIABLE,
+        ),
+        VerificationOutcome(
+            claim=Claim(metric="VideoMME", value=87.5, raw="VideoMME: 87.5"),
+            status=VerificationStatus.UNVERIFIABLE,
+        ),
+        VerificationOutcome(
+            claim=Claim(metric="HMMT", value=94.8, raw="HMMT: 94.8"),
+            status=VerificationStatus.UNVERIFIABLE,
+        ),
+        VerificationOutcome(
+            claim=Claim(metric="Hallucination Rate", value=4.2, raw="Hallucination Rate: 4.2%"),
+            status=VerificationStatus.UNVERIFIABLE,
+        ),
+    ]
+
+    scores = compute_use_case_scores(outcomes)
+
+    assert scores["ocr"] == 93.1
+    assert scores["video_understanding"] == 87.5
+    assert scores["math"] == 94.8
+    assert scores["hallucination_fidelity"] == 95.8

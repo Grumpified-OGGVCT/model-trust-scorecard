@@ -3,15 +3,27 @@
   "display_name": "MiniMax M2.7 Cloud",
   "vendor": "MiniMax",
   "card_url": "https://openrouter.ai/models/minimax/minimax-m2.7",
-  "card_text": "MiniMax M2.7 Cloud is MiniMax's self-improving agentic frontier model.\n\nArchitecture: sparse mixture-of-experts with 256 experts and 8 active experts per token, 10B active parameters from 229B total.\nContext Window: 228K tokens.\nReleased: 2026-03-18.\nBenchmarks:\n- SWE-bench Pro: 56.2%\n- GPQA Diamond: 87.4%\nCapabilities: autonomous coding, debugging, root-cause analysis, office-document generation, continuous self-improvement scaffolds.\nPublic sources: OpenRouter, NVIDIA NGC, HuggingFace model card, Artificial Analysis.\nNotable caution: hallucination rate reported at 65.6% by Artificial Analysis.",
+  "card_text": "MiniMax M2.7 Cloud is MiniMax's self-improving agentic frontier model.\n\nArchitecture: sparse mixture-of-experts with 256 experts and 8 active experts per token, 10B active parameters from 229B total.\nContext Window: 228K tokens.\nReleased: 2026-03-18.\nBenchmarks:\n- SWE-bench Pro: 56.2%\n- GPQA Diamond: 87.4%\n- Terminal Bench 2: 57.0\n- Toolathlon: 46.3\n- AA Intelligence Index: 49.6\n- AA Agentic Index: 61.5\n- Hallucination Rate: 65.6%\nCapabilities: autonomous coding, debugging, root-cause analysis, office-document generation, continuous self-improvement scaffolds.\nPublic sources: OpenRouter, NVIDIA NGC, HuggingFace model card, Artificial Analysis.\nNotable caution: hallucination rate reported at 65.6% by Artificial Analysis.",
   "license_kind": "restricted",
   "architecture": "Sparse MoE (256 experts, 8 active)",
   "parameter_count_billions": 10,
   "total_parameter_count_billions": 229,
   "context_window_tokens": 228000,
   "release_date": "2026-03-18T00:00:00",
-  "tags": ["text", "coding", "agentic", "software-engineering", "function-calling", "long-context", "reasoning", "office-automation"],
+  "tags": [
+    "text",
+    "coding",
+    "agentic",
+    "software-engineering",
+    "function-calling",
+    "long-context",
+    "reasoning",
+    "office-automation"
+  ],
   "pricing_per_1k_input_usd": 0.0003,
   "pricing_per_1k_output_usd": 0.0012,
-  "capability_rank": 4
+  "capability_rank": 4,
+  "hallucination_rate": 65.6,
+  "artificial_analysis_intelligence_index": 49.6,
+  "artificial_analysis_agentic_index": 61.5
 }

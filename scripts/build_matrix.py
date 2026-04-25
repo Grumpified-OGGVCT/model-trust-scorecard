@@ -35,11 +35,17 @@ POWERSHELL_OLLAMA_LIST_RE = re.compile(r"^PS .+>\s+ollama\s+list$", re.IGNORECAS
 
 def load_catalog_models(models_dir: Path) -> list[str]:
     """Return model IDs from local catalog JSON files."""
-    ids: list[str] = []
+    ranked_ids: list[tuple[bool, int, str]] = []
     # Keep ordering deterministic so matrix output and tests stay stable across platforms.
     for path in sorted(models_dir.glob("*.json")):
-        ids.append(path.stem)
-    return ids
+        rank = None
+        try:
+            rank = json.loads(path.read_text()).get("capability_rank")
+        except (json.JSONDecodeError, OSError, TypeError, ValueError) as exc:
+            logger.warning("Failed to read capability rank from %s: %s", path, exc)
+        missing_rank = rank is None
+        ranked_ids.append((missing_rank, int(rank or 0), path.stem))
+    return [model_id for _, _, model_id in sorted(ranked_ids)]
 
 
 def parse_inventory_models(text: str) -> list[str]:
@@ -86,6 +92,7 @@ def parse_markdown_inventory_line(line: str) -> list[str]:
     segments = re.split(r"\s+/\s+", stripped) if "/" in stripped else [stripped]
     models: list[str] = []
     base_prefix: str | None = None
+    cloud_group = False
     for segment in segments:
         segment = segment.strip()
         if not segment:
@@ -94,9 +101,31 @@ def parse_markdown_inventory_line(line: str) -> list[str]:
             clean_segment = segment.split()[0]
             models.append(clean_segment)
             base_prefix = clean_segment.split(":", 1)[0]
+            cloud_group = clean_segment.endswith(":cloud") or clean_segment.endswith("-cloud")
         elif base_prefix:
-            models.append(f"{base_prefix}:{segment.split()[0]}")
+            variant = segment.split()[0]
+            if cloud_group and _looks_like_cloud_family_variant(base_prefix, variant):
+                family_root = base_prefix.rsplit("-", 1)[0]
+                models.append(f"{family_root}-{variant}:cloud")
+            else:
+                models.append(f"{base_prefix}:{variant}")
     return models
+
+
+def _looks_like_cloud_family_variant(base_prefix: str, variant: str) -> bool:
+    """
+    Detect shorthand cloud family variants in organized inventories.
+
+    Returns True when a slash-separated shorthand variant should inherit the
+    CLOUD deployment marker from the previous family entry.
+
+    Example: `minimax-m2:cloud / m2.1 / m2.5` should keep the CLOUD designation
+    as `minimax-m2.1:cloud`, not flatten to the invalid `minimax-m2:m2.1`.
+    """
+    if "-" not in base_prefix or ":" in variant or variant in {"cloud", "latest"}:
+        return False
+    base_family = base_prefix.rsplit("-", 1)[1]
+    return variant.startswith(base_family) and "." in variant
 
 
 def candidate_model_ids(model_id: str) -> list[str]:

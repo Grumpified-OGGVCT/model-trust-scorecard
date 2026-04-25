@@ -65,6 +65,20 @@ STANDARD_BENCHMARKS = [
     "NeedleBench",
     "AgentBench",
     "MT-Bench",
+    "HLE",
+    "AIME",
+    "HMMT",
+    "ArenaHard",
+    "OCRBench",
+    "MathVision",
+    "OmniDocBench",
+    "VideoMME",
+    "MMMU",
+    "TAU2-Bench",
+    "Toolathlon",
+    "Terminal Bench",
+    "WMT24++",
+    "RULER",
 ]
 
 # Safety benchmarks
@@ -77,13 +91,63 @@ SAFETY_BENCHMARKS = [
 
 # Use-case groupings to avoid flattening strengths
 USE_CASE_BENCHMARKS: dict[str, list[str]] = {
-    "coding": ["SWE-bench", "SWE-bench Verified", "HumanEval", "LiveCodeBench", "CodeXGLUE"],
-    "reasoning": ["MMLU", "MMLU-Pro", "GSM8K", "GPQA", "BBH", "ARC-AGI", "MATH"],
-    "safety": ["TruthfulQA", "BBQ", "BOLD", "Bias", "Toxicity"],
+    "coding": [
+        "SWE-bench",
+        "SWE-bench Verified",
+        "SWE-bench Pro",
+        "SWE-bench Multilingual",
+        "HumanEval",
+        "LiveCodeBench",
+        "Terminal Bench 2",
+        "AA Coding Index",
+        "CodeXGLUE",
+    ],
+    "reasoning": [
+        "MMLU",
+        "MMLU-Pro",
+        "MMLU-ProX",
+        "GSM8K",
+        "GPQA",
+        "GPQA Diamond",
+        "BBH",
+        "ARC-AGI",
+        "MATH",
+        "AIME",
+        "AIME25",
+        "AIME26",
+        "HMMT",
+        "AA Intelligence Index",
+    ],
+    "math": ["AIME", "AIME25", "AIME26", "HMMT", "MATH", "GPQA", "GPQA Diamond", "MathVision"],
+    "safety": [
+        "TruthfulQA",
+        "BBQ",
+        "BOLD",
+        "Bias",
+        "Toxicity",
+        "Hallucination Rate",
+        "Structured Output Error Rate",
+    ],
     "commonsense": ["HellaSwag", "WinoGrande", "ARC", "ARC Challenge", "LAMBADA"],
-    "multilingual": ["MMLU-Pro", "BBH", "LAMBADA"],
-    "long_context": ["LongBench", "NeedleBench"],
-    "tool_use": ["AgentBench", "MT-Bench"],
+    "multilingual": ["MMLU-Pro", "MMLU-ProX", "WMT24++", "SWE-bench Multilingual", "BBH", "LAMBADA"],
+    "multilingual_depth": ["MMLU-ProX", "WMT24++", "SWE-bench Multilingual"],
+    "long_context": ["LongBench", "NeedleBench", "RULER"],
+    "tool_use": [
+        "AgentBench",
+        "MT-Bench",
+        "HLE Tools",
+        "Toolathlon",
+        "TAU2-Bench",
+        "Terminal Bench 2",
+        "AA Agentic Index",
+    ],
+    "agent_swarm": ["HLE Tools", "Toolathlon", "TAU2-Bench", "AA Agentic Index"],
+    "vision_coding": ["OCRBench", "MathVision", "SWE-bench Multilingual"],
+    "multimodal": ["MMMU", "OCRBench", "MathVision", "VideoMME", "OmniDocBench"],
+    "ocr": ["OCRBench", "OmniDocBench", "CountBench"],
+    "video_understanding": ["VideoMME"],
+    "office_document": ["Terminal Bench 2", "GDPval-AA ELO"],
+    "hallucination_fidelity": ["Hallucination Rate", "Structured Output Error Rate"],
     "edge": ["EdgeJSON", "EdgeIntent", "EdgeFuncCall", "SMOL-WorldCup"],
     "efficiency": ["Latency", "TinyMobileLLM-Throughput", "TinyMobileLLM-Memory"],
 }
@@ -95,6 +159,7 @@ STANDARD_BENCHMARK_ALIASES: dict[str, set[str]] = {
         _normalize_metric("SWE-bench Verified (mini)"),
         _normalize_metric("SWE-bench Lite"),
         _normalize_metric("SWE-bench Pro"),
+        _normalize_metric("SWE-bench Multilingual"),
     },
     _normalize_metric("ARC"): {
         _normalize_metric("ARC"),
@@ -104,8 +169,59 @@ STANDARD_BENCHMARK_ALIASES: dict[str, set[str]] = {
     _normalize_metric("MMLU"): {
         _normalize_metric("MMLU"),
         _normalize_metric("MMLU-Pro"),
+        _normalize_metric("MMLU-ProX"),
+    },
+    _normalize_metric("GPQA"): {
+        _normalize_metric("GPQA"),
+        _normalize_metric("GPQA Diamond"),
+    },
+    _normalize_metric("AIME"): {
+        _normalize_metric("AIME"),
+        _normalize_metric("AIME25"),
+        _normalize_metric("AIME26"),
+    },
+    _normalize_metric("HLE"): {
+        _normalize_metric("HLE"),
+        _normalize_metric("HLE Tools"),
+    },
+    _normalize_metric("Terminal Bench"): {
+        _normalize_metric("Terminal Bench"),
+        _normalize_metric("Terminal Bench 2"),
     },
 }
+
+LOWER_IS_BETTER_METRICS = {
+    _normalize_metric("Hallucination Rate"),
+    _normalize_metric("Structured Output Error Rate"),
+}
+
+
+def _value_for_outcome(outcome: VerificationOutcome) -> float:
+    """
+    Return the use-case scoring value for an outcome.
+
+    Most benchmark scores are higher-is-better percentages. Lower-is-better
+    trust metrics, such as hallucination and structured-output error rates, are
+    inverted onto the same 0-100 strength scale so lower risk contributes a
+    higher use-case score. The floor prevents negative scores if a noisy source
+    reports a value above 100.
+    """
+    if outcome.claim is None:
+        logger.warning("Skipping use-case value for outcome without a claim")
+        return 0.0
+    value = outcome.official_value if outcome.official_value is not None else outcome.claim.value
+    norm = _normalize_metric(outcome.claim.metric)
+    if norm in LOWER_IS_BETTER_METRICS:
+        # These lower-is-better metrics are extracted as percentages on the same 0-100 scale.
+        if value < 0.0 or value > 100.0:
+            logger.warning(
+                "Lower-is-better metric %s has out-of-range value %.2f",
+                outcome.claim.metric,
+                value,
+            )
+            return 0.0
+        return max(0.0, 100.0 - value)
+    return value
 
 
 def compute_coverage_score(
@@ -342,8 +458,7 @@ def compute_use_case_scores(
             norm_bm = _normalize_metric(benchmark)
             candidates = normalized_outcomes.get(norm_bm, [])
             for outcome in candidates:
-                value = outcome.official_value if outcome.official_value is not None else outcome.claim.value
-                values.append(value)
+                values.append(_value_for_outcome(outcome))
                 break  # prefer first match
         if values:
             use_case_scores[use_case] = round(sum(values) / len(values), 1)

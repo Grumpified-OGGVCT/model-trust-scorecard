@@ -3,15 +3,26 @@
   "display_name": "Devstral 2 123B Cloud",
   "vendor": "Mistral AI",
   "card_url": "https://openrouter.ai/models/mistral/devstral-2",
-  "card_text": "Devstral 2 123B Cloud is Mistral AI's dense coding specialist.\n\nArchitecture: dense transformer with 123B active parameters.\nContext Window: 256K tokens.\nReleased: 2025-12-09.\nBenchmarks:\n- SWE-bench Verified: 72.2%\n- GPQA: 59.4%\nCapabilities: codebase exploration, multi-file edits, dependency-aware software engineering, retry-heavy coding agents, fine-tuning for enterprise codebases.\nPublic sources: OpenRouter, HuggingFace model card, Mistral AI docs, Artificial Analysis.\nNotable strength: 14.9% hallucination rate and 0.13% structured output error rate in reported public evaluations.",
+  "card_text": "Devstral 2 123B Cloud is Mistral AI's dense coding specialist.\n\nArchitecture: dense transformer with 123B active parameters.\nContext Window: 256K tokens.\nReleased: 2025-12-09.\nBenchmarks:\n- SWE-bench Verified: 72.2%\n- GPQA: 59.4%\n- Hallucination Rate: 14.9%\n- Structured Output Error Rate: 0.13%\nCapabilities: codebase exploration, multi-file edits, dependency-aware software engineering, retry-heavy coding agents, fine-tuning for enterprise codebases.\nPublic sources: OpenRouter, HuggingFace model card, Mistral AI docs, Artificial Analysis.\nNotable strength: 14.9% hallucination rate and 0.13% structured output error rate in reported public evaluations.",
   "license_kind": "open",
   "architecture": "Dense Transformer",
   "parameter_count_billions": 123,
   "total_parameter_count_billions": 123,
   "context_window_tokens": 256000,
   "release_date": "2025-12-09T00:00:00",
-  "tags": ["text", "coding", "agentic", "software-engineering", "function-calling", "tool-use", "long-context", "dense"],
+  "tags": [
+    "text",
+    "coding",
+    "agentic",
+    "software-engineering",
+    "function-calling",
+    "tool-use",
+    "long-context",
+    "dense"
+  ],
   "pricing_per_1k_input_usd": 0.0004,
   "pricing_per_1k_output_usd": 0.002,
-  "capability_rank": 8
+  "capability_rank": 8,
+  "hallucination_rate": 14.9,
+  "structured_output_error_rate": 0.13
 }

@@ -40,6 +40,8 @@ def test_parse_inventory_models_from_categorized_markdown():
     assert "llama3.2-vision:11b-instruct-q4_K_M" in models
     assert "gemini-3-flash-preview:cloud" in models
     assert "gemma3:27b-cloud" in models
+    assert "minimax-m2.7:cloud" in models
+    assert "minimax-m2:m2.7" not in models
 
 
 def test_candidate_model_ids_normalize_ollama_tags():

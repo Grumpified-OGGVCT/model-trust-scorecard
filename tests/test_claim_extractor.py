@@ -93,3 +93,48 @@ def test_source_url_propagation():
 
     assert len(claims) >= 1
     assert all(c.source_url == url for c in claims)
+
+
+def test_extract_cloud_gap_benchmarks_from_bullets():
+    """Test benchmarks used by the cloud model gap analysis."""
+    text = """
+    Benchmarks:
+    - HLE with Tools: 54.0%
+    - AIME26: 91.3
+    - HMMT: 94.8
+    - ArenaHard: 92.3%
+    - OCRBench: 93.1
+    - MathVision: 88.6
+    - OmniDocBench: 90.8
+    - VideoMME: 87.5
+    - MMLU-ProX: 84.7
+    - TAU2-Bench: 86.7
+    - SWE-bench Multi: 69.3
+    - Toolathlon: 50.0
+    - Terminal Bench 2: 57.0
+    - WMT24++: 86.67
+    - IFBench: 79.2
+    - Hallucination Rate: 4.2%
+    - AA Intelligence Index: 54.0
+    """
+
+    claims = extract_claims(text)
+    metrics = {claim.metric for claim in claims}
+
+    assert "HLE Tools" in metrics
+    assert "AIME26" in metrics
+    assert "HMMT" in metrics
+    assert "ArenaHard" in metrics
+    assert "OCRBench" in metrics
+    assert "MathVision" in metrics
+    assert "OmniDocBench" in metrics
+    assert "VideoMME" in metrics
+    assert "MMLU-ProX" in metrics
+    assert "TAU2-Bench" in metrics
+    assert "SWE-bench Multilingual" in metrics
+    assert "Toolathlon" in metrics
+    assert "Terminal Bench 2" in metrics
+    assert "WMT24++" in metrics
+    assert "IFBench" in metrics
+    assert "Hallucination Rate" in metrics
+    assert "AA Intelligence Index" in metrics
