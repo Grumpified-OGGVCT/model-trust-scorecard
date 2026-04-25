@@ -227,7 +227,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <body>
     <div class="container">
         <h1>🔍 Model Trust Scorecard</h1>
-        <p class="subtitle">Transparent, reproducible verification of AI model benchmark claims</p>
+        <p class="subtitle">Capability-first model rankings with transparent claim verification metadata</p>
 
         <div class="stats">
             <div class="stat-card">
@@ -248,14 +248,17 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             </div>
         </div>
 
-        <h2 style="margin-bottom: 20px; color: #2d3748;">Rankings</h2>
+        <h2 style="margin-bottom: 10px; color: #2d3748;">Model Capability Rankings</h2>
+        <p style="color:#4a5568; line-height:1.6; margin-bottom: 20px;">
+            Models are ordered by demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.
+        </p>
         <table>
             <thead>
                 <tr>
                     <th>Rank</th>
                     <th>Model (Vendor)</th>
                     <th>Parameters / Context</th>
-                    <th>Trust Score (Verified)</th>
+                    <th>Trust Score<br><span style="color:#718096; font-size:0.8em;">claim confidence</span></th>
                      <th>Capabilities</th>
                      <th>Use-Case Strengths</th>
                      <th>Pricing</th>
@@ -269,6 +272,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         </table>
 
         <div class="info-grid">
+            <div class="info-card">
+                <h3>How rankings are ordered</h3>
+                <p>Capability rank, use-case scores, benchmark breadth, multimodal/tool/agentic capability, model scale, and context window drive ordering. Trust score is informational and only used as a late tie-breaker.</p>
+            </div>
             <div class="info-card">
                 <h3>Where results go</h3>
                 <ul>

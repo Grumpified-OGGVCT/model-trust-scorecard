@@ -1,4 +1,5 @@
 from scripts.generate_dashboard import (
+    HTML_TEMPLATE,
     _capabilities_from_tags,
     _format_hallucination,
     _format_price,
@@ -30,3 +31,9 @@ def test_dashboard_formats_pricing_and_hallucination():
 def test_dashboard_formats_release_date():
     assert _format_release_date("2026-04-23T00:00:00") == "2026-04-23"
     assert _format_release_date(None) == "-"
+
+
+def test_dashboard_describes_capability_first_ordering():
+    assert "Model Capability Rankings" in HTML_TEMPLATE
+    assert "Models are ordered by demonstrated capabilities" in HTML_TEMPLATE
+    assert "Trust score is informational" in HTML_TEMPLATE

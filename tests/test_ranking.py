@@ -27,6 +27,33 @@ def test_capability_rank_beats_trust_score():
     assert ranked[0][0].model_id == "higher-capability"
 
 
+def test_benchmark_evidence_beats_trust_score_after_capability_scores():
+    sparse_high_trust = ModelCard(
+        model_id="sparse-high-trust",
+        display_name="Sparse High Trust",
+        tags=["text"],
+        parameter_count_billions=7,
+        context_window_tokens=128000,
+    )
+    broad_low_trust = ModelCard(
+        model_id="broad-low-trust",
+        display_name="Broad Low Trust",
+        tags=["text"],
+        parameter_count_billions=7,
+        context_window_tokens=128000,
+    )
+
+    ranked = sorted(
+        [
+            (sparse_high_trust, {"coding": 80.0}, 99.0, 1),
+            (broad_low_trust, {"coding": 80.0, "reasoning": 80.0}, 10.0, 6),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3]),
+    )
+
+    assert ranked[0][0].model_id == "broad-low-trust"
+
+
 def test_evaluation_sort_prefers_broader_capability_profile():
     coder = ModelEvaluation(
         model_id="coder",

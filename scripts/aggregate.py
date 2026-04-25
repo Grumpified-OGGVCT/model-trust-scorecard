@@ -39,18 +39,24 @@ def sort_scores_by_capability(scores: list[dict]) -> list[dict]:
 
 
 def generate_markdown_table(scores: list[dict]) -> str:
-    """Generate markdown badge table."""
+    """Generate capability ranking table with trust metadata."""
     sorted_scores = sort_scores_by_capability(scores)
 
     lines = [
-        "# Trust Scorecard Rankings",
+        "# Model Capability Rankings",
         "",
-        "| Rank | Model | Vendor | Trust Score | Verified Claims | License |",
-        "|------|-------|--------|-------------|-----------------|---------|",
+        "Models are ordered by demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.",
+        "",
+        "| Rank | Model | Vendor | Use-Case Strengths | Trust Score | Verified Claims | License |",
+        "|------|-------|--------|--------------------|-------------|-----------------|---------|",
     ]
 
     for rank, score in enumerate(sorted_scores, 1):
         trust_score = score.get("trust_score")
+        use_case_scores = score.get("use_case_scores") or {}
+        use_case_label = ", ".join(
+            f"{name}: {value:.1f}" for name, value in use_case_scores.items()
+        ) or "—"
         # Badge color based on score
         if trust_score is None:
             badge = "![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey)"
@@ -62,7 +68,7 @@ def generate_markdown_table(scores: list[dict]) -> str:
             badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-orange)"
 
         lines.append(
-            f"| {rank} | {score['display_name']} | {score['vendor'] or '—'} | {badge} | "
+            f"| {rank} | {score['display_name']} | {score['vendor'] or '—'} | {use_case_label} | {badge} | "
             f"{score['verified_count']}/{score['total_claims']} | {score['license']} |"
         )
 
@@ -71,6 +77,7 @@ def generate_markdown_table(scores: list[dict]) -> str:
         "---",
         "",
         "**Legend:**",
+        "- Rank order: demonstrated capability rank, use-case scores, benchmark breadth, capability metadata, scale/context, then trust score as a late tie-breaker.",
         "- 🟢 **50-100**: Higher relative trust in the current score distribution",
         "- 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage",
         "- 🟠 **<30**: Low trust - few claims verified or significant gaps",
