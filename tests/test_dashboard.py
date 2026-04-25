@@ -9,10 +9,11 @@ from scripts.generate_dashboard import (
 
 def test_capabilities_include_function_calling_and_expanded_tags():
     display = _capabilities_from_tags(
-        ["coding", "function-calling", "video", "ocr", "document-analysis", "rag"],
+        ["coding", "function-calling", "video", "ocr", "document-analysis", "rag", "audio"],
         context_window=1_000_000,
     )
 
+    assert "Audio" in display
     assert "Tools" in display
     assert "Video" in display
     assert "OCR" in display

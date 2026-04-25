@@ -1,0 +1,19 @@
+{
+  "model_id": "openai-gpt-audio",
+  "display_name": "GPT Audio",
+  "vendor": "OpenAI",
+  "license_kind": "proprietary",
+  "weekly_tokens": "11.6M",
+  "context_window_tokens": 128000,
+  "release_date": "2026-01-19T00:00:00",
+  "pricing_per_1k_input_usd": 0.0025,
+  "pricing_per_1k_output_usd": 0.01,
+  "card_url": "https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1",
+  "card_text": "GPT Audio is a specialty audio-capable comparative catalog entry for OpenAI.\n\nWeekly tokens: 11.6M.\nContext Window: 128,000 tokens.\nReleased: 2026-01-19.\nPricing: $2.50 per 1M input tokens and $10 per 1M output tokens.\nCapabilities: text, audio, speech, multimodal.",
+  "tags": [
+    "audio",
+    "multimodal",
+    "speech",
+    "text"
+  ]
+}

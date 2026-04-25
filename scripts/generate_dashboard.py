@@ -73,6 +73,7 @@ def _capabilities_from_tags(tags: list[str], context_window: int | None = None) 
     caps: list[str] = []
     capability_map = [
         ("Vision", {"vision", "image", "multimodal"}),
+        ("Audio", {"audio", "speech"}),
         ("Video", {"video"}),
         ("OCR", {"ocr"}),
         ("Docs", {"document-analysis", "office-automation"}),
