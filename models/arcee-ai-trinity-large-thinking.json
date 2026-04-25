@@ -1,0 +1,19 @@
+{
+  "model_id": "arcee-ai-trinity-large-thinking",
+  "display_name": "Trinity Large Thinking",
+  "vendor": "Arcee AI",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "19.1B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-04-01T00:00:00",
+  "pricing_per_1k_input_usd": 0.00022,
+  "pricing_per_1k_output_usd": 0.00085,
+  "card_url": "https://openrouter.ai/models/arcee-ai-trinity-large-thinking",
+  "card_text": "Trinity Large Thinking is a comparative catalog entry for Arcee AI.\n\nWeekly tokens: 19.1B.\nContext Window: 262,144 tokens.\nReleased: 2026-04-01.\nPricing: $0.22 per 1M input tokens and $0.85 per 1M output tokens.\nCapabilities: text, reasoning, coding, long context."
+}

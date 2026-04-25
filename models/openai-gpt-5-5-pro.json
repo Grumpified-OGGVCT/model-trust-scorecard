@@ -1,0 +1,20 @@
+{
+  "model_id": "openai-gpt-5-5-pro",
+  "display_name": "GPT-5.5 Pro",
+  "vendor": "OpenAI",
+  "license_kind": "proprietary",
+  "weekly_tokens": "295M",
+  "context_window_tokens": 1050000,
+  "release_date": "2026-04-24T00:00:00",
+  "pricing_per_1k_input_usd": 0.03,
+  "pricing_per_1k_output_usd": 0.18,
+  "card_url": "https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1&output_modalities=text",
+  "card_text": "GPT-5.5 Pro is a comparative catalog entry for OpenAI.\n\nWeekly tokens: 295M.\nContext Window: 1,050,000 tokens.\nReleased: 2026-04-24.\nPricing: $30 per 1M input tokens and $180 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, long context.",
+  "tags": [
+    "agentic",
+    "coding",
+    "long-context",
+    "reasoning",
+    "text"
+  ]
+}

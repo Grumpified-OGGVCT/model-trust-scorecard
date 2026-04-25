@@ -1,0 +1,20 @@
+{
+  "model_id": "qwen-qwen3-5-plus-2026-02-15",
+  "display_name": "Qwen3.5 Plus 2026-02-15",
+  "vendor": "Qwen",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "multilingual",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "35.4B",
+  "context_window_tokens": 1000000,
+  "release_date": "2026-02-16T00:00:00",
+  "pricing_per_1k_input_usd": 0.00026,
+  "pricing_per_1k_output_usd": 0.00156,
+  "card_url": "https://openrouter.ai/models/qwen-qwen3-5-plus-2026-02-15",
+  "card_text": "Qwen3.5 Plus 2026-02-15 is a comparative catalog entry for Qwen.\n\nWeekly tokens: 35.4B.\nContext Window: 1,000,000 tokens.\nReleased: 2026-02-16.\nPricing: $0.26 per 1M input tokens and $1.56 per 1M output tokens.\nCapabilities: text, reasoning, coding, multilingual, long context."
+}

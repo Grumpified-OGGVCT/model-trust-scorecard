@@ -3,26 +3,27 @@
   "display_name": "Qwen 3.5 (397B) Cloud",
   "vendor": "Alibaba / Qwen",
   "card_url": "https://openrouter.ai/models/qwen/qwen-3.5-397b",
-  "card_text": "Qwen 3.5 (397B) Cloud is Qwen's broadest-capability multimodal flagship.\n\nArchitecture: sparse mixture-of-experts with gated delta networks and 512 experts, 17B active parameters from 397B total.\nContext Window: 262K tokens.\nReleased: 2026-02-01.\nBenchmarks:\n- MMLU-Pro: 87.8%\n- GPQA: 88.4%\n- SWE-bench Verified: 76.4%\n- HMMT: 94.8\n- AIME26: 91.3\n- OCRBench: 93.1\n- MathVision: 88.6\n- OmniDocBench: 90.8\n- VideoMME: 87.5\n- MMLU-ProX: 84.7\n- TAU2-Bench: 86.7\n- SWE-bench Multi: 69.3\n- BrowseComp: 69.0 / 78.6\n- CountBench: 97.2\nCapabilities: strong coding, top-tier OCR and document reasoning, multilingual support across 201 languages and dialects, text-image-video input, strong math and vision.\nPublic sources: OpenRouter, HuggingFace model card, Qwen docs, Artificial Analysis.\nPositioning: the most rounded multimodal, multilingual, and coding-capable generalist in this set.",
+  "card_text": "Qwen 3.5 (397B) Cloud is Qwen's broadest-capability multimodal flagship.\n\nArchitecture: sparse mixture-of-experts with gated delta networks and 512 experts, 17B active parameters from 397B total.\nContext Window: 262,144 tokens.\nReleased: 2026-02-16.\nBenchmarks:\n- MMLU-Pro: 87.8%\n- GPQA: 88.4%\n- SWE-bench Verified: 76.4%\n- HMMT: 94.8\n- AIME26: 91.3\n- OCRBench: 93.1\n- MathVision: 88.6\n- OmniDocBench: 90.8\n- VideoMME: 87.5\n- MMLU-ProX: 84.7\n- TAU2-Bench: 86.7\n- SWE-bench Multi: 69.3\n- BrowseComp: 69.0 / 78.6\n- CountBench: 97.2\nCapabilities: strong coding, top-tier OCR and document reasoning, multilingual support across 201 languages and dialects, text-image-video input, strong math and vision.\nPublic sources: OpenRouter, HuggingFace model card, Qwen docs, Artificial Analysis.\nPositioning: the most rounded multimodal, multilingual, and coding-capable generalist in this set.\n\nComparative metadata: weekly tokens 103B; context window 262,144 tokens; released 2026-02-16; pricing $0.39/M input and $2.34/M output.",
   "license_kind": "open",
   "architecture": "MoE (Gated DeltaNet + Sparse MoE, 512 experts, 10+1 active)",
   "parameter_count_billions": 17,
   "total_parameter_count_billions": 397,
-  "context_window_tokens": 262000,
-  "release_date": "2026-02-01T00:00:00",
+  "context_window_tokens": 262144,
+  "release_date": "2026-02-16T00:00:00",
   "tags": [
-    "text",
     "coding",
-    "multimodal",
-    "vision",
-    "video",
-    "ocr",
     "document-analysis",
-    "reasoning",
+    "image",
     "multilingual",
-    "image"
+    "multimodal",
+    "ocr",
+    "reasoning",
+    "text",
+    "video",
+    "vision"
   ],
   "pricing_per_1k_input_usd": 0.00039,
   "pricing_per_1k_output_usd": 0.00234,
-  "capability_rank": 3
+  "capability_rank": 3,
+  "weekly_tokens": "103B"
 }

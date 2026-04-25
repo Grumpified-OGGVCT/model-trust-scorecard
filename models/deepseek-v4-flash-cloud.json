@@ -3,26 +3,27 @@
   "display_name": "DeepSeek-V4-Flash Cloud",
   "vendor": "DeepSeek",
   "card_url": "https://openrouter.ai/models/deepseek/deepseek-v4-flash",
-  "card_text": "DeepSeek-V4-Flash Cloud is DeepSeek's ultra-efficient frontier long-context model.\n\nArchitecture: mixture-of-experts with compressed sparse attention and heavily compressed attention, 13B active parameters from 284B total.\nContext Window: 1048000 tokens.\nReleased: 2026-04-23.\nBenchmarks:\n- SWE-bench Verified: 80.6%\n- GPQA Diamond: 89.4%\n- HMMT: 94.8\n- ArenaHard: 92.3%\n- IFBench: 79.2%\n- AA Intelligence Index: 46.5\n- Hallucination Rate: 4.2%\nCapabilities: million-token retrieval and reasoning, low-cost coding, configurable reasoning modes, strong production software engineering, long-context research and RAG.\nPublic sources: OpenRouter, HuggingFace model card, DeepSeek docs, Artificial Analysis.\nNotable strength: 4.2% hallucination rate in public Artificial Analysis reporting.",
+  "card_text": "DeepSeek-V4-Flash Cloud is DeepSeek's ultra-efficient frontier long-context model.\n\nArchitecture: mixture-of-experts with compressed sparse attention and heavily compressed attention, 13B active parameters from 284B total.\nContext Window: 1,048,576 tokens.\nReleased: 2026-04-23.\nBenchmarks:\n- SWE-bench Verified: 80.6%\n- GPQA Diamond: 89.4%\n- HMMT: 94.8\n- ArenaHard: 92.3%\n- IFBench: 79.2%\n- AA Intelligence Index: 46.5\n- Hallucination Rate: 4.2%\nCapabilities: million-token retrieval and reasoning, low-cost coding, configurable reasoning modes, strong production software engineering, long-context research and RAG.\nPublic sources: OpenRouter, HuggingFace model card, DeepSeek docs, Artificial Analysis.\nNotable strength: 4.2% hallucination rate in public Artificial Analysis reporting.\n\nComparative metadata: weekly tokens 62.9B; context window 1,048,576 tokens; released 2026-04-23; pricing $0.14/M input and $0.28/M output.",
   "license_kind": "open",
   "architecture": "MoE (CSA + HCA hybrid attention)",
   "parameter_count_billions": 13,
   "total_parameter_count_billions": 284,
-  "context_window_tokens": 1048000,
+  "context_window_tokens": 1048576,
   "release_date": "2026-04-23T00:00:00",
   "tags": [
-    "text",
-    "coding",
-    "reasoning",
     "agentic",
-    "long-context",
+    "coding",
     "function-calling",
+    "long-context",
     "open-weight",
-    "rag"
+    "rag",
+    "reasoning",
+    "text"
   ],
   "pricing_per_1k_input_usd": 0.00014,
   "pricing_per_1k_output_usd": 0.00028,
   "capability_rank": 6,
   "hallucination_rate": 4.2,
-  "artificial_analysis_intelligence_index": 46.5
+  "artificial_analysis_intelligence_index": 46.5,
+  "weekly_tokens": "62.9B"
 }

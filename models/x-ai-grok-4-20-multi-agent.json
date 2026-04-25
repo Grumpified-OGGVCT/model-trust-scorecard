@@ -1,0 +1,21 @@
+{
+  "model_id": "x-ai-grok-4-20-multi-agent",
+  "display_name": "Grok 4.20 Multi-Agent",
+  "vendor": "xAI",
+  "license_kind": "proprietary",
+  "tags": [
+    "agentic",
+    "coding",
+    "function-calling",
+    "long-context",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "5.65B",
+  "context_window_tokens": 2000000,
+  "release_date": "2026-03-31T00:00:00",
+  "pricing_per_1k_input_usd": 0.002,
+  "pricing_per_1k_output_usd": 0.006,
+  "card_url": "https://openrouter.ai/models/x-ai-grok-4-20-multi-agent",
+  "card_text": "Grok 4.20 Multi-Agent is a comparative catalog entry for xAI.\n\nWeekly tokens: 5.65B.\nContext Window: 2,000,000 tokens.\nReleased: 2026-03-31.\nPricing: $2 per 1M input tokens and $6 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, function calling, long context."
+}

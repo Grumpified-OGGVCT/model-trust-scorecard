@@ -2,12 +2,22 @@
   "model_id": "minimax-m2.5-cloud",
   "display_name": "MiniMax M2.5 Cloud",
   "vendor": "MiniMax",
-  "card_text": "MiniMax M2.5 Cloud - High-efficiency LLM optimized for coding and agentic workflows.\n\nBenchmarks:\n- SWE-bench Verified: 80.2%\n\nCapabilities: Software engineering, coding tasks, agentic workflows,\nfunction calling, extended long-context understanding.\n\nArchitecture: Dense transformer optimized for reasoning and code generation.\nLicense: Commercial API access.",
+  "card_text": "MiniMax M2.5 Cloud - High-efficiency LLM optimized for coding and agentic workflows.\n\nBenchmarks:\n- SWE-bench Verified: 80.2%\n\nCapabilities: Software engineering, coding tasks, agentic workflows,\nfunction calling, extended long-context understanding.\n\nArchitecture: Dense transformer optimized for reasoning and code generation.\nLicense: Commercial API access.\n\nComparative metadata: weekly tokens 813B; context window 196,608 tokens; released 2026-02-12; pricing $0.15/M input and $1.15/M output.",
   "license_kind": "proprietary",
   "card_url": "https://ollama.com/library/minimax-m2.5",
   "parameter_count_billions": 32,
-  "context_window_tokens": 128000,
-  "tags": ["text", "coding", "agentic", "software-engineering", "function-calling", "long-context", "reasoning"],
-  "pricing_per_1k_input_usd": 0.0,
-  "pricing_per_1k_output_usd": 0.0
+  "context_window_tokens": 196608,
+  "tags": [
+    "agentic",
+    "coding",
+    "function-calling",
+    "long-context",
+    "reasoning",
+    "software-engineering",
+    "text"
+  ],
+  "pricing_per_1k_input_usd": 0.00015,
+  "pricing_per_1k_output_usd": 0.00115,
+  "weekly_tokens": "813B",
+  "release_date": "2026-02-12T00:00:00"
 }

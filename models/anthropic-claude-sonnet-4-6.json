@@ -1,0 +1,21 @@
+{
+  "model_id": "anthropic-claude-sonnet-4-6",
+  "display_name": "Claude Sonnet 4.6",
+  "vendor": "Anthropic",
+  "license_kind": "proprietary",
+  "tags": [
+    "agentic",
+    "coding",
+    "long-context",
+    "reasoning",
+    "safety",
+    "text"
+  ],
+  "weekly_tokens": "1.46T",
+  "context_window_tokens": 1000000,
+  "release_date": "2026-02-17T00:00:00",
+  "pricing_per_1k_input_usd": 0.003,
+  "pricing_per_1k_output_usd": 0.015,
+  "card_url": "https://openrouter.ai/models/anthropic-claude-sonnet-4-6",
+  "card_text": "Claude Sonnet 4.6 is a comparative catalog entry for Anthropic.\n\nWeekly tokens: 1.46T.\nContext Window: 1,000,000 tokens.\nReleased: 2026-02-17.\nPricing: $3 per 1M input tokens and $15 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, long context, safety."
+}

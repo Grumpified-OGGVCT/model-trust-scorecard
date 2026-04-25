@@ -137,6 +137,7 @@ class ModelCard(BaseModel):
     tags: list[str] = Field(default_factory=list)
     pricing_per_1k_input_usd: float | None = None
     pricing_per_1k_output_usd: float | None = None
+    weekly_tokens: str | None = None
     hallucination_rate: float | None = None
     structured_output_error_rate: float | None = None
     artificial_analysis_intelligence_index: float | None = None

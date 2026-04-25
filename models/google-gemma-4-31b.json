@@ -1,0 +1,20 @@
+{
+  "model_id": "google-gemma-4-31b",
+  "display_name": "Gemma 4 31B",
+  "vendor": "Google",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "open-weight",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "126B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-04-02T00:00:00",
+  "pricing_per_1k_input_usd": 0.00013,
+  "pricing_per_1k_output_usd": 0.00038,
+  "card_url": "https://openrouter.ai/models/google-gemma-4-31b",
+  "card_text": "Gemma 4 31B is a comparative catalog entry for Google.\n\nWeekly tokens: 126B.\nContext Window: 262,144 tokens.\nReleased: 2026-04-02.\nPricing: $0.13 per 1M input tokens and $0.38 per 1M output tokens.\nCapabilities: text, reasoning, coding, long context, open weight."
+}

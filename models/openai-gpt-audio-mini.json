@@ -1,0 +1,19 @@
+{
+  "model_id": "openai-gpt-audio-mini",
+  "display_name": "GPT Audio Mini",
+  "vendor": "OpenAI",
+  "license_kind": "proprietary",
+  "weekly_tokens": "138M",
+  "context_window_tokens": 128000,
+  "release_date": "2026-01-19T00:00:00",
+  "pricing_per_1k_input_usd": 0.0006,
+  "pricing_per_1k_output_usd": 0.0024,
+  "card_url": "https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1",
+  "card_text": "GPT Audio Mini is a specialty audio-capable comparative catalog entry for OpenAI.\n\nWeekly tokens: 138M.\nContext Window: 128,000 tokens.\nReleased: 2026-01-19.\nPricing: $0.60 per 1M input tokens and $2.40 per 1M output tokens.\nCapabilities: text, audio, speech, multimodal.",
+  "tags": [
+    "audio",
+    "multimodal",
+    "speech",
+    "text"
+  ]
+}

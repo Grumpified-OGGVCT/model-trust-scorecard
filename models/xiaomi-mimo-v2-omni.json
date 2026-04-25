@@ -1,0 +1,22 @@
+{
+  "model_id": "xiaomi-mimo-v2-omni",
+  "display_name": "MiMo-V2-Omni",
+  "vendor": "Xiaomi",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "image",
+    "long-context",
+    "multimodal",
+    "reasoning",
+    "text",
+    "vision"
+  ],
+  "weekly_tokens": "43.2B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-03-18T00:00:00",
+  "pricing_per_1k_input_usd": 0.0004,
+  "pricing_per_1k_output_usd": 0.002,
+  "card_url": "https://openrouter.ai/models/xiaomi-mimo-v2-omni",
+  "card_text": "MiMo-V2-Omni is a comparative catalog entry for Xiaomi.\n\nWeekly tokens: 43.2B.\nContext Window: 262,144 tokens.\nReleased: 2026-03-18.\nPricing: $0.4 per 1M input tokens and $2 per 1M output tokens.\nCapabilities: text, multimodal, vision, image, reasoning, coding, long context."
+}

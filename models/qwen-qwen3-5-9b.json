@@ -1,0 +1,20 @@
+{
+  "model_id": "qwen-qwen3-5-9b",
+  "display_name": "Qwen3.5-9B",
+  "vendor": "Qwen",
+  "license_kind": "unknown",
+  "tags": [
+    "coding",
+    "long-context",
+    "multilingual",
+    "reasoning",
+    "text"
+  ],
+  "weekly_tokens": "91.3B",
+  "context_window_tokens": 262144,
+  "release_date": "2026-03-10T00:00:00",
+  "pricing_per_1k_input_usd": 0.0001,
+  "pricing_per_1k_output_usd": 0.00015,
+  "card_url": "https://openrouter.ai/models/qwen-qwen3-5-9b",
+  "card_text": "Qwen3.5-9B is a comparative catalog entry for Qwen.\n\nWeekly tokens: 91.3B.\nContext Window: 262,144 tokens.\nReleased: 2026-03-10.\nPricing: $0.1 per 1M input tokens and $0.15 per 1M output tokens.\nCapabilities: text, reasoning, coding, multilingual, long context."
+}
