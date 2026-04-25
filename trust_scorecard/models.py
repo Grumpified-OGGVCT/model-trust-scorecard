@@ -172,7 +172,8 @@ class ModelCard(BaseModel):
         if not isinstance(data, dict):
             return data
         if "license_kind" not in data and "license" in data:
-            data = {**data, "license_kind": data["license"]}
+            data = data.copy()
+            data["license_kind"] = data["license"]
         return data
 
 

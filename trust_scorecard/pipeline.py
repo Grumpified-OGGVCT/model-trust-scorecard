@@ -34,7 +34,7 @@ from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
 
 logger = logging.getLogger(__name__)
-CLAIM_VALUE_DECIMAL_PLACES = 4
+CLAIM_VALUE_ROUNDING_PRECISION = 4
 
 
 class EvaluationPipeline:
@@ -275,7 +275,7 @@ def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
     seen: set[tuple[str, float]] = set()
     deduped: list[Claim] = []
     for claim in claims:
-        key = (_normalize_claim_metric(claim.metric), round(claim.value, CLAIM_VALUE_DECIMAL_PLACES))
+        key = (_normalize_claim_metric(claim.metric), round(claim.value, CLAIM_VALUE_ROUNDING_PRECISION))
         if key in seen:
             continue
         seen.add(key)
