@@ -33,10 +33,13 @@ def capability_sort_key(
     tags = set(card.tags or [])
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
+    capability_rank = (
+        (0, card.capability_rank) if card.capability_rank is not None else (1, float("inf"))
+    )
 
     return (
-        card.capability_rank if card.capability_rank is not None else float("inf"),
-        *(-float(scores.get(name, -1.0)) for name in USE_CASE_PRIORITY),
+        capability_rank,
+        *(-float(scores.get(name, 0.0)) for name in USE_CASE_PRIORITY),
         -int(bool(tags & MULTIMODAL_TAGS)),
         -int(bool(tags & AGENTIC_TAGS)),
         -active_params,

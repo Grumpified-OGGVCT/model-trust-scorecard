@@ -24,6 +24,14 @@ logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
 
+def _format_param_count(value: float | int | None) -> str:
+    if value is None:
+        return "-"
+    if float(value).is_integer():
+        return f"{value:.0f}B"
+    return f"{value:.1f}B"
+
+
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -282,9 +290,9 @@ def main():
         params = model_card.get("parameter_count_billions")
         total_params = model_card.get("total_parameter_count_billions")
         if params and total_params and total_params != params:
-            params_display = f"{params:g}B / {total_params:g}B"
+            params_display = f"{_format_param_count(params)} / {_format_param_count(total_params)}"
         else:
-            params_display = f"{params:g}B" if params else "-"
+            params_display = _format_param_count(params)
 
         ctx = model_card.get("context_window_tokens")
         ctx_display = f"{ctx // 1000}K" if ctx else "-"
