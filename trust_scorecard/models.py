@@ -79,7 +79,10 @@ class BenchmarkResult(BaseModel):
 class BenchmarkClaim(BaseModel):
     """A structured 0-100 benchmark claim supplied directly in a model catalog entry."""
 
-    benchmark: str = Field(..., description="Benchmark name, e.g. 'MMLU'")
+    benchmark: str = Field(
+        ...,
+        description="Benchmark name such as 'MMLU' or 'SWE-bench'; matching is case-insensitive.",
+    )
     metric: str | None = Field(None, description="Reported metric, e.g. 'accuracy' or 'pass@1'")
     value: float = Field(..., ge=0.0, le=100.0)
     source: str | None = None

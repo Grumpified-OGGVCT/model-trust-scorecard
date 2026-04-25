@@ -255,7 +255,7 @@ def _claims_from_structured_benchmarks(
         source_url = _structured_claim_source_url(item, fallback_source_url)
         metric_label = f" {item.metric}" if item.metric else ""
         source_label = f" ({item.source})" if item.source else ""
-        raw = item.raw or f"{item.benchmark}{metric_label}: {item.value}{source_label}"
+        raw = item.raw or f"{item.benchmark}{metric_label}: {item.value}%{source_label}"
         claims.append(
             Claim(
                 metric=item.benchmark,
