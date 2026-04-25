@@ -34,8 +34,8 @@ from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
 
 logger = logging.getLogger(__name__)
-SWE_BENCH_NORMALIZED = "swebench"
-SWE_BENCH_VERIFIED_NORMALIZED = "swebenchverified"
+SWE_BENCH_NORMALIZED_NAME = "swebench"
+SWE_BENCH_VERIFIED_NORMALIZED_NAME = "swebenchverified"
 
 
 class EvaluationPipeline:
@@ -259,7 +259,7 @@ def _claims_from_structured_benchmarks(
     claims: list[Claim] = []
     for item in benchmark_claims:
         source_url = _structured_claim_source_url(item, fallback_source_url)
-        benchmark = _canonical_structured_benchmark_name(item.benchmark, benchmark_sources or [])
+        benchmark = _canonical_structured_benchmark_name(item.benchmark, benchmark_sources)
         metric_label = f" {item.metric}" if item.metric else ""
         source_label = f" ({item.source})" if item.source else ""
         raw = item.raw or f"{benchmark}{metric_label} result: {item.value}{source_label}"
@@ -295,25 +295,21 @@ def _normalize_claim_metric(name: str) -> str:
 
 def _canonical_structured_benchmark_name(
     name: str,
-    benchmark_sources: list[BenchmarkSourceBase],
+    benchmark_sources: list[BenchmarkSourceBase] | None = None,
 ) -> str:
     stripped = name.strip()
     normalized = _normalize_claim_metric(stripped)
-    first_swebench_display_name: str | None = None
 
-    for source in benchmark_sources:
+    for source in benchmark_sources or []:
         normalized_id = _normalize_claim_metric(source.config.id)
         normalized_display_name = _normalize_claim_metric(source.config.display_name)
         if normalized in {normalized_id, normalized_display_name}:
             return source.config.display_name
-        if normalized == SWE_BENCH_NORMALIZED:
-            if SWE_BENCH_VERIFIED_NORMALIZED in {normalized_id, normalized_display_name}:
-                return source.config.display_name
-            if first_swebench_display_name is None and normalized_display_name.startswith(SWE_BENCH_NORMALIZED):
-                first_swebench_display_name = source.config.display_name
-
-    if first_swebench_display_name is not None:
-        return first_swebench_display_name
+        if (
+            normalized == SWE_BENCH_NORMALIZED_NAME
+            and SWE_BENCH_VERIFIED_NORMALIZED_NAME in {normalized_id, normalized_display_name}
+        ):
+            return source.config.display_name
 
     return stripped
 
