@@ -3,15 +3,27 @@
   "display_name": "Kimi K2.6 Cloud",
   "vendor": "Moonshot AI",
   "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.6",
-  "card_text": "Kimi K2.6 Cloud is Moonshot AI's highest-capability frontier model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 256K tokens.\nReleased: 2026-04-20.\nBenchmarks:\n- SWE-bench Pro: 58.6%\n- SWE-bench Verified: 70.8%\nCapabilities: native text, image, and video understanding, broad reasoning, coordinated swarms up to 300 sub-agents across 4,000 steps, configurable reasoning effort, advanced multimodal coding.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nPositioning: highest Artificial Analysis Intelligence Index in this frontier cloud set.",
+  "card_text": "Kimi K2.6 Cloud is Moonshot AI's highest-capability frontier model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 256K tokens.\nReleased: 2026-04-20.\nBenchmarks:\n- SWE-bench Pro: 58.6%\n- SWE-bench Verified: 70.8%\n- SWE-bench Multilingual: 76.7%\n- HLE with Tools: 54.0%\n- Toolathlon: 50.0%\n- AA Intelligence Index: 54.0\nCapabilities: native text, image, and video understanding, broad reasoning, coordinated swarms up to 300 sub-agents across 4,000 steps, configurable reasoning effort, advanced multimodal coding.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nPositioning: highest Artificial Analysis Intelligence Index in this frontier cloud set.",
   "license_kind": "open",
   "architecture": "MoE (384 experts, 8 active)",
   "parameter_count_billions": 32,
   "total_parameter_count_billions": 1058,
   "context_window_tokens": 256000,
   "release_date": "2026-04-20T00:00:00",
-  "tags": ["text", "coding", "multimodal", "vision", "video", "agentic", "function-calling", "long-context", "reasoning", "image"],
+  "tags": [
+    "text",
+    "coding",
+    "multimodal",
+    "vision",
+    "video",
+    "agentic",
+    "function-calling",
+    "long-context",
+    "reasoning",
+    "image"
+  ],
   "pricing_per_1k_input_usd": 0.00074,
   "pricing_per_1k_output_usd": 0.00466,
-  "capability_rank": 1
+  "capability_rank": 1,
+  "artificial_analysis_intelligence_index": 54.0
 }

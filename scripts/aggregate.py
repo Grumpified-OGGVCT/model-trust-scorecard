@@ -120,6 +120,10 @@ def main():
     scores = []
     for report in reports:
         breakdown = report.get("breakdown") or {}
+        model_card = report.get("model_card", {})
+        license_value = report.get("license") or model_card.get("license_kind") or "unknown"
+        if license_value == "unknown" and model_card.get("license_kind"):
+            license_value = model_card["license_kind"]
         scores.append({
             "model_id": report["model_id"],
             "display_name": report["display_name"],
@@ -132,9 +136,9 @@ def main():
             "refuted_count": report.get("refuted_count", 0),
             "unverifiable_count": report.get("unverifiable_count", 0),
             "evaluated_at": report.get("evaluated_at"),
-            "license": report.get("license", "unknown"),
-            "model_card": report.get("model_card", {}),
-            "tags": report.get("model_card", {}).get("tags", []),
+            "license": license_value,
+            "model_card": model_card,
+            "tags": model_card.get("tags", []),
         })
 
     # Write JSON

@@ -9,6 +9,7 @@ Usage:
 """
 
 import argparse
+import html
 import json
 import logging
 import sys
@@ -30,6 +31,56 @@ def _format_param_count(value: float | int | None) -> str:
     if float(value).is_integer():
         return f"{value:.0f}B"
     return f"{value:.1f}B"
+
+
+def _format_price(input_per_1k: float | None, output_per_1k: float | None) -> str:
+    if input_per_1k is None and output_per_1k is None:
+        return "-"
+    input_display = f"${(input_per_1k or 0) * 1000:.2f}"
+    output_display = f"${(output_per_1k or 0) * 1000:.2f}"
+    return f"{input_display} / {output_display}<br><span style=\"color:#718096; font-size:0.85em;\">per 1M in/out</span>"
+
+
+def _format_hallucination(value: float | int | None) -> str:
+    if value is None:
+        return "-"
+    value = float(value)
+    if value < 15:
+        risk = "Low"
+        color = "#38a169"
+    elif value <= 40:
+        risk = "Medium"
+        color = "#dd6b20"
+    else:
+        risk = "High"
+        color = "#e53e3e"
+    return f"<strong style=\"color:{color};\">{value:.1f}%</strong><br><span style=\"color:#718096; font-size:0.85em;\">{risk} risk</span>"
+
+
+def _capabilities_from_tags(tags: list[str], context_window: int | None = None) -> str:
+    normalized = {tag.lower() for tag in tags}
+    caps: list[str] = []
+    capability_map = [
+        ("Vision", {"vision", "image", "multimodal"}),
+        ("Video", {"video"}),
+        ("OCR", {"ocr"}),
+        ("Docs", {"document-analysis", "office-automation"}),
+        ("Code", {"coding", "software-engineering"}),
+        ("Tools", {"tool-use", "function-calling"}),
+        ("Agent", {"agentic"}),
+        ("Reasoning", {"reasoning"}),
+        ("Multi-Lang", {"multilingual"}),
+        ("RAG", {"rag"}),
+        ("Enterprise", {"enterprise"}),
+        ("Open Weights", {"open-weight"}),
+        ("Dense", {"dense"}),
+    ]
+    for label, tag_set in capability_map:
+        if normalized.intersection(tag_set):
+            caps.append(label)
+    if "long-context" in normalized or (context_window and context_window >= 128000):
+        caps.append("Long Context")
+    return " • ".join(caps) if caps else "-"
 
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -113,6 +164,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         .score-high {{ background: #48bb78; color: white; }}
         .score-medium {{ background: #ed8936; color: white; }}
         .score-low {{ background: #f56565; color: white; }}
+        .score-na {{ background: #a0aec0; color: white; }}
         .info-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -193,10 +245,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <th>Model (Vendor)</th>
                     <th>Parameters / Context</th>
                     <th>Trust Score (Verified)</th>
-                    <th>Capabilities</th>
-                    <th>Use-Case Strengths</th>
-                    <th>License</th>
-                </tr>
+                     <th>Capabilities</th>
+                     <th>Use-Case Strengths</th>
+                     <th>Pricing</th>
+                     <th>Hallucination</th>
+                     <th>License</th>
+                 </tr>
             </thead>
             <tbody>
                 {table_rows}
@@ -277,8 +331,9 @@ def main():
     for rank, score in enumerate(scores, 1):
         trust_score = score["trust_score"]
         badge_class = (
-            "score-high" if trust_score and trust_score >= 80
-            else "score-medium" if trust_score and trust_score >= 60
+            "score-na" if trust_score is None
+            else "score-high" if trust_score >= 50
+            else "score-medium" if trust_score >= 30
             else "score-low"
         )
         score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
@@ -298,30 +353,26 @@ def main():
         ctx_display = f"{ctx // 1000}K" if ctx else "-"
 
         tags = score.get("tags", [])
-
-        # Build capabilities summary
-        caps = []
-        if any("vision" in t for t in tags):
-            caps.append("Vision")
-        if any("coding" in t for t in tags):
-            caps.append("Code")
-        if any("tool" in t for t in tags):
-            caps.append("Tools")
-        if any("agentic" in t for t in tags):
-            caps.append("Agent")
-        if any("multilingual" in t for t in tags):
-            caps.append("Multi-Lang")
-        caps_display = " • ".join(caps) if caps else "-"
+        caps_display = _capabilities_from_tags(tags, ctx)
+        price_display = _format_price(
+            model_card.get("pricing_per_1k_input_usd"),
+            model_card.get("pricing_per_1k_output_usd"),
+        )
+        hallucination_display = _format_hallucination(model_card.get("hallucination_rate"))
+        license_display = model_card.get("license_kind") or score.get("license", "unknown")
+        release_date = (model_card.get("release_date") or "").split("T", 1)[0] or "-"
 
         rows.append(
             f"""<tr>
                 <td>{rank}</td>
-                <td><strong>{score['display_name']}</strong><br><span style="color:#718096; font-size:0.85em;">{score['vendor'] or '-'}</span></td>
+                <td><strong>{html.escape(score['display_name'])}</strong><br><span style="color:#718096; font-size:0.85em;">{html.escape(score['vendor'] or '-')} • {release_date}</span></td>
                 <td>{params_display}<br><span style="color:#718096; font-size:0.85em;">{ctx_display} ctx</span></td>
                 <td><span class="score-badge {badge_class}">{score_display}</span><br><span style="color:#718096; font-size:0.85em;">{score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td>{caps_display}</td>
                 <td>{use_case_label}</td>
-                <td>{score.get('license', 'unknown')}</td>
+                <td>{price_display}</td>
+                <td>{hallucination_display}</td>
+                <td>{html.escape(str(license_display))}</td>
             </tr>"""
         )
 
