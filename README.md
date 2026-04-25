@@ -21,7 +21,7 @@ Model Trust Scorecard is a transparent, reproducible engine that verifies AI mod
 - **💾 Persistent Storage** - SQLite database + optional HuggingFace Dataset export
 - **🤖 GitHub-First** - Fully automated via GitHub Actions, triggerable via CLI
 - **📈 Live Dashboard** - Auto-generated GitHub Pages dashboard with rankings
-- **🔄 Nightly Updates** - Automatic re-evaluation to track claim accuracy over time
+- **🔄 Daily Model Growth** - Scheduled checks re-evaluate supplied/catalog models, incorporate newly added catalog entries, and place them into the capability rankings
 
 ---
 
@@ -83,10 +83,15 @@ trust-scorecard export --db trust_scores.db --output results.json
 - Use `--models` or `--models-file` with `trust-scorecard batch` to target a specific set (comma-separated, repeatable, or newline file/STDIN).
 - Use `python scripts/build_matrix.py --inventory-file <path>` to parse a raw `ollama list` export or a categorized Markdown list (see `docs/examples/personal-ollama-list.txt` and `docs/examples/personal-ollama-organized.md`) into a tested model selection input.
 - Paste provider claim lists directly via `--text-file -`; the parser handles multi-line/bullet inputs and keeps source URLs with each claim.
+- Catalog JSON files can also include structured `benchmark_claims`; these are verified alongside benchmark claims extracted from `card_text`, which helps supplied models rank even when the source text is sparse.
 - Evaluations are stored in `trust_scores.db` with timestamps; rerunning a model creates a new record instead of overwriting, so history stays intact.
-- `trust-scorecard list` shows the catalog; add more JSON entries under `models/` to make them available to batch runs and GitHub Actions.
+- `trust-scorecard list` shows the catalog; add or update JSON entries under `models/` to make daily runs assess new supplied models and place them in the rankings.
 - Comparative cloud model metadata can be checked against the OpenRouter filtered text-output model list: `https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1&output_modalities=text`.
 - Inventory files do not auto-review models; only IDs that already exist in the catalog are emitted into the verification matrix, and everything else should be submitted through the model review flow.
+
+### How verification is produced
+
+Trust scores are runner-driven once the catalog evidence exists. The scheduled and manual GitHub Actions workflows build a model matrix, extract claims from both `card_text` and structured `benchmark_claims`, verify those claims against the registered benchmark sources, aggregate the reports, and regenerate the dashboard. A row with `0/0 verified` means no benchmark claim was available to check; `0/N verified` means claims were found, but no independent source matched within tolerance yet.
 
 ### GitHub Actions Integration
 

@@ -1,7 +1,7 @@
 """Ensure benchmark sources are consumed via the public interface."""
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
-from trust_scorecard.models import BenchmarkConfig, MetricKind, ModelCard
+from trust_scorecard.models import BenchmarkConfig, LicenseKind, MetricKind, ModelCard, VerificationStatus
 from trust_scorecard.persistence import EvaluationStore
 from trust_scorecard.pipeline import EvaluationPipeline
 from trust_scorecard.verification_engine import create_engine_from_sources
@@ -57,6 +57,45 @@ def test_pipeline_uses_source_results_and_leaderboard_context():
     result_ids = {r.model_id for r in evaluation.benchmark_results}
     assert {"test-model", "leaderboard-model"}.issubset(result_ids)
     assert source.fetch_calls == ["test-model"]
+
+
+def test_pipeline_uses_structured_benchmark_claims_when_text_has_no_scores():
+    source = DummySource()
+    pipeline = EvaluationPipeline([source], EvaluationStore(":memory:"), default_tolerance=2.0)
+
+    card = ModelCard(
+        model_id="test-model",
+        display_name="Test Model",
+        card_text="Supplied model metadata without parseable benchmark prose.",
+        benchmark_claims=[
+            {
+                "benchmark": "MMLU",
+                "metric": "accuracy",
+                "value": 80.0,
+                "source": "supplier reported",
+            }
+        ],
+    )
+
+    evaluation = pipeline.evaluate_model(card)
+
+    assert len(evaluation.claims) == 1
+    assert evaluation.claims[0].metric == "MMLU"
+    assert evaluation.outcomes[0].status == VerificationStatus.VERIFIED
+    assert evaluation.trust_score is not None
+    assert evaluation.trust_score.breakdown.use_case_scores["reasoning"] == 80.0
+
+
+def test_model_card_accepts_legacy_license_field():
+    card = ModelCard.model_validate(
+        {
+            "model_id": "legacy-model",
+            "display_name": "Legacy Model",
+            "license": "proprietary",
+        }
+    )
+
+    assert card.license_kind == LicenseKind.PROPRIETARY
 
 
 def test_create_engine_from_sources_fetches_all_available_rows():

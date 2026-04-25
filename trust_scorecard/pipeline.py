@@ -21,7 +21,7 @@ from pathlib import Path
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
 from trust_scorecard.claim_extractor import extract_claims
-from trust_scorecard.models import BenchmarkResult, LicenseKind, ModelCard, ModelEvaluation
+from trust_scorecard.models import BenchmarkClaim, BenchmarkResult, Claim, LicenseKind, ModelCard, ModelEvaluation
 from trust_scorecard.persistence import EvaluationStore
 from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
@@ -84,7 +84,13 @@ class EvaluationPipeline:
 
         # Stage 1: Extract claims
         text = card_text or model_card.card_text or ""
-        claims = extract_claims(text, source_url=source_url or model_card.card_url)
+        claims = _dedupe_claims([
+            *extract_claims(text, source_url=source_url or model_card.card_url),
+            *_claims_from_structured_benchmarks(
+                model_card.benchmark_claims,
+                fallback_source_url=source_url or model_card.card_url,
+            ),
+        ])
         logger.info("Extracted %d claims", len(claims))
 
         if not claims:
@@ -229,6 +235,46 @@ def load_model_card_from_json(path: str | Path) -> ModelCard:
         data["release_date"] = datetime.fromisoformat(data["release_date"])
 
     return ModelCard(**data)
+
+
+def _claims_from_structured_benchmarks(
+    benchmark_claims: list[BenchmarkClaim],
+    fallback_source_url: str | None = None,
+) -> list[Claim]:
+    """Convert catalog-supplied benchmark_claims into verifier claims."""
+    claims: list[Claim] = []
+    for item in benchmark_claims:
+        source_url = item.source_url or (item.source if item.source and item.source.startswith("http") else None)
+        source_url = source_url or fallback_source_url
+        metric_label = f" {item.metric}" if item.metric else ""
+        source_label = f" ({item.source})" if item.source else ""
+        raw = item.raw or f"{item.benchmark}{metric_label}: {item.value}{source_label}"
+        claims.append(
+            Claim(
+                metric=item.benchmark,
+                value=item.value,
+                raw=raw,
+                source_url=source_url,
+            )
+        )
+    return claims
+
+
+def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
+    """Deduplicate text-extracted and structured claims while preserving order."""
+    seen: set[tuple[str, float]] = set()
+    deduped: list[Claim] = []
+    for claim in claims:
+        key = (_normalize_claim_metric(claim.metric), round(claim.value, 4))
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(claim)
+    return deduped
+
+
+def _normalize_claim_metric(name: str) -> str:
+    return name.lower().replace(" ", "").replace("-", "").replace("_", "")
 
 
 def load_model_cards_from_directory(directory: str | Path) -> list[ModelCard]:
