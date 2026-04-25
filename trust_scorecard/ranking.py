@@ -7,6 +7,8 @@ from typing import Any
 
 from trust_scorecard.models import ModelCard, ModelEvaluation
 
+# Weight broad frontier-model strengths highest while keeping specialized capabilities in the
+# composite so models are rewarded for measured breadth without letting narrow edge metrics dominate.
 CAPABILITY_WEIGHTS = {
     "coding": 2.0,
     "reasoning": 2.0,
@@ -67,7 +69,8 @@ def capability_sort_key(
         total_weight = sum(
             CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT) for name in scored_items
         )
-        capability_tier = (0, -(weighted_score / total_weight))
+        composite = weighted_score / total_weight if total_weight else 0.0
+        capability_tier = (0, -composite)
     elif scored_items:
         capability_tier = (1, 0.0)
     else:

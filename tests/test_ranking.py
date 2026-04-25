@@ -9,7 +9,24 @@ from trust_scorecard.models import (
     VerificationOutcome,
     VerificationStatus,
 )
-from trust_scorecard.ranking import capability_sort_key, evaluation_sort_key, score_record_sort_key
+from trust_scorecard.ranking import (
+    _numeric_scores,
+    capability_sort_key,
+    evaluation_sort_key,
+    score_record_sort_key,
+)
+
+
+def test_numeric_scores_filters_invalid_values():
+    assert _numeric_scores(
+        {
+            "coding": 99.0,
+            "reasoning": "98.5",
+            "math": "n/a",
+            "safety": None,
+            "edge": "",
+        }
+    ) == {"coding": 99.0, "reasoning": 98.5}
 
 
 def test_composite_capability_score_beats_static_capability_rank():
