@@ -55,7 +55,7 @@ def test_minimum_score_count_gates_capability_ranking():
 
     ranked = sorted(
         [
-            (sparse_high_trust, {"coding": 99.0, "reasoning": 99.0}, 99.0, 1),
+            (sparse_high_trust, {"coding": 99.0, "reasoning": 99.0, "math": "n/a"}, 99.0, 1),
             (broad_low_trust, {"coding": 80.0, "reasoning": 80.0, "math": 80.0}, 10.0, 6),
         ],
         key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3]),

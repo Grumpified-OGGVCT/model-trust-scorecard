@@ -7,18 +7,6 @@ from typing import Any
 
 from trust_scorecard.models import ModelCard, ModelEvaluation
 
-USE_CASE_PRIORITY = (
-    "coding",
-    "reasoning",
-    "tool_use",
-    "long_context",
-    "multilingual",
-    "safety",
-    "commonsense",
-    "efficiency",
-    "edge",
-)
-
 CAPABILITY_WEIGHTS = {
     "coding": 2.0,
     "reasoning": 2.0,
@@ -47,6 +35,16 @@ MULTIMODAL_TAGS = {"multimodal", "vision", "video", "ocr", "document-analysis"}
 AGENTIC_TAGS = {"agentic", "tool-use", "function-calling", "software-engineering"}
 
 
+def _numeric_scores(scores: Mapping[str, float]) -> dict[str, float]:
+    numeric_scores: dict[str, float] = {}
+    for name, value in scores.items():
+        try:
+            numeric_scores[name] = float(value)
+        except (TypeError, ValueError):
+            continue
+    return numeric_scores
+
+
 def capability_sort_key(
     card: ModelCard,
     use_case_scores: Mapping[str, float] | None = None,
@@ -58,7 +56,7 @@ def capability_sort_key(
     tags = set(card.tags or [])
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
-    scored_items = {key: float(value) for key, value in scores.items() if value is not None}
+    scored_items = _numeric_scores(scores)
 
     if len(scored_items) >= MIN_SCORES_FOR_RANKING:
         weighted_score = sum(
