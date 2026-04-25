@@ -60,4 +60,4 @@
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-04-25T16:58:46.531131*
+*Last updated: 2026-04-25T18:02:04.885341*
