@@ -25,6 +25,8 @@ def test_numeric_scores_filters_invalid_values():
             "math": "n/a",
             "safety": None,
             "edge": "",
+            "multimodal": {"nested": "object"},
+            "agent_swarm": ["not", "numeric"],
         }
     ) == {"coding": 99.0, "reasoning": 98.5}
 

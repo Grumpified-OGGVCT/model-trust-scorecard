@@ -64,19 +64,20 @@ def capability_sort_key(
     tags = set(card.tags or [])
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
-    scored_items = _numeric_scores(scores)
+    valid_numeric_scores = _numeric_scores(scores)
 
-    if len(scored_items) >= MIN_SCORES_FOR_RANKING:
+    if len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING:
         weighted_score = sum(
             value * CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
-            for name, value in scored_items.items()
+            for name, value in valid_numeric_scores.items()
         )
         total_weight = sum(
-            CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT) for name in scored_items
+            CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
+            for name in valid_numeric_scores
         )
         composite = weighted_score / total_weight if total_weight else 0.0
         capability_tier = (0, -composite)
-    elif scored_items:
+    elif valid_numeric_scores:
         capability_tier = (1, 0.0)
     else:
         capability_tier = (2, 0.0)
