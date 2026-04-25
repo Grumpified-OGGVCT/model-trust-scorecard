@@ -11,10 +11,25 @@ Usage:
 import argparse
 import json
 import logging
+import sys
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from trust_scorecard.ranking import score_record_sort_key  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
+
+
+def _format_param_count(value: float | int | None) -> str:
+    if value is None:
+        return "-"
+    if float(value).is_integer():
+        return f"{value:.0f}B"
+    return f"{value:.1f}B"
 
 
 HTML_TEMPLATE = """<!DOCTYPE html>
@@ -247,21 +262,7 @@ def main():
 
     # Load scores
     data = json.loads(args.input.read_text())
-    # Sort by ACTUAL CAPABILITY - prioritize CODING first, then REASONING
-    # This matches industry-standard rankings (OpenRouter Arena, etc.)
-    def get_capability_score(score):
-        use_cases = score.get("use_case_scores", {}) or {}
-        # Primary: coding score, Secondary: reasoning, Tertiary: any other score
-        coding = use_cases.get("coding", 0)
-        reasoning = use_cases.get("reasoning", 0)
-        other_avg = sum([v for k, v in use_cases.items() if k not in ("coding", "reasoning")]) / max(1, len([v for k, v in use_cases.items() if k not in ("coding", "reasoning")]))
-        return (coding, reasoning, other_avg)
-
-    scores = sorted(
-        data["scores"],
-        key=lambda x: get_capability_score(x),
-        reverse=True
-    )
+    scores = sorted(data["scores"], key=score_record_sort_key)
 
     # Calculate stats (skip None values)
     total_models = len(scores)
@@ -287,14 +288,16 @@ def main():
         # Extract metadata from model card
         model_card = score.get("model_card", {})
         params = model_card.get("parameter_count_billions")
-        params_display = f"{params}B" if params else "-"
+        total_params = model_card.get("total_parameter_count_billions")
+        if params and total_params and total_params != params:
+            params_display = f"{_format_param_count(params)} / {_format_param_count(total_params)}"
+        else:
+            params_display = _format_param_count(params)
 
         ctx = model_card.get("context_window_tokens")
         ctx_display = f"{ctx // 1000}K" if ctx else "-"
 
-        # Build capability tags string
         tags = score.get("tags", [])
-        tag_html = "".join([f'<span class="tag">{t}</span>' for t in tags[:5]]) if tags else "-"
 
         # Build capabilities summary
         caps = []

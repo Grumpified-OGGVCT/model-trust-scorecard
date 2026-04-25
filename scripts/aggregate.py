@@ -12,7 +12,14 @@ Usage:
 import argparse
 import json
 import logging
+import sys
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
+
+from trust_scorecard.ranking import score_record_sort_key  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -23,10 +30,14 @@ def _numeric_trust_score(score: dict) -> float:
     return float(value) if value is not None else 0.0
 
 
+def sort_scores_by_capability(scores: list[dict]) -> list[dict]:
+    """Sort scores by explicit capability priority, not by trust totals."""
+    return sorted(scores, key=score_record_sort_key)
+
+
 def generate_markdown_table(scores: list[dict]) -> str:
     """Generate markdown badge table."""
-    # Sort by trust score descending
-    sorted_scores = sorted(scores, key=_numeric_trust_score, reverse=True)
+    sorted_scores = sort_scores_by_capability(scores)
 
     lines = [
         "# Trust Scorecard Rankings",
@@ -130,7 +141,7 @@ def main():
     aggregated = {
         "generated_at": reports[0]["evaluated_at"] if reports else None,
         "total_models": len(scores),
-        "scores": scores,
+        "scores": sort_scores_by_capability(scores),
     }
     args.output.write_text(json.dumps(aggregated, indent=2))
     logger.info(f"Wrote aggregated scores to {args.output}")

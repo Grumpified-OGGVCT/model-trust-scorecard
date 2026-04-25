@@ -129,12 +129,15 @@ class ModelCard(BaseModel):
     card_url: str | None = None
     card_text: str | None = None
     license_kind: LicenseKind = LicenseKind.UNKNOWN
+    architecture: str | None = None
     parameter_count_billions: float | None = None
+    total_parameter_count_billions: float | None = None
     context_window_tokens: int | None = None
     release_date: datetime | None = None
     tags: list[str] = Field(default_factory=list)
     pricing_per_1k_input_usd: float | None = None
     pricing_per_1k_output_usd: float | None = None
+    capability_rank: int | None = None
 
 
 class ModelEvaluation(BaseModel):

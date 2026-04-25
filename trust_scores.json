@@ -1,7 +1,511 @@
 {
-  "generated_at": "2026-04-25T12:56:13.934823",
-  "total_models": 50,
+  "generated_at": "2026-04-25T16:03:46.338579",
+  "total_models": 18,
   "scores": [
+    {
+      "model_id": "kimi-k2.6-cloud",
+      "display_name": "Kimi K2.6 Cloud",
+      "vendor": "Moonshot AI",
+      "trust_score": 14.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 70.8
+        }
+      },
+      "use_case_scores": {
+        "coding": 70.8
+      },
+      "total_claims": 2,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T16:03:46.338579",
+      "license": "open",
+      "model_card": {
+        "model_id": "kimi-k2.6-cloud",
+        "display_name": "Kimi K2.6 Cloud",
+        "vendor": "Moonshot AI",
+        "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.6",
+        "card_text": "Kimi K2.6 Cloud is Moonshot AI's highest-capability frontier model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 256K tokens.\nReleased: 2026-04-20.\nBenchmarks:\n- SWE-bench Pro: 58.6%\n- SWE-bench Verified: 70.8%\nCapabilities: native text, image, and video understanding, broad reasoning, coordinated swarms up to 300 sub-agents across 4,000 steps, configurable reasoning effort, advanced multimodal coding.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nPositioning: highest Artificial Analysis Intelligence Index in this frontier cloud set.",
+        "license_kind": "open",
+        "architecture": "MoE (384 experts, 8 active)",
+        "parameter_count_billions": 32.0,
+        "total_parameter_count_billions": 1058.0,
+        "context_window_tokens": 256000,
+        "release_date": "2026-04-20T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "multimodal",
+          "vision",
+          "video",
+          "agentic",
+          "function-calling",
+          "long-context",
+          "reasoning",
+          "image"
+        ],
+        "pricing_per_1k_input_usd": 0.00074,
+        "pricing_per_1k_output_usd": 0.00466,
+        "capability_rank": 1
+      },
+      "tags": [
+        "text",
+        "coding",
+        "multimodal",
+        "vision",
+        "video",
+        "agentic",
+        "function-calling",
+        "long-context",
+        "reasoning",
+        "image"
+      ]
+    },
+    {
+      "model_id": "glm-5.1-cloud",
+      "display_name": "GLM-5.1 Cloud",
+      "vendor": "Z.ai",
+      "trust_score": 18.5,
+      "breakdown": {
+        "coverage_score": 7.5,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 77.8,
+          "reasoning": 86.8
+        }
+      },
+      "use_case_scores": {
+        "coding": 77.8,
+        "reasoning": 86.8
+      },
+      "total_claims": 3,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 3,
+      "evaluated_at": "2026-04-25T16:03:46.316681",
+      "license": "open",
+      "model_card": {
+        "model_id": "glm-5.1-cloud",
+        "display_name": "GLM-5.1 Cloud",
+        "vendor": "Z.ai",
+        "card_url": "https://openrouter.ai/models/zhipu/glm-5.1",
+        "card_text": "GLM-5.1 Cloud is Z.ai's frontier open-weight coding and agentic model.\n\nArchitecture: GlmMoeDsa sparse mixture-of-experts with 256 routed experts plus 1 shared expert, 40B active parameters from 754B total.\nContext Window: 200K tokens.\nReleased: 2026-04-07.\nBenchmarks:\n- SWE-bench Pro: 58.4%\n- SWE-bench Verified: 77.8%\n- GPQA: 86.8%\nCapabilities: marathon autonomous coding sessions up to 8+ hours, strong tool use, software engineering, multilingual text reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Z.ai developer docs, Artificial Analysis.\nNotable caution: hallucination rate reported at 70.6% by Artificial Analysis.",
+        "license_kind": "open",
+        "architecture": "MoE (256 routed experts + 1 shared, top-8+1)",
+        "parameter_count_billions": 40.0,
+        "total_parameter_count_billions": 754.0,
+        "context_window_tokens": 200000,
+        "release_date": "2026-04-07T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "reasoning",
+          "software-engineering",
+          "function-calling",
+          "long-context",
+          "multilingual",
+          "open-weight"
+        ],
+        "pricing_per_1k_input_usd": 0.00105,
+        "pricing_per_1k_output_usd": 0.0035,
+        "capability_rank": 2
+      },
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "reasoning",
+        "software-engineering",
+        "function-calling",
+        "long-context",
+        "multilingual",
+        "open-weight"
+      ]
+    },
+    {
+      "model_id": "qwen3.5-cloud",
+      "display_name": "Qwen 3.5 (397B) Cloud",
+      "vendor": "Alibaba / Qwen",
+      "trust_score": 18.5,
+      "breakdown": {
+        "coverage_score": 7.5,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 76.4,
+          "reasoning": 88.4
+        }
+      },
+      "use_case_scores": {
+        "coding": 76.4,
+        "reasoning": 88.4
+      },
+      "total_claims": 2,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T16:03:46.473916",
+      "license": "open",
+      "model_card": {
+        "model_id": "qwen3.5-cloud",
+        "display_name": "Qwen 3.5 (397B) Cloud",
+        "vendor": "Alibaba / Qwen",
+        "card_url": "https://openrouter.ai/models/qwen/qwen-3.5-397b",
+        "card_text": "Qwen 3.5 (397B) Cloud is Qwen's broadest-capability multimodal flagship.\n\nArchitecture: sparse mixture-of-experts with gated delta networks and 512 experts, 17B active parameters from 397B total.\nContext Window: 262K tokens.\nReleased: 2026-02-01.\nBenchmarks:\n- MMLU-Pro: 87.8%\n- GPQA: 88.4%\n- SWE-bench Verified: 76.4%\nCapabilities: strong coding, top-tier OCR and document reasoning, multilingual support across 201 languages and dialects, text-image-video input, strong math and vision.\nPublic sources: OpenRouter, HuggingFace model card, Qwen docs, Artificial Analysis.\nPositioning: the most rounded multimodal, multilingual, and coding-capable generalist in this set.",
+        "license_kind": "open",
+        "architecture": "MoE (Gated DeltaNet + Sparse MoE, 512 experts, 10+1 active)",
+        "parameter_count_billions": 17.0,
+        "total_parameter_count_billions": 397.0,
+        "context_window_tokens": 262000,
+        "release_date": "2026-02-01T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "multimodal",
+          "vision",
+          "video",
+          "ocr",
+          "document-analysis",
+          "reasoning",
+          "multilingual",
+          "image"
+        ],
+        "pricing_per_1k_input_usd": 0.00039,
+        "pricing_per_1k_output_usd": 0.00234,
+        "capability_rank": 3
+      },
+      "tags": [
+        "text",
+        "coding",
+        "multimodal",
+        "vision",
+        "video",
+        "ocr",
+        "document-analysis",
+        "reasoning",
+        "multilingual",
+        "image"
+      ]
+    },
+    {
+      "model_id": "minimax-m2.7-cloud",
+      "display_name": "MiniMax M2.7 Cloud",
+      "vendor": "MiniMax",
+      "trust_score": 12.3,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 2.5,
+        "safety_score": 0.0,
+        "use_case_scores": {}
+      },
+      "use_case_scores": {},
+      "total_claims": 2,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T16:03:46.485529",
+      "license": "restricted",
+      "model_card": {
+        "model_id": "minimax-m2.7-cloud",
+        "display_name": "MiniMax M2.7 Cloud",
+        "vendor": "MiniMax",
+        "card_url": "https://openrouter.ai/models/minimax/minimax-m2.7",
+        "card_text": "MiniMax M2.7 Cloud is MiniMax's self-improving agentic frontier model.\n\nArchitecture: sparse mixture-of-experts with 256 experts and 8 active experts per token, 10B active parameters from 229B total.\nContext Window: 228K tokens.\nReleased: 2026-03-18.\nBenchmarks:\n- SWE-bench Pro: 56.2%\n- GPQA Diamond: 87.4%\nCapabilities: autonomous coding, debugging, root-cause analysis, office-document generation, continuous self-improvement scaffolds.\nPublic sources: OpenRouter, NVIDIA NGC, HuggingFace model card, Artificial Analysis.\nNotable caution: hallucination rate reported at 65.6% by Artificial Analysis.",
+        "license_kind": "restricted",
+        "architecture": "Sparse MoE (256 experts, 8 active)",
+        "parameter_count_billions": 10.0,
+        "total_parameter_count_billions": 229.0,
+        "context_window_tokens": 228000,
+        "release_date": "2026-03-18T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "software-engineering",
+          "function-calling",
+          "long-context",
+          "reasoning",
+          "office-automation"
+        ],
+        "pricing_per_1k_input_usd": 0.0003,
+        "pricing_per_1k_output_usd": 0.0012,
+        "capability_rank": 4
+      },
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "software-engineering",
+        "function-calling",
+        "long-context",
+        "reasoning",
+        "office-automation"
+      ]
+    },
+    {
+      "model_id": "kimi-k2.5-cloud",
+      "display_name": "Kimi K2.5 Cloud",
+      "vendor": "Moonshot AI",
+      "trust_score": 14.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 79.8
+        }
+      },
+      "use_case_scores": {
+        "coding": 79.8
+      },
+      "total_claims": 1,
+      "verified_count": 0,
+      "refuted_count": 1,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-04-25T16:03:46.496890",
+      "license": "open",
+      "model_card": {
+        "model_id": "kimi-k2.5-cloud",
+        "display_name": "Kimi K2.5 Cloud",
+        "vendor": "Moonshot AI",
+        "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.5",
+        "card_text": "Kimi K2.5 Cloud is Moonshot AI's multimodal frontier agent model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 262K tokens.\nReleased: 2026-01-27.\nBenchmarks:\n- SWE-bench Verified: 70.8%\nCapabilities: native text and image understanding, strong multimodal coding, coordinated agent swarms up to 100 sub-agents and 1,500 tool calls, long-context reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nValue note: cheaper than K2.6 while keeping the slightly larger context window.",
+        "license_kind": "open",
+        "architecture": "MoE (384 experts, 8 active)",
+        "parameter_count_billions": 32.0,
+        "total_parameter_count_billions": 1058.0,
+        "context_window_tokens": 262000,
+        "release_date": "2026-01-27T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "multimodal",
+          "vision",
+          "agentic",
+          "function-calling",
+          "long-context",
+          "reasoning",
+          "image"
+        ],
+        "pricing_per_1k_input_usd": 0.00044,
+        "pricing_per_1k_output_usd": 0.002,
+        "capability_rank": 5
+      },
+      "tags": [
+        "text",
+        "coding",
+        "multimodal",
+        "vision",
+        "agentic",
+        "function-calling",
+        "long-context",
+        "reasoning",
+        "image"
+      ]
+    },
+    {
+      "model_id": "deepseek-v4-flash-cloud",
+      "display_name": "DeepSeek-V4-Flash Cloud",
+      "vendor": "DeepSeek",
+      "trust_score": 14.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 80.6
+        }
+      },
+      "use_case_scores": {
+        "coding": 80.6
+      },
+      "total_claims": 2,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T16:03:46.508357",
+      "license": "open",
+      "model_card": {
+        "model_id": "deepseek-v4-flash-cloud",
+        "display_name": "DeepSeek-V4-Flash Cloud",
+        "vendor": "DeepSeek",
+        "card_url": "https://openrouter.ai/models/deepseek/deepseek-v4-flash",
+        "card_text": "DeepSeek-V4-Flash Cloud is DeepSeek's ultra-efficient frontier long-context model.\n\nArchitecture: mixture-of-experts with compressed sparse attention and heavily compressed attention, 13B active parameters from 284B total.\nContext Window: 1048000 tokens.\nReleased: 2026-04-23.\nBenchmarks:\n- SWE-bench Verified: 80.6%\n- GPQA Diamond: 89.4%\nCapabilities: million-token retrieval and reasoning, low-cost coding, configurable reasoning modes, strong production software engineering, long-context research and RAG.\nPublic sources: OpenRouter, HuggingFace model card, DeepSeek docs, Artificial Analysis.\nNotable strength: 4.2% hallucination rate in public Artificial Analysis reporting.",
+        "license_kind": "open",
+        "architecture": "MoE (CSA + HCA hybrid attention)",
+        "parameter_count_billions": 13.0,
+        "total_parameter_count_billions": 284.0,
+        "context_window_tokens": 1048000,
+        "release_date": "2026-04-23T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "reasoning",
+          "agentic",
+          "long-context",
+          "function-calling",
+          "open-weight",
+          "rag"
+        ],
+        "pricing_per_1k_input_usd": 0.00014,
+        "pricing_per_1k_output_usd": 0.00028,
+        "capability_rank": 6
+      },
+      "tags": [
+        "text",
+        "coding",
+        "reasoning",
+        "agentic",
+        "long-context",
+        "function-calling",
+        "open-weight",
+        "rag"
+      ]
+    },
+    {
+      "model_id": "nemotron-3-super-cloud",
+      "display_name": "Nemotron-3-Super Cloud",
+      "vendor": "NVIDIA",
+      "trust_score": 14.8,
+      "breakdown": {
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 81.2,
+          "reasoning": 82.7
+        }
+      },
+      "use_case_scores": {
+        "coding": 81.2,
+        "reasoning": 82.7
+      },
+      "total_claims": 2,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T16:03:46.519586",
+      "license": "open",
+      "model_card": {
+        "model_id": "nemotron-3-super-cloud",
+        "display_name": "Nemotron-3-Super Cloud",
+        "vendor": "NVIDIA",
+        "card_url": "https://openrouter.ai/models/nvidia/nemotron-3-super",
+        "card_text": "Nemotron-3-Super Cloud is NVIDIA's long-context and IT-automation specialist.\n\nArchitecture: LatentMoE combining Mamba-2 state-space layers, MoE layers, attention, and multi-token prediction, 12B active parameters from 120B total.\nContext Window: 1000000 tokens natively.\nReleased: 2026-03-11.\nBenchmarks:\n- LiveCodeBench: 81.2%\n- GPQA: 82.7%\nCapabilities: million-token context, IT ticket automation, multilingual enterprise workflows across 7 languages, speculative decoding, low-cost agentic applications.\nPublic sources: OpenRouter, NVIDIA docs, HuggingFace model card, Artificial Analysis.\nValue note: cheapest input pricing in this frontier cloud set, with a free tier reported on OpenRouter.",
+        "license_kind": "open",
+        "architecture": "LatentMoE (Mamba-2 + MoE + Attention + MTP)",
+        "parameter_count_billions": 12.0,
+        "total_parameter_count_billions": 120.0,
+        "context_window_tokens": 1000000,
+        "release_date": "2026-03-11T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "tool-use",
+          "long-context",
+          "reasoning",
+          "multilingual",
+          "enterprise"
+        ],
+        "pricing_per_1k_input_usd": 9e-05,
+        "pricing_per_1k_output_usd": 0.00045,
+        "capability_rank": 7
+      },
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "tool-use",
+        "long-context",
+        "reasoning",
+        "multilingual",
+        "enterprise"
+      ]
+    },
+    {
+      "model_id": "devstral-2-123b-cloud",
+      "display_name": "Devstral 2 123B Cloud",
+      "vendor": "Mistral AI",
+      "trust_score": 18.5,
+      "breakdown": {
+        "coverage_score": 7.5,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.2,
+          "reasoning": 59.4
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.2,
+        "reasoning": 59.4
+      },
+      "total_claims": 2,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T16:03:46.530145",
+      "license": "open",
+      "model_card": {
+        "model_id": "devstral-2-123b-cloud",
+        "display_name": "Devstral 2 123B Cloud",
+        "vendor": "Mistral AI",
+        "card_url": "https://openrouter.ai/models/mistral/devstral-2",
+        "card_text": "Devstral 2 123B Cloud is Mistral AI's dense coding specialist.\n\nArchitecture: dense transformer with 123B active parameters.\nContext Window: 256K tokens.\nReleased: 2025-12-09.\nBenchmarks:\n- SWE-bench Verified: 72.2%\n- GPQA: 59.4%\nCapabilities: codebase exploration, multi-file edits, dependency-aware software engineering, retry-heavy coding agents, fine-tuning for enterprise codebases.\nPublic sources: OpenRouter, HuggingFace model card, Mistral AI docs, Artificial Analysis.\nNotable strength: 14.9% hallucination rate and 0.13% structured output error rate in reported public evaluations.",
+        "license_kind": "open",
+        "architecture": "Dense Transformer",
+        "parameter_count_billions": 123.0,
+        "total_parameter_count_billions": 123.0,
+        "context_window_tokens": 256000,
+        "release_date": "2025-12-09T00:00:00",
+        "tags": [
+          "text",
+          "coding",
+          "agentic",
+          "software-engineering",
+          "function-calling",
+          "tool-use",
+          "long-context",
+          "dense"
+        ],
+        "pricing_per_1k_input_usd": 0.0004,
+        "pricing_per_1k_output_usd": 0.002,
+        "capability_rank": 8
+      },
+      "tags": [
+        "text",
+        "coding",
+        "agentic",
+        "software-engineering",
+        "function-calling",
+        "tool-use",
+        "long-context",
+        "dense"
+      ]
+    },
     {
       "model_id": "claude-opus-4.5",
       "display_name": "Claude Opus 4.5",
@@ -28,8 +532,8 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T12:56:13.934823",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T04:36:21.688419",
+      "license": "proprietary",
       "model_card": {
         "model_id": "claude-opus-4.5",
         "display_name": "Claude Opus 4.5",
@@ -37,7 +541,9 @@
         "card_url": "https://www.anthropic.com/claude",
         "card_text": "Claude Opus 4.5 demonstrates exceptional performance across multiple benchmarks: 89.2% on SWE-bench Verified, 90.1% on MMLU, 94.7% on HumanEval, 82.4% on GPQA Diamond, and 96.8% on GSM8K. The model achieves 85.3% on MATH and 76.2% on TruthfulQA, showcasing strong reasoning and safety characteristics.",
         "license_kind": "proprietary",
+        "architecture": null,
         "parameter_count_billions": null,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 200000,
         "release_date": "2025-11-01T00:00:00",
         "tags": [
@@ -47,7 +553,8 @@
           "safety"
         ],
         "pricing_per_1k_input_usd": 0.015,
-        "pricing_per_1k_output_usd": 0.075
+        "pricing_per_1k_output_usd": 0.075,
+        "capability_rank": null
       },
       "tags": [
         "reasoning",
@@ -57,932 +564,119 @@
       ]
     },
     {
-      "model_id": "glm-4-5-flash",
-      "display_name": "GLM-4.5-Flash",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:18.286870",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-5-flash",
-        "display_name": "GLM-4.5-Flash",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.5-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "fast",
-          "optimized"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "fast",
-        "optimized"
-      ]
-    },
-    {
-      "model_id": "llama3.2-vision",
-      "display_name": "Llama 3.2 Vision 11B",
+      "model_id": "llama3.1",
+      "display_name": "Llama 3.1 405B",
       "vendor": "Meta",
-      "trust_score": 22.2,
+      "trust_score": 51.8,
       "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
+        "coverage_score": 18.8,
+        "verification_score": 8.0,
+        "performance_gap_score": 20.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "reasoning": 52.6
+          "coding": 89.0,
+          "reasoning": 86.5,
+          "multilingual": 87.5
         }
       },
       "use_case_scores": {
-        "reasoning": 52.6
-      },
-      "total_claims": 3,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T12:56:12.187041",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "llama3.2-vision",
-        "display_name": "Llama 3.2 Vision 11B",
-        "vendor": "Meta",
-        "card_url": null,
-        "card_text": "Llama 3.2 Vision 11B - Multimodal Transformer with vision adapter. Parameters: 11B (10.6B active). Architecture: Cross-attention vision adapter + Llama 3.1 language model. Max context: 128K tokens. Trained on 6B image-text pairs.\n\nVision Benchmarks:\n- MMMU (val, CoT): 50.7% (0-shot, college-level reasoning)\n- MMMU-Pro Standard: 33.0% (10 options, test)\n- MMMU-Pro Vision: 23.7% (test)\n- MathVista: 51.5% (testmini, mathematical reasoning + vision)\n- ChartQA: 83.4% (test, CoT, chart understanding)\n- AI2 Diagram: 91.1% (test, diagram understanding)\n- DocVQA: 88.4% (test, ANLS, document OCR + understanding)\n- VQAv2: 75.2% (test, visual question answering)\n- TextVQA: 73.1% (val, text in images)\n\nText Benchmarks:\n- MMLU: 73.0%\n- MATH: 51.9%\n- GPQA: 32.8%\n\nCapabilities: Visual question answering, image captioning, document OCR and analysis, chart/diagram understanding, visual reasoning, multilingual text (8 languages). Supports commercial use.",
-        "license_kind": "open",
-        "parameter_count_billions": 11.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "vision",
-          "multimodal",
-          "text",
-          "ocr",
-          "document-analysis",
-          "chart-understanding",
-          "long-context",
-          "vqav2",
-          "docvqa"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "vision",
-        "multimodal",
-        "text",
-        "ocr",
-        "document-analysis",
-        "chart-understanding",
-        "long-context",
-        "vqav2",
-        "docvqa"
-      ]
-    },
-    {
-      "model_id": "granite3.3-8b",
-      "display_name": "Granite 3.3 8B",
-      "vendor": "IBM",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:41.920040",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "granite3.3-8b",
-        "display_name": "Granite 3.3 8B",
-        "vendor": "IBM",
-        "card_url": null,
-        "card_text": "Granite 3.3 8B - IBM's enterprise-grade code model. Parameters: 8B. Architecture: Dense Transformer with Fill-in-the-Middle (FIM) code completion. Max context: 128K tokens.\n\nCapabilities: Fill-in-the-Middle code completion, function calling, structured reasoning, extended context. Optimized for enterprise coding workflows.\n\nBenchmarks:\n- Strong performance on code completion benchmarks\n- Function calling capabilities\n- 128K context window for large codebase understanding",
-        "license_kind": "open",
-        "parameter_count_billions": 8.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "coding",
-          "fim",
-          "function-calling",
-          "long-context",
-          "enterprise"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "coding",
-        "fim",
-        "function-calling",
-        "long-context",
-        "enterprise"
-      ]
-    },
-    {
-      "model_id": "glm-4-6v-flashx",
-      "display_name": "GLM-4.6V-FlashX",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:13.917227",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-6v-flashx",
-        "display_name": "GLM-4.6V-FlashX",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.6V-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, fast, efficient inference",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "vision",
-          "fast",
-          "optimized"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "vision",
-        "fast",
-        "optimized"
-      ]
-    },
-    {
-      "model_id": "glm-4-5-airx",
-      "display_name": "GLM-4.5-AirX",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:09.765812",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-5-airx",
-        "display_name": "GLM-4.5-AirX",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.5-AirX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 5\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "lightweight",
-          "efficient"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "lightweight",
-        "efficient"
-      ]
-    },
-    {
-      "model_id": "glm-4-32b-0414-128k",
-      "display_name": "GLM-4-32B-0414-128K",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:47.187300",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-32b-0414-128k",
-        "display_name": "GLM-4-32B-0414-128K",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4-32B-0414-128K from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 15\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api"
-      ]
-    },
-    {
-      "model_id": "glm-5.1-cloud",
-      "display_name": "GLM 5.1 Cloud",
-      "vendor": "Z.ai",
-      "trust_score": 9.8,
-      "breakdown": {
-        "coverage_score": 3.8,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 78.5
-        }
-      },
-      "use_case_scores": {
-        "coding": 78.5
-      },
-      "total_claims": 1,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 1,
-      "evaluated_at": "2026-04-25T12:55:50.712361",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-5.1-cloud",
-        "display_name": "GLM 5.1 Cloud",
-        "vendor": "Z.ai",
-        "card_url": "https://ollama.com/library/glm",
-        "card_text": "GLM 5.1 Cloud - Advanced agentic, reasoning and coding capabilities.\n\nBenchmarks:\n- SWE-bench Verified: 78.5%\n\nCapabilities: Software engineering, agentic workflows, reasoning tasks.\nExtended context window for document processing.\n\nArchitecture: Dense transformer with agentic capabilities.\nLicense: Commercial API via Z.ai.",
-        "license_kind": "proprietary",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "coding",
-          "agentic",
-          "reasoning",
-          "software-engineering",
-          "function-calling",
-          "long-context"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "coding",
-        "agentic",
-        "reasoning",
-        "software-engineering",
-        "function-calling",
-        "long-context"
-      ]
-    },
-    {
-      "model_id": "hermes3-8b",
-      "display_name": "Hermes 3 8B",
-      "vendor": "Nous",
-      "trust_score": 14.8,
-      "breakdown": {
-        "coverage_score": 3.8,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 5.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "commonsense": 3.1
-        }
-      },
-      "use_case_scores": {
-        "commonsense": 3.1
-      },
-      "total_claims": 1,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 1,
-      "evaluated_at": "2026-04-25T12:55:50.958529",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "hermes3-8b",
-        "display_name": "Hermes 3 8B",
-        "vendor": "Nous",
-        "card_url": null,
-        "card_text": "Hermes 3 8B - Generalist model with advanced agentic capabilities.\n\nCapabilities: Function calling, structured output, roleplaying,\ntool use, agentic workflows.\nBased on Llama 3.1 architecture with extended capabilities.\n\nArchitecture: 8B parameter dense transformer.\nContext: 128K tokens.\nLicense: MIT (Llama 3.1 based)",
-        "license_kind": "open",
-        "parameter_count_billions": 8.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "coding",
-          "function-calling",
-          "agentic",
-          "tool-use",
-          "long-context"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "coding",
-        "function-calling",
-        "agentic",
-        "tool-use",
-        "long-context"
-      ]
-    },
-    {
-      "model_id": "glm-4-6v",
-      "display_name": "GLM-4.6V",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:12.927250",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-6v",
-        "display_name": "GLM-4.6V",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.6V from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "vision"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "vision"
-      ]
-    },
-    {
-      "model_id": "glm-5-turbo",
-      "display_name": "GLM-5-Turbo",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:45.331456",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-5-turbo",
-        "display_name": "GLM-5-Turbo",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-5-Turbo from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api"
-      ]
-    },
-    {
-      "model_id": "glm-4-6v-flash",
-      "display_name": "GLM-4.6V-Flash",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:45.833380",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-6v-flash",
-        "display_name": "GLM-4.6V-Flash",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.6V-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, fast, efficient inference",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "vision",
-          "fast",
-          "optimized"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "vision",
-        "fast",
-        "optimized"
-      ]
-    },
-    {
-      "model_id": "deepseek-r1-14b",
-      "display_name": "DeepSeek R1 14B",
-      "vendor": "DeepSeek",
-      "trust_score": 22.2,
-      "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 5.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 57.6,
-          "reasoning": 81.2
-        }
-      },
-      "use_case_scores": {
-        "coding": 57.6,
-        "reasoning": 81.2
-      },
-      "total_claims": 4,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-04-25T12:55:47.257127",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "deepseek-r1-14b",
-        "display_name": "DeepSeek R1 14B",
-        "vendor": "DeepSeek",
-        "card_url": null,
-        "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher. Architecture: MoE (Mixture-of-Experts). Activated parameters: 14B. Total teacher parameters: 671B. Max context: 128K tokens.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- AIME 2025: 81.5%\n- MATH-500: 97.3%\n- LiveCodeBench: 65.9%\n- SWE-bench Verified: 49.2%\n\nCapabilities: Chain-of-thought reasoning, STEM problem solving, coding, long-context understanding. Distilled version for local deployment. MIT license. Licensed under MIT.",
-        "license_kind": "open",
-        "parameter_count_billions": 14.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "reasoning",
-          "coding",
-          "stem",
-          "chain-of-thought",
-          "long-context",
-          "distilled"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "reasoning",
-        "coding",
-        "stem",
-        "chain-of-thought",
-        "long-context",
-        "distilled"
-      ]
-    },
-    {
-      "model_id": "glm-4-7-flash",
-      "display_name": "GLM-4.7-Flash",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:18.622247",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-7-flash",
-        "display_name": "GLM-4.7-Flash",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "fast",
-          "optimized"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "fast",
-        "optimized"
-      ]
-    },
-    {
-      "model_id": "minimax-m2.7-cloud",
-      "display_name": "MiniMax M2.7 Cloud",
-      "vendor": "MiniMax",
-      "trust_score": 9.8,
-      "breakdown": {
-        "coverage_score": 3.8,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 78.0
-        }
-      },
-      "use_case_scores": {
-        "coding": 78.0
-      },
-      "total_claims": 1,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 1,
-      "evaluated_at": "2026-04-25T12:56:10.667077",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "minimax-m2.7-cloud",
-        "display_name": "MiniMax M2.7 Cloud",
-        "vendor": "MiniMax",
-        "card_url": "https://ollama.com/library/minimax-m2.7",
-        "card_text": "MiniMax M2.7 Cloud - Achieves 78% on SWE-bench multi-benchmark coverage.\n\nBenchmarks:\n- SWE-bench: 78% (multi-benchmark coverage)\n\nCapabilities: Best-in-class coverage across multiple evaluation suites.\nAdvanced coding capabilities, software engineering tasks.\n\nArchitecture: Dense transformer with comprehensive benchmark optimization.\nLicense: Commercial API access.",
-        "license_kind": "proprietary",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "coding",
-          "software-engineering",
-          "long-context"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "coding",
-        "software-engineering",
-        "long-context"
-      ]
-    },
-    {
-      "model_id": "glm-4-5v",
-      "display_name": "GLM-4.5V",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:15.248538",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-5v",
-        "display_name": "GLM-4.5V",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.5V from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "vision"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "vision"
-      ]
-    },
-    {
-      "model_id": "gpt-4.1",
-      "display_name": "GPT-4.1",
-      "vendor": "OpenAI",
-      "trust_score": 43.7,
-      "breakdown": {
-        "coverage_score": 15.0,
-        "verification_score": 16.0,
-        "performance_gap_score": 12.7,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 72.8,
-          "reasoning": 86.5
-        }
-      },
-      "use_case_scores": {
-        "coding": 72.8,
-        "reasoning": 86.5
+        "coding": 89.0,
+        "reasoning": 86.5,
+        "multilingual": 87.5
       },
       "total_claims": 5,
-      "verified_count": 2,
+      "verified_count": 1,
       "refuted_count": 1,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T12:56:44.365530",
-      "license": "unknown",
+      "unverifiable_count": 3,
+      "evaluated_at": "2026-04-25T04:36:22.968605",
+      "license": "open",
       "model_card": {
-        "model_id": "gpt-4.1",
-        "display_name": "GPT-4.1",
-        "vendor": "OpenAI",
-        "card_url": "https://platform.openai.com/docs/models/gpt-4",
-        "card_text": "GPT-4.1 achieves 85.4% on SWE-bench Verified, 88.7% on MMLU, 92.3 on HumanEval pass@1, and scores 78.2% on GPQA Diamond. The model also demonstrates 95.3% accuracy on GSM8K and 83.6% on MATH benchmark. On TruthfulQA, it achieves 74.5%.",
-        "license_kind": "proprietary",
-        "parameter_count_billions": null,
+        "model_id": "llama3.1",
+        "display_name": "Llama 3.1 405B",
+        "vendor": "Meta",
+        "card_url": null,
+        "card_text": "Llama 3.1 405B - State-of-the-art open model from Meta. Parameter count: 405B. Architecture: Dense Transformer with Grouped Query Attention. Max context length: 128K tokens.\n\nBenchmarks:\n- MMLU: 85.2% (5-shot)\n- HumanEval: 89% (0-shot)\n- GSM8K: 96.8% (8-shot, CoT)\n- DROP: 84.8% (F1 score)\n- ARC-Challenge: 96.1%\n- BBH: 87.5%\n- MATH: 73.8%\n\nCapabilities: Text generation, reasoning, coding, multilingual (8 languages), tool use, long context.\n\nMultilingual, 128K context, tool use, Apache 2.0 license.",
+        "license_kind": "open",
+        "architecture": null,
+        "parameter_count_billions": 405.0,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
-        "release_date": "2026-01-15T00:00:00",
+        "release_date": null,
         "tags": [
-          "multimodal",
+          "text",
           "reasoning",
-          "coding"
-        ],
-        "pricing_per_1k_input_usd": 0.03,
-        "pricing_per_1k_output_usd": 0.06
-      },
-      "tags": [
-        "multimodal",
-        "reasoning",
-        "coding"
-      ]
-    },
-    {
-      "model_id": "cogvideox-3",
-      "display_name": "CogVideoX-3",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:14.257864",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "cogvideox-3",
-        "display_name": "CogVideoX-3",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "CogVideoX-3 from Zhipu AI (z.ai).\n\n**Model Type:** Video Generation Model\n**Family:** Zhipu AI\n**Concurrency Limit:** 1",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation"
-      ]
-    },
-    {
-      "model_id": "glm-ocr",
-      "display_name": "GLM-OCR",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:49.788112",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-ocr",
-        "display_name": "GLM-OCR",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-OCR from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 32K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, document OCR and analysis, general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 32000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "ocr",
-          "document",
-          "vision"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "ocr",
-        "document",
-        "vision"
-      ]
-    },
-    {
-      "model_id": "glm-5v-turbo",
-      "display_name": "GLM-5V-Turbo",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:44.451060",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-5v-turbo",
-        "display_name": "GLM-5V-Turbo",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-5V-Turbo from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** vision-language understanding, general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "vision"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "vision"
-      ]
-    },
-    {
-      "model_id": "devstral-2-123b-cloud",
-      "display_name": "Devstral 2 123B Cloud",
-      "vendor": "Mistral",
-      "trust_score": 9.8,
-      "breakdown": {
-        "coverage_score": 3.8,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 72.2
-        }
-      },
-      "use_case_scores": {
-        "coding": 72.2
-      },
-      "total_claims": 1,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 1,
-      "evaluated_at": "2026-04-25T12:55:47.483325",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "devstral-2-123b-cloud",
-        "display_name": "Devstral 2 123B Cloud",
-        "vendor": "Mistral",
-        "card_url": "https://ollama.com/library/devstral-2",
-        "card_text": "Devstral 2 123B Cloud - Software engineering agent capabilities built by Mistral.\n\nBenchmarks:\n- SWE-bench Verified: 72.2%\n\nCapabilities: Excels at using tools to explore codebases,\nediting multiple files, agentic software development workflows.\n\nArchitecture: 123B parameter dense transformer.\nLicense: Commercial API via Mistral/La Plateforme.",
-        "license_kind": "proprietary",
-        "parameter_count_billions": 123.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
           "coding",
-          "agentic",
-          "software-engineering",
-          "function-calling",
-          "tool-use",
+          "multilingual",
+          "tool-calling",
           "long-context"
         ],
         "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
+        "pricing_per_1k_output_usd": 0.0,
+        "capability_rank": null
       },
       "tags": [
         "text",
+        "reasoning",
         "coding",
-        "agentic",
-        "software-engineering",
-        "function-calling",
-        "tool-use",
+        "multilingual",
+        "tool-calling",
         "long-context"
+      ]
+    },
+    {
+      "model_id": "deepseek-v3.2",
+      "display_name": "DeepSeek V3.2",
+      "vendor": "DeepSeek",
+      "trust_score": 57.1,
+      "breakdown": {
+        "coverage_score": 18.8,
+        "verification_score": 13.3,
+        "performance_gap_score": 20.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 80.8,
+          "reasoning": 84.9
+        }
+      },
+      "use_case_scores": {
+        "coding": 80.8,
+        "reasoning": 84.9
+      },
+      "total_claims": 6,
+      "verified_count": 2,
+      "refuted_count": 2,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T04:36:23.086429",
+      "license": "open",
+      "model_card": {
+        "model_id": "deepseek-v3.2",
+        "display_name": "DeepSeek V3.2",
+        "vendor": "DeepSeek",
+        "card_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+        "card_text": "DeepSeek V3.2 is an open-source model achieving 76.8% on SWE-bench Verified, 86.4% on MMLU, and 87.9% on HumanEval pass@1. It scores 72.3% on GPQA Diamond, 94.1% on GSM8K, and 79.8% on MATH. Performance on TruthfulQA stands at 68.9%.",
+        "license_kind": "open",
+        "architecture": null,
+        "parameter_count_billions": 671.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": "2025-12-26T00:00:00",
+        "tags": [
+          "open-source",
+          "coding",
+          "reasoning",
+          "moe"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "capability_rank": null
+      },
+      "tags": [
+        "open-source",
+        "coding",
+        "reasoning",
+        "moe"
       ]
     },
     {
@@ -1007,8 +701,8 @@
       "verified_count": 1,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:38.735772",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T04:36:22.435194",
+      "license": "proprietary",
       "model_card": {
         "model_id": "minimax-m2.5-cloud",
         "display_name": "MiniMax M2.5 Cloud",
@@ -1016,7 +710,9 @@
         "card_url": "https://ollama.com/library/minimax-m2.5",
         "card_text": "MiniMax M2.5 Cloud - High-efficiency LLM optimized for coding and agentic workflows.\n\nBenchmarks:\n- SWE-bench Verified: 80.2%\n\nCapabilities: Software engineering, coding tasks, agentic workflows,\nfunction calling, extended long-context understanding.\n\nArchitecture: Dense transformer optimized for reasoning and code generation.\nLicense: Commercial API access.",
         "license_kind": "proprietary",
+        "architecture": null,
         "parameter_count_billions": 32.0,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
         "release_date": null,
         "tags": [
@@ -1029,7 +725,8 @@
           "reasoning"
         ],
         "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
+        "pricing_per_1k_output_usd": 0.0,
+        "capability_rank": null
       },
       "tags": [
         "text",
@@ -1038,242 +735,6 @@
         "software-engineering",
         "function-calling",
         "long-context",
-        "reasoning"
-      ]
-    },
-    {
-      "model_id": "nomic-embed-text-v2-moe",
-      "display_name": "Nomic Embed Text v2 MoE",
-      "vendor": "Nomic",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:19.312701",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "nomic-embed-text-v2-moe",
-        "display_name": "Nomic Embed Text v2 MoE",
-        "vendor": "Nomic",
-        "card_url": null,
-        "card_text": "Nomic Embed Text v2 MoE - Multilingual Mixture-of-Experts text embedding model.\n\nArchitecture: MoE-based embedding architecture.\nParameters: Efficient MoE design.\nContext: 8K tokens.\n\nCapabilities: Multilingual embeddings, semantic search,\nretrieval-augmented generation (RAG), cross-lingual tasks,\nlong-context embedding for documents.\n\nBenchmar ks:\n- Excelling at multilingual retrieval\n- Competitive with larger dense models\n\nLicense: Apache 2.0",
-        "license_kind": "open",
-        "parameter_count_billions": 0.55,
-        "context_window_tokens": 8192,
-        "release_date": null,
-        "tags": [
-          "text",
-          "embeddings",
-          "retrieval",
-          "semantic-search",
-          "rag",
-          "multilingual",
-          "moe"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "embeddings",
-        "retrieval",
-        "semantic-search",
-        "rag",
-        "multilingual",
-        "moe"
-      ]
-    },
-    {
-      "model_id": "glm-asr-2512",
-      "display_name": "GLM-ASR-2512",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:44.334245",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-asr-2512",
-        "display_name": "GLM-ASR-2512",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-ASR-2512 from Zhipu AI (z.ai).\n\n**Model Type:** Real-time Audio-Video Model\n**Family:** GLM-ASR\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "video-generation",
-          "generation",
-          "audio",
-          "speech",
-          "asr",
-          "speech-recognition"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "video-generation",
-        "generation",
-        "audio",
-        "speech",
-        "asr",
-        "speech-recognition"
-      ]
-    },
-    {
-      "model_id": "kimi-k2.5-cloud",
-      "display_name": "Kimi K2.5 Cloud",
-      "vendor": "Moonshot",
-      "trust_score": 9.8,
-      "breakdown": {
-        "coverage_score": 3.8,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 79.8
-        }
-      },
-      "use_case_scores": {
-        "coding": 79.8
-      },
-      "total_claims": 1,
-      "verified_count": 0,
-      "refuted_count": 1,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:23.918403",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "kimi-k2.5-cloud",
-        "display_name": "Kimi K2.5 Cloud",
-        "vendor": "Moonshot",
-        "card_url": "https://ollama.com/library/kimi-k2.5",
-        "card_text": "Kimi K2.5 Cloud - MoE model with 1T total parameters, 32B activated per token.\n\nBenchmarks:\n- SWE-bench Verified: 76.8% (Pass@1)\n\nCapabilities: Multimodal agentic capabilities with visual perception.\nSupports extended context up to 256K tokens.\nFunction calling, long-context processing, advanced reasoning.\n\nArchitecture: Mixture-of-Experts architecture.\nLicense: Commercial API access only.",
-        "license_kind": "proprietary",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 256000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "coding",
-          "multimodal",
-          "vision",
-          "agentic",
-          "function-calling",
-          "long-context",
-          "reasoning"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "coding",
-        "multimodal",
-        "vision",
-        "agentic",
-        "function-calling",
-        "long-context",
-        "reasoning"
-      ]
-    },
-    {
-      "model_id": "qwen3-vl-235b-cloud",
-      "display_name": "Qwen3 VL 235B Cloud",
-      "vendor": "Alibaba",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:14.105128",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "qwen3-vl-235b-cloud",
-        "display_name": "Qwen3 VL 235B Cloud",
-        "vendor": "Alibaba",
-        "card_url": "https://ollama.com/library/qwen3-vl",
-        "card_text": "Qwen3 VL 235B Cloud - Most powerful vision-language model in Qwen family.\n\nArchitecture: MoE (Mixture-of-Experts) 235B total, 22B activated per token.\nContext: 128K tokens.\n\nCapabilities: Advanced multimodal reasoning, image understanding,\nvisual question answering, document analysis, OCR,\ncomplex vision-language tasks.\n\nSupports 119 languages for text, vision tasks primarily in English.\nLicense: Commercial API via Alibaba Cloud.",
-        "license_kind": "proprietary",
-        "parameter_count_billions": 235.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "vision",
-          "multimodal",
-          "text",
-          "ocr",
-          "document-analysis",
-          "long-context",
-          "multilingual"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "vision",
-        "multimodal",
-        "text",
-        "ocr",
-        "document-analysis",
-        "long-context",
-        "multilingual"
-      ]
-    },
-    {
-      "model_id": "glm-4-plus",
-      "display_name": "GLM-4-Plus",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:09.219727",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-plus",
-        "display_name": "GLM-4-Plus",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4-Plus from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 20\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "premium",
-          "reasoning"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "premium",
         "reasoning"
       ]
     },
@@ -1303,8 +764,8 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T12:56:15.611128",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T04:36:22.779281",
+      "license": "proprietary",
       "model_card": {
         "model_id": "gemini-2.5-pro",
         "display_name": "Gemini 2.5 Pro",
@@ -1312,7 +773,9 @@
         "card_url": "https://deepmind.google/technologies/gemini/",
         "card_text": "Gemini 2.5 Pro achieves 82.7% on SWE-bench Verified, 89.3% on MMLU, 91.6% on HumanEval, and 80.1% on GPQA Diamond. The model demonstrates 95.7% accuracy on GSM8K and 82.9% on MATH benchmark. It scores 72.8% on TruthfulQA.",
         "license_kind": "proprietary",
+        "architecture": null,
         "parameter_count_billions": null,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 2097152,
         "release_date": "2026-02-12T00:00:00",
         "tags": [
@@ -1322,7 +785,8 @@
           "coding"
         ],
         "pricing_per_1k_input_usd": 0.0125,
-        "pricing_per_1k_output_usd": 0.0375
+        "pricing_per_1k_output_usd": 0.0375,
+        "capability_rank": null
       },
       "tags": [
         "multimodal",
@@ -1332,42 +796,117 @@
       ]
     },
     {
-      "model_id": "glm-4-5",
-      "display_name": "GLM-4.5",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
+      "model_id": "gpt-4.1",
+      "display_name": "GPT-4.1",
+      "vendor": "OpenAI",
+      "trust_score": 43.7,
+      "breakdown": {
+        "coverage_score": 15.0,
+        "verification_score": 16.0,
+        "performance_gap_score": 12.7,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.8,
+          "reasoning": 86.5
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.8,
+        "reasoning": 86.5
+      },
+      "total_claims": 5,
+      "verified_count": 2,
+      "refuted_count": 1,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-25T04:36:22.238196",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "gpt-4.1",
+        "display_name": "GPT-4.1",
+        "vendor": "OpenAI",
+        "card_url": "https://platform.openai.com/docs/models/gpt-4",
+        "card_text": "GPT-4.1 achieves 85.4% on SWE-bench Verified, 88.7% on MMLU, 92.3 on HumanEval pass@1, and scores 78.2% on GPQA Diamond. The model also demonstrates 95.3% accuracy on GSM8K and 83.6% on MATH benchmark. On TruthfulQA, it achieves 74.5%.",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": null,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": "2026-01-15T00:00:00",
+        "tags": [
+          "multimodal",
+          "reasoning",
+          "coding"
+        ],
+        "pricing_per_1k_input_usd": 0.03,
+        "pricing_per_1k_output_usd": 0.06,
+        "capability_rank": null
+      },
+      "tags": [
+        "multimodal",
+        "reasoning",
+        "coding"
+      ]
+    },
+    {
+      "model_id": "deepseek-r1-14b",
+      "display_name": "DeepSeek R1 14B",
+      "vendor": "DeepSeek",
+      "trust_score": 22.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 57.6,
+          "reasoning": 81.2
+        }
+      },
+      "use_case_scores": {
+        "coding": 57.6,
+        "reasoning": 81.2
+      },
+      "total_claims": 4,
       "verified_count": 0,
       "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:48.099834",
-      "license": "unknown",
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-04-25T04:36:22.068158",
+      "license": "open",
       "model_card": {
-        "model_id": "glm-4-5",
-        "display_name": "GLM-4.5",
-        "vendor": "Zhipu AI",
+        "model_id": "deepseek-r1-14b",
+        "display_name": "DeepSeek R1 14B",
+        "vendor": "DeepSeek",
         "card_url": null,
-        "card_text": "GLM-4.5 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 10\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
+        "card_text": "DeepSeek R1 14B - Distilled reasoning model from 671B teacher. Architecture: MoE (Mixture-of-Experts). Activated parameters: 14B. Total teacher parameters: 671B. Max context: 128K tokens.\n\nBenchmarks (full R1):\n- MMLU: 90.8% (Pass@1)\n- MMLU-Pro: 84.0%\n- GPQA: 71.5% (Pass@1)\n- AIME 2024: 79.8% (Pass@1)\n- AIME 2025: 81.5%\n- MATH-500: 97.3%\n- LiveCodeBench: 65.9%\n- SWE-bench Verified: 49.2%\n\nCapabilities: Chain-of-thought reasoning, STEM problem solving, coding, long-context understanding. Distilled version for local deployment. MIT license. Licensed under MIT.",
+        "license_kind": "open",
+        "architecture": null,
+        "parameter_count_billions": 14.0,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
         "release_date": null,
         "tags": [
           "text",
-          "multilingual",
-          "chinese",
-          "api"
+          "reasoning",
+          "coding",
+          "stem",
+          "chain-of-thought",
+          "long-context",
+          "distilled"
         ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0,
+        "capability_rank": null
       },
       "tags": [
         "text",
-        "multilingual",
-        "chinese",
-        "api"
+        "reasoning",
+        "coding",
+        "stem",
+        "chain-of-thought",
+        "long-context",
+        "distilled"
       ]
     },
     {
@@ -1394,8 +933,8 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-04-25T12:56:14.837768",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T04:36:22.870361",
+      "license": "open",
       "model_card": {
         "model_id": "qwen3-14b",
         "display_name": "Qwen3 14B",
@@ -1403,7 +942,9 @@
         "card_url": null,
         "card_text": "Qwen3 14B - Dense Transformer with QK-Norm. Parameter count: 14B. Max context: 128K tokens. Trained on 36T tokens across 119 languages. Apache 2.0 license.\n\nBenchmarks:\n- MMLU: 81.05% (5-shot)\n- MMLU-Pro: 61.03% (5-shot, CoT)\n- GSM8K: 92.49% (4-shot, CoT)\n- MATH: 62.02% (4-shot, CoT)\n- HumanEval (EvalPlus): 72.23% (0-shot)\n- MBPP: 73.40% (3-shot)\n- BBH: 81.07% (3-shot, CoT)\n\nCapabilities: Text generation, reasoning, coding, multilingual (119 languages), tool use (MCP protocol), thinking/non-thinking modes, agentic capabilities.",
         "license_kind": "open",
+        "architecture": null,
         "parameter_count_billions": 14.0,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
         "release_date": null,
         "tags": [
@@ -1418,7 +959,8 @@
           "mcp"
         ],
         "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
+        "pricing_per_1k_output_usd": 0.0,
+        "capability_rank": null
       },
       "tags": [
         "text",
@@ -1433,871 +975,123 @@
       ]
     },
     {
-      "model_id": "glm-4-5-air",
-      "display_name": "GLM-4.5-Air",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:50.225059",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-5-air",
-        "display_name": "GLM-4.5-Air",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.5-Air from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 5\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "lightweight",
-          "efficient"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "lightweight",
-        "efficient"
-      ]
-    },
-    {
-      "model_id": "deepcoder",
-      "display_name": "DeepCoder",
-      "vendor": "Community",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:12.685873",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "deepcoder",
-        "display_name": "DeepCoder",
-        "vendor": "Community",
-        "card_url": null,
-        "card_text": "DeepCoder - Fully open-source 14B parameter code generation model.\n\nBenchmarks:\n- LiveCodeBench optimized for code generation\n- Comparable to O3-mini level on coding tasks\n\nArchitecture: 14B dense transformer optimized for code.\nContext: 8K tokens.\n\nCapabilities: Code completion, code generation, programming tasks,\nmultiple programming languages support.\n\nLicense: Open source (community model)",
-        "license_kind": "open",
-        "parameter_count_billions": 14.0,
-        "context_window_tokens": 8192,
-        "release_date": null,
-        "tags": [
-          "text",
-          "coding",
-          "code-generation",
-          "multiple-languages"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "coding",
-        "code-generation",
-        "multiple-languages"
-      ]
-    },
-    {
-      "model_id": "glm-4-6",
-      "display_name": "GLM-4.6",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:45.671429",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-6",
-        "display_name": "GLM-4.6",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.6 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api"
-      ]
-    },
-    {
-      "model_id": "cogito-14b",
-      "display_name": "Cogito 14B",
-      "vendor": "Deep Cogito",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:45.059694",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "cogito-14b",
-        "display_name": "Cogito 14B",
-        "vendor": "Deep Cogito",
-        "card_url": null,
-        "card_text": "Cogito 14B - Hybrid reasoning models optimized for coding and STEM.\nEnable 'deep thinking subroutine' for complex reasoning tasks.\nStrong performance on coding benchmarks with hybrid reasoning modes.\n\nArchitecture: Based on Llama architecture with hybrid reasoning enhancements.\nParameters: 14B active during inference.\n\nCapabilities: Hybrid reasoning (instant vs deep thinking modes),\ncoding, STEM tasks, mathematical reasoning.\n\nLicense: MIT",
-        "license_kind": "open",
-        "parameter_count_billions": 14.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "reasoning",
-          "coding",
-          "stem",
-          "thinking-modes",
-          "hybrid-reasoning"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "reasoning",
-        "coding",
-        "stem",
-        "thinking-modes",
-        "hybrid-reasoning"
-      ]
-    },
-    {
-      "model_id": "cogito-2.1-671b-cloud",
-      "display_name": "Cogito 2.1 671B Cloud",
-      "vendor": "Deep Cogito",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:48.533179",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "cogito-2.1-671b-cloud",
-        "display_name": "Cogito 2.1 671B Cloud",
-        "vendor": "Deep Cogito",
-        "card_url": "https://ollama.com/library/cogito-2.1",
-        "card_text": "Cogito 2.1 671B Cloud - Largest Cogito model with hybrid reasoning.\n\nArchitecture: Dense transformer, 671B parameters.\nContext: 128K tokens.\n\nCapabilities: Hybrid reasoning (instant vs deep thinking modes),\ncoding, STEM tasks, mathematical reasoning, advanced problem solving.\nInstruction-tuned with human feedback.\n\nLicense: MIT",
-        "license_kind": "open",
-        "parameter_count_billions": 671.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "reasoning",
-          "coding",
-          "stem",
-          "thinking-modes",
-          "hybrid-reasoning",
-          "long-context"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "reasoning",
-        "coding",
-        "stem",
-        "thinking-modes",
-        "hybrid-reasoning",
-        "long-context"
-      ]
-    },
-    {
-      "model_id": "cogview-4-250304",
-      "display_name": "CogView-4-250304",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:48.469717",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "cogview-4-250304",
-        "display_name": "CogView-4-250304",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "CogView-4-250304 from Zhipu AI (z.ai).\n\n**Model Type:** Image Generation Model\n**Family:** CogView\n**Concurrency Limit:** 5",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "image-generation",
-          "vision",
-          "image",
-          "cogview"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "image-generation",
-        "vision",
-        "image",
-        "cogview"
-      ]
-    },
-    {
-      "model_id": "embeddinggemma",
-      "display_name": "Embedding Gemma",
-      "vendor": "Google",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:37.932300",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "embeddinggemma",
-        "display_name": "Embedding Gemma",
-        "vendor": "Google",
-        "card_url": null,
-        "card_text": "Embedding Gemma - 300M parameter text embedding model from Google.\nBuilt on Gemma architecture for efficient text embedding.\n\nArchitecture: 300M dense transformer.\nContext: 8K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), sentence similarity.\n\nLicense: Gemma Terms of Use",
-        "license_kind": "open",
-        "parameter_count_billions": 0.3,
-        "context_window_tokens": 8192,
-        "release_date": null,
-        "tags": [
-          "text",
-          "embeddings",
-          "retrieval",
-          "semantic-search",
-          "rag"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "embeddings",
-        "retrieval",
-        "semantic-search",
-        "rag"
-      ]
-    },
-    {
-      "model_id": "llama3.1",
-      "display_name": "Llama 3.1 405B",
+      "model_id": "llama3.2-vision",
+      "display_name": "Llama 3.2 Vision 11B",
       "vendor": "Meta",
-      "trust_score": 51.8,
+      "trust_score": 22.2,
       "breakdown": {
-        "coverage_score": 18.8,
-        "verification_score": 8.0,
-        "performance_gap_score": 20.0,
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 89.0,
-          "reasoning": 86.5,
-          "multilingual": 87.5
+          "reasoning": 52.6
         }
       },
       "use_case_scores": {
-        "coding": 89.0,
-        "reasoning": 86.5,
-        "multilingual": 87.5
+        "reasoning": 52.6
       },
-      "total_claims": 5,
-      "verified_count": 1,
-      "refuted_count": 1,
+      "total_claims": 3,
+      "verified_count": 0,
+      "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-25T12:56:42.920749",
-      "license": "unknown",
+      "evaluated_at": "2026-04-25T04:36:21.787992",
+      "license": "open",
       "model_card": {
-        "model_id": "llama3.1",
-        "display_name": "Llama 3.1 405B",
+        "model_id": "llama3.2-vision",
+        "display_name": "Llama 3.2 Vision 11B",
         "vendor": "Meta",
         "card_url": null,
-        "card_text": "Llama 3.1 405B - State-of-the-art open model from Meta. Parameter count: 405B. Architecture: Dense Transformer with Grouped Query Attention. Max context length: 128K tokens.\n\nBenchmarks:\n- MMLU: 85.2% (5-shot)\n- HumanEval: 89% (0-shot)\n- GSM8K: 96.8% (8-shot, CoT)\n- DROP: 84.8% (F1 score)\n- ARC-Challenge: 96.1%\n- BBH: 87.5%\n- MATH: 73.8%\n\nCapabilities: Text generation, reasoning, coding, multilingual (8 languages), tool use, long context.\n\nMultilingual, 128K context, tool use, Apache 2.0 license.",
+        "card_text": "Llama 3.2 Vision 11B - Multimodal Transformer with vision adapter. Parameters: 11B (10.6B active). Architecture: Cross-attention vision adapter + Llama 3.1 language model. Max context: 128K tokens. Trained on 6B image-text pairs.\n\nVision Benchmarks:\n- MMMU (val, CoT): 50.7% (0-shot, college-level reasoning)\n- MMMU-Pro Standard: 33.0% (10 options, test)\n- MMMU-Pro Vision: 23.7% (test)\n- MathVista: 51.5% (testmini, mathematical reasoning + vision)\n- ChartQA: 83.4% (test, CoT, chart understanding)\n- AI2 Diagram: 91.1% (test, diagram understanding)\n- DocVQA: 88.4% (test, ANLS, document OCR + understanding)\n- VQAv2: 75.2% (test, visual question answering)\n- TextVQA: 73.1% (val, text in images)\n\nText Benchmarks:\n- MMLU: 73.0%\n- MATH: 51.9%\n- GPQA: 32.8%\n\nCapabilities: Visual question answering, image captioning, document OCR and analysis, chart/diagram understanding, visual reasoning, multilingual text (8 languages). Supports commercial use.",
         "license_kind": "open",
-        "parameter_count_billions": 405.0,
+        "architecture": null,
+        "parameter_count_billions": 11.0,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
         "release_date": null,
         "tags": [
-          "text",
-          "reasoning",
-          "coding",
-          "multilingual",
-          "tool-calling",
-          "long-context"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "reasoning",
-        "coding",
-        "multilingual",
-        "tool-calling",
-        "long-context"
-      ]
-    },
-    {
-      "model_id": "glm-image",
-      "display_name": "GLM-Image",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:39.832213",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-image",
-        "display_name": "GLM-Image",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-Image from Zhipu AI (z.ai).\n\n**Model Type:** Image Generation Model\n**Family:** GLM-Image\n**Concurrency Limit:** 1",
-        "license_kind": "unknown",
-        "parameter_count_billions": null,
-        "context_window_tokens": 8000,
-        "release_date": null,
-        "tags": [
-          "multimodal",
-          "image-generation",
-          "vision",
-          "image-generation"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "multimodal",
-        "image-generation",
-        "vision",
-        "image-generation"
-      ]
-    },
-    {
-      "model_id": "llava",
-      "display_name": "LLaVA",
-      "vendor": "Community",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:14.079669",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "llava",
-        "display_name": "LLaVA",
-        "vendor": "Community",
-        "card_url": null,
-        "card_text": "LLaVA (Large Language and Vision Assistant) - End-to-end multimodal model combining vision encoder with Vicuna language model.\n\nArchitecture: Vision encoder + Vicuna LLM.\nParameters: 7B / 13B variants available.\nContext: 4K tokens (Vicuna base).\n\nCapabilities: Visual question answering, image captioning,\nmultimodal conversation, OCR, visual reasoning.\n\nBenchmar ks:\n- VQAv2: ~71% (7B variant)\n- OKVQA: ~45%\n- GQA: ~60%\n\nLicense: Apache 2.0 (vicuna weights subject to LLaMA license)",
-        "license_kind": "open",
-        "parameter_count_billions": 7.0,
-        "context_window_tokens": 4096,
-        "release_date": null,
-        "tags": [
           "vision",
           "multimodal",
           "text",
-          "vqa",
           "ocr",
-          "image-captioning"
+          "document-analysis",
+          "chart-understanding",
+          "long-context",
+          "vqav2",
+          "docvqa"
         ],
         "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
+        "pricing_per_1k_output_usd": 0.0,
+        "capability_rank": null
       },
       "tags": [
         "vision",
         "multimodal",
         "text",
-        "vqa",
         "ocr",
-        "image-captioning"
+        "document-analysis",
+        "chart-understanding",
+        "long-context",
+        "vqav2",
+        "docvqa"
       ]
     },
     {
-      "model_id": "qwen3-embedding-0.6b",
-      "display_name": "Qwen3 Embedding 0.6B",
-      "vendor": "Alibaba",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:36.312437",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "qwen3-embedding-0.6b",
-        "display_name": "Qwen3 Embedding 0.6B",
-        "vendor": "Alibaba",
-        "card_url": null,
-        "card_text": "Qwen3 Embedding 0.6B - Compact text embeddings built on Qwen3 foundation.\nOptimized for vector search and RAG applications.\n\nArchitecture: 0.6B parameter dense transformer.\nContext: 32K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), vector similarity,\nMultilingual support (Qwen3 heritage).\n\nLicense: Apache 2.0",
-        "license_kind": "open",
-        "parameter_count_billions": 0.6,
-        "context_window_tokens": 32000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "embeddings",
-          "retrieval",
-          "semantic-search",
-          "rag",
-          "multilingual"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "embeddings",
-        "retrieval",
-        "semantic-search",
-        "rag",
-        "multilingual"
-      ]
-    },
-    {
-      "model_id": "glm-4-7-flashx",
-      "display_name": "GLM-4.7-FlashX",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:45.050287",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-7-flashx",
-        "display_name": "GLM-4.7-FlashX",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "fast",
-          "optimized"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "fast",
-        "optimized"
-      ]
-    },
-    {
-      "model_id": "nomic-embed-text",
-      "display_name": "Nomic Embed Text",
-      "vendor": "Nomic",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:38.117760",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "nomic-embed-text",
-        "display_name": "Nomic Embed Text",
-        "vendor": "Nomic",
-        "card_url": null,
-        "card_text": "Nomic Embed Text - High-performing open embedding model with large token context window.\n\nArchitecture: BERT-based embedding model.\nContext: 8K tokens.\n\nCapabilities: Text embeddings, semantic search,\nretrieval-augmented generation (RAG), sentence similarity,\nlarge context window for document embeddings.\n\nBenchmar ks:\n- Competitive with commercial embedding models\n- Long context capability (8192 tokens)\n\nLicense: Apache 2.0",
-        "license_kind": "open",
-        "parameter_count_billions": 0.137,
-        "context_window_tokens": 8192,
-        "release_date": null,
-        "tags": [
-          "text",
-          "embeddings",
-          "retrieval",
-          "semantic-search",
-          "rag",
-          "long-context"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "embeddings",
-        "retrieval",
-        "semantic-search",
-        "rag",
-        "long-context"
-      ]
-    },
-    {
-      "model_id": "glm-5-1",
-      "display_name": "GLM-5.1",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:44.352992",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-5-1",
-        "display_name": "GLM-5.1",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-5.1 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 32B\n**Context Window:** 256K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** advanced reasoning and problem-solving",
-        "license_kind": "unknown",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 256000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "advanced",
-          "reasoning"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "advanced",
-        "reasoning"
-      ]
-    },
-    {
-      "model_id": "autoglm-phone-multilingual",
-      "display_name": "AutoGLM-Phone-Multilingual",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:43.651015",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "autoglm-phone-multilingual",
-        "display_name": "AutoGLM-Phone-Multilingual",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "AutoGLM-Phone-Multilingual from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 5\n**Parameters:** 9B\n**Context Window:** 32K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 32000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "agentic",
-          "phone-control",
-          "automation",
-          "tool-calling"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "agentic",
-        "phone-control",
-        "automation",
-        "tool-calling"
-      ]
-    },
-    {
-      "model_id": "deepseek-v3.2",
-      "display_name": "DeepSeek V3.2",
-      "vendor": "DeepSeek",
-      "trust_score": 57.1,
+      "model_id": "hermes3-8b",
+      "display_name": "Hermes 3 8B",
+      "vendor": "Nous",
+      "trust_score": 14.8,
       "breakdown": {
-        "coverage_score": 18.8,
-        "verification_score": 13.3,
-        "performance_gap_score": 20.0,
+        "coverage_score": 3.8,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
         "openness_score": 5.0,
         "safety_score": 0.0,
         "use_case_scores": {
-          "coding": 80.8,
-          "reasoning": 84.9
+          "commonsense": 3.1
         }
       },
       "use_case_scores": {
-        "coding": 80.8,
-        "reasoning": 84.9
+        "commonsense": 3.1
       },
-      "total_claims": 6,
-      "verified_count": 2,
-      "refuted_count": 2,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-25T12:55:52.552149",
-      "license": "unknown",
+      "total_claims": 1,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 1,
+      "evaluated_at": "2026-04-25T04:36:21.972076",
+      "license": "open",
       "model_card": {
-        "model_id": "deepseek-v3.2",
-        "display_name": "DeepSeek V3.2",
-        "vendor": "DeepSeek",
-        "card_url": "https://github.com/deepseek-ai/DeepSeek-V3",
-        "card_text": "DeepSeek V3.2 is an open-source model achieving 76.8% on SWE-bench Verified, 86.4% on MMLU, and 87.9% on HumanEval pass@1. It scores 72.3% on GPQA Diamond, 94.1% on GSM8K, and 79.8% on MATH. Performance on TruthfulQA stands at 68.9%.",
+        "model_id": "hermes3-8b",
+        "display_name": "Hermes 3 8B",
+        "vendor": "Nous",
+        "card_url": null,
+        "card_text": "Hermes 3 8B - Generalist model with advanced agentic capabilities.\n\nCapabilities: Function calling, structured output, roleplaying,\ntool use, agentic workflows.\nBased on Llama 3.1 architecture with extended capabilities.\n\nArchitecture: 8B parameter dense transformer.\nContext: 128K tokens.\nLicense: MIT (Llama 3.1 based)",
         "license_kind": "open",
-        "parameter_count_billions": 671.0,
+        "architecture": null,
+        "parameter_count_billions": 8.0,
+        "total_parameter_count_billions": null,
         "context_window_tokens": 128000,
-        "release_date": "2025-12-26T00:00:00",
+        "release_date": null,
         "tags": [
-          "open-source",
+          "text",
           "coding",
-          "reasoning",
-          "moe"
+          "function-calling",
+          "agentic",
+          "tool-use",
+          "long-context"
         ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
+        "pricing_per_1k_input_usd": 0.0,
+        "pricing_per_1k_output_usd": 0.0,
+        "capability_rank": null
       },
       "tags": [
-        "open-source",
+        "text",
         "coding",
-        "reasoning",
-        "moe"
-      ]
-    },
-    {
-      "model_id": "mxbai-embed-large",
-      "display_name": "MXBAI Embed Large",
-      "vendor": "Mixedbread",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:16.728190",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "mxbai-embed-large",
-        "display_name": "MXBAI Embed Large",
-        "vendor": "Mixedbread",
-        "card_url": null,
-        "card_text": "MXBAI Embed Large - State-of-the-art large embedding model from mixedbread.ai.\n\nArchitecture: Dense transformer optimized for embeddings.\nContext: 512 tokens (embedding model).\n\nCapabilities: High-quality text embeddings, semantic search,\nretrieval-augmented generation (RAG), document retrieval,\nsentence similarity, clustering.\n\nBenchmar ks:\n- MTEB leaderboard competitive performance\n- Optimized for retrieval tasks\n\nLicense: Apache 2.0",
-        "license_kind": "open",
-        "parameter_count_billions": 0.335,
-        "context_window_tokens": 512,
-        "release_date": null,
-        "tags": [
-          "text",
-          "embeddings",
-          "retrieval",
-          "semantic-search",
-          "rag",
-          "mteb"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "embeddings",
-        "retrieval",
-        "semantic-search",
-        "rag",
-        "mteb"
-      ]
-    },
-    {
-      "model_id": "glm-5",
-      "display_name": "GLM-5",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:45.995395",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-5",
-        "display_name": "GLM-5",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-5 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 9.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api"
-      ]
-    },
-    {
-      "model_id": "glm-4-7",
-      "display_name": "GLM-4.7",
-      "vendor": "Zhipu AI",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:55:48.665369",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "glm-4-7",
-        "display_name": "GLM-4.7",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "unknown",
-        "parameter_count_billions": 32.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api"
-      ]
-    },
-    {
-      "model_id": "gemma3-4b",
-      "display_name": "Gemma 3 4B",
-      "vendor": "Google",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-04-25T12:56:19.166328",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "gemma3-4b",
-        "display_name": "Gemma 3 4B",
-        "vendor": "Google",
-        "card_url": null,
-        "card_text": "Gemma 3 4B - Google's compact multimodal model for single-GPU deployment.\n\nBenchmarks:\n- MMLU: ~72%\n- Multimodal reasoning (MMMU-class tasks)\n\nArchitecture: Dense transformer, 4B parameters.\nContext: 128K tokens.\n\nCapabilities: Multimodal (text + image), 128K context,\n140+ languages, vision-language tasks including captioning and visual QA.\n\nLicense: Gemma Terms of Use",
-        "license_kind": "open",
-        "parameter_count_billions": 4.0,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "vision",
-          "multimodal",
-          "image-captioning",
-          "vqa",
-          "long-context",
-          "multilingual"
-        ],
-        "pricing_per_1k_input_usd": 0.0,
-        "pricing_per_1k_output_usd": 0.0
-      },
-      "tags": [
-        "text",
-        "vision",
-        "multimodal",
-        "image-captioning",
-        "vqa",
-        "long-context",
-        "multilingual"
+        "function-calling",
+        "agentic",
+        "tool-use",
+        "long-context"
       ]
     }
   ]

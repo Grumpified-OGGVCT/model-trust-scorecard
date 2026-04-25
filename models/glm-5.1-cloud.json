@@ -1,13 +1,17 @@
 {
   "model_id": "glm-5.1-cloud",
-  "display_name": "GLM 5.1 Cloud",
+  "display_name": "GLM-5.1 Cloud",
   "vendor": "Z.ai",
-  "card_text": "GLM 5.1 Cloud - Advanced agentic, reasoning and coding capabilities.\n\nBenchmarks:\n- SWE-bench Verified: 78.5%\n\nCapabilities: Software engineering, agentic workflows, reasoning tasks.\nExtended context window for document processing.\n\nArchitecture: Dense transformer with agentic capabilities.\nLicense: Commercial API via Z.ai.",
-  "license_kind": "proprietary",
-  "card_url": "https://ollama.com/library/glm",
-  "parameter_count_billions": 32,
-  "context_window_tokens": 128000,
-  "tags": ["text", "coding", "agentic", "reasoning", "software-engineering", "function-calling", "long-context"],
-  "pricing_per_1k_input_usd": 0.0,
-  "pricing_per_1k_output_usd": 0.0
+  "card_url": "https://openrouter.ai/models/zhipu/glm-5.1",
+  "card_text": "GLM-5.1 Cloud is Z.ai's frontier open-weight coding and agentic model.\n\nArchitecture: GlmMoeDsa sparse mixture-of-experts with 256 routed experts plus 1 shared expert, 40B active parameters from 754B total.\nContext Window: 200K tokens.\nReleased: 2026-04-07.\nBenchmarks:\n- SWE-bench Pro: 58.4%\n- SWE-bench Verified: 77.8%\n- GPQA: 86.8%\nCapabilities: marathon autonomous coding sessions up to 8+ hours, strong tool use, software engineering, multilingual text reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Z.ai developer docs, Artificial Analysis.\nNotable caution: hallucination rate reported at 70.6% by Artificial Analysis.",
+  "license_kind": "open",
+  "architecture": "MoE (256 routed experts + 1 shared, top-8+1)",
+  "parameter_count_billions": 40,
+  "total_parameter_count_billions": 754,
+  "context_window_tokens": 200000,
+  "release_date": "2026-04-07T00:00:00",
+  "tags": ["text", "coding", "agentic", "reasoning", "software-engineering", "function-calling", "long-context", "multilingual", "open-weight"],
+  "pricing_per_1k_input_usd": 0.00105,
+  "pricing_per_1k_output_usd": 0.0035,
+  "capability_rank": 2
 }
