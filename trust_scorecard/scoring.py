@@ -200,6 +200,7 @@ def _value_for_outcome(outcome: VerificationOutcome) -> float:
     value = outcome.official_value if outcome.official_value is not None else outcome.claim.value
     norm = _normalize_metric(outcome.claim.metric)
     if norm in LOWER_IS_BETTER_METRICS:
+        # These lower-is-better metrics are extracted as percentages on the same 0-100 scale.
         return max(0.0, 100.0 - value)
     return value
 

@@ -36,10 +36,10 @@ def _format_param_count(value: float | int | None) -> str:
 def _format_price(input_per_1k: float | None, output_per_1k: float | None) -> str:
     if input_per_1k is None and output_per_1k is None:
         return "-"
-    input_per_1m = (input_per_1k or 0) * 1000
-    output_per_1m = (output_per_1k or 0) * 1000
-    input_display = f"${input_per_1m:.2f}"
-    output_display = f"${output_per_1m:.2f}"
+    input_usd_per_1m = (input_per_1k or 0) * 1000
+    output_usd_per_1m = (output_per_1k or 0) * 1000
+    input_display = f"${input_usd_per_1m:.2f}"
+    output_display = f"${output_usd_per_1m:.2f}"
     return f"{input_display} / {output_display}<br><span style=\"color:#718096; font-size:0.85em;\">per 1M in/out</span>"
 
 
