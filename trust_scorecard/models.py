@@ -77,7 +77,7 @@ class BenchmarkResult(BaseModel):
 
 
 class BenchmarkClaim(BaseModel):
-    """A structured benchmark claim supplied directly in a model catalog entry."""
+    """A structured 0-100 benchmark claim supplied directly in a model catalog entry."""
 
     benchmark: str = Field(..., description="Benchmark name, e.g. 'MMLU'")
     metric: str | None = Field(None, description="Reported metric, e.g. 'accuracy' or 'pass@1'")

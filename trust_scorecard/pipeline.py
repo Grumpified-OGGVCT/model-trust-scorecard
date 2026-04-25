@@ -34,6 +34,7 @@ from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
 
 logger = logging.getLogger(__name__)
+CLAIM_VALUE_PRECISION = 4
 
 
 class EvaluationPipeline:
@@ -251,8 +252,7 @@ def _claims_from_structured_benchmarks(
     """Convert catalog-supplied benchmark_claims into verifier claims."""
     claims: list[Claim] = []
     for item in benchmark_claims:
-        source_url = item.source_url or (item.source if item.source and item.source.startswith("http") else None)
-        source_url = source_url or fallback_source_url
+        source_url = _structured_claim_source_url(item, fallback_source_url)
         metric_label = f" {item.metric}" if item.metric else ""
         source_label = f" ({item.source})" if item.source else ""
         raw = item.raw or f"{item.benchmark}{metric_label}: {item.value}{source_label}"
@@ -272,7 +272,7 @@ def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
     seen: set[tuple[str, float]] = set()
     deduped: list[Claim] = []
     for claim in claims:
-        key = (_normalize_claim_metric(claim.metric), round(claim.value, 4))
+        key = (_normalize_claim_metric(claim.metric), round(claim.value, CLAIM_VALUE_PRECISION))
         if key in seen:
             continue
         seen.add(key)
@@ -282,6 +282,17 @@ def _dedupe_claims(claims: list[Claim]) -> list[Claim]:
 
 def _normalize_claim_metric(name: str) -> str:
     return name.lower().replace(" ", "").replace("-", "").replace("_", "")
+
+
+def _structured_claim_source_url(
+    item: BenchmarkClaim,
+    fallback_source_url: str | None = None,
+) -> str | None:
+    if item.source_url:
+        return item.source_url
+    if item.source and item.source.startswith("http"):
+        return item.source
+    return fallback_source_url
 
 
 def load_model_cards_from_directory(directory: str | Path) -> list[ModelCard]:

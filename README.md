@@ -21,7 +21,7 @@ Model Trust Scorecard is a transparent, reproducible engine that verifies AI mod
 - **💾 Persistent Storage** - SQLite database + optional HuggingFace Dataset export
 - **🤖 GitHub-First** - Fully automated via GitHub Actions, triggerable via CLI
 - **📈 Live Dashboard** - Auto-generated GitHub Pages dashboard with rankings
-- **🔄 Daily Model Growth** - Scheduled checks re-evaluate supplied/catalog models, incorporate newly added catalog entries, and place them into the capability rankings
+- **🔄 Daily Model Growth** - Scheduled checks re-evaluate supplied/catalog models and incorporate newly added catalog entries; models are then placed into the capability rankings
 
 ---
 
