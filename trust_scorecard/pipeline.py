@@ -264,12 +264,13 @@ def _claims_from_structured_benchmarks(
         source_label = f" ({item.source})" if item.source else ""
         raw = item.raw or f"{benchmark}{metric_label} result: {item.value}{source_label}"
         claims.append(
-            Claim(
-                metric=benchmark,
-                value=item.value,
-                raw=raw,
-                target=None,
-                source_url=source_url,
+            Claim.model_validate(
+                {
+                    "metric": benchmark,
+                    "value": item.value,
+                    "raw": raw,
+                    "source_url": source_url,
+                }
             )
         )
     return claims
