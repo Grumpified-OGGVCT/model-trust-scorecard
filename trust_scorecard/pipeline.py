@@ -34,6 +34,8 @@ from trust_scorecard.scoring import compute_trust_score
 from trust_scorecard.verification_engine import VerificationEngine
 
 logger = logging.getLogger(__name__)
+SWE_BENCH_NORMALIZED = "swebench"
+SWE_BENCH_VERIFIED_NORMALIZED = "swebenchverified"
 
 
 class EvaluationPipeline:
@@ -304,14 +306,14 @@ def _canonical_structured_benchmark_name(
         }:
             return source.config.display_name
 
-    if normalized == "swebench":
+    if normalized == SWE_BENCH_NORMALIZED:
         first_swebench_display_name: str | None = None
         for source in benchmark_sources:
             normalized_id = _normalize_claim_metric(source.config.id)
             normalized_display_name = _normalize_claim_metric(source.config.display_name)
-            if "swebenchverified" in {normalized_id, normalized_display_name}:
+            if SWE_BENCH_VERIFIED_NORMALIZED in {normalized_id, normalized_display_name}:
                 return source.config.display_name
-            if first_swebench_display_name is None and normalized_display_name.startswith("swebench"):
+            if first_swebench_display_name is None and normalized_display_name.startswith(SWE_BENCH_NORMALIZED):
                 first_swebench_display_name = source.config.display_name
         if first_swebench_display_name is not None:
             return first_swebench_display_name
