@@ -92,8 +92,11 @@ class EvaluationPipeline:
 
         # Stage 1: Extract claims
         text = card_text or model_card.card_text or ""
+        text_claims = extract_claims(text, source_url=source_url or model_card.card_url)
+        # Text-extracted claims come first so source-specific prose takes precedence
+        # over catalog fallback claims when both describe the same benchmark value.
         claims = _dedupe_claims([
-            *extract_claims(text, source_url=source_url or model_card.card_url),
+            *text_claims,
             *_claims_from_structured_benchmarks(
                 model_card.benchmark_claims,
                 fallback_source_url=source_url or model_card.card_url,
