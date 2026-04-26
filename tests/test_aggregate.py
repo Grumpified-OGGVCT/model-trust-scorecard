@@ -11,7 +11,7 @@ def test_latest_evaluated_at_uses_max_timestamp():
     assert latest_evaluated_at(scores) == "2026-04-26T12:58:23.671470"
 
 
-def test_markdown_last_updated_uses_latest_timestamp():
+def test_generate_markdown_table_last_updated_uses_latest_timestamp():
     markdown = generate_markdown_table(
         [
             {
