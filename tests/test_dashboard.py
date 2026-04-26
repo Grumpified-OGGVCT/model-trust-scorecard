@@ -2,6 +2,7 @@ from scripts.generate_dashboard import (
     HTML_TEMPLATE,
     _capabilities_from_tags,
     _category_from_score,
+    _format_chips,
     _format_compact_number,
     _format_hallucination,
     _format_price,
@@ -41,6 +42,13 @@ def test_dashboard_formats_compact_numbers():
     assert _format_compact_number(128000) == "128K"
     assert _format_compact_number(1_000_000) == "1.0M"
     assert _format_compact_number(None) == "-"
+
+
+def test_dashboard_formats_chips():
+    assert _format_chips([]) == "-"
+    chips = _format_chips(["Coding: 90.0", "<unsafe>"])
+    assert "Coding: 90.0" in chips
+    assert "&lt;unsafe&gt;" in chips
 
 
 def test_dashboard_source_confidence_labels():

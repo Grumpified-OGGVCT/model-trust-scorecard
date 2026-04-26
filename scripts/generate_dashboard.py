@@ -82,7 +82,7 @@ def _format_compact_number(value: int | float | None) -> str:
 
 
 def _source_confidence(total_claims: int, verified_count: int, unverifiable_count: int = 0) -> str:
-    if total_claims < 1:
+    if total_claims <= 0:
         return "Needs sources"
     verified_rate = verified_count / total_claims
     if verified_rate >= 0.5:
@@ -115,6 +115,16 @@ def _category_from_score(score: dict) -> str:
     if context_window >= 128000:
         return "long-context"
     return "all"
+
+
+def _format_chips(labels: list[str]) -> str:
+    if not labels:
+        return "-"
+    return (
+        '<div class="chips">'
+        + "".join(f'<span class="chip">{html_lib.escape(label)}</span>' for label in labels)
+        + "</div>"
+    )
 
 
 def _capabilities_from_tags(tags: list[str], context_window: int | None = None) -> str:
@@ -613,15 +623,8 @@ def main():
         )
         score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
         use_case_scores = score.get("use_case_scores", {}) or {}
-        use_case_label = (
-            '<div class="chips">'
-            + "".join(
-                f'<span class="chip">{html_lib.escape(k.replace("_", " ").title())}: {v:.1f}</span>'
-                for k, v in use_case_scores.items()
-            )
-            + "</div>"
-            if use_case_scores
-            else "-"
+        use_case_label = _format_chips(
+            [f"{k.replace('_', ' ').title()}: {v:.1f}" for k, v in use_case_scores.items()]
         )
 
         # Extract metadata from model card
@@ -638,22 +641,14 @@ def main():
 
         tags = score.get("tags", [])
         caps_display = _capabilities_from_tags(tags, ctx)
-        caps_display = (
-            '<div class="chips">'
-            + "".join(
-                f'<span class="chip">{html_lib.escape(cap)}</span>'
-                for cap in caps_display.split(" • ")
-            )
-            + "</div>"
-            if caps_display != "-"
-            else "-"
-        )
+        caps_display = _format_chips(caps_display.split(" • ") if caps_display != "-" else [])
         price_display = _format_price(
             model_card.get("pricing_per_1k_input_usd"),
             model_card.get("pricing_per_1k_output_usd"),
         )
         hallucination_display = _format_hallucination(model_card.get("hallucination_rate"))
         license_display = model_card.get("license_kind") or score.get("license", "unknown")
+        raw_license_display = str(license_display)
         release_date = _format_release_date(model_card.get("release_date"))
         source_confidence = _source_confidence(
             score.get("total_claims", 0),
@@ -667,12 +662,12 @@ def main():
         )
         category = _category_from_score(score)
         provider = html_lib.escape(score["vendor"] or "-")
-        license_value = html_lib.escape(str(license_display))
+        license_value = html_lib.escape(raw_license_display)
         search_blob = html_lib.escape(
             " ".join([
                 score["display_name"],
                 score["vendor"] or "",
-                license_value,
+                raw_license_display,
                 " ".join(tags),
                 " ".join(use_case_scores.keys()),
             ]).lower()
