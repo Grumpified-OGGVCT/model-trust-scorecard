@@ -7,36 +7,31 @@ from typing import Any
 
 from trust_scorecard.models import ModelCard, ModelEvaluation, VerificationStatus
 
-# Weights prioritize core frontier capabilities while including specialized metrics to reward
-# measured breadth without allowing niche performance to skew rankings.
-CAPABILITY_WEIGHTS = {
-    # Core frontier-model competencies get the highest weight because they are broad,
-    # heavily benchmarked predictors of general model quality.
-    "coding": 2.0,
-    "reasoning": 2.0,
-    "math": 1.5,
-    "tool_use": 1.5,
-    # Specialized modalities and reliability dimensions contribute meaningfully but
-    # should not outweigh core capability when fewer models report those scores.
-    "agent_swarm": 1.2,
-    "multimodal": 1.2,
-    "vision_coding": 1.0,
-    "ocr": 0.8,
-    "video_understanding": 0.8,
-    "multilingual": 0.8,
-    "multilingual_depth": 0.7,
-    "safety": 0.7,
-    "hallucination_fidelity": 0.7,
-    "long_context": 0.5,
-    "commonsense": 0.5,
-    "office_document": 0.5,
-    # Deployment-oriented metrics are useful tie-shapers, not primary capability signals.
-    "efficiency": 0.3,
-    "edge": 0.3,
+# BenchLM-style category weights. Missing categories are excluded from the
+# denominator so sparse-but-eligible models are not penalized as zeroes.
+CAPABILITY_CATEGORY_WEIGHTS = {
+    "agentic": 22.0,
+    "coding": 20.0,
+    "reasoning": 17.0,
+    "multimodal": 12.0,
+    "knowledge": 12.0,
+    "multilingual": 7.0,
+    "instruction_following": 5.0,
+    "math": 5.0,
+}
+
+CAPABILITY_CATEGORY_SIGNALS = {
+    "agentic": ("tool_use", "agent_swarm"),
+    "coding": ("coding", "vision_coding"),
+    "reasoning": ("reasoning", "long_context"),
+    "multimodal": ("multimodal", "ocr", "video_understanding", "office_document"),
+    "knowledge": ("commonsense", "safety", "hallucination_fidelity"),
+    "multilingual": ("multilingual", "multilingual_depth"),
+    "instruction_following": ("instruction_following",),
+    "math": ("math",),
 }
 
 MIN_SCORES_FOR_RANKING = 3
-DEFAULT_CAPABILITY_WEIGHT = 0.5
 TIER_VERIFIED = 0
 TIER_UNVERIFIED = 1
 TIER_CAPABILITY_ONLY = 2
@@ -55,6 +50,31 @@ def _numeric_scores(scores: Mapping[str, float]) -> dict[str, float]:
         except (TypeError, ValueError):
             continue
     return numeric_scores
+
+
+def category_capability_scores(scores: Mapping[str, float]) -> dict[str, float]:
+    """Collapse use-case signals into BenchLM-style weighted capability categories."""
+    numeric_scores = _numeric_scores(scores)
+    category_scores: dict[str, float] = {}
+    for category, signal_names in CAPABILITY_CATEGORY_SIGNALS.items():
+        values = [numeric_scores[name] for name in signal_names if name in numeric_scores]
+        if values:
+            category_scores[category] = sum(values) / len(values)
+    return category_scores
+
+
+def _weighted_category_score(category_scores: Mapping[str, float]) -> float | None:
+    weighted_score = 0.0
+    total_weight = 0.0
+    for category, score in category_scores.items():
+        weight = CAPABILITY_CATEGORY_WEIGHTS.get(category)
+        if weight is None:
+            continue
+        weighted_score += float(score) * weight
+        total_weight += weight
+    if total_weight == 0.0:
+        return None
+    return weighted_score / total_weight
 
 
 def _external_leaderboard_score(card: ModelCard) -> float | None:
@@ -94,6 +114,7 @@ def capability_sort_key(
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
     valid_numeric_scores = _numeric_scores(scores)
+    category_scores = category_capability_scores(scores)
     external_score = _external_leaderboard_score(card)
     metadata_fallback_score = _metadata_fallback_score(card)
     has_external_leaderboard = card.leaderboard_score is not None or card.leaderboard_rank is not None
@@ -109,16 +130,8 @@ def capability_sort_key(
 
     if external_score is not None:
         composite = external_score
-    elif len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING:
-        weighted_score = sum(
-            value * CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
-            for name, value in valid_numeric_scores.items()
-        )
-        total_weight = sum(
-            CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
-            for name in valid_numeric_scores
-        )
-        composite = weighted_score / total_weight
+    elif len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING and category_scores:
+        composite = _weighted_category_score(category_scores) or 0.0
     elif metadata_fallback_score is not None:
         composite = metadata_fallback_score
     else:

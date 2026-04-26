@@ -2,6 +2,7 @@ from scripts.generate_dashboard import (
     HTML_TEMPLATE,
     _capabilities_from_tags,
     _category_from_score,
+    _confidence_dots,
     _format_chips,
     _format_compact_number,
     _format_hallucination,
@@ -52,11 +53,13 @@ def test_dashboard_formats_chips():
 
 
 def test_dashboard_source_confidence_labels():
-    assert _source_confidence(0, 0) == "Needs sources"
-    assert _source_confidence(6, 3) == "Strong sourced coverage"
-    assert _source_confidence(6, 1) == "Partial sourced coverage"
-    assert _source_confidence(3, 0, 3) == "Claims need source mapping"
-    assert _source_confidence(3, 0, 1) == "Unverified claims"
+    assert _source_confidence(0, 0) == "Low / estimated"
+    assert _source_confidence(24, 20, category_count=7) == "High confidence"
+    assert _source_confidence(16, 12, category_count=5) == "Good confidence"
+    assert _source_confidence(10, 8, category_count=3) == "Moderate confidence"
+    assert _source_confidence(3, 0, 3) == "Low / estimated"
+    assert _source_confidence(3, 0, 1) == "Low confidence"
+    assert _confidence_dots("Good confidence") == "3/4 confidence"
 
 
 def test_dashboard_category_from_score_uses_capability_metadata():
@@ -85,7 +88,7 @@ def test_dashboard_describes_reliability_first_ordering():
     assert "Model Capability Rankings" in HTML_TEMPLATE
     assert "Models are ordered by independently sourced capability first" in HTML_TEMPLATE
     assert "external leaderboard score/rank metadata" in HTML_TEMPLATE
-    assert "weighted demonstrated capability" in HTML_TEMPLATE
+    assert "BenchLM-style weighted category capability" in HTML_TEMPLATE
     assert "zero-evidence models are placed last" in HTML_TEMPLATE
     assert "Leaderboard cross-check sources" in HTML_TEMPLATE
     assert "BenchLM" in HTML_TEMPLATE

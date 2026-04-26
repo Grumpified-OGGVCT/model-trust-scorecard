@@ -12,6 +12,7 @@ from trust_scorecard.models import (
 from trust_scorecard.ranking import (
     _numeric_scores,
     capability_sort_key,
+    category_capability_scores,
     evaluation_sort_key,
     score_record_sort_key,
 )
@@ -157,6 +158,26 @@ def test_same_reliability_tier_sorts_by_capability_before_verified_count():
     )
 
     assert ranked[0][0].model_id == "fewer-verified"
+
+
+def test_category_weighted_capability_score_excludes_missing_and_display_only_signals():
+    categories = category_capability_scores(
+        {
+            "tool_use": 90.0,
+            "coding": 80.0,
+            "reasoning": 70.0,
+            "instruction_following": 85.0,
+            "efficiency": 100.0,
+            "edge": 100.0,
+        }
+    )
+
+    assert categories == {
+        "agentic": 90.0,
+        "coding": 80.0,
+        "reasoning": 70.0,
+        "instruction_following": 85.0,
+    }
 
 
 def test_external_leaderboard_score_ranks_sparse_frontier_models():
