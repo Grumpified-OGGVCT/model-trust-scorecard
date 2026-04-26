@@ -98,7 +98,7 @@ trust-scorecard export --db trust_scores.db --output results.json
   - Aiven: `https://aiven.io/tools/llm-leaderboard`
   - Hugging Face ArtificialAnalysis leaderboard space
   - OpenRouter rankings: `https://openrouter.ai/rankings`
-  - OpenRouter filtered text-output model list: `https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1&output_modalities=text`
+  - OpenRouter filtered text-output model list: `https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1&output_modalities=text` (filters are examples and may need adjustment)
 - Inventory files do not auto-review models; only IDs that already exist in the catalog are emitted into the verification matrix, and everything else should be submitted through the model review flow.
 
 ### How verification is produced
