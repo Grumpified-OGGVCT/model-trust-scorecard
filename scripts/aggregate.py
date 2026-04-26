@@ -38,6 +38,12 @@ def sort_scores_by_capability(scores: list[dict]) -> list[dict]:
     return sorted(scores, key=score_record_sort_key)
 
 
+def latest_evaluated_at(scores: list[dict]) -> str | None:
+    """Return the latest available evaluation timestamp from score records."""
+    timestamps = [score.get("evaluated_at") for score in scores if score.get("evaluated_at")]
+    return max(timestamps) if timestamps else None
+
+
 def generate_markdown_table(scores: list[dict]) -> str:
     """Generate capability ranking table with trust metadata."""
     sorted_scores = sort_scores_by_capability(scores)
@@ -45,7 +51,7 @@ def generate_markdown_table(scores: list[dict]) -> str:
     lines = [
         "# Model Capability Rankings",
         "",
-        "Models are ordered by demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.",
+        "Models are ordered by independently verified evidence first, then demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.",
         "",
         "| Rank | Model | Vendor | Use-Case Strengths | Trust Score | Verified Claims | License |",
         "|------|-------|--------|--------------------|-------------|-----------------|---------|",
@@ -77,14 +83,15 @@ def generate_markdown_table(scores: list[dict]) -> str:
         "---",
         "",
         "**Legend:**",
-        "- Rank order: models with at least three use-case scores are ranked by weighted demonstrated capability.",
-        "- Tie-breakers: trust score, evidence, capability metadata, scale/context, and name.",
-        "- Partial-data models follow the ranked tier, and models with no use-case scores are placed last.",
+        "- Rank order: models with independently verified claims rank ahead of models with only unverified claims.",
+        "- Within each reliability tier, models with at least three use-case scores are ranked by weighted demonstrated capability.",
+        "- Tie-breakers: verified claim count, verification rate, trust score, evidence, capability metadata, scale/context, and name.",
+        "- Partial-data models follow the fully ranked tier, and models with no evidence are placed last.",
         "- 🟢 **50-100**: Higher relative trust in the current score distribution",
         "- 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage",
         "- 🟠 **<30**: Low trust - few claims verified or significant gaps",
         "",
-        f"*Last updated: {scores[0]['evaluated_at'] if scores else 'N/A'}*",
+        f"*Last updated: {latest_evaluated_at(scores) or 'N/A'}*",
     ])
 
     return "\n".join(lines)
@@ -155,7 +162,7 @@ def main():
 
     # Write JSON
     aggregated = {
-        "generated_at": reports[0]["evaluated_at"] if reports else None,
+        "generated_at": latest_evaluated_at(scores),
         "total_models": len(scores),
         "scores": sort_scores_by_capability(scores),
     }

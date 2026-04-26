@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from trust_scorecard.models import ModelCard, ModelEvaluation
+from trust_scorecard.models import ModelCard, ModelEvaluation, VerificationStatus
 
 # Weights prioritize core frontier capabilities while including specialized metrics to reward
 # measured breadth without allowing niche performance to skew rankings.
@@ -37,6 +37,10 @@ CAPABILITY_WEIGHTS = {
 
 MIN_SCORES_FOR_RANKING = 3
 DEFAULT_CAPABILITY_WEIGHT = 0.5
+TIER_VERIFIED = 0
+TIER_UNVERIFIED = 1
+TIER_CAPABILITY_ONLY = 2
+TIER_NO_EVIDENCE = 3
 
 MULTIMODAL_TAGS = {"multimodal", "vision", "video", "ocr", "document-analysis"}
 AGENTIC_TAGS = {"agentic", "tool-use", "function-calling", "software-engineering"}
@@ -58,13 +62,23 @@ def capability_sort_key(
     use_case_scores: Mapping[str, float] | None = None,
     trust_score: float | None = None,
     benchmark_evidence_count: int = 0,
+    verified_evidence_count: int = 0,
 ) -> tuple[Any, ...]:
-    """Return a sort key that prioritizes demonstrated capability over trust totals."""
+    """Return a sort key that prioritizes verified evidence over claimed capability."""
     scores = use_case_scores or {}
     tags = set(card.tags or [])
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
     valid_numeric_scores = _numeric_scores(scores)
+
+    if verified_evidence_count > 0:
+        reliability_tier = TIER_VERIFIED
+    elif benchmark_evidence_count > 0:
+        reliability_tier = TIER_UNVERIFIED
+    elif valid_numeric_scores:
+        reliability_tier = TIER_CAPABILITY_ONLY
+    else:
+        reliability_tier = TIER_NO_EVIDENCE
 
     if len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING:
         weighted_score = sum(
@@ -76,14 +90,21 @@ def capability_sort_key(
             for name in valid_numeric_scores
         )
         composite = weighted_score / total_weight
-        capability_tier = (0, -composite)
-    elif valid_numeric_scores:
-        capability_tier = (1, 0.0)
     else:
-        capability_tier = (2, 0.0)
+        composite = 0.0
+
+    # Keep zero-evidence models at a 0.0 verification rate and avoid dividing by zero.
+    verification_rate = (
+        verified_evidence_count / benchmark_evidence_count
+        if benchmark_evidence_count > 0
+        else 0.0
+    )
 
     return (
-        capability_tier,
+        reliability_tier,
+        -verified_evidence_count,
+        -verification_rate,
+        -composite,
         -(trust_score or 0.0),
         -benchmark_evidence_count,
         -int(bool(tags & MULTIMODAL_TAGS)),
@@ -103,6 +124,7 @@ def score_record_sort_key(score: Mapping[str, Any]) -> tuple[Any, ...]:
         score.get("use_case_scores") or {},
         score.get("trust_score"),
         int(score.get("total_claims") or 0),
+        int(score.get("verified_count") or 0),
     )
 
 
@@ -111,9 +133,13 @@ def evaluation_sort_key(evaluation: ModelEvaluation) -> tuple[Any, ...]:
     trust_score = evaluation.trust_score.score if evaluation.trust_score else None
     use_case_scores = evaluation.trust_score.breakdown.use_case_scores if evaluation.trust_score else {}
     benchmark_evidence_count = len(evaluation.claims)
+    verified_evidence_count = sum(
+        1 for outcome in evaluation.outcomes if outcome.status == VerificationStatus.VERIFIED
+    )
     return capability_sort_key(
         evaluation.card,
         use_case_scores,
         trust_score,
         benchmark_evidence_count,
+        verified_evidence_count,
     )

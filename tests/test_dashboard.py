@@ -1,9 +1,13 @@
 from scripts.generate_dashboard import (
     HTML_TEMPLATE,
     _capabilities_from_tags,
+    _category_from_score,
+    _format_chips,
+    _format_compact_number,
     _format_hallucination,
     _format_price,
     _format_release_date,
+    _source_confidence,
 )
 
 
@@ -34,8 +38,59 @@ def test_dashboard_formats_release_date():
     assert _format_release_date(None) == "-"
 
 
-def test_dashboard_describes_capability_first_ordering():
+def test_dashboard_formats_compact_numbers():
+    assert _format_compact_number(128000) == "128K"
+    assert _format_compact_number(1_000_000) == "1.0M"
+    assert _format_compact_number(None) == "-"
+
+
+def test_dashboard_formats_chips():
+    assert _format_chips([]) == "-"
+    chips = _format_chips(["Coding: 90.0", "<unsafe>"])
+    assert "Coding: 90.0" in chips
+    assert "&lt;unsafe&gt;" in chips
+
+
+def test_dashboard_source_confidence_labels():
+    assert _source_confidence(0, 0) == "Needs sources"
+    assert _source_confidence(6, 3) == "Strong sourced coverage"
+    assert _source_confidence(6, 1) == "Partial sourced coverage"
+    assert _source_confidence(3, 0, 3) == "Claims need source mapping"
+    assert _source_confidence(3, 0, 1) == "Unverified claims"
+
+
+def test_dashboard_category_from_score_uses_capability_metadata():
+    assert _category_from_score({"use_case_scores": {"coding": 90.0}, "tags": []}) == "coding"
+    assert _category_from_score({"use_case_scores": {"reasoning": 90.0}, "tags": []}) == "reasoning"
+    assert _category_from_score({"use_case_scores": {"math": 90.0}, "tags": []}) == "math"
+    assert _category_from_score({"use_case_scores": {"tool_use": 90.0}, "tags": []}) == "tool-use"
+    assert _category_from_score(
+        {
+            "use_case_scores": {},
+            "tags": ["vision"],
+            "model_card": {"context_window_tokens": 128000},
+        }
+    ) == "multimodal"
+    assert _category_from_score(
+        {
+            "use_case_scores": {},
+            "tags": ["text"],
+            "model_card": {"context_window_tokens": 128000},
+        }
+    ) == "long-context"
+    assert _category_from_score({"use_case_scores": {}, "tags": ["text"]}) == "all"
+
+
+def test_dashboard_describes_reliability_first_ordering():
     assert "Model Capability Rankings" in HTML_TEMPLATE
-    assert "Models are ordered by demonstrated capabilities" in HTML_TEMPLATE
+    assert "Models are ordered by independently verified evidence first" in HTML_TEMPLATE
     assert "weighted composite of demonstrated capability" in HTML_TEMPLATE
-    assert "zero-score models are placed last" in HTML_TEMPLATE
+    assert "zero-evidence models are placed last" in HTML_TEMPLATE
+    assert "Leaderboard cross-check sources" in HTML_TEMPLATE
+    assert "BenchLM" in HTML_TEMPLATE
+    assert "Artificial Analysis" in HTML_TEMPLATE
+    assert "All Benchmarks" in HTML_TEMPLATE
+    assert "Source Confidence" in HTML_TEMPLATE
+    assert "Claim Coverage" in HTML_TEMPLATE
+    assert "providerFilter" in HTML_TEMPLATE
+    assert "row.dataset.search.includes(query)" in HTML_TEMPLATE

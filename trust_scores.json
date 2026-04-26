@@ -1,7 +1,137 @@
 {
-  "generated_at": "2026-04-26T12:57:21.665185",
+  "generated_at": "2026-04-26T12:58:23.671470",
   "total_models": 50,
   "scores": [
+    {
+      "model_id": "deepseek-v3.2",
+      "display_name": "DeepSeek V3.2",
+      "vendor": "DeepSeek",
+      "trust_score": 60.8,
+      "breakdown": {
+        "coverage_score": 22.5,
+        "verification_score": 13.3,
+        "performance_gap_score": 20.0,
+        "openness_score": 5.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 80.8,
+          "reasoning": 81.7,
+          "math": 76.0
+        }
+      },
+      "use_case_scores": {
+        "coding": 80.8,
+        "reasoning": 81.7,
+        "math": 76.0
+      },
+      "total_claims": 6,
+      "verified_count": 2,
+      "refuted_count": 2,
+      "unverifiable_count": 2,
+      "evaluated_at": "2026-04-26T12:57:50.057774",
+      "license": "open",
+      "model_card": {
+        "model_id": "deepseek-v3.2",
+        "display_name": "DeepSeek V3.2",
+        "vendor": "DeepSeek",
+        "card_url": "https://github.com/deepseek-ai/DeepSeek-V3",
+        "card_text": "DeepSeek V3.2 is an open-source model achieving 76.8% on SWE-bench Verified, 86.4% on MMLU, and 87.9% on HumanEval pass@1. It scores 72.3% on GPQA Diamond, 94.1% on GSM8K, and 79.8% on MATH. Performance on TruthfulQA stands at 68.9%.",
+        "license_kind": "open",
+        "architecture": null,
+        "parameter_count_billions": 671.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": "2025-12-26T00:00:00",
+        "tags": [
+          "open-source",
+          "coding",
+          "reasoning",
+          "moe"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": null,
+        "benchmark_claims": []
+      },
+      "tags": [
+        "open-source",
+        "coding",
+        "reasoning",
+        "moe"
+      ]
+    },
+    {
+      "model_id": "claude-opus-4.5",
+      "display_name": "Claude Opus 4.5",
+      "vendor": "Anthropic",
+      "trust_score": 36.9,
+      "breakdown": {
+        "coverage_score": 26.2,
+        "verification_score": 5.7,
+        "performance_gap_score": 0.0,
+        "openness_score": 0.0,
+        "safety_score": 5.0,
+        "use_case_scores": {
+          "coding": 89.3,
+          "reasoning": 86.8,
+          "math": 83.8,
+          "safety": 69.8
+        }
+      },
+      "use_case_scores": {
+        "coding": 89.3,
+        "reasoning": 86.8,
+        "math": 83.8,
+        "safety": 69.8
+      },
+      "total_claims": 7,
+      "verified_count": 1,
+      "refuted_count": 3,
+      "unverifiable_count": 3,
+      "evaluated_at": "2026-04-26T12:57:21.665185",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "claude-opus-4.5",
+        "display_name": "Claude Opus 4.5",
+        "vendor": "Anthropic",
+        "card_url": "https://www.anthropic.com/claude",
+        "card_text": "Claude Opus 4.5 demonstrates exceptional performance across multiple benchmarks: 89.2% on SWE-bench Verified, 90.1% on MMLU, 94.7% on HumanEval, 82.4% on GPQA Diamond, and 96.8% on GSM8K. The model achieves 85.3% on MATH and 76.2% on TruthfulQA, showcasing strong reasoning and safety characteristics.",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": null,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 200000,
+        "release_date": "2025-11-01T00:00:00",
+        "tags": [
+          "reasoning",
+          "coding",
+          "long-context",
+          "safety"
+        ],
+        "pricing_per_1k_input_usd": 0.015,
+        "pricing_per_1k_output_usd": 0.075,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "capability_rank": null,
+        "benchmark_claims": []
+      },
+      "tags": [
+        "reasoning",
+        "coding",
+        "long-context",
+        "safety"
+      ]
+    },
     {
       "model_id": "nemotron-3-super-cloud",
       "display_name": "Nemotron-3-Super Cloud",
@@ -244,136 +374,6 @@
         "rag",
         "reasoning",
         "text"
-      ]
-    },
-    {
-      "model_id": "claude-opus-4.5",
-      "display_name": "Claude Opus 4.5",
-      "vendor": "Anthropic",
-      "trust_score": 36.9,
-      "breakdown": {
-        "coverage_score": 26.2,
-        "verification_score": 5.7,
-        "performance_gap_score": 0.0,
-        "openness_score": 0.0,
-        "safety_score": 5.0,
-        "use_case_scores": {
-          "coding": 89.3,
-          "reasoning": 86.8,
-          "math": 83.8,
-          "safety": 69.8
-        }
-      },
-      "use_case_scores": {
-        "coding": 89.3,
-        "reasoning": 86.8,
-        "math": 83.8,
-        "safety": 69.8
-      },
-      "total_claims": 7,
-      "verified_count": 1,
-      "refuted_count": 3,
-      "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:21.665185",
-      "license": "proprietary",
-      "model_card": {
-        "model_id": "claude-opus-4.5",
-        "display_name": "Claude Opus 4.5",
-        "vendor": "Anthropic",
-        "card_url": "https://www.anthropic.com/claude",
-        "card_text": "Claude Opus 4.5 demonstrates exceptional performance across multiple benchmarks: 89.2% on SWE-bench Verified, 90.1% on MMLU, 94.7% on HumanEval, 82.4% on GPQA Diamond, and 96.8% on GSM8K. The model achieves 85.3% on MATH and 76.2% on TruthfulQA, showcasing strong reasoning and safety characteristics.",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": null,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 200000,
-        "release_date": "2025-11-01T00:00:00",
-        "tags": [
-          "reasoning",
-          "coding",
-          "long-context",
-          "safety"
-        ],
-        "pricing_per_1k_input_usd": 0.015,
-        "pricing_per_1k_output_usd": 0.075,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "capability_rank": null,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "reasoning",
-        "coding",
-        "long-context",
-        "safety"
-      ]
-    },
-    {
-      "model_id": "deepseek-v3.2",
-      "display_name": "DeepSeek V3.2",
-      "vendor": "DeepSeek",
-      "trust_score": 60.8,
-      "breakdown": {
-        "coverage_score": 22.5,
-        "verification_score": 13.3,
-        "performance_gap_score": 20.0,
-        "openness_score": 5.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 80.8,
-          "reasoning": 81.7,
-          "math": 76.0
-        }
-      },
-      "use_case_scores": {
-        "coding": 80.8,
-        "reasoning": 81.7,
-        "math": 76.0
-      },
-      "total_claims": 6,
-      "verified_count": 2,
-      "refuted_count": 2,
-      "unverifiable_count": 2,
-      "evaluated_at": "2026-04-26T12:57:50.057774",
-      "license": "open",
-      "model_card": {
-        "model_id": "deepseek-v3.2",
-        "display_name": "DeepSeek V3.2",
-        "vendor": "DeepSeek",
-        "card_url": "https://github.com/deepseek-ai/DeepSeek-V3",
-        "card_text": "DeepSeek V3.2 is an open-source model achieving 76.8% on SWE-bench Verified, 86.4% on MMLU, and 87.9% on HumanEval pass@1. It scores 72.3% on GPQA Diamond, 94.1% on GSM8K, and 79.8% on MATH. Performance on TruthfulQA stands at 68.9%.",
-        "license_kind": "open",
-        "architecture": null,
-        "parameter_count_billions": 671.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 128000,
-        "release_date": "2025-12-26T00:00:00",
-        "tags": [
-          "open-source",
-          "coding",
-          "reasoning",
-          "moe"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "capability_rank": null,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "open-source",
-        "coding",
-        "reasoning",
-        "moe"
       ]
     },
     {

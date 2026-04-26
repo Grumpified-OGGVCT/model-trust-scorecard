@@ -1,14 +1,14 @@
 # Model Capability Rankings
 
-Models are ordered by demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.
+Models are ordered by independently verified evidence first, then demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.
 
 | Rank | Model | Vendor | Use-Case Strengths | Trust Score | Verified Claims | License |
 |------|-------|--------|--------------------|-------------|-----------------|---------|
-| 1 | Nemotron-3-Super Cloud | NVIDIA | coding: 81.2, reasoning: 88.9, math: 88.9, multilingual: 86.7, multilingual_depth: 86.7 | ![26.0](https://img.shields.io/badge/Trust-26.0-orange) | 0/5 | open |
-| 2 | Qwen 3.5 (397B) Cloud | Alibaba / Qwen | coding: 72.8, reasoning: 89.4, math: 90.8, multilingual: 80.6, multilingual_depth: 77.0, tool_use: 86.7, agent_swarm: 86.7, vision_coding: 83.7, multimodal: 90.0, ocr: 93.7, video_understanding: 87.5 | ![41.0](https://img.shields.io/badge/Trust-41.0-yellow) | 0/14 | open |
-| 3 | DeepSeek-V4-Flash Cloud | DeepSeek | coding: 80.6, reasoning: 76.9, math: 92.1, safety: 95.8, hallucination_fidelity: 95.8 | ![26.0](https://img.shields.io/badge/Trust-26.0-orange) | 0/7 | open |
-| 4 | Claude Opus 4.5 | Anthropic | coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
-| 5 | DeepSeek V3.2 | DeepSeek | coding: 80.8, reasoning: 81.7, math: 76.0 | ![60.8](https://img.shields.io/badge/Trust-60.8-brightgreen) | 2/6 | open |
+| 1 | DeepSeek V3.2 | DeepSeek | coding: 80.8, reasoning: 81.7, math: 76.0 | ![60.8](https://img.shields.io/badge/Trust-60.8-brightgreen) | 2/6 | open |
+| 2 | Claude Opus 4.5 | Anthropic | coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
+| 3 | Nemotron-3-Super Cloud | NVIDIA | coding: 81.2, reasoning: 88.9, math: 88.9, multilingual: 86.7, multilingual_depth: 86.7 | ![26.0](https://img.shields.io/badge/Trust-26.0-orange) | 0/5 | open |
+| 4 | Qwen 3.5 (397B) Cloud | Alibaba / Qwen | coding: 72.8, reasoning: 89.4, math: 90.8, multilingual: 80.6, multilingual_depth: 77.0, tool_use: 86.7, agent_swarm: 86.7, vision_coding: 83.7, multimodal: 90.0, ocr: 93.7, video_understanding: 87.5 | ![41.0](https://img.shields.io/badge/Trust-41.0-yellow) | 0/14 | open |
+| 5 | DeepSeek-V4-Flash Cloud | DeepSeek | coding: 80.6, reasoning: 76.9, math: 92.1, safety: 95.8, hallucination_fidelity: 95.8 | ![26.0](https://img.shields.io/badge/Trust-26.0-orange) | 0/7 | open |
 | 6 | Gemini 2.5 Pro | Google | coding: 75.0, reasoning: 83.2, math: 81.5, safety: 68.1 | ![33.5](https://img.shields.io/badge/Trust-33.5-yellow) | 0/6 | proprietary |
 | 7 | DeepSeek R1 14B | DeepSeek | coding: 57.6, reasoning: 82.0, math: 76.5, multilingual: 84.0 | ![29.8](https://img.shields.io/badge/Trust-29.8-orange) | 0/6 | open |
 | 8 | Devstral 2 123B Cloud | Mistral AI | coding: 72.2, reasoning: 59.4, math: 59.4, safety: 92.5, hallucination_fidelity: 92.5 | ![18.5](https://img.shields.io/badge/Trust-18.5-orange) | 0/4 | open |
@@ -58,11 +58,12 @@ Models are ordered by demonstrated capabilities and benchmark/use-case performan
 ---
 
 **Legend:**
-- Rank order: models with at least three use-case scores are ranked by weighted demonstrated capability.
-- Tie-breakers: trust score, evidence, capability metadata, scale/context, and name.
-- Partial-data models follow the ranked tier, and models with no use-case scores are placed last.
+- Rank order: models with independently verified claims rank ahead of models with only unverified claims.
+- Within each reliability tier, models with at least three use-case scores are ranked by weighted demonstrated capability.
+- Tie-breakers: verified claim count, verification rate, trust score, evidence, capability metadata, scale/context, and name.
+- Partial-data models follow the fully ranked tier, and models with no evidence are placed last.
 - 🟢 **50-100**: Higher relative trust in the current score distribution
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-04-26T12:57:21.665185*
+*Last updated: 2026-04-26T12:58:23.671470*
