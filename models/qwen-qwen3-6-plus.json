@@ -16,5 +16,8 @@
   "pricing_per_1k_input_usd": 0.000325,
   "pricing_per_1k_output_usd": 0.00195,
   "card_url": "https://openrouter.ai/models/qwen-qwen3-6-plus",
-  "card_text": "Qwen3.6 Plus is a comparative catalog entry for Qwen.\n\nWeekly tokens: 303B.\nContext Window: 1,000,000 tokens.\nReleased: 2026-04-02.\nPricing: $0.325 per 1M input tokens and $1.95 per 1M output tokens.\nCapabilities: text, reasoning, coding, multilingual, long context."
+  "card_text": "Qwen3.6 Plus is a comparative catalog entry for Qwen.\n\nWeekly tokens: 303B.\nContext Window: 1,000,000 tokens.\nReleased: 2026-04-02.\nPricing: $0.325 per 1M input tokens and $1.95 per 1M output tokens.\nCapabilities: text, reasoning, coding, multilingual, long context.\n\nBenchLM reference: rank #10, overall score 68.",
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 10,
+  "leaderboard_score": 68.0
 }

@@ -1,0 +1,21 @@
+{
+  "model_id": "qwen-qwen3-6-27b",
+  "display_name": "Qwen3.6-27B",
+  "vendor": "Qwen",
+  "license_kind": "open",
+  "tags": [
+    "text",
+    "reasoning",
+    "coding",
+    "multilingual",
+    "long-context"
+  ],
+  "context_window_tokens": 262144,
+  "pricing_per_1k_input_usd": 0.0,
+  "pricing_per_1k_output_usd": 0.0,
+  "card_url": "https://benchlm.ai/",
+  "card_text": "Qwen3.6-27B is tracked from BenchLM as a current open reasoning model. BenchLM reference: rank #12, overall score 66.",
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 12,
+  "leaderboard_score": 66.0
+}

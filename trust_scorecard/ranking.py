@@ -57,6 +57,30 @@ def _numeric_scores(scores: Mapping[str, float]) -> dict[str, float]:
     return numeric_scores
 
 
+def _external_leaderboard_score(card: ModelCard) -> float | None:
+    """Return an externally sourced capability score when the catalog supplies one."""
+    if card.leaderboard_score is not None:
+        return float(card.leaderboard_score)
+
+    index_values = [
+        card.artificial_analysis_intelligence_index,
+        card.artificial_analysis_coding_index,
+        card.artificial_analysis_agentic_index,
+    ]
+    numeric_index_values = [float(value) for value in index_values if value is not None]
+    if numeric_index_values:
+        return sum(numeric_index_values) / len(numeric_index_values)
+
+    return None
+
+
+def _capability_rank_score(card: ModelCard) -> float | None:
+    """Convert a legacy lower-is-better rank into a weak fallback score."""
+    if card.capability_rank is None:
+        return None
+    return max(0.0, 100.0 - float(card.capability_rank))
+
+
 def capability_sort_key(
     card: ModelCard,
     use_case_scores: Mapping[str, float] | None = None,
@@ -70,12 +94,15 @@ def capability_sort_key(
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
     valid_numeric_scores = _numeric_scores(scores)
+    external_score = _external_leaderboard_score(card)
+    rank_fallback_score = _capability_rank_score(card)
+    has_external_leaderboard = external_score is not None or card.leaderboard_rank is not None
 
-    if verified_evidence_count > 0:
+    if verified_evidence_count > 0 or has_external_leaderboard:
         reliability_tier = TIER_VERIFIED
     elif benchmark_evidence_count > 0:
         reliability_tier = TIER_UNVERIFIED
-    elif valid_numeric_scores:
+    elif valid_numeric_scores or rank_fallback_score is not None:
         reliability_tier = TIER_CAPABILITY_ONLY
     else:
         reliability_tier = TIER_NO_EVIDENCE
@@ -90,6 +117,10 @@ def capability_sort_key(
             for name in valid_numeric_scores
         )
         composite = weighted_score / total_weight
+    elif external_score is not None:
+        composite = external_score
+    elif rank_fallback_score is not None:
+        composite = rank_fallback_score
     else:
         composite = 0.0
 
@@ -102,9 +133,11 @@ def capability_sort_key(
 
     return (
         reliability_tier,
+        -int(has_external_leaderboard),
+        -composite,
+        card.leaderboard_rank if card.leaderboard_rank is not None else float("inf"),
         -verified_evidence_count,
         -verification_rate,
-        -composite,
         -(trust_score or 0.0),
         -benchmark_evidence_count,
         -int(bool(tags & MULTIMODAL_TAGS)),

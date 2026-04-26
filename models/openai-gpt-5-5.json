@@ -9,11 +9,14 @@
   "pricing_per_1k_input_usd": 0.005,
   "pricing_per_1k_output_usd": 0.03,
   "card_url": "https://openrouter.ai/models?context=128000&fmt=cards&min_price=0.1&output_modalities=text",
-  "card_text": "GPT-5.5 is a comparative catalog entry for OpenAI.\n\nWeekly tokens: 14.8B.\nContext Window: 1,050,000 tokens.\nReleased: 2026-04-24.\nPricing: $5 per 1M input tokens and $30 per 1M output tokens.\nCapabilities: text, reasoning, coding, long context.",
+  "card_text": "GPT-5.5 is a comparative catalog entry for OpenAI.\n\nWeekly tokens: 14.8B.\nContext Window: 1,050,000 tokens.\nReleased: 2026-04-24.\nPricing: $5 per 1M input tokens and $30 per 1M output tokens.\nCapabilities: text, reasoning, coding, long context.\n\nBenchLM reference: rank #4, overall score 72.",
   "tags": [
     "coding",
     "long-context",
     "reasoning",
     "text"
-  ]
+  ],
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 4,
+  "leaderboard_score": 72.0
 }

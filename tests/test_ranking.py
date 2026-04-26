@@ -124,6 +124,68 @@ def test_verified_evidence_beats_unverified_claimed_capability():
     assert ranked[0][0].model_id == "verified"
 
 
+def test_same_reliability_tier_sorts_by_capability_before_verified_count():
+    more_verified_but_weaker = ModelCard(
+        model_id="more-verified",
+        display_name="More Verified",
+        tags=["text"],
+    )
+    fewer_verified_but_stronger = ModelCard(
+        model_id="fewer-verified",
+        display_name="Fewer Verified",
+        tags=["text"],
+    )
+
+    ranked = sorted(
+        [
+            (
+                more_verified_but_weaker,
+                {"coding": 70.0, "reasoning": 72.0, "math": 71.0},
+                80.0,
+                8,
+                4,
+            ),
+            (
+                fewer_verified_but_stronger,
+                {"coding": 90.0, "reasoning": 88.0, "math": 86.0},
+                40.0,
+                4,
+                1,
+            ),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert ranked[0][0].model_id == "fewer-verified"
+
+
+def test_external_leaderboard_score_ranks_sparse_frontier_models():
+    sourced_frontier = ModelCard(
+        model_id="sourced-frontier",
+        display_name="Sourced Frontier",
+        tags=["text", "reasoning"],
+        leaderboard_source="BenchLM",
+        leaderboard_rank=2,
+        leaderboard_score=73.0,
+    )
+    unsourced_large_context = ModelCard(
+        model_id="unsourced-large-context",
+        display_name="Unsourced Large Context",
+        tags=["text", "reasoning"],
+        context_window_tokens=1_000_000,
+    )
+
+    ranked = sorted(
+        [
+            (unsourced_large_context, {}, None, 0, 0),
+            (sourced_frontier, {}, None, 0, 0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert ranked[0][0].model_id == "sourced-frontier"
+
+
 def test_reliability_tiers_order_verified_unverified_capability_and_empty_models():
     verified = ModelCard(model_id="verified", display_name="Verified", tags=["text"])
     unverified = ModelCard(model_id="unverified", display_name="Unverified", tags=["text"])
