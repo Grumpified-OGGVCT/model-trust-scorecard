@@ -66,11 +66,6 @@ def capability_sort_key(
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
     valid_numeric_scores = _numeric_scores(scores)
-    verification_rate = (
-        verified_evidence_count / benchmark_evidence_count
-        if benchmark_evidence_count > 0
-        else 0.0
-    )
 
     if verified_evidence_count > 0:
         reliability_tier = 0
@@ -97,7 +92,11 @@ def capability_sort_key(
     return (
         reliability_tier,
         -verified_evidence_count,
-        -verification_rate,
+        -(
+            verified_evidence_count / benchmark_evidence_count
+            if benchmark_evidence_count > 0 and reliability_tier in {0, 1}
+            else 0.0
+        ),
         -composite,
         -(trust_score or 0.0),
         -benchmark_evidence_count,
