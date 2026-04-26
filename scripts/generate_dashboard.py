@@ -295,6 +295,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                     <li>Raw <code>ollama list</code> inventories and categorized Markdown lists are valid input examples. Models that do not map to a catalog entry are skipped until catalog data or pasted claims are provided.</li>
                 </ul>
             </div>
+            <div class="info-card">
+                <h3>Leaderboard cross-check sources</h3>
+                <p>When claims are not independently verified here yet, compare against external leaderboards before treating ranks as authoritative: <a href="https://benchlm.ai" class="github-link">BenchLM</a>, <a href="https://artificialanalysis.ai/leaderboards/models" class="github-link">Artificial Analysis</a>, <a href="https://llm-stats.com/leaderboards/llm-leaderboard" class="github-link">LLM Stats</a>, <a href="https://whatllm.org/explore" class="github-link">WhatLLM</a>, <a href="https://www.vellum.ai/llm-leaderboard" class="github-link">Vellum</a>, <a href="https://lmmarketcap.com" class="github-link">LM Market Cap</a>, <a href="https://openrouter.ai/rankings" class="github-link">OpenRouter rankings</a>, and Hugging Face leaderboard spaces.</p>
+            </div>
         </div>
 
         <div class="footer">

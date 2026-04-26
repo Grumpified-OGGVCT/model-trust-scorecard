@@ -89,14 +89,16 @@ def capability_sort_key(
     else:
         composite = 0.0
 
+    verification_rate = (
+        verified_evidence_count / benchmark_evidence_count
+        if benchmark_evidence_count > 0
+        else 0.0
+    )
+
     return (
         reliability_tier,
         -verified_evidence_count,
-        -(
-            verified_evidence_count / benchmark_evidence_count
-            if benchmark_evidence_count > 0 and reliability_tier in {0, 1}
-            else 0.0
-        ),
+        -verification_rate,
         -composite,
         -(trust_score or 0.0),
         -benchmark_evidence_count,

@@ -39,3 +39,6 @@ def test_dashboard_describes_capability_first_ordering():
     assert "Models are ordered by independently verified evidence first" in HTML_TEMPLATE
     assert "weighted composite of demonstrated capability" in HTML_TEMPLATE
     assert "zero-evidence models are placed last" in HTML_TEMPLATE
+    assert "Leaderboard cross-check sources" in HTML_TEMPLATE
+    assert "BenchLM" in HTML_TEMPLATE
+    assert "Artificial Analysis" in HTML_TEMPLATE

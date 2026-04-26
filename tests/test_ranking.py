@@ -268,7 +268,9 @@ def test_evaluation_and_score_record_use_same_evidence_count_semantics():
         "use_case_scores": trust_score.breakdown.use_case_scores,
         "trust_score": trust_score.score,
         "total_claims": len(evaluation.claims),
-        "verified_count": sum(1 for outcome in outcomes if outcome.status == VerificationStatus.VERIFIED),
+        "verified_count": sum(
+            1 for outcome in evaluation.outcomes if outcome.status == VerificationStatus.VERIFIED
+        ),
     }
 
     assert evaluation_sort_key(evaluation) == score_record_sort_key(score_record)
