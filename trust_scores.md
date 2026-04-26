@@ -66,4 +66,4 @@ Models are ordered by independently verified evidence first, then demonstrated c
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-04-26T12:57:50.057774*
+*Last updated: 2026-04-26T12:58:23.671470*

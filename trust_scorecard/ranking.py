@@ -5,7 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from typing import Any
 
-from trust_scorecard.models import ModelCard, ModelEvaluation
+from trust_scorecard.models import ModelCard, ModelEvaluation, VerificationStatus
 
 # Weights prioritize core frontier capabilities while including specialized metrics to reward
 # measured breadth without allowing niche performance to skew rankings.
@@ -134,7 +134,7 @@ def evaluation_sort_key(evaluation: ModelEvaluation) -> tuple[Any, ...]:
     use_case_scores = evaluation.trust_score.breakdown.use_case_scores if evaluation.trust_score else {}
     benchmark_evidence_count = len(evaluation.claims)
     verified_evidence_count = sum(
-        1 for outcome in evaluation.outcomes if outcome.status == "verified"
+        1 for outcome in evaluation.outcomes if outcome.status == VerificationStatus.VERIFIED
     )
     return capability_sort_key(
         evaluation.card,

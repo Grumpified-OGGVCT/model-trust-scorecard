@@ -38,6 +38,12 @@ def sort_scores_by_capability(scores: list[dict]) -> list[dict]:
     return sorted(scores, key=score_record_sort_key)
 
 
+def latest_evaluated_at(scores: list[dict]) -> str | None:
+    """Return the latest available evaluation timestamp from score records."""
+    timestamps = [score.get("evaluated_at") for score in scores if score.get("evaluated_at")]
+    return max(timestamps) if timestamps else None
+
+
 def generate_markdown_table(scores: list[dict]) -> str:
     """Generate capability ranking table with trust metadata."""
     sorted_scores = sort_scores_by_capability(scores)
@@ -85,7 +91,7 @@ def generate_markdown_table(scores: list[dict]) -> str:
         "- 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage",
         "- 🟠 **<30**: Low trust - few claims verified or significant gaps",
         "",
-        f"*Last updated: {scores[0]['evaluated_at'] if scores else 'N/A'}*",
+        f"*Last updated: {latest_evaluated_at(scores) or 'N/A'}*",
     ])
 
     return "\n".join(lines)
@@ -156,7 +162,7 @@ def main():
 
     # Write JSON
     aggregated = {
-        "generated_at": reports[0]["evaluated_at"] if reports else None,
+        "generated_at": latest_evaluated_at(scores),
         "total_models": len(scores),
         "scores": sort_scores_by_capability(scores),
     }
