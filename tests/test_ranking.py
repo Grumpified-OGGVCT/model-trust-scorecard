@@ -89,6 +89,41 @@ def test_minimum_score_count_gates_capability_ranking():
     assert ranked[0][0].model_id == "broad-low-trust"
 
 
+def test_verified_evidence_beats_unverified_claimed_capability():
+    verified_model = ModelCard(
+        model_id="verified",
+        display_name="Verified",
+        tags=["text"],
+    )
+    unverified_model = ModelCard(
+        model_id="unverified",
+        display_name="Unverified",
+        tags=["text"],
+    )
+
+    ranked = sorted(
+        [
+            (
+                unverified_model,
+                {"coding": 99.0, "reasoning": 99.0, "math": 99.0},
+                80.0,
+                10,
+                0,
+            ),
+            (
+                verified_model,
+                {"coding": 70.0, "reasoning": 70.0, "math": 70.0},
+                40.0,
+                3,
+                1,
+            ),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert ranked[0][0].model_id == "verified"
+
+
 def test_partial_data_sorts_by_trust_before_metadata():
     lower_trust = ModelCard(
         model_id="lower-trust",
@@ -233,6 +268,7 @@ def test_evaluation_and_score_record_use_same_evidence_count_semantics():
         "use_case_scores": trust_score.breakdown.use_case_scores,
         "trust_score": trust_score.score,
         "total_claims": len(evaluation.claims),
+        "verified_count": len(outcomes),
     }
 
     assert evaluation_sort_key(evaluation) == score_record_sort_key(score_record)

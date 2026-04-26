@@ -36,6 +36,6 @@ def test_dashboard_formats_release_date():
 
 def test_dashboard_describes_capability_first_ordering():
     assert "Model Capability Rankings" in HTML_TEMPLATE
-    assert "Models are ordered by demonstrated capabilities" in HTML_TEMPLATE
+    assert "Models are ordered by independently verified evidence first" in HTML_TEMPLATE
     assert "weighted composite of demonstrated capability" in HTML_TEMPLATE
-    assert "zero-score models are placed last" in HTML_TEMPLATE
+    assert "zero-evidence models are placed last" in HTML_TEMPLATE

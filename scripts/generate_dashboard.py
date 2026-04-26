@@ -251,7 +251,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
         <h2 style="margin-bottom: 10px; color: #2d3748;">Model Capability Rankings</h2>
         <p style="color:#4a5568; line-height:1.6; margin-bottom: 20px;">
-            Models are ordered by demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.
+            Models are ordered by independently verified evidence first, then demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.
         </p>
         <table>
             <thead>
@@ -275,7 +275,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <div class="info-grid">
             <div class="info-card">
                 <h3>How rankings are ordered</h3>
-                <p>Models with at least three use-case scores are ordered by a weighted composite of demonstrated capability. Partial-data models follow, zero-score models are placed last, and trust score plus capability metadata break ties within each tier.</p>
+                <p>Models with independently verified claims rank ahead of models with only unverified claims. Within each reliability tier, models with at least three use-case scores are ordered by a weighted composite of demonstrated capability. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break ties within each tier.</p>
             </div>
             <div class="info-card">
                 <h3>Where results go</h3>
