@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-26T12:58:23.671470",
+  "generated_at": "2026-04-26T14:00:15.730221",
   "total_models": 50,
   "scores": [
     {
@@ -28,7 +28,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-26T12:57:50.057774",
+      "evaluated_at": "2026-04-26T13:59:16.487578",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -94,7 +94,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:21.665185",
+      "evaluated_at": "2026-04-26T13:59:23.144396",
       "license": "proprietary",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -162,7 +162,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-04-26T12:57:39.887538",
+      "evaluated_at": "2026-04-26T13:59:41.336208",
       "license": "open",
       "model_card": {
         "model_id": "nemotron-3-super-cloud",
@@ -250,7 +250,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 14,
-      "evaluated_at": "2026-04-26T12:57:21.371674",
+      "evaluated_at": "2026-04-26T13:59:42.309956",
       "license": "open",
       "model_card": {
         "model_id": "qwen3.5-cloud",
@@ -330,7 +330,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-04-26T12:57:25.744001",
+      "evaluated_at": "2026-04-26T13:58:17.514733",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-flash-cloud",
@@ -404,7 +404,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-26T12:57:49.015161",
+      "evaluated_at": "2026-04-26T13:58:50.125405",
       "license": "proprietary",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -470,7 +470,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-04-26T12:57:23.208637",
+      "evaluated_at": "2026-04-26T13:58:48.258061",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-r1-14b",
@@ -544,7 +544,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:57:21.625154",
+      "evaluated_at": "2026-04-26T14:00:08.077708",
       "license": "open",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
@@ -616,7 +616,7 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-04-26T12:57:49.771967",
+      "evaluated_at": "2026-04-26T13:59:08.306482",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
@@ -698,7 +698,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 8,
-      "evaluated_at": "2026-04-26T12:57:21.993388",
+      "evaluated_at": "2026-04-26T13:58:48.059448",
       "license": "open",
       "model_card": {
         "model_id": "glm-5.1-cloud",
@@ -780,7 +780,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-04-26T12:57:21.468158",
+      "evaluated_at": "2026-04-26T13:58:20.410731",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.6-cloud",
@@ -866,7 +866,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-04-26T12:57:21.818868",
+      "evaluated_at": "2026-04-26T13:59:13.600159",
       "license": "restricted",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
@@ -936,7 +936,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:57:22.754550",
+      "evaluated_at": "2026-04-26T13:59:53.877885",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v",
@@ -1033,7 +1033,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:57:51.171906",
+      "evaluated_at": "2026-04-26T14:00:12.537947",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5v",
@@ -1130,7 +1130,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:58:23.671470",
+      "evaluated_at": "2026-04-26T13:59:43.329777",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flash",
@@ -1231,7 +1231,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:58:20.329692",
+      "evaluated_at": "2026-04-26T13:59:46.901725",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flashx",
@@ -1332,7 +1332,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:58:17.664949",
+      "evaluated_at": "2026-04-26T13:59:25.349044",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-1",
@@ -1431,7 +1431,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:57:54.126222",
+      "evaluated_at": "2026-04-26T13:59:47.006007",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6",
@@ -1526,7 +1526,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:58:20.323510",
+      "evaluated_at": "2026-04-26T13:58:15.625400",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7",
@@ -1621,7 +1621,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:57:24.619431",
+      "evaluated_at": "2026-04-26T14:00:11.540029",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5",
@@ -1716,7 +1716,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:57:57.151474",
+      "evaluated_at": "2026-04-26T14:00:12.304588",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7-flash",
@@ -1815,7 +1815,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-04-26T12:58:09.460941",
+      "evaluated_at": "2026-04-26T13:59:56.888667",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7-flashx",
@@ -1914,7 +1914,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:58:08.859135",
+      "evaluated_at": "2026-04-26T13:59:47.366870",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5v-turbo",
@@ -2009,7 +2009,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:56.988443",
+      "evaluated_at": "2026-04-26T14:00:15.730221",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-ocr",
@@ -2102,7 +2102,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:21.023107",
+      "evaluated_at": "2026-04-26T14:00:12.152208",
       "license": "proprietary",
       "model_card": {
         "model_id": "autoglm-phone-multilingual",
@@ -2197,7 +2197,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:23.537061",
+      "evaluated_at": "2026-04-26T13:59:13.426343",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-32b-0414-128k",
@@ -2284,7 +2284,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:58:17.333190",
+      "evaluated_at": "2026-04-26T13:59:14.275570",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5",
@@ -2377,7 +2377,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:53.694927",
+      "evaluated_at": "2026-04-26T13:59:41.421076",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-turbo",
@@ -2470,7 +2470,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:58:22.742206",
+      "evaluated_at": "2026-04-26T13:59:43.568820",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-plus",
@@ -2561,7 +2561,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:53.813301",
+      "evaluated_at": "2026-04-26T13:59:46.290813",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-air",
@@ -2652,7 +2652,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:48.183881",
+      "evaluated_at": "2026-04-26T14:00:14.867034",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-airx",
@@ -2743,7 +2743,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-04-26T12:57:52.243875",
+      "evaluated_at": "2026-04-26T13:59:24.896659",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-flash",
@@ -2821,7 +2821,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:22.884957",
+      "evaluated_at": "2026-04-26T13:59:39.557165",
       "license": "open",
       "model_card": {
         "model_id": "gemma3-4b",
@@ -2876,7 +2876,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:58:18.335168",
+      "evaluated_at": "2026-04-26T13:59:51.726718",
       "license": "proprietary",
       "model_card": {
         "model_id": "google-gemini-3-1-flash-lite-preview",
@@ -2929,7 +2929,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:24.012536",
+      "evaluated_at": "2026-04-26T13:58:42.859426",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogvideox-3",
@@ -2976,7 +2976,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:50.539725",
+      "evaluated_at": "2026-04-26T13:59:15.027695",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogview-4-250304",
@@ -3027,7 +3027,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:53.108852",
+      "evaluated_at": "2026-04-26T13:59:40.996137",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-asr-2512",
@@ -3082,7 +3082,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:58:22.362682",
+      "evaluated_at": "2026-04-26T13:59:19.514104",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-image",
@@ -3131,7 +3131,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:52.188722",
+      "evaluated_at": "2026-04-26T13:58:17.015312",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-v4-pro",
@@ -3186,7 +3186,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:58:17.460220",
+      "evaluated_at": "2026-04-26T13:58:14.681382",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-7",
@@ -3239,7 +3239,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:21.353415",
+      "evaluated_at": "2026-04-26T13:58:17.647194",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-sonnet-4-6",
@@ -3292,7 +3292,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:21.571609",
+      "evaluated_at": "2026-04-26T13:59:51.113926",
       "license": "open",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
@@ -3347,7 +3347,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:54.164458",
+      "evaluated_at": "2026-04-26T13:59:39.090217",
       "license": "open",
       "model_card": {
         "model_id": "cogito-14b",
@@ -3400,7 +3400,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:17.839136",
+      "evaluated_at": "2026-04-26T13:58:50.724895",
       "license": "open",
       "model_card": {
         "model_id": "deepcoder",
@@ -3449,7 +3449,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:25.233263",
+      "evaluated_at": "2026-04-26T13:59:59.030140",
       "license": "open",
       "model_card": {
         "model_id": "embeddinggemma",
@@ -3500,7 +3500,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:47.783133",
+      "evaluated_at": "2026-04-26T13:58:28.875118",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6-fast",
@@ -3551,7 +3551,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:22.345772",
+      "evaluated_at": "2026-04-26T14:00:10.922531",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-lite",
@@ -3600,7 +3600,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:45.934274",
+      "evaluated_at": "2026-04-26T13:59:17.288793",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-mini",
@@ -3649,7 +3649,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:58:13.189845",
+      "evaluated_at": "2026-04-26T13:58:44.958433",
       "license": "unknown",
       "model_card": {
         "model_id": "arcee-ai-trinity-large-thinking",
@@ -3698,7 +3698,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-04-26T12:57:51.808164",
+      "evaluated_at": "2026-04-26T13:59:39.007469",
       "license": "unknown",
       "model_card": {
         "model_id": "aion-labs-aion-2-0",
