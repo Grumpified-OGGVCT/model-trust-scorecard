@@ -94,7 +94,7 @@ def capability_sort_key(
         composite = 0.0
 
     verification_rate = (
-        min(verified_evidence_count, benchmark_evidence_count) / benchmark_evidence_count
+        verified_evidence_count / benchmark_evidence_count
         if benchmark_evidence_count > 0
         else 0.0
     )
