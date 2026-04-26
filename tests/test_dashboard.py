@@ -53,6 +53,9 @@ def test_dashboard_source_confidence_labels():
 
 def test_dashboard_category_from_score_uses_capability_metadata():
     assert _category_from_score({"use_case_scores": {"coding": 90.0}, "tags": []}) == "coding"
+    assert _category_from_score({"use_case_scores": {"reasoning": 90.0}, "tags": []}) == "reasoning"
+    assert _category_from_score({"use_case_scores": {"math": 90.0}, "tags": []}) == "math"
+    assert _category_from_score({"use_case_scores": {"tool_use": 90.0}, "tags": []}) == "tool-use"
     assert _category_from_score(
         {
             "use_case_scores": {},
@@ -60,6 +63,14 @@ def test_dashboard_category_from_score_uses_capability_metadata():
             "model_card": {"context_window_tokens": 128000},
         }
     ) == "multimodal"
+    assert _category_from_score(
+        {
+            "use_case_scores": {},
+            "tags": ["text"],
+            "model_card": {"context_window_tokens": 128000},
+        }
+    ) == "long-context"
+    assert _category_from_score({"use_case_scores": {}, "tags": ["text"]}) == "all"
 
 
 def test_dashboard_describes_reliability_first_ordering():

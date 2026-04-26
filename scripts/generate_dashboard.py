@@ -82,7 +82,7 @@ def _format_compact_number(value: int | float | None) -> str:
 
 
 def _source_confidence(total_claims: int, verified_count: int, unverifiable_count: int = 0) -> str:
-    if total_claims <= 0:
+    if total_claims < 1:
         return "Needs sources"
     verified_rate = verified_count / total_claims
     if verified_rate >= 0.5:
@@ -674,7 +674,7 @@ def main():
                 score["vendor"] or "",
                 license_value,
                 " ".join(tags),
-                " ".join(use_case_scores),
+                " ".join(use_case_scores.keys()),
             ]).lower()
         )
 
