@@ -37,6 +37,10 @@ CAPABILITY_WEIGHTS = {
 
 MIN_SCORES_FOR_RANKING = 3
 DEFAULT_CAPABILITY_WEIGHT = 0.5
+TIER_VERIFIED = 0
+TIER_UNVERIFIED = 1
+TIER_CAPABILITY_ONLY = 2
+TIER_NO_EVIDENCE = 3
 
 MULTIMODAL_TAGS = {"multimodal", "vision", "video", "ocr", "document-analysis"}
 AGENTIC_TAGS = {"agentic", "tool-use", "function-calling", "software-engineering"}
@@ -68,13 +72,13 @@ def capability_sort_key(
     valid_numeric_scores = _numeric_scores(scores)
 
     if verified_evidence_count > 0:
-        reliability_tier = 0
+        reliability_tier = TIER_VERIFIED
     elif benchmark_evidence_count > 0:
-        reliability_tier = 1
+        reliability_tier = TIER_UNVERIFIED
     elif valid_numeric_scores:
-        reliability_tier = 2
+        reliability_tier = TIER_CAPABILITY_ONLY
     else:
-        reliability_tier = 3
+        reliability_tier = TIER_NO_EVIDENCE
 
     if len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING:
         weighted_score = sum(
@@ -90,7 +94,7 @@ def capability_sort_key(
         composite = 0.0
 
     verification_rate = (
-        verified_evidence_count / benchmark_evidence_count
+        min(verified_evidence_count, benchmark_evidence_count) / benchmark_evidence_count
         if benchmark_evidence_count > 0
         else 0.0
     )
