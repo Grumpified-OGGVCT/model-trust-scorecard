@@ -115,7 +115,7 @@ Models are ordered by independently sourced capability first, then demonstrated 
 ---
 
 **Legend:**
-- Rank order: models with independently verified claims rank ahead of models with only unverified claims.
+- Rank order: models with independently verified claims or external leaderboard score/rank evidence rank ahead of models with only unverified claims.
 - External leaderboard score/rank metadata is treated as current capability evidence when model-local benchmark claims are sparse.
 - Within each reliability tier, models are ranked by externally sourced or weighted demonstrated capability before verification-count tie breakers.
 - Tie-breakers: verified claim count, verification rate, trust score, evidence, capability metadata, scale/context, and name.

@@ -186,6 +186,63 @@ def test_external_leaderboard_score_ranks_sparse_frontier_models():
     assert ranked[0][0].model_id == "sourced-frontier"
 
 
+def test_artificial_analysis_metadata_scores_sparse_models_above_zero_metadata():
+    analysis_indexed = ModelCard(
+        model_id="analysis-indexed",
+        display_name="Analysis Indexed",
+        tags=["text"],
+        artificial_analysis_intelligence_index=80.0,
+        artificial_analysis_coding_index=70.0,
+        artificial_analysis_agentic_index=60.0,
+    )
+    sparse_without_metadata = ModelCard(
+        model_id="sparse-without-metadata",
+        display_name="Sparse Without Metadata",
+        tags=["text"],
+    )
+    no_evidence = ModelCard(model_id="no-evidence", display_name="No Evidence", tags=["text"])
+
+    ranked = sorted(
+        [
+            (no_evidence, {}, None, 0, 0),
+            (sparse_without_metadata, {"coding": 99.0}, None, 0, 0),
+            (analysis_indexed, {"coding": 70.0}, None, 0, 0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert [item[0].model_id for item in ranked] == [
+        "analysis-indexed",
+        "sparse-without-metadata",
+        "no-evidence",
+    ]
+
+
+def test_capability_rank_metadata_fallback_orders_sparse_models():
+    higher_ranked = ModelCard(
+        model_id="higher-ranked",
+        display_name="Higher Ranked",
+        tags=["text"],
+        capability_rank=5,
+    )
+    lower_ranked = ModelCard(
+        model_id="lower-ranked",
+        display_name="Lower Ranked",
+        tags=["text"],
+        capability_rank=40,
+    )
+
+    ranked = sorted(
+        [
+            (lower_ranked, {}, None, 0, 0),
+            (higher_ranked, {}, None, 0, 0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert ranked[0][0].model_id == "higher-ranked"
+
+
 def test_reliability_tiers_order_verified_unverified_capability_and_empty_models():
     verified = ModelCard(model_id="verified", display_name="Verified", tags=["text"])
     unverified = ModelCard(model_id="unverified", display_name="Unverified", tags=["text"])
