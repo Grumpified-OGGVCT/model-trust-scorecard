@@ -546,7 +546,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             const provider = providerFilter.value;
             const license = licenseFilter.value;
             rows.forEach((row) => {{
-                const matchesQuery = !query || row.textContent.toLowerCase().includes(query);
+                const matchesQuery = !query || row.dataset.search.includes(query);
                 const matchesCategory = category === 'all' || row.dataset.category === category;
                 const matchesProvider = provider === 'all' || row.dataset.provider === provider;
                 const matchesLicense = license === 'all' || row.dataset.license === license;

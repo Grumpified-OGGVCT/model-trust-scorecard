@@ -93,3 +93,4 @@ def test_dashboard_describes_reliability_first_ordering():
     assert "Source Confidence" in HTML_TEMPLATE
     assert "Claim Coverage" in HTML_TEMPLATE
     assert "providerFilter" in HTML_TEMPLATE
+    assert "row.dataset.search.includes(query)" in HTML_TEMPLATE
