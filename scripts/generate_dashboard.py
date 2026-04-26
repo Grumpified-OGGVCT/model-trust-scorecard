@@ -127,6 +127,19 @@ def _format_chips(labels: list[str]) -> str:
     )
 
 
+def _strength_chips(score: dict) -> str:
+    use_case_scores = score.get("use_case_scores", {}) or {}
+    model_card = score.get("model_card", {}) or {}
+    leaderboard_score = model_card.get("leaderboard_score")
+    labels = []
+    if leaderboard_score is not None:
+        source = model_card.get("leaderboard_source") or "External"
+        labels.append(f"{source}: {float(leaderboard_score):.1f}")
+    labels.extend(f"{k.replace('_', ' ').title()}: {v:.1f}" for k, v in use_case_scores.items())
+
+    return _format_chips(labels)
+
+
 def _capabilities_from_tags(tags: list[str], context_window: int | None = None) -> str:
     normalized = {tag.lower() for tag in tags}
     caps: list[str] = []
@@ -430,7 +443,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             </div>
             <aside class="hero-side hero-card">
                 <h2>Accuracy guardrails</h2>
-                <p>Rankings prioritize independently verified evidence before claimed capability. Rows expose confidence labels so unverified or sparse-source models do not look more authoritative than the evidence supports.</p>
+                <p>Rankings use independent capability evidence, including external leaderboard score/rank metadata, before raw verification-count tie breakers. Rows expose confidence labels so sparse-source models do not look more authoritative than the evidence supports.</p>
                 <p><a class="github-link" href="#sources">Review external leaderboard anchors</a></p>
             </aside>
         </section>
@@ -446,7 +459,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
         <section class="panel" id="rankings">
             <h2>Model Capability Rankings</h2>
-            <p class="subtitle">Models are ordered by independently verified evidence first, then demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.</p>
+            <p class="subtitle">Models are ordered by independently sourced capability first, then demonstrated benchmark/use-case performance; trust score indicates confidence in model-local claims and verification status.</p>
             <div class="toolbar" aria-label="Leaderboard filters">
                 <input id="modelSearch" type="search" placeholder="Search models, providers, capabilities..." aria-label="Search models">
                 <select id="categoryFilter" aria-label="Category filter">
@@ -491,7 +504,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <section class="info-grid" id="methodology">
             <div class="info-card">
                 <h3>How rankings are ordered</h3>
-                <p>Models with independently verified claims rank ahead of models with only unverified claims. Within each reliability tier, models with at least three use-case scores are ordered by a weighted composite of demonstrated capability. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break ties within each tier.</p>
+                <p>Models with independently verified claims or external leaderboard score/rank metadata rank ahead of models with only unverified claims. Within each reliability tier, externally sourced or weighted demonstrated capability now sorts before raw verification-count tie breakers. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break remaining ties.</p>
             </div>
             <div class="info-card">
                 <h3>Completeness and accuracy signals</h3>
@@ -623,9 +636,7 @@ def main():
         )
         score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
         use_case_scores = score.get("use_case_scores", {}) or {}
-        use_case_label = _format_chips(
-            [f"{k.replace('_', ' ').title()}: {v:.1f}" for k, v in use_case_scores.items()]
-        )
+        use_case_label = _strength_chips(score)
 
         # Extract metadata from model card
         model_card = score.get("model_card", {})

@@ -83,8 +83,9 @@ def test_dashboard_category_from_score_uses_capability_metadata():
 
 def test_dashboard_describes_reliability_first_ordering():
     assert "Model Capability Rankings" in HTML_TEMPLATE
-    assert "Models are ordered by independently verified evidence first" in HTML_TEMPLATE
-    assert "weighted composite of demonstrated capability" in HTML_TEMPLATE
+    assert "Models are ordered by independently sourced capability first" in HTML_TEMPLATE
+    assert "external leaderboard score/rank metadata" in HTML_TEMPLATE
+    assert "weighted demonstrated capability" in HTML_TEMPLATE
     assert "zero-evidence models are placed last" in HTML_TEMPLATE
     assert "Leaderboard cross-check sources" in HTML_TEMPLATE
     assert "BenchLM" in HTML_TEMPLATE

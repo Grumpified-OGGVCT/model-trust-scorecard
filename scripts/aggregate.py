@@ -44,6 +44,21 @@ def latest_evaluated_at(scores: list[dict]) -> str | None:
     return max(timestamps) if timestamps else None
 
 
+def _strength_label(score: dict) -> str:
+    use_case_scores = score.get("use_case_scores") or {}
+    model_card = score.get("model_card") or {}
+    leaderboard_score = model_card.get("leaderboard_score")
+    labels = []
+    if leaderboard_score is not None:
+        source = model_card.get("leaderboard_source") or "External leaderboard"
+        labels.append(f"{source} score: {float(leaderboard_score):.1f}")
+    labels.extend(f"{name}: {value:.1f}" for name, value in use_case_scores.items())
+    if labels:
+        return ", ".join(labels)
+
+    return "—"
+
+
 def generate_markdown_table(scores: list[dict]) -> str:
     """Generate capability ranking table with trust metadata."""
     sorted_scores = sort_scores_by_capability(scores)
@@ -51,7 +66,7 @@ def generate_markdown_table(scores: list[dict]) -> str:
     lines = [
         "# Model Capability Rankings",
         "",
-        "Models are ordered by independently verified evidence first, then demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.",
+        "Models are ordered by independently sourced capability first, then demonstrated benchmark/use-case performance; trust score indicates confidence in model-local claims and verification status.",
         "",
         "| Rank | Model | Vendor | Use-Case Strengths | Trust Score | Verified Claims | License |",
         "|------|-------|--------|--------------------|-------------|-----------------|---------|",
@@ -59,10 +74,7 @@ def generate_markdown_table(scores: list[dict]) -> str:
 
     for rank, score in enumerate(sorted_scores, 1):
         trust_score = score.get("trust_score")
-        use_case_scores = score.get("use_case_scores") or {}
-        use_case_label = ", ".join(
-            f"{name}: {value:.1f}" for name, value in use_case_scores.items()
-        ) or "—"
+        use_case_label = _strength_label(score)
         # Badge color based on score
         if trust_score is None:
             badge = "![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey)"
@@ -84,7 +96,8 @@ def generate_markdown_table(scores: list[dict]) -> str:
         "",
         "**Legend:**",
         "- Rank order: models with independently verified claims rank ahead of models with only unverified claims.",
-        "- Within each reliability tier, models with at least three use-case scores are ranked by weighted demonstrated capability.",
+        "- External leaderboard score/rank metadata is treated as current capability evidence when model-local benchmark claims are sparse.",
+        "- Within each reliability tier, models are ranked by externally sourced or weighted demonstrated capability before verification-count tie breakers.",
         "- Tie-breakers: verified claim count, verification rate, trust score, evidence, capability metadata, scale/context, and name.",
         "- Partial-data models follow the fully ranked tier, and models with no evidence are placed last.",
         "- 🟢 **50-100**: Higher relative trust in the current score distribution",
