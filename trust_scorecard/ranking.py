@@ -64,7 +64,7 @@ def capability_sort_key(
     benchmark_evidence_count: int = 0,
     verified_evidence_count: int = 0,
 ) -> tuple[Any, ...]:
-    """Return a reliability-first sort key for model rankings."""
+    """Return a sort key that prioritizes verified evidence over claimed capability."""
     scores = use_case_scores or {}
     tags = set(card.tags or [])
     active_params = card.parameter_count_billions or 0.0
@@ -93,6 +93,7 @@ def capability_sort_key(
     else:
         composite = 0.0
 
+    # Keep zero-evidence models at a 0.0 verification rate and avoid dividing by zero.
     verification_rate = (
         verified_evidence_count / benchmark_evidence_count
         if benchmark_evidence_count > 0
