@@ -154,7 +154,7 @@
 
         <h2 style="margin-bottom: 10px; color: #2d3748;">Model Capability Rankings</h2>
         <p style="color:#4a5568; line-height:1.6; margin-bottom: 20px;">
-            Models are ordered by demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.
+            Models are ordered by independently verified evidence first, then demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.
         </p>
         <table>
             <thead>
@@ -173,39 +173,17 @@
             <tbody>
                 <tr>
                 <td>1</td>
-                <td><strong>Nemotron-3-Super Cloud</strong><br><span style="color:#718096; font-size:0.85em;">NVIDIA • 2026-03-11</span></td>
-                <td>12B / 120B<br><span style="color:#718096; font-size:0.85em;">1000K ctx</span></td>
-                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/5 verified</span></td>
-                <td>Code • Tools • Agent • Reasoning • Multi-Lang • Enterprise • Long Context</td>
-                <td>coding: 81.2, reasoning: 88.9, math: 88.9, multilingual: 86.7, multilingual_depth: 86.7</td>
-                <td>$0.09 / $0.45<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong>DeepSeek V3.2</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek • 2025-12-26</span></td>
+                <td>671B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
+                <td><span class="score-badge score-high">60.8</span><br><span style="color:#718096; font-size:0.85em;">2/6 verified</span></td>
+                <td>Code • Reasoning • Long Context</td>
+                <td>coding: 80.8, reasoning: 81.7, math: 76.0</td>
+                <td>-</td>
                 <td>-</td>
                 <td>open</td>
             </tr>
 <tr>
                 <td>2</td>
-                <td><strong>Qwen 3.5 (397B) Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Alibaba / Qwen • 2026-02-16</span></td>
-                <td>17B / 397B<br><span style="color:#718096; font-size:0.85em;">262K ctx</span></td>
-                <td><span class="score-badge score-medium">41.0</span><br><span style="color:#718096; font-size:0.85em;">0/14 verified</span></td>
-                <td>Vision • Video • OCR • Docs • Code • Reasoning • Multi-Lang • Long Context</td>
-                <td>coding: 72.8, reasoning: 89.4, math: 90.8, multilingual: 80.6, multilingual_depth: 77.0, tool_use: 86.7, agent_swarm: 86.7, vision_coding: 83.7, multimodal: 90.0, ocr: 93.7, video_understanding: 87.5</td>
-                <td>$0.39 / $2.34<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>open</td>
-            </tr>
-<tr>
-                <td>3</td>
-                <td><strong>DeepSeek-V4-Flash Cloud</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek • 2026-04-23</span></td>
-                <td>13B / 284B<br><span style="color:#718096; font-size:0.85em;">1048K ctx</span></td>
-                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
-                <td>Code • Tools • Agent • Reasoning • RAG • Open Weights • Long Context</td>
-                <td>coding: 80.6, reasoning: 76.9, math: 92.1, safety: 95.8, hallucination_fidelity: 95.8</td>
-                <td>$0.14 / $0.28<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td><strong style="color:#38a169;">4.2%</strong><br><span style="color:#718096; font-size:0.85em;">Low risk</span></td>
-                <td>open</td>
-            </tr>
-<tr>
-                <td>4</td>
                 <td><strong>Claude Opus 4.5</strong><br><span style="color:#718096; font-size:0.85em;">Anthropic • 2025-11-01</span></td>
                 <td>-<br><span style="color:#718096; font-size:0.85em;">200K ctx</span></td>
                 <td><span class="score-badge score-medium">36.9</span><br><span style="color:#718096; font-size:0.85em;">1/7 verified</span></td>
@@ -216,14 +194,36 @@
                 <td>proprietary</td>
             </tr>
 <tr>
+                <td>3</td>
+                <td><strong>Nemotron-3-Super Cloud</strong><br><span style="color:#718096; font-size:0.85em;">NVIDIA • 2026-03-11</span></td>
+                <td>12B / 120B<br><span style="color:#718096; font-size:0.85em;">1000K ctx</span></td>
+                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/5 verified</span></td>
+                <td>Code • Tools • Agent • Reasoning • Multi-Lang • Enterprise • Long Context</td>
+                <td>coding: 81.2, reasoning: 88.9, math: 88.9, multilingual: 86.7, multilingual_depth: 86.7</td>
+                <td>$0.09 / $0.45<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
+            </tr>
+<tr>
+                <td>4</td>
+                <td><strong>Qwen 3.5 (397B) Cloud</strong><br><span style="color:#718096; font-size:0.85em;">Alibaba / Qwen • 2026-02-16</span></td>
+                <td>17B / 397B<br><span style="color:#718096; font-size:0.85em;">262K ctx</span></td>
+                <td><span class="score-badge score-medium">41.0</span><br><span style="color:#718096; font-size:0.85em;">0/14 verified</span></td>
+                <td>Vision • Video • OCR • Docs • Code • Reasoning • Multi-Lang • Long Context</td>
+                <td>coding: 72.8, reasoning: 89.4, math: 90.8, multilingual: 80.6, multilingual_depth: 77.0, tool_use: 86.7, agent_swarm: 86.7, vision_coding: 83.7, multimodal: 90.0, ocr: 93.7, video_understanding: 87.5</td>
+                <td>$0.39 / $2.34<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
+            </tr>
+<tr>
                 <td>5</td>
-                <td><strong>DeepSeek V3.2</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek • 2025-12-26</span></td>
-                <td>671B<br><span style="color:#718096; font-size:0.85em;">128K ctx</span></td>
-                <td><span class="score-badge score-high">60.8</span><br><span style="color:#718096; font-size:0.85em;">2/6 verified</span></td>
-                <td>Code • Reasoning • Long Context</td>
-                <td>coding: 80.8, reasoning: 81.7, math: 76.0</td>
-                <td>-</td>
-                <td>-</td>
+                <td><strong>DeepSeek-V4-Flash Cloud</strong><br><span style="color:#718096; font-size:0.85em;">DeepSeek • 2026-04-23</span></td>
+                <td>13B / 284B<br><span style="color:#718096; font-size:0.85em;">1048K ctx</span></td>
+                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
+                <td>Code • Tools • Agent • Reasoning • RAG • Open Weights • Long Context</td>
+                <td>coding: 80.6, reasoning: 76.9, math: 92.1, safety: 95.8, hallucination_fidelity: 95.8</td>
+                <td>$0.14 / $0.28<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#38a169;">4.2%</strong><br><span style="color:#718096; font-size:0.85em;">Low risk</span></td>
                 <td>open</td>
             </tr>
 <tr>
@@ -727,7 +727,7 @@
         <div class="info-grid">
             <div class="info-card">
                 <h3>How rankings are ordered</h3>
-                <p>Models with at least three use-case scores are ordered by a weighted composite of demonstrated capability. Partial-data models follow, zero-score models are placed last, and trust score plus capability metadata break ties within each tier.</p>
+                <p>Models with independently verified claims rank ahead of models with only unverified claims. Within each reliability tier, models with at least three use-case scores are ordered by a weighted composite of demonstrated capability. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break ties within each tier.</p>
             </div>
             <div class="info-card">
                 <h3>Where results go</h3>
