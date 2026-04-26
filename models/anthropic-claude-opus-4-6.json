@@ -1,0 +1,21 @@
+{
+  "model_id": "anthropic-claude-opus-4-6",
+  "display_name": "Claude Opus 4.6",
+  "vendor": "Anthropic",
+  "license_kind": "proprietary",
+  "tags": [
+    "text",
+    "reasoning",
+    "coding",
+    "long-context",
+    "safety"
+  ],
+  "context_window_tokens": 1000000,
+  "pricing_per_1k_input_usd": 0.005,
+  "pricing_per_1k_output_usd": 0.025,
+  "card_url": "https://benchlm.ai/",
+  "card_text": "Claude Opus 4.6 is tracked from BenchLM as a superseded closed standard frontier model. BenchLM reference: rank #3, overall score 72.",
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 3,
+  "leaderboard_score": 72.0
+}

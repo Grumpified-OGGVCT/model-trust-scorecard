@@ -1,0 +1,22 @@
+{
+  "model_id": "anthropic-claude-mythos-preview",
+  "display_name": "Claude Mythos Preview",
+  "vendor": "Anthropic",
+  "license_kind": "proprietary",
+  "tags": [
+    "text",
+    "reasoning",
+    "coding",
+    "agentic",
+    "long-context",
+    "safety"
+  ],
+  "context_window_tokens": 1000000,
+  "pricing_per_1k_input_usd": 0.025,
+  "pricing_per_1k_output_usd": 0.125,
+  "card_url": "https://benchlm.ai/",
+  "card_text": "Claude Mythos Preview is tracked from BenchLM as a current closed reasoning frontier model. BenchLM reference: rank #1, overall score 83.",
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 1,
+  "leaderboard_score": 83.0
+}

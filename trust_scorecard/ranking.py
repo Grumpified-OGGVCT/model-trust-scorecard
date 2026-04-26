@@ -7,36 +7,31 @@ from typing import Any
 
 from trust_scorecard.models import ModelCard, ModelEvaluation, VerificationStatus
 
-# Weights prioritize core frontier capabilities while including specialized metrics to reward
-# measured breadth without allowing niche performance to skew rankings.
-CAPABILITY_WEIGHTS = {
-    # Core frontier-model competencies get the highest weight because they are broad,
-    # heavily benchmarked predictors of general model quality.
-    "coding": 2.0,
-    "reasoning": 2.0,
-    "math": 1.5,
-    "tool_use": 1.5,
-    # Specialized modalities and reliability dimensions contribute meaningfully but
-    # should not outweigh core capability when fewer models report those scores.
-    "agent_swarm": 1.2,
-    "multimodal": 1.2,
-    "vision_coding": 1.0,
-    "ocr": 0.8,
-    "video_understanding": 0.8,
-    "multilingual": 0.8,
-    "multilingual_depth": 0.7,
-    "safety": 0.7,
-    "hallucination_fidelity": 0.7,
-    "long_context": 0.5,
-    "commonsense": 0.5,
-    "office_document": 0.5,
-    # Deployment-oriented metrics are useful tie-shapers, not primary capability signals.
-    "efficiency": 0.3,
-    "edge": 0.3,
+# BenchLM-style category weights. Missing categories are excluded from the
+# denominator so sparse-but-eligible models are not penalized as zeroes.
+CAPABILITY_CATEGORY_WEIGHTS = {
+    "agentic": 22.0,
+    "coding": 20.0,
+    "reasoning": 17.0,
+    "multimodal": 12.0,
+    "knowledge": 12.0,
+    "multilingual": 7.0,
+    "instruction_following": 5.0,
+    "math": 5.0,
+}
+
+CAPABILITY_CATEGORY_SIGNALS = {
+    "agentic": ("tool_use", "agent_swarm"),
+    "coding": ("coding", "vision_coding"),
+    "reasoning": ("reasoning", "long_context"),
+    "multimodal": ("multimodal", "ocr", "video_understanding", "office_document"),
+    "knowledge": ("commonsense", "safety", "hallucination_fidelity"),
+    "multilingual": ("multilingual", "multilingual_depth"),
+    "instruction_following": ("instruction_following",),
+    "math": ("math",),
 }
 
 MIN_SCORES_FOR_RANKING = 3
-DEFAULT_CAPABILITY_WEIGHT = 0.5
 TIER_VERIFIED = 0
 TIER_UNVERIFIED = 1
 TIER_CAPABILITY_ONLY = 2
@@ -57,6 +52,55 @@ def _numeric_scores(scores: Mapping[str, float]) -> dict[str, float]:
     return numeric_scores
 
 
+def category_capability_scores(scores: Mapping[str, float]) -> dict[str, float]:
+    """Collapse use-case signals into BenchLM-style weighted capability categories."""
+    numeric_scores = _numeric_scores(scores)
+    category_scores: dict[str, float] = {}
+    for category, signal_names in CAPABILITY_CATEGORY_SIGNALS.items():
+        values = [numeric_scores[name] for name in signal_names if name in numeric_scores]
+        if values:
+            category_scores[category] = sum(values) / len(values)
+    return category_scores
+
+
+def _weighted_category_score(category_scores: Mapping[str, float]) -> float | None:
+    weighted_score = 0.0
+    total_weight = 0.0
+    for category, score in category_scores.items():
+        weight = CAPABILITY_CATEGORY_WEIGHTS.get(category)
+        if weight is None:
+            continue
+        weighted_score += float(score) * weight
+        total_weight += weight
+    if total_weight == 0.0:
+        return None
+    return weighted_score / total_weight
+
+
+def _external_leaderboard_score(card: ModelCard) -> float | None:
+    """Return an externally sourced capability score when the catalog supplies one."""
+    if card.leaderboard_score is not None:
+        return float(card.leaderboard_score)
+
+    return None
+
+
+def _metadata_fallback_score(card: ModelCard) -> float | None:
+    """Return weaker catalog metadata scores when no scored leaderboard is available."""
+    index_values = [
+        card.artificial_analysis_intelligence_index,
+        card.artificial_analysis_coding_index,
+        card.artificial_analysis_agentic_index,
+    ]
+    numeric_index_values = [float(value) for value in index_values if value is not None]
+    if numeric_index_values:
+        return sum(numeric_index_values) / len(numeric_index_values)
+
+    if card.capability_rank is None:
+        return None
+    return max(0.0, 100.0 - float(card.capability_rank))
+
+
 def capability_sort_key(
     card: ModelCard,
     use_case_scores: Mapping[str, float] | None = None,
@@ -70,26 +114,26 @@ def capability_sort_key(
     active_params = card.parameter_count_billions or 0.0
     total_params = card.total_parameter_count_billions or active_params
     valid_numeric_scores = _numeric_scores(scores)
+    category_scores = category_capability_scores(scores)
+    external_score = _external_leaderboard_score(card)
+    metadata_fallback_score = _metadata_fallback_score(card)
+    has_external_leaderboard = card.leaderboard_score is not None or card.leaderboard_rank is not None
 
-    if verified_evidence_count > 0:
+    if verified_evidence_count > 0 or has_external_leaderboard:
         reliability_tier = TIER_VERIFIED
     elif benchmark_evidence_count > 0:
         reliability_tier = TIER_UNVERIFIED
-    elif valid_numeric_scores:
+    elif valid_numeric_scores or metadata_fallback_score is not None:
         reliability_tier = TIER_CAPABILITY_ONLY
     else:
         reliability_tier = TIER_NO_EVIDENCE
 
-    if len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING:
-        weighted_score = sum(
-            value * CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
-            for name, value in valid_numeric_scores.items()
-        )
-        total_weight = sum(
-            CAPABILITY_WEIGHTS.get(name, DEFAULT_CAPABILITY_WEIGHT)
-            for name in valid_numeric_scores
-        )
-        composite = weighted_score / total_weight
+    if external_score is not None:
+        composite = external_score
+    elif len(valid_numeric_scores) >= MIN_SCORES_FOR_RANKING and category_scores:
+        composite = _weighted_category_score(category_scores) or 0.0
+    elif metadata_fallback_score is not None:
+        composite = metadata_fallback_score
     else:
         composite = 0.0
 
@@ -102,9 +146,11 @@ def capability_sort_key(
 
     return (
         reliability_tier,
+        -int(has_external_leaderboard),
+        -composite,
+        card.leaderboard_rank if card.leaderboard_rank is not None else float("inf"),
         -verified_evidence_count,
         -verification_rate,
-        -composite,
         -(trust_score or 0.0),
         -benchmark_evidence_count,
         -int(bool(tags & MULTIMODAL_TAGS)),

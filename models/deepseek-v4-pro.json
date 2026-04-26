@@ -1,6 +1,6 @@
 {
   "model_id": "deepseek-v4-pro",
-  "display_name": "DeepSeek V4 Pro",
+  "display_name": "DeepSeek V4 Pro (Max)",
   "vendor": "DeepSeek",
   "license_kind": "unknown",
   "tags": [
@@ -18,5 +18,8 @@
   "pricing_per_1k_input_usd": 0.000435,
   "pricing_per_1k_output_usd": 0.00087,
   "card_url": "https://openrouter.ai/models/deepseek-v4-pro",
-  "card_text": "DeepSeek V4 Pro is a comparative catalog entry for DeepSeek.\n\nWeekly tokens: 15.9B.\nContext Window: 1,048,576 tokens.\nReleased: 2026-04-23.\nPricing: $0.435 per 1M input tokens and $0.87 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, function calling, long context, rag."
+  "card_text": "DeepSeek V4 Pro (Max) is a comparative catalog entry for DeepSeek.\n\nWeekly tokens: 15.9B.\nContext Window: 1,048,576 tokens.\nReleased: 2026-04-23.\nPricing: $0.435 per 1M input tokens and $0.87 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, function calling, long context, rag.\n\nBenchLM reference: rank #2, overall score 73.",
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 2,
+  "leaderboard_score": 73.0
 }

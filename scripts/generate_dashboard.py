@@ -19,7 +19,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from trust_scorecard.ranking import score_record_sort_key  # noqa: E402
+from trust_scorecard.ranking import category_capability_scores, score_record_sort_key  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -81,17 +81,33 @@ def _format_compact_number(value: int | float | None) -> str:
     return f"{value:.0f}"
 
 
-def _source_confidence(total_claims: int, verified_count: int, unverifiable_count: int = 0) -> str:
+def _source_confidence(
+    total_claims: int,
+    verified_count: int,
+    unverifiable_count: int = 0,
+    category_count: int = 0,
+) -> str:
     if total_claims <= 0:
-        return "Needs sources"
-    verified_rate = verified_count / total_claims
-    if verified_rate >= 0.5:
-        return "Strong sourced coverage"
-    if verified_count > 0:
-        return "Partial sourced coverage"
+        return "Low / estimated"
+    if verified_count >= 20 and category_count >= 7:
+        return "High confidence"
+    if verified_count >= 12 and category_count >= 5:
+        return "Good confidence"
+    if verified_count >= 8 and category_count >= 3:
+        return "Moderate confidence"
     if unverifiable_count >= total_claims:
-        return "Claims need source mapping"
-    return "Unverified claims"
+        return "Low / estimated"
+    return "Low confidence"
+
+
+def _confidence_dots(label: str) -> str:
+    if label == "High confidence":
+        return "4/4 confidence"
+    if label == "Good confidence":
+        return "3/4 confidence"
+    if label == "Moderate confidence":
+        return "2/4 confidence"
+    return "1/4 confidence"
 
 
 def _category_from_score(score: dict) -> str:
@@ -125,6 +141,19 @@ def _format_chips(labels: list[str]) -> str:
         + "".join(f'<span class="chip">{html_lib.escape(label)}</span>' for label in labels)
         + "</div>"
     )
+
+
+def _strength_chips(score: dict) -> str:
+    use_case_scores = score.get("use_case_scores", {}) or {}
+    model_card = score.get("model_card", {}) or {}
+    leaderboard_score = model_card.get("leaderboard_score")
+    labels = []
+    if leaderboard_score is not None:
+        source = model_card.get("leaderboard_source") or "External"
+        labels.append(f"{source}: {float(leaderboard_score):.1f}")
+    labels.extend(f"{k.replace('_', ' ').title()}: {v:.1f}" for k, v in use_case_scores.items())
+
+    return _format_chips(labels)
 
 
 def _capabilities_from_tags(tags: list[str], context_window: int | None = None) -> str:
@@ -430,7 +459,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             </div>
             <aside class="hero-side hero-card">
                 <h2>Accuracy guardrails</h2>
-                <p>Rankings prioritize independently verified evidence before claimed capability. Rows expose confidence labels so unverified or sparse-source models do not look more authoritative than the evidence supports.</p>
+                <p>Rankings use independent capability evidence, including external leaderboard score/rank metadata, before raw verification-count tie breakers. Rows expose BenchLM-style confidence labels so sparse-source models do not look more authoritative than the evidence supports.</p>
                 <p><a class="github-link" href="#sources">Review external leaderboard anchors</a></p>
             </aside>
         </section>
@@ -446,7 +475,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
         <section class="panel" id="rankings">
             <h2>Model Capability Rankings</h2>
-            <p class="subtitle">Models are ordered by independently verified evidence first, then demonstrated capabilities and benchmark/use-case performance; trust score indicates confidence in the claims and verification status.</p>
+            <p class="subtitle">Models are ordered by independently sourced capability first, then demonstrated benchmark/use-case performance; trust score indicates confidence in model-local claims and verification status.</p>
             <div class="toolbar" aria-label="Leaderboard filters">
                 <input id="modelSearch" type="search" placeholder="Search models, providers, capabilities..." aria-label="Search models">
                 <select id="categoryFilter" aria-label="Category filter">
@@ -491,12 +520,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <section class="info-grid" id="methodology">
             <div class="info-card">
                 <h3>How rankings are ordered</h3>
-                <p>Models with independently verified claims rank ahead of models with only unverified claims. Within each reliability tier, models with at least three use-case scores are ordered by a weighted composite of demonstrated capability. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break ties within each tier.</p>
+                <p>Models with independently verified claims or external leaderboard score/rank metadata rank ahead of models with only unverified claims. Within each reliability tier, externally sourced or BenchLM-style weighted category capability now sorts before raw verification-count tie breakers. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break remaining ties.</p>
             </div>
             <div class="info-card">
                 <h3>Completeness and accuracy signals</h3>
                 <ul>
-                    <li><strong>Source Confidence</strong> separates strong, partial, unverified, and missing-source rows.</li>
+                    <li><strong>Source Confidence</strong> uses a 4-tier confidence ladder based on sourced claim depth and weighted category breadth.</li>
                     <li><strong>Claim Coverage</strong> shows how many models include checkable benchmark claims.</li>
                     <li><strong>Use-case and metadata columns</strong> surface context, pricing, release date, license, and capability tags without hiding uncertainty.</li>
                 </ul>
@@ -623,9 +652,7 @@ def main():
         )
         score_display = f"{trust_score:.1f}" if trust_score is not None else "N/A"
         use_case_scores = score.get("use_case_scores", {}) or {}
-        use_case_label = _format_chips(
-            [f"{k.replace('_', ' ').title()}: {v:.1f}" for k, v in use_case_scores.items()]
-        )
+        use_case_label = _strength_chips(score)
 
         # Extract metadata from model card
         model_card = score.get("model_card", {})
@@ -654,12 +681,14 @@ def main():
             score.get("total_claims", 0),
             score.get("verified_count", 0),
             score.get("unverifiable_count", 0),
+            len(category_capability_scores(use_case_scores)),
         )
         confidence_class = (
-            "confidence-strong" if source_confidence == "Strong sourced coverage"
-            else "confidence-partial" if source_confidence == "Partial sourced coverage"
+            "confidence-strong" if source_confidence in {"High confidence", "Good confidence"}
+            else "confidence-partial" if source_confidence == "Moderate confidence"
             else "confidence-low"
         )
+        confidence_dots = _confidence_dots(source_confidence)
         category = _category_from_score(score)
         provider = html_lib.escape(score["vendor"] or "-")
         license_value = html_lib.escape(raw_license_display)
@@ -677,7 +706,7 @@ def main():
             f"""<tr data-provider="{provider}" data-license="{license_value}" data-category="{category}" data-search="{search_blob}">
                 <td>{rank}</td>
                 <td><span class="model-name">{html_lib.escape(score['display_name'])}</span><br><span class="muted">{provider} • {release_date}</span></td>
-                <td><span class="confidence-badge {confidence_class}">{source_confidence}</span><br><span class="muted">{score['verified_count']}/{score['total_claims']} verified • {score.get('unverifiable_count', 0)} unmapped</span></td>
+                <td><span class="confidence-badge {confidence_class}">{source_confidence}</span><br><span class="muted">{confidence_dots} • {score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td><span class="score-badge {badge_class}">{score_display}</span><br><span style="color:#718096; font-size:0.85em;">{score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td>{use_case_label}</td>
                 <td>{caps_display}</td>

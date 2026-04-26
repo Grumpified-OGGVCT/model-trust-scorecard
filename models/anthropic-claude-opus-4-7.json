@@ -1,6 +1,6 @@
 {
   "model_id": "anthropic-claude-opus-4-7",
-  "display_name": "Claude Opus 4.7",
+  "display_name": "Claude Opus 4.7 (Adaptive)",
   "vendor": "Anthropic",
   "license_kind": "proprietary",
   "tags": [
@@ -17,5 +17,8 @@
   "pricing_per_1k_input_usd": 0.005,
   "pricing_per_1k_output_usd": 0.025,
   "card_url": "https://openrouter.ai/models/anthropic-claude-opus-4-7",
-  "card_text": "Claude Opus 4.7 is a comparative catalog entry for Anthropic.\n\nWeekly tokens: 1.17T.\nContext Window: 1,000,000 tokens.\nReleased: 2026-04-16.\nPricing: $5 per 1M input tokens and $25 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, long context, safety."
+  "card_text": "Claude Opus 4.7 (Adaptive) is a comparative catalog entry for Anthropic.\n\nWeekly tokens: 1.17T.\nContext Window: 1,000,000 tokens.\nReleased: 2026-04-16.\nPricing: $5 per 1M input tokens and $25 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, long context, safety.\n\nBenchLM reference: rank #5, overall score 71.",
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 5,
+  "leaderboard_score": 71.0
 }

@@ -165,6 +165,9 @@ class ModelCard(BaseModel):
     artificial_analysis_intelligence_index: float | None = None
     artificial_analysis_coding_index: float | None = None
     artificial_analysis_agentic_index: float | None = None
+    leaderboard_source: str | None = None
+    leaderboard_rank: int | None = None
+    leaderboard_score: float | None = None
     capability_rank: int | None = None
     benchmark_claims: list[BenchmarkClaim] = Field(default_factory=list)
 

@@ -1,0 +1,23 @@
+{
+  "model_id": "deepseek-v4-pro-high",
+  "display_name": "DeepSeek V4 Pro (High)",
+  "vendor": "DeepSeek",
+  "license_kind": "open",
+  "tags": [
+    "text",
+    "reasoning",
+    "coding",
+    "agentic",
+    "function-calling",
+    "long-context",
+    "rag"
+  ],
+  "context_window_tokens": 1048576,
+  "pricing_per_1k_input_usd": 0.00174,
+  "pricing_per_1k_output_usd": 0.00348,
+  "card_url": "https://benchlm.ai/",
+  "card_text": "DeepSeek V4 Pro (High) is tracked from BenchLM as a current open reasoning frontier model. BenchLM reference: rank #7, overall score 70.",
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 7,
+  "leaderboard_score": 70.0
+}

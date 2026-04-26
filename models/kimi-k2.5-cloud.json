@@ -1,9 +1,9 @@
 {
   "model_id": "kimi-k2.5-cloud",
-  "display_name": "Kimi K2.5 Cloud",
+  "display_name": "Kimi K2.5",
   "vendor": "Moonshot AI",
   "card_url": "https://openrouter.ai/models/moonshot/kimi-k2.5",
-  "card_text": "Kimi K2.5 Cloud is Moonshot AI's multimodal frontier agent model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 262K tokens.\nReleased: 2026-01-27.\nBenchmarks:\n- SWE-bench Verified: 70.8%\n- MMMU: 85.0\n- AA Intelligence Index: 47.0\nCapabilities: native text and image understanding, strong multimodal coding, coordinated agent swarms up to 100 sub-agents and 1,500 tool calls, long-context reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nValue note: cheaper than K2.6 while keeping the slightly larger context window.",
+  "card_text": "Kimi K2.5 is Moonshot AI's multimodal frontier agent model.\n\nArchitecture: sparse mixture-of-experts with 384 experts and 8 active experts per token, 32B active parameters from about 1T total.\nContext Window: 262K tokens.\nReleased: 2026-01-27.\nBenchmarks:\n- SWE-bench Verified: 70.8%\n- MMMU: 85.0\n- AA Intelligence Index: 47.0\nCapabilities: native text and image understanding, strong multimodal coding, coordinated agent swarms up to 100 sub-agents and 1,500 tool calls, long-context reasoning.\nPublic sources: OpenRouter, HuggingFace model card, Moonshot AI docs, Artificial Analysis.\nValue note: cheaper than K2.6 while keeping the slightly larger context window.\n\nBenchLM reference: rank #11, overall score 68.",
   "license_kind": "open",
   "architecture": "MoE (384 experts, 8 active)",
   "parameter_count_billions": 32,
@@ -24,5 +24,8 @@
   "pricing_per_1k_input_usd": 0.00044,
   "pricing_per_1k_output_usd": 0.002,
   "capability_rank": 5,
-  "artificial_analysis_intelligence_index": 47.0
+  "artificial_analysis_intelligence_index": 47.0,
+  "leaderboard_source": "BenchLM",
+  "leaderboard_rank": 11,
+  "leaderboard_score": 68.0
 }

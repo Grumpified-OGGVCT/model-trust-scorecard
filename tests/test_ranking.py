@@ -12,6 +12,7 @@ from trust_scorecard.models import (
 from trust_scorecard.ranking import (
     _numeric_scores,
     capability_sort_key,
+    category_capability_scores,
     evaluation_sort_key,
     score_record_sort_key,
 )
@@ -122,6 +123,145 @@ def test_verified_evidence_beats_unverified_claimed_capability():
     )
 
     assert ranked[0][0].model_id == "verified"
+
+
+def test_same_reliability_tier_sorts_by_capability_before_verified_count():
+    more_verified_but_weaker = ModelCard(
+        model_id="more-verified",
+        display_name="More Verified",
+        tags=["text"],
+    )
+    fewer_verified_but_stronger = ModelCard(
+        model_id="fewer-verified",
+        display_name="Fewer Verified",
+        tags=["text"],
+    )
+
+    ranked = sorted(
+        [
+            (
+                more_verified_but_weaker,
+                {"coding": 70.0, "reasoning": 72.0, "math": 71.0},
+                80.0,
+                8,
+                4,
+            ),
+            (
+                fewer_verified_but_stronger,
+                {"coding": 90.0, "reasoning": 88.0, "math": 86.0},
+                40.0,
+                4,
+                1,
+            ),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert ranked[0][0].model_id == "fewer-verified"
+
+
+def test_category_weighted_capability_score_excludes_missing_and_display_only_signals():
+    categories = category_capability_scores(
+        {
+            "tool_use": 90.0,
+            "coding": 80.0,
+            "reasoning": 70.0,
+            "instruction_following": 85.0,
+            "efficiency": 100.0,
+            "edge": 100.0,
+        }
+    )
+
+    assert categories == {
+        "agentic": 90.0,
+        "coding": 80.0,
+        "reasoning": 70.0,
+        "instruction_following": 85.0,
+    }
+
+
+def test_external_leaderboard_score_ranks_sparse_frontier_models():
+    sourced_frontier = ModelCard(
+        model_id="sourced-frontier",
+        display_name="Sourced Frontier",
+        tags=["text", "reasoning"],
+        leaderboard_source="BenchLM",
+        leaderboard_rank=2,
+        leaderboard_score=73.0,
+    )
+    unsourced_large_context = ModelCard(
+        model_id="unsourced-large-context",
+        display_name="Unsourced Large Context",
+        tags=["text", "reasoning"],
+        context_window_tokens=1_000_000,
+    )
+
+    ranked = sorted(
+        [
+            (unsourced_large_context, {}, None, 0, 0),
+            (sourced_frontier, {}, None, 0, 0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert ranked[0][0].model_id == "sourced-frontier"
+
+
+def test_artificial_analysis_metadata_scores_sparse_models_above_zero_metadata():
+    analysis_indexed = ModelCard(
+        model_id="analysis-indexed",
+        display_name="Analysis Indexed",
+        tags=["text"],
+        artificial_analysis_intelligence_index=80.0,
+        artificial_analysis_coding_index=70.0,
+        artificial_analysis_agentic_index=60.0,
+    )
+    sparse_without_metadata = ModelCard(
+        model_id="sparse-without-metadata",
+        display_name="Sparse Without Metadata",
+        tags=["text"],
+    )
+    no_evidence = ModelCard(model_id="no-evidence", display_name="No Evidence", tags=["text"])
+
+    ranked = sorted(
+        [
+            (no_evidence, {}, None, 0, 0),
+            (sparse_without_metadata, {"coding": 99.0}, None, 0, 0),
+            (analysis_indexed, {"coding": 70.0}, None, 0, 0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert [item[0].model_id for item in ranked] == [
+        "analysis-indexed",
+        "sparse-without-metadata",
+        "no-evidence",
+    ]
+
+
+def test_capability_rank_metadata_fallback_orders_sparse_models():
+    higher_ranked = ModelCard(
+        model_id="higher-ranked",
+        display_name="Higher Ranked",
+        tags=["text"],
+        capability_rank=5,
+    )
+    lower_ranked = ModelCard(
+        model_id="lower-ranked",
+        display_name="Lower Ranked",
+        tags=["text"],
+        capability_rank=40,
+    )
+
+    ranked = sorted(
+        [
+            (lower_ranked, {}, None, 0, 0),
+            (higher_ranked, {}, None, 0, 0),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert ranked[0][0].model_id == "higher-ranked"
 
 
 def test_reliability_tiers_order_verified_unverified_capability_and_empty_models():
