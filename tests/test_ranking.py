@@ -124,6 +124,40 @@ def test_verified_evidence_beats_unverified_claimed_capability():
     assert ranked[0][0].model_id == "verified"
 
 
+def test_reliability_tiers_order_verified_unverified_capability_and_empty_models():
+    verified = ModelCard(model_id="verified", display_name="Verified", tags=["text"])
+    unverified = ModelCard(model_id="unverified", display_name="Unverified", tags=["text"])
+    capability_only = ModelCard(
+        model_id="capability-only",
+        display_name="Capability Only",
+        tags=["text"],
+    )
+    no_evidence = ModelCard(model_id="no-evidence", display_name="No Evidence", tags=["text"])
+
+    ranked = sorted(
+        [
+            (no_evidence, {}, 99.0, 0, 0),
+            (
+                capability_only,
+                {"coding": 99.0, "reasoning": 99.0, "math": 99.0},
+                99.0,
+                0,
+                0,
+            ),
+            (unverified, {"coding": 80.0, "reasoning": 80.0, "math": 80.0}, 20.0, 3, 0),
+            (verified, {"coding": 70.0, "reasoning": 70.0, "math": 70.0}, 10.0, 3, 1),
+        ],
+        key=lambda item: capability_sort_key(item[0], item[1], item[2], item[3], item[4]),
+    )
+
+    assert [item[0].model_id for item in ranked] == [
+        "verified",
+        "unverified",
+        "capability-only",
+        "no-evidence",
+    ]
+
+
 def test_partial_data_sorts_by_trust_before_metadata():
     lower_trust = ModelCard(
         model_id="lower-trust",
