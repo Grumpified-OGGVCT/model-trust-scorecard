@@ -65,6 +65,25 @@ def test_pipeline_uses_source_results_and_leaderboard_context():
     assert source.fetch_calls == ["test-model"]
 
 
+def test_pipeline_keeps_source_rows_when_no_claims_are_extracted():
+    source = DummySource()
+    pipeline = EvaluationPipeline([source], EvaluationStore(":memory:"), default_tolerance=2.0)
+
+    card = ModelCard(
+        model_id="no-claims-model",
+        display_name="No Claims Model",
+        card_text="This card has no parseable benchmark percentages.",
+    )
+
+    evaluation = pipeline.evaluate_model(card)
+
+    assert evaluation.claims == []
+    assert evaluation.trust_score is None
+    result_ids = {r.model_id for r in evaluation.benchmark_results}
+    assert {"no-claims-model", "leaderboard-model"}.issubset(result_ids)
+    assert source.fetch_calls == ["no-claims-model"]
+
+
 def test_pipeline_uses_structured_benchmark_claims_when_text_has_no_scores():
     source = DummySource()
     pipeline = EvaluationPipeline([source], EvaluationStore(":memory:"), default_tolerance=2.0)

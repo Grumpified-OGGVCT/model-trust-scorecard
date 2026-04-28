@@ -141,7 +141,8 @@ class BenchLMSource(BenchmarkSourceBase):
             try:
                 self._cache = json.loads(cache_path.read_text(encoding="utf-8"))
                 logger.info("[benchlm] Loaded cached leaderboard from %s", cache_path)
-                return self._cache
+                if isinstance(self._cache, dict):
+                    return self._cache
             except Exception as exc:  # noqa: BLE001
                 logger.warning("[benchlm] Cache load failed: %s", exc)
 
@@ -155,9 +156,11 @@ class BenchLMSource(BenchmarkSourceBase):
                 cache_path.write_text(json.dumps(self._cache, indent=2), encoding="utf-8")
             except OSError:
                 pass
-            return self._cache
+            if isinstance(self._cache, dict):
+                return self._cache
         except Exception as exc:  # noqa: BLE001
             logger.warning("[benchlm] Live fetch failed: %s", exc)
 
         self._cache = {"models": [], "mode": "unavailable", "lastUpdated": None}
+        assert self._cache is not None
         return self._cache

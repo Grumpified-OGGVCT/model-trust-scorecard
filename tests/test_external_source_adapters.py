@@ -12,6 +12,7 @@ def _config(source_id: str) -> BenchmarkConfig:
         weight_max=1.0,
         data_source="test",
         data_source_params={},
+        tolerance_default=2.0,
     )
 
 

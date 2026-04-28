@@ -43,7 +43,7 @@ def _format_price(input_per_1k: float | None, output_per_1k: float | None) -> st
     output_usd_per_1m = (output_per_1k or 0) * 1000
     input_display = f"${input_usd_per_1m:.2f}"
     output_display = f"${output_usd_per_1m:.2f}"
-    return f"{input_display} / {output_display}<br><span style=\"color:#718096; font-size:0.85em;\">per 1M in/out</span>"
+    return f"{input_display} / {output_display}<br><span class=\"meta-subtle\">per 1M in/out</span>"
 
 
 def _format_hallucination(value: float | int | None) -> str:
@@ -52,14 +52,14 @@ def _format_hallucination(value: float | int | None) -> str:
     value = float(value)
     if value < 15:
         risk = "Low"
-        color = "#38a169"
+        risk_class = "risk-low"
     elif value <= 40:
         risk = "Medium"
-        color = "#dd6b20"
+        risk_class = "risk-medium"
     else:
         risk = "High"
-        color = "#e53e3e"
-    return f"<strong style=\"color:{color};\">{value:.1f}%</strong><br><span style=\"color:#718096; font-size:0.85em;\">{risk} risk</span>"
+        risk_class = "risk-high"
+    return f"<strong class=\"{risk_class}\">{value:.1f}%</strong><br><span class=\"meta-subtle\">{risk} risk</span>"
 
 
 def _format_release_date(value: str | None) -> str:
@@ -167,12 +167,20 @@ def _category_from_score(score: dict) -> str:
     return "all"
 
 
-def _format_chips(labels: list[str]) -> str:
+def _format_chips(labels: list[str], variant: str = "default") -> str:
     if not labels:
         return "-"
+    container_class = "chips"
+    chip_class = "chip"
+    if variant == "strengths":
+        container_class += " strengths-grid"
+        chip_class += " strength-chip"
+    elif variant == "capabilities":
+        container_class += " capabilities-wrap"
+        chip_class += " capability-chip"
     return (
-        '<div class="chips">'
-        + "".join(f'<span class="chip">{html_lib.escape(label)}</span>' for label in labels)
+        f'<div class="{container_class}">'
+        + "".join(f'<span class="{chip_class}">{html_lib.escape(label)}</span>' for label in labels)
         + "</div>"
     )
 
@@ -187,7 +195,7 @@ def _strength_chips(score: dict) -> str:
         labels.append(f"{source}: {float(leaderboard_score):.1f}")
     labels.extend(f"{k.replace('_', ' ').title()}: {v:.1f}" for k, v in use_case_scores.items())
 
-    return _format_chips(labels)
+    return _format_chips(labels, variant="strengths")
 
 
 def _capabilities_from_tags(tags: list[str], context_window: int | None = None) -> str:
@@ -256,6 +264,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             padding: 8px 16px;
             border-bottom: 1px solid var(--border);
             background: rgba(11, 15, 20, 0.92);
+            -webkit-backdrop-filter: blur(14px);
             backdrop-filter: blur(14px);
         }}
         .brand {{
@@ -393,11 +402,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             font-size: 0.9rem;
         }}
         .table-wrap {{ overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; }}
-        table {{ width: 100%; border-collapse: collapse; min-width: 1180px; }}
+        table {{ width: 100%; border-collapse: collapse; min-width: 1420px; }}
         th, td {{ padding: 10px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }}
         th {{
             position: sticky;
-            top: 45px;
+            top: 0;
             z-index: 5;
             background: #111a25;
             color: #cfcfcf;
@@ -409,6 +418,10 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         tbody tr:hover {{ background: rgba(125, 211, 252, 0.08); }}
         .model-name {{ font-weight: 800; color: var(--text); }}
         .muted {{ color: var(--muted); font-size: 0.88em; }}
+        .meta-subtle {{ color: #718096; font-size: 0.85em; }}
+        .risk-low {{ color: #38a169; }}
+        .risk-medium {{ color: #dd6b20; }}
+        .risk-high {{ color: #e53e3e; }}
         .score-badge, .confidence-badge, .lane-badge {{
             display: inline-block;
             padding: 4px 8px;
@@ -422,6 +435,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         .score-low, .confidence-low, .lane-estimated, .lane-local-only, .lane-no-evidence {{ background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.35); }}
         .score-na {{ background: rgba(148,163,184,0.18); color: #cbd5e1; border: 1px solid rgba(148,163,184,0.35); }}
         .chips {{ display: flex; flex-wrap: wrap; gap: 6px; }}
+        .chips.strengths-grid {{
+            display: grid;
+            grid-template-columns: repeat(2, minmax(150px, 1fr));
+            gap: 6px;
+            min-width: 320px;
+        }}
+        .chips.capabilities-wrap {{ min-width: 210px; }}
         .chip {{
             border: 1px solid var(--border);
             border-radius: 999px;
@@ -431,6 +451,21 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             font-size: 0.74rem;
             white-space: nowrap;
         }}
+        .strength-chip {{
+            border-radius: 8px;
+            background: #132130;
+            border-color: #2f4a65;
+            font-weight: 620;
+            white-space: normal;
+            line-height: 1.25;
+        }}
+        .capability-chip {{
+            background: #111926;
+            border-color: #304057;
+            font-weight: 560;
+        }}
+        th:nth-child(7), td:nth-child(7) {{ min-width: 360px; }}
+        th:nth-child(8), td:nth-child(8) {{ min-width: 240px; }}
         .info-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -452,6 +487,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             color: var(--muted);
             font-size: 0.92rem;
         }}
+        .footer-links {{ margin-top: 10px; }}
         @media (max-width: 900px) {{
             .rankings-menu, .hero, .toolbar, .stats {{ grid-template-columns: 1fr; }}
             .top-nav {{ overflow-x: auto; }}
@@ -601,7 +637,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 
         <div class="footer">
             <p>Last updated: {updated_at}</p>
-            <p style="margin-top: 10px;">
+            <p class="footer-links">
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard" class="github-link">View on GitHub</a> |
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard#how-it-works" class="github-link">Methodology</a> |
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/issues/new?template=model_submission.yml" class="github-link">Submit model</a>
@@ -753,7 +789,7 @@ def main():
 
         tags = score.get("tags", [])
         caps_display = _capabilities_from_tags(tags, ctx)
-        caps_display = _format_chips(caps_display.split(" • ") if caps_display != "-" else [])
+        caps_display = _format_chips(caps_display.split(" • ") if caps_display != "-" else [], variant="capabilities")
         price_display = _format_price(
             model_card.get("pricing_per_1k_input_usd"),
             model_card.get("pricing_per_1k_output_usd"),
@@ -799,7 +835,7 @@ def main():
                 <td><span class="lane-badge {lane_class}">{lane_label}</span><br><span class="confidence-badge {confidence_class}">{source_confidence}</span><br><span class="muted">{confidence_dots} • {score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td>{category_coverage_display}</td>
                 <td>{freshness_display}</td>
-                <td><span class="score-badge {badge_class}">{score_display}</span><br><span style="color:#718096; font-size:0.85em;">{score['verified_count']}/{score['total_claims']} verified</span></td>
+                <td><span class="score-badge {badge_class}">{score_display}</span><br><span class="meta-subtle">{score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td>{use_case_label}</td>
                 <td>{caps_display}</td>
                 <td>{params_display}<br><span class="muted">{ctx_display} ctx</span></td>

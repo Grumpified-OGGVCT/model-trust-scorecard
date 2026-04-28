@@ -106,22 +106,26 @@ class EvaluationPipeline:
         ])
         logger.info("Extracted %d claims", len(claims))
 
+        # Stage 2: Fetch benchmark data (always fetch, even when claims are empty)
+        # so external leaderboard-backed metadata can still flow into downstream
+        # ranking-lane/source-freshness views.
+        benchmark_results = self._fetch_benchmark_data(model_card.model_id)
+        logger.info("Fetched %d benchmark results", len(benchmark_results))
+
         if not claims:
             logger.warning("No claims extracted for %s", model_card.model_id)
-            # Return minimal evaluation
-            return ModelEvaluation(
+            # Return metadata-rich evaluation with benchmark source context.
+            evaluation = ModelEvaluation(
                 model_id=model_card.model_id,
                 card=model_card,
                 claims=[],
                 outcomes=[],
-                benchmark_results=[],
+                benchmark_results=benchmark_results,
                 trust_score=None,
                 notes="No claims extracted from model card",
             )
-
-        # Stage 2: Fetch benchmark data
-        benchmark_results = self._fetch_benchmark_data(model_card.model_id)
-        logger.info("Fetched %d benchmark results", len(benchmark_results))
+            self.store.save(evaluation)
+            return evaluation
 
         # Stage 3: Verify claims
         engine = VerificationEngine(benchmark_results, self.default_tolerance)

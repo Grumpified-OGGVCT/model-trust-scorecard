@@ -41,7 +41,12 @@ def sort_scores_by_capability(scores: list[dict]) -> list[dict]:
 
 def latest_evaluated_at(scores: list[dict]) -> str | None:
     """Return the latest available evaluation timestamp from score records."""
-    timestamps = [score.get("evaluated_at") for score in scores if score.get("evaluated_at")]
+    timestamps = [
+        value
+        for score in scores
+        for value in [score.get("evaluated_at")]
+        if isinstance(value, str)
+    ]
     return max(timestamps) if timestamps else None
 
 

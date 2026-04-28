@@ -8,7 +8,7 @@ import os
 import re
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, Iterable
 
 import requests  # type: ignore[import-untyped]
 
@@ -113,15 +113,19 @@ class ArtificialAnalysisSource(BenchmarkSourceBase):
             )
 
         for field, benchmark_id in _RUNTIME_TO_BENCHMARK_ID.items():
-            value = row.get(field)
-            if value is None:
+            raw_value = row.get(field)
+            if raw_value is None:
+                continue
+            try:
+                numeric_value = float(raw_value)
+            except (TypeError, ValueError):
                 continue
             results.append(
                 BenchmarkResult(
                     benchmark_id=benchmark_id,
                     model_id=model_id,
                     metric_kind=MetricKind.SCORE,
-                    value=float(value),
+                    value=numeric_value,
                     source_url=source_url,
                     raw_payload={**common_payload, "runtime_metric": field},
                 )
@@ -130,15 +134,19 @@ class ArtificialAnalysisSource(BenchmarkSourceBase):
         pricing = row.get("pricing") or {}
         if isinstance(pricing, dict):
             for field, benchmark_id in _PRICING_TO_BENCHMARK_ID.items():
-                value = pricing.get(field)
-                if value is None:
+                raw_value = pricing.get(field)
+                if raw_value is None:
+                    continue
+                try:
+                    numeric_value = float(raw_value)
+                except (TypeError, ValueError):
                     continue
                 results.append(
                     BenchmarkResult(
                         benchmark_id=benchmark_id,
                         model_id=model_id,
                         metric_kind=MetricKind.SCORE,
-                        value=float(value),
+                        value=numeric_value,
                         source_url=source_url,
                         raw_payload={**common_payload, "pricing_metric": field, "pricing": pricing},
                     )
@@ -197,6 +205,7 @@ def _extract_rows(payload: Any) -> list[dict[str, Any]]:
 
 def _flatten_evaluations(evaluations: Any) -> dict[str, float]:
     flattened: dict[str, float] = {}
+    iterator: Iterable[tuple[Any, Any]]
     if isinstance(evaluations, dict):
         iterator = evaluations.items()
     elif isinstance(evaluations, list):
