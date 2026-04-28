@@ -227,21 +227,21 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         * {{ margin: 0; padding: 0; box-sizing: border-box; }}
         :root {{
             color-scheme: dark;
-            --bg: #050505;
-            --panel: #101010;
-            --panel-soft: #171717;
-            --border: #2a2a2a;
-            --text: #f5f5f5;
-            --muted: #9a9a9a;
-            --accent: #d7ff41;
-            --accent-soft: rgba(215, 255, 65, 0.14);
+            --bg: #0b0f14;
+            --panel: #121821;
+            --panel-soft: #161f2c;
+            --border: #2a3444;
+            --text: #e8edf5;
+            --muted: #99a4b5;
+            --accent: #7dd3fc;
+            --accent-soft: rgba(125, 211, 252, 0.12);
             --good: #22c55e;
             --warn: #f59e0b;
             --bad: #ef4444;
         }}
         body {{
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            background: radial-gradient(circle at top left, rgba(215, 255, 65, 0.12), transparent 34%), var(--bg);
+            background: linear-gradient(180deg, #0a0f16 0%, #0b1119 100%);
             color: var(--text);
             min-height: 100vh;
         }}
@@ -249,164 +249,172 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         .top-nav {{
             position: sticky;
             top: 0;
-            z-index: 20;
+            z-index: 50;
             display: flex;
             gap: 6px;
             align-items: center;
-            padding: 10px 18px;
+            padding: 8px 16px;
             border-bottom: 1px solid var(--border);
-            background: rgba(0, 0, 0, 0.88);
-            backdrop-filter: blur(16px);
+            background: rgba(11, 15, 20, 0.92);
+            backdrop-filter: blur(14px);
         }}
         .brand {{
             font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-right: 18px;
+            letter-spacing: -0.02em;
+            margin-right: 14px;
+            text-decoration: none;
         }}
-        .nav-item {{
+        .nav-item, .nav-link {{
             border: 0;
-            border-radius: 8px;
+            border-radius: 7px;
             background: transparent;
             color: var(--muted);
-            padding: 10px 12px;
+            padding: 8px 10px;
             font-weight: 600;
+            font-size: 0.92rem;
             cursor: pointer;
+            text-decoration: none;
         }}
-        .nav-item.active, .nav-item:hover {{
-            background: #1f1f1f;
+        .nav-item.active, .nav-item:hover, .nav-link:hover {{
+            background: #1a2432;
             color: var(--text);
         }}
         .rankings-menu {{
             position: absolute;
-            top: 48px;
+            top: 44px;
             left: 0;
             right: 0;
-            display: grid;
+            display: none;
             grid-template-columns: minmax(260px, 1fr) minmax(240px, 1fr) minmax(240px, 1fr);
             gap: 32px;
-            padding: 22px 24px;
+            padding: 16px 20px;
             border: 1px solid var(--border);
-            border-radius: 0 0 18px 18px;
-            background: rgba(0, 0, 0, 0.94);
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+            border-radius: 0 0 12px 12px;
+            background: rgba(12, 18, 26, 0.98);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+        }}
+        .top-nav.menu-open .rankings-menu {{
+            display: grid;
         }}
         .menu-section-title {{
             color: var(--muted);
-            font-size: 0.72rem;
-            letter-spacing: 0.25em;
+            font-size: 0.68rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            margin: 0 0 10px 12px;
+            margin: 0 0 8px 12px;
         }}
         .menu-link {{
             display: block;
             color: var(--muted);
             text-decoration: none;
-            padding: 10px 12px;
-            border-radius: 10px;
+            padding: 8px 10px;
+            border-radius: 8px;
             line-height: 1.1;
         }}
         .menu-link.active, .menu-link:hover {{
-            background: #1b1b1b;
+            background: #1a2432;
             color: var(--text);
         }}
         .container {{
-            width: min(1480px, calc(100% - 32px));
-            margin: 28px auto 60px;
+            width: min(1680px, calc(100% - 24px));
+            margin: 16px auto 40px;
         }}
         .hero {{
             display: grid;
             grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.7fr);
-            gap: 22px;
-            margin-bottom: 24px;
+            gap: 14px;
+            margin-bottom: 16px;
         }}
         .hero-card, .panel, .stat-card, .info-card {{
-            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
             border: 1px solid var(--border);
-            border-radius: 18px;
-            box-shadow: 0 18px 55px rgba(0,0,0,0.28);
+            border-radius: 12px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.22);
         }}
-        .hero-card {{ padding: 30px; }}
+        .hero-card {{ padding: 18px; }}
         h1 {{
-            font-size: clamp(2.2rem, 5vw, 4.6rem);
-            letter-spacing: -0.07em;
-            line-height: 0.95;
-            margin-bottom: 14px;
+            font-size: clamp(1.8rem, 3.8vw, 3.1rem);
+            letter-spacing: -0.04em;
+            line-height: 1.0;
+            margin-bottom: 10px;
         }}
         .subtitle {{
-            color: #c8c8c8;
+            color: #c5cfdd;
             max-width: 900px;
-            font-size: 1.08rem;
-            line-height: 1.7;
+            font-size: 0.96rem;
+            line-height: 1.45;
         }}
         .anchor-pill {{
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 18px;
-            padding: 8px 12px;
-            border: 1px solid rgba(215, 255, 65, 0.28);
+            margin-bottom: 12px;
+            padding: 6px 10px;
+            border: 1px solid rgba(125, 211, 252, 0.28);
             border-radius: 999px;
             color: var(--accent);
             background: var(--accent-soft);
             font-weight: 700;
+            font-size: 0.82rem;
             text-decoration: none;
             width: fit-content;
         }}
-        .hero-side {{ padding: 22px; }}
-        .hero-side h2 {{ font-size: 1.05rem; margin-bottom: 12px; }}
-        .hero-side p {{ color: var(--muted); line-height: 1.6; margin-bottom: 12px; }}
+        .hero-side {{ padding: 16px; }}
+        .hero-side h2 {{ font-size: 0.98rem; margin-bottom: 8px; }}
+        .hero-side p {{ color: var(--muted); line-height: 1.45; margin-bottom: 8px; font-size: 0.9rem; }}
         .stats {{
             display: grid;
-            grid-template-columns: repeat(4, minmax(150px, 1fr));
-            gap: 14px;
-            margin-bottom: 22px;
+            grid-template-columns: repeat(6, minmax(130px, 1fr));
+            gap: 10px;
+            margin-bottom: 14px;
         }}
-        .stat-card {{ padding: 18px; }}
+        .stat-card {{ padding: 12px; }}
         .stat-value {{
-            font-size: 2rem;
+            font-size: 1.7rem;
             font-weight: 850;
             letter-spacing: -0.04em;
         }}
-        .stat-label {{ color: var(--muted); margin-top: 6px; }}
-        .panel {{ padding: 20px; overflow: hidden; }}
+        .stat-label {{ color: var(--muted); margin-top: 4px; font-size: 0.82rem; }}
+        .panel {{ padding: 14px; overflow: hidden; }}
         .toolbar {{
             display: grid;
             grid-template-columns: minmax(220px, 1.2fr) repeat(3, minmax(150px, 0.55fr));
-            gap: 12px;
-            margin: 18px 0 18px;
+            gap: 8px;
+            margin: 12px 0;
         }}
         .toolbar input, .toolbar select {{
             width: 100%;
             border: 1px solid var(--border);
-            border-radius: 12px;
-            background: #0d0d0d;
+            border-radius: 8px;
+            background: #0f151f;
             color: var(--text);
-            padding: 12px 14px;
+            padding: 9px 11px;
             font: inherit;
+            font-size: 0.9rem;
         }}
-        .table-wrap {{ overflow-x: auto; border: 1px solid var(--border); border-radius: 16px; }}
+        .table-wrap {{ overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; }}
         table {{ width: 100%; border-collapse: collapse; min-width: 1180px; }}
-        th, td {{ padding: 15px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }}
+        th, td {{ padding: 10px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }}
         th {{
             position: sticky;
-            top: 49px;
+            top: 45px;
             z-index: 5;
-            background: #101010;
+            background: #111a25;
             color: #cfcfcf;
-            font-size: 0.78rem;
-            letter-spacing: 0.08em;
+            font-size: 0.7rem;
+            letter-spacing: 0.07em;
             text-transform: uppercase;
         }}
         tbody tr {{ background: rgba(255,255,255,0.015); }}
-        tbody tr:hover {{ background: rgba(215, 255, 65, 0.06); }}
+        tbody tr:hover {{ background: rgba(125, 211, 252, 0.08); }}
         .model-name {{ font-weight: 800; color: var(--text); }}
         .muted {{ color: var(--muted); font-size: 0.88em; }}
         .score-badge, .confidence-badge, .lane-badge {{
             display: inline-block;
-            padding: 6px 10px;
+            padding: 4px 8px;
             border-radius: 999px;
             font-weight: 800;
-            font-size: 0.86rem;
+            font-size: 0.76rem;
             white-space: nowrap;
         }}
         .score-high, .confidence-strong, .lane-verified {{ background: rgba(34,197,94,0.18); color: #86efac; border: 1px solid rgba(34,197,94,0.35); }}
@@ -417,21 +425,21 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         .chip {{
             border: 1px solid var(--border);
             border-radius: 999px;
-            padding: 4px 8px;
+            padding: 3px 7px;
             color: #d7d7d7;
-            background: #121212;
-            font-size: 0.82rem;
+            background: #101722;
+            font-size: 0.74rem;
             white-space: nowrap;
         }}
         .info-grid {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 22px;
+            gap: 10px;
+            margin-top: 12px;
         }}
-        .info-card {{ padding: 22px; }}
-        .info-card h3 {{ margin-bottom: 10px; }}
-        .info-card p, .info-card li {{ color: #c4c4c4; line-height: 1.65; }}
+        .info-card {{ padding: 14px; }}
+        .info-card h3 {{ margin-bottom: 8px; font-size: 1rem; }}
+        .info-card p, .info-card li {{ color: #c4c4c4; line-height: 1.45; font-size: 0.9rem; }}
         .info-card ul {{ padding-left: 18px; }}
         code {{ background: #1f1f1f; border: 1px solid var(--border); border-radius: 6px; padding: 2px 6px; }}
         .github-link {{ color: var(--accent); text-decoration: none; font-weight: 700; }}
@@ -453,13 +461,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <nav class="top-nav" aria-label="Main navigation">
-        <div class="brand">Model Trust Scorecard</div>
-        <button class="nav-item active" type="button">Rankings ^</button>
-        <button class="nav-item" type="button">Dashboards</button>
-        <button class="nav-item" type="button">Explore</button>
-        <button class="nav-item" type="button">Tools</button>
-        <button class="nav-item" type="button">Methodology</button>
-        <div class="rankings-menu" aria-label="Ranking categories">
+        <a class="brand" href="#rankings">Model Trust Scorecard</a>
+        <button class="nav-item active" id="rankingsToggle" type="button" aria-expanded="false" aria-controls="rankingsMenu">Rankings</button>
+        <a class="nav-link" href="#rankings">Dashboards</a>
+        <a class="nav-link" href="#sources">Explore</a>
+        <a class="nav-link" href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard/actions">Tools</a>
+        <a class="nav-link" href="#methodology">Methodology</a>
+        <div class="rankings-menu" id="rankingsMenu" aria-label="Ranking categories">
             <div>
                 <div class="menu-section-title">Core Rankings</div>
                 <a class="menu-link active" href="#rankings" data-filter-link="all">All Benchmarks</a>
@@ -602,11 +610,43 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     </main>
 
     <script>
+        const topNav = document.querySelector('.top-nav');
+        const rankingsToggle = document.getElementById('rankingsToggle');
+        const rankingsMenu = document.getElementById('rankingsMenu');
         const searchInput = document.getElementById('modelSearch');
         const categoryFilter = document.getElementById('categoryFilter');
         const providerFilter = document.getElementById('providerFilter');
         const licenseFilter = document.getElementById('licenseFilter');
         const rows = Array.from(document.querySelectorAll('tbody tr[data-provider]'));
+
+        function closeMenu() {{
+            topNav.classList.remove('menu-open');
+            rankingsToggle.setAttribute('aria-expanded', 'false');
+        }}
+
+        function toggleMenu() {{
+            const nextOpen = !topNav.classList.contains('menu-open');
+            topNav.classList.toggle('menu-open', nextOpen);
+            rankingsToggle.setAttribute('aria-expanded', nextOpen ? 'true' : 'false');
+        }}
+
+        rankingsToggle.addEventListener('click', (event) => {{
+            event.stopPropagation();
+            toggleMenu();
+        }});
+
+        document.addEventListener('click', (event) => {{
+            if (!topNav.contains(event.target)) {{
+                closeMenu();
+            }}
+        }});
+
+        document.addEventListener('keydown', (event) => {{
+            if (event.key === 'Escape') {{
+                closeMenu();
+            }}
+        }});
+
         function applyFilters() {{
             const query = searchInput.value.trim().toLowerCase();
             const category = categoryFilter.value;
@@ -627,8 +667,15 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                 document.querySelectorAll('[data-filter-link]').forEach((item) => item.classList.remove('active'));
                 link.classList.add('active');
                 applyFilters();
+                closeMenu();
             }});
         }});
+
+        document.querySelectorAll('.nav-link').forEach((link) => {{
+            link.addEventListener('click', () => closeMenu());
+        }});
+
+        applyFilters();
     </script>
 </body>
 </html>
