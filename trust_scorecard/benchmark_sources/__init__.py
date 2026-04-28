@@ -10,6 +10,8 @@ All public exports:
 """
 
 from trust_scorecard.benchmark_sources.base import BenchmarkSourceBase
+from trust_scorecard.benchmark_sources.artificial_analysis import ArtificialAnalysisSource
+from trust_scorecard.benchmark_sources.benchlm import BenchLMSource
 from trust_scorecard.benchmark_sources.open_llm_leaderboard import OpenLLMLeaderboardSource
 from trust_scorecard.benchmark_sources.openrouter_source import OpenRouterSource
 from trust_scorecard.benchmark_sources.platform_sources import (
@@ -37,6 +39,43 @@ def get_default_sources() -> list[BenchmarkSourceBase]:
     List of configured BenchmarkSourceBase instances.
     """
     sources: list[BenchmarkSourceBase] = []
+
+    # BenchLM - public no-auth leaderboard with overall and category scores.
+    benchlm_config = BenchmarkConfig(
+        id="benchlm",
+        display_name="BenchLM",
+        description="BenchLM public leaderboard with overall score, rank, lane, and weighted category scores",
+        metric_kind=MetricKind.SCORE,
+        weight_max=12.0,
+        data_source="benchlm_api",
+        data_source_params={
+            "url": "https://benchlm.ai/api/data/leaderboard",
+            "cache_path": "benchlm_cache.json",
+        },
+        tolerance_default=2.0,
+        enabled=True,
+        tags=["leaderboard", "capability", "category-weights", "freshness"],
+    )
+    sources.append(BenchLMSource(benchlm_config))
+
+    # Artificial Analysis - optional authenticated live source. If the API key
+    # is absent, the adapter skips gracefully or uses a configured cache.
+    artificial_analysis_config = BenchmarkConfig(
+        id="artificial_analysis",
+        display_name="Artificial Analysis",
+        description="Artificial Analysis model evaluations, runtime metrics, and pricing metadata",
+        metric_kind=MetricKind.SCORE,
+        weight_max=8.0,
+        data_source="artificial_analysis_api",
+        data_source_params={
+            "url": "https://artificialanalysis.ai/api/v2/data/llms/models",
+            "cache_path": "artificial_analysis_cache.json",
+        },
+        tolerance_default=2.0,
+        enabled=True,
+        tags=["leaderboard", "runtime", "pricing", "capability"],
+    )
+    sources.append(ArtificialAnalysisSource(artificial_analysis_config))
 
     # OpenRouter - live benchmark data from Model Arena
     openrouter_config = BenchmarkConfig(
@@ -188,6 +227,8 @@ def get_default_sources() -> list[BenchmarkSourceBase]:
 __all__ = [
     "BenchmarkSourceBase",
     "BenchmarkSource",
+    "ArtificialAnalysisSource",
+    "BenchLMSource",
     "SWEBenchSource",
     "OpenLLMLeaderboardSource",
     "OpenRouterSource",

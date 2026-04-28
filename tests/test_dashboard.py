@@ -8,6 +8,9 @@ from scripts.generate_dashboard import (
     _format_hallucination,
     _format_price,
     _format_release_date,
+    _format_source_freshness,
+    _format_category_coverage,
+    _ranking_lane_label,
     _source_confidence,
 )
 
@@ -60,6 +63,15 @@ def test_dashboard_source_confidence_labels():
     assert _source_confidence(3, 0, 3) == "Low / estimated"
     assert _source_confidence(3, 0, 1) == "Low confidence"
     assert _confidence_dots("Good confidence") == "3/4 confidence"
+    assert _confidence_dots("Sourced external") == "source-backed"
+
+
+def test_dashboard_formats_source_metadata_fields():
+    assert _ranking_lane_label("provisional") == "Provisional"
+    assert "BenchLM" in _format_source_freshness({"BenchLM": "April 27, 2026"})
+    coverage = _format_category_coverage({"covered": 2, "total": 8, "categories": ["coding", "agentic"]})
+    assert "2/8" in coverage
+    assert "Coding" in coverage
 
 
 def test_dashboard_category_from_score_uses_capability_metadata():
@@ -95,6 +107,9 @@ def test_dashboard_describes_reliability_first_ordering():
     assert "Artificial Analysis" in HTML_TEMPLATE
     assert "All Benchmarks" in HTML_TEMPLATE
     assert "Source Confidence" in HTML_TEMPLATE
+    assert "Source Freshness" in HTML_TEMPLATE
+    assert "Category Coverage" in HTML_TEMPLATE
+    assert "Ranking lanes distinguish" in HTML_TEMPLATE
     assert "Claim Coverage" in HTML_TEMPLATE
     assert "providerFilter" in HTML_TEMPLATE
     assert "row.dataset.search.includes(query)" in HTML_TEMPLATE

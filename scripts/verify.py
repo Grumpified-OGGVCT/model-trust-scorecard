@@ -9,11 +9,17 @@ Usage:
 import argparse
 import json
 import logging
+import sys
 from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 from trust_scorecard.benchmark_sources import get_default_sources
 from trust_scorecard.persistence import EvaluationStore
 from trust_scorecard.pipeline import EvaluationPipeline, load_model_card_from_json
+from trust_scorecard.source_evidence import summarize_source_evidence
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -58,6 +64,12 @@ def main():
 
     # Run evaluation
     evaluation = pipeline.evaluate_model(model_card)
+    source_metadata = summarize_source_evidence(
+        evaluation.card,
+        evaluation.claims,
+        evaluation.outcomes,
+        evaluation.benchmark_results,
+    )
 
     # Prepare report
     report = {
@@ -74,6 +86,8 @@ def main():
         "refuted_count": sum(1 for o in evaluation.outcomes if o.status.value == "refuted"),
         "unverifiable_count": sum(1 for o in evaluation.outcomes if o.status.value == "unverifiable"),
         "model_card": evaluation.card.model_dump(mode="json"),
+        "benchmark_results": [r.model_dump(mode="json") for r in evaluation.benchmark_results],
+        **source_metadata,
     }
 
     # Write output

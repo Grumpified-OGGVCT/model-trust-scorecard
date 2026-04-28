@@ -107,7 +107,41 @@ def _confidence_dots(label: str) -> str:
         return "3/4 confidence"
     if label == "Moderate confidence":
         return "2/4 confidence"
+    if label == "Sourced external":
+        return "source-backed"
     return "1/4 confidence"
+
+
+def _ranking_lane_label(value: str | None) -> str:
+    labels = {
+        "verified": "Verified",
+        "provisional": "Provisional",
+        "estimated": "Estimated",
+        "local_only": "Local only",
+        "no_evidence": "No evidence",
+    }
+    return labels.get(value or "", "Local only")
+
+
+def _format_source_freshness(source_freshness: dict | None) -> str:
+    if not source_freshness:
+        return "-"
+    return "<br>".join(
+        f"<strong>{html_lib.escape(str(source))}</strong>: {html_lib.escape(str(value))}"
+        for source, value in sorted(source_freshness.items())
+    )
+
+
+def _format_category_coverage(category_coverage: dict | None) -> str:
+    if not category_coverage:
+        return "0/8"
+    covered = category_coverage.get("covered", 0)
+    total = category_coverage.get("total", 8)
+    categories = category_coverage.get("categories") or []
+    category_label = ", ".join(str(category).replace("_", " ").title() for category in categories)
+    if category_label:
+        return f"{covered}/{total}<br><span class=\"muted\">{html_lib.escape(category_label)}</span>"
+    return f"{covered}/{total}"
 
 
 def _category_from_score(score: dict) -> str:
@@ -146,10 +180,10 @@ def _format_chips(labels: list[str]) -> str:
 def _strength_chips(score: dict) -> str:
     use_case_scores = score.get("use_case_scores", {}) or {}
     model_card = score.get("model_card", {}) or {}
-    leaderboard_score = model_card.get("leaderboard_score")
+    leaderboard_score = score.get("primary_leaderboard_score") or model_card.get("leaderboard_score")
     labels = []
     if leaderboard_score is not None:
-        source = model_card.get("leaderboard_source") or "External"
+        source = score.get("primary_leaderboard_source") or model_card.get("leaderboard_source") or "External"
         labels.append(f"{source}: {float(leaderboard_score):.1f}")
     labels.extend(f"{k.replace('_', ' ').title()}: {v:.1f}" for k, v in use_case_scores.items())
 
@@ -367,7 +401,7 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         tbody tr:hover {{ background: rgba(215, 255, 65, 0.06); }}
         .model-name {{ font-weight: 800; color: var(--text); }}
         .muted {{ color: var(--muted); font-size: 0.88em; }}
-        .score-badge, .confidence-badge {{
+        .score-badge, .confidence-badge, .lane-badge {{
             display: inline-block;
             padding: 6px 10px;
             border-radius: 999px;
@@ -375,9 +409,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
             font-size: 0.86rem;
             white-space: nowrap;
         }}
-        .score-high, .confidence-strong {{ background: rgba(34,197,94,0.18); color: #86efac; border: 1px solid rgba(34,197,94,0.35); }}
-        .score-medium, .confidence-partial {{ background: rgba(245,158,11,0.18); color: #fcd34d; border: 1px solid rgba(245,158,11,0.35); }}
-        .score-low, .confidence-low {{ background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.35); }}
+        .score-high, .confidence-strong, .lane-verified {{ background: rgba(34,197,94,0.18); color: #86efac; border: 1px solid rgba(34,197,94,0.35); }}
+        .score-medium, .confidence-partial, .lane-provisional {{ background: rgba(245,158,11,0.18); color: #fcd34d; border: 1px solid rgba(245,158,11,0.35); }}
+        .score-low, .confidence-low, .lane-estimated, .lane-local-only, .lane-no-evidence {{ background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.35); }}
         .score-na {{ background: rgba(148,163,184,0.18); color: #cbd5e1; border: 1px solid rgba(148,163,184,0.35); }}
         .chips {{ display: flex; flex-wrap: wrap; gap: 6px; }}
         .chip {{
@@ -502,7 +536,9 @@ HTML_TEMPLATE = """<!DOCTYPE html>
                         <tr>
                             <th>Rank</th>
                             <th>Model / Provider</th>
-                            <th>Source Confidence</th>
+                            <th>Lane / Confidence</th>
+                            <th>Category Coverage</th>
+                            <th>Source Freshness</th>
                             <th>Trust Score</th>
                             <th>Use-Case Strengths</th>
                             <th>Capabilities</th>
@@ -520,12 +556,14 @@ HTML_TEMPLATE = """<!DOCTYPE html>
         <section class="info-grid" id="methodology">
             <div class="info-card">
                 <h3>How rankings are ordered</h3>
-                <p>Models with independently verified claims or external leaderboard score/rank metadata rank ahead of models with only unverified claims. Within each reliability tier, externally sourced or BenchLM-style weighted category capability now sorts before raw verification-count tie breakers. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break remaining ties.</p>
+                <p>Models with independently verified claims or live source score/rank metadata rank ahead of models with only unverified claims. Ranking lanes distinguish verified, provisional, estimated, local-only, and no-evidence rows; zero-evidence models are placed last. Within each lane, externally sourced or BenchLM-style weighted category capability sorts before raw verification-count tie breakers.</p>
             </div>
             <div class="info-card">
                 <h3>Completeness and accuracy signals</h3>
                 <ul>
-                    <li><strong>Source Confidence</strong> uses a 4-tier confidence ladder based on sourced claim depth and weighted category breadth.</li>
+                    <li><strong>Source Confidence</strong> uses a 4-tier confidence ladder based on sourced benchmark depth and weighted category breadth.</li>
+                    <li><strong>Source Freshness</strong> exposes the source-reported date or retrieval timestamp used for each live adapter.</li>
+                    <li><strong>Category Coverage</strong> shows how many BenchLM-style weighted categories have direct source rows.</li>
                     <li><strong>Claim Coverage</strong> shows how many models include checkable benchmark claims.</li>
                     <li><strong>Use-case and metadata columns</strong> surface context, pricing, release date, license, and capability tags without hiding uncertainty.</li>
                 </ul>
@@ -677,18 +715,23 @@ def main():
         license_display = model_card.get("license_kind") or score.get("license", "unknown")
         raw_license_display = str(license_display)
         release_date = _format_release_date(model_card.get("release_date"))
-        source_confidence = _source_confidence(
+        source_confidence = score.get("confidence_tier") or _source_confidence(
             score.get("total_claims", 0),
             score.get("verified_count", 0),
             score.get("unverifiable_count", 0),
             len(category_capability_scores(use_case_scores)),
         )
         confidence_class = (
-            "confidence-strong" if source_confidence in {"High confidence", "Good confidence"}
+            "confidence-strong" if source_confidence in {"High confidence", "Good confidence", "Sourced external"}
             else "confidence-partial" if source_confidence == "Moderate confidence"
             else "confidence-low"
         )
         confidence_dots = _confidence_dots(source_confidence)
+        ranking_lane = score.get("ranking_lane") or "local_only"
+        lane_label = _ranking_lane_label(ranking_lane)
+        lane_class = f"lane-{ranking_lane.replace('_', '-')}"
+        category_coverage_display = _format_category_coverage(score.get("category_coverage"))
+        freshness_display = _format_source_freshness(score.get("source_freshness"))
         category = _category_from_score(score)
         provider = html_lib.escape(score["vendor"] or "-")
         license_value = html_lib.escape(raw_license_display)
@@ -706,7 +749,9 @@ def main():
             f"""<tr data-provider="{provider}" data-license="{license_value}" data-category="{category}" data-search="{search_blob}">
                 <td>{rank}</td>
                 <td><span class="model-name">{html_lib.escape(score['display_name'])}</span><br><span class="muted">{provider} • {release_date}</span></td>
-                <td><span class="confidence-badge {confidence_class}">{source_confidence}</span><br><span class="muted">{confidence_dots} • {score['verified_count']}/{score['total_claims']} verified</span></td>
+                <td><span class="lane-badge {lane_class}">{lane_label}</span><br><span class="confidence-badge {confidence_class}">{source_confidence}</span><br><span class="muted">{confidence_dots} • {score['verified_count']}/{score['total_claims']} verified</span></td>
+                <td>{category_coverage_display}</td>
+                <td>{freshness_display}</td>
                 <td><span class="score-badge {badge_class}">{score_display}</span><br><span style="color:#718096; font-size:0.85em;">{score['verified_count']}/{score['total_claims']} verified</span></td>
                 <td>{use_case_label}</td>
                 <td>{caps_display}</td>
@@ -733,7 +778,7 @@ def main():
 
     # Write output
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(html)
+    args.output.write_text(html, encoding="utf-8")
     logger.info(f"Generated dashboard at {args.output}")
 
     return 0

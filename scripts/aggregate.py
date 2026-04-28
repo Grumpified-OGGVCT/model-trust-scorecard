@@ -13,13 +13,14 @@ import argparse
 import json
 import logging
 import sys
+from collections import Counter
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-from trust_scorecard.ranking import score_record_sort_key  # noqa: E402
+from trust_scorecard.ranking import CAPABILITY_CATEGORY_WEIGHTS, score_record_sort_key  # noqa: E402
 
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
@@ -47,10 +48,10 @@ def latest_evaluated_at(scores: list[dict]) -> str | None:
 def _strength_label(score: dict) -> str:
     use_case_scores = score.get("use_case_scores") or {}
     model_card = score.get("model_card") or {}
-    leaderboard_score = model_card.get("leaderboard_score")
+    leaderboard_score = score.get("primary_leaderboard_score") or model_card.get("leaderboard_score")
     labels = []
     if leaderboard_score is not None:
-        source = model_card.get("leaderboard_source") or "External leaderboard"
+        source = score.get("primary_leaderboard_source") or model_card.get("leaderboard_source") or "External leaderboard"
         labels.append(f"{source} score: {float(leaderboard_score):.1f}")
     labels.extend(f"{name}: {value:.1f}" for name, value in use_case_scores.items())
     if labels:
@@ -68,8 +69,8 @@ def generate_markdown_table(scores: list[dict]) -> str:
         "",
         "Models are ordered by independently sourced capability first, then demonstrated benchmark/use-case performance; trust score indicates confidence in model-local claims and verification status.",
         "",
-        "| Rank | Model | Vendor | Use-Case Strengths | Trust Score | Verified Claims | License |",
-        "|------|-------|--------|--------------------|-------------|-----------------|---------|",
+        "| Rank | Model | Vendor | Lane | Category Coverage | Source Freshness | Use-Case Strengths | Trust Score | Verified Claims | License |",
+        "|------|-------|--------|------|-------------------|------------------|--------------------|-------------|-----------------|---------|",
     ]
 
     for rank, score in enumerate(sorted_scores, 1):
@@ -85,9 +86,14 @@ def generate_markdown_table(scores: list[dict]) -> str:
         else:
             badge = f"![{trust_score:.1f}](https://img.shields.io/badge/Trust-{trust_score:.1f}-orange)"
 
+        lane = score.get("ranking_lane") or "local_only"
+        category_coverage = score.get("category_coverage") or {}
+        category_label = f"{category_coverage.get('covered', 0)}/{category_coverage.get('total', 8)}"
+        freshness = score.get("source_freshness") or {}
+        freshness_label = ", ".join(f"{name}: {value}" for name, value in freshness.items()) or "—"
         lines.append(
-            f"| {rank} | {score['display_name']} | {score['vendor'] or '—'} | {use_case_label} | {badge} | "
-            f"{score['verified_count']}/{score['total_claims']} | {score['license']} |"
+            f"| {rank} | {score['display_name']} | {score['vendor'] or '—'} | {lane} | {category_label} | "
+            f"{freshness_label} | {use_case_label} | {badge} | {score['verified_count']}/{score['total_claims']} | {score['license']} |"
         )
 
     lines.extend([
@@ -109,6 +115,30 @@ def generate_markdown_table(scores: list[dict]) -> str:
     ])
 
     return "\n".join(lines)
+
+
+def _source_catalog(scores: list[dict]) -> list[dict]:
+    catalog: dict[str, dict] = {}
+    for score in scores:
+        for evidence in score.get("source_evidence") or []:
+            source = evidence.get("source")
+            if not source:
+                continue
+            item = catalog.setdefault(
+                source,
+                {"source": source, "url": evidence.get("url"), "freshness_values": set()},
+            )
+            if evidence.get("url"):
+                item["url"] = evidence["url"]
+            if evidence.get("freshness"):
+                item["freshness_values"].add(evidence["freshness"])
+
+    output = []
+    for item in catalog.values():
+        freshness_values = sorted(item.pop("freshness_values"))
+        item["freshness"] = freshness_values[-1] if freshness_values else None
+        output.append(item)
+    return sorted(output, key=lambda entry: entry["source"])
 
 
 def main():
@@ -172,20 +202,38 @@ def main():
             "license": license_value,
             "model_card": model_card,
             "tags": model_card.get("tags", []),
+            "ranking_lane": report.get("ranking_lane"),
+            "confidence_tier": report.get("confidence_tier"),
+            "source_evidence": report.get("source_evidence", []),
+            "source_freshness": report.get("source_freshness", {}),
+            "primary_leaderboard_source": report.get("primary_leaderboard_source"),
+            "primary_leaderboard_rank": report.get("primary_leaderboard_rank"),
+            "primary_leaderboard_score": report.get("primary_leaderboard_score"),
+            "benchlm_mode": report.get("benchlm_mode"),
+            "benchlm_category_scores": report.get("benchlm_category_scores", {}),
+            "artificial_analysis_scores": report.get("artificial_analysis_scores", {}),
+            "category_coverage": report.get("category_coverage", {}),
+            "rankable_benchmark_count": report.get("rankable_benchmark_count", 0),
+            "rankable_category_count": report.get("rankable_category_count", 0),
         })
 
     # Write JSON
     aggregated = {
         "generated_at": latest_evaluated_at(scores),
         "total_models": len(scores),
+        "source_catalog": _source_catalog(scores),
+        "category_weights": CAPABILITY_CATEGORY_WEIGHTS,
+        "ranking_lane_counts": dict(Counter(score.get("ranking_lane") or "unknown" for score in scores)),
+        "confidence_distribution": dict(Counter(score.get("confidence_tier") or "unknown" for score in scores)),
+        "snapshot_methodology_version": "benchlm-aa-source-evidence-v1",
         "scores": sort_scores_by_capability(scores),
     }
-    args.output.write_text(json.dumps(aggregated, indent=2))
+    args.output.write_text(json.dumps(aggregated, indent=2), encoding="utf-8")
     logger.info(f"Wrote aggregated scores to {args.output}")
 
     # Write markdown
     markdown = generate_markdown_table(scores)
-    args.md.write_text(markdown)
+    args.md.write_text(markdown, encoding="utf-8")
     logger.info(f"Wrote markdown table to {args.md}")
 
     return 0

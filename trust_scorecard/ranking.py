@@ -36,6 +36,13 @@ TIER_VERIFIED = 0
 TIER_UNVERIFIED = 1
 TIER_CAPABILITY_ONLY = 2
 TIER_NO_EVIDENCE = 3
+RANKING_LANE_ORDER = {
+    "verified": 0,
+    "provisional": 1,
+    "estimated": 2,
+    "local_only": 3,
+    "no_evidence": 4,
+}
 
 MULTIMODAL_TAGS = {"multimodal", "vision", "video", "ocr", "document-analysis"}
 AGENTIC_TAGS = {"agentic", "tool-use", "function-calling", "software-engineering"}
@@ -164,14 +171,31 @@ def capability_sort_key(
 
 def score_record_sort_key(score: Mapping[str, Any]) -> tuple[Any, ...]:
     """Sort key for aggregated score dictionaries."""
-    model_card = ModelCard.model_validate(score.get("model_card") or {})
-    return capability_sort_key(
+    raw_model_card = dict(score.get("model_card") or {})
+    if score.get("primary_leaderboard_score") is not None:
+        raw_model_card["leaderboard_score"] = score.get("primary_leaderboard_score")
+        raw_model_card["leaderboard_source"] = score.get("primary_leaderboard_source") or "External leaderboard"
+    if score.get("primary_leaderboard_rank") is not None:
+        raw_model_card["leaderboard_rank"] = score.get("primary_leaderboard_rank")
+
+    model_card = ModelCard.model_validate(raw_model_card)
+    benchmark_evidence_count = max(
+        int(score.get("total_claims") or 0),
+        int(score.get("rankable_benchmark_count") or 0),
+    )
+    base_key = capability_sort_key(
         model_card,
         score.get("use_case_scores") or {},
         score.get("trust_score"),
-        int(score.get("total_claims") or 0),
+        benchmark_evidence_count,
         int(score.get("verified_count") or 0),
     )
+    if "ranking_lane" not in score:
+        return base_key
+
+    lane = str(score.get("ranking_lane") or "local_only")
+    lane_order = RANKING_LANE_ORDER.get(lane, RANKING_LANE_ORDER["local_only"])
+    return base_key[:1] + (lane_order,) + base_key[1:]
 
 
 def evaluation_sort_key(evaluation: ModelEvaluation) -> tuple[Any, ...]:

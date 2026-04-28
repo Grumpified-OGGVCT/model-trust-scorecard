@@ -182,7 +182,7 @@
         tbody tr:hover { background: rgba(215, 255, 65, 0.06); }
         .model-name { font-weight: 800; color: var(--text); }
         .muted { color: var(--muted); font-size: 0.88em; }
-        .score-badge, .confidence-badge {
+        .score-badge, .confidence-badge, .lane-badge {
             display: inline-block;
             padding: 6px 10px;
             border-radius: 999px;
@@ -190,9 +190,9 @@
             font-size: 0.86rem;
             white-space: nowrap;
         }
-        .score-high, .confidence-strong { background: rgba(34,197,94,0.18); color: #86efac; border: 1px solid rgba(34,197,94,0.35); }
-        .score-medium, .confidence-partial { background: rgba(245,158,11,0.18); color: #fcd34d; border: 1px solid rgba(245,158,11,0.35); }
-        .score-low, .confidence-low { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.35); }
+        .score-high, .confidence-strong, .lane-verified { background: rgba(34,197,94,0.18); color: #86efac; border: 1px solid rgba(34,197,94,0.35); }
+        .score-medium, .confidence-partial, .lane-provisional { background: rgba(245,158,11,0.18); color: #fcd34d; border: 1px solid rgba(245,158,11,0.35); }
+        .score-low, .confidence-low, .lane-estimated, .lane-local-only, .lane-no-evidence { background: rgba(239,68,68,0.18); color: #fca5a5; border: 1px solid rgba(239,68,68,0.35); }
         .score-na { background: rgba(148,163,184,0.18); color: #cbd5e1; border: 1px solid rgba(148,163,184,0.35); }
         .chips { display: flex; flex-wrap: wrap; gap: 6px; }
         .chip {
@@ -281,7 +281,7 @@
 
         <section class="stats" aria-label="Dataset coverage">
             <div class="stat-card"><div class="stat-value">107</div><div class="stat-label">Models Evaluated</div></div>
-            <div class="stat-card"><div class="stat-value">23.6</div><div class="stat-label">Average Trust Score</div></div>
+            <div class="stat-card"><div class="stat-value">23.0</div><div class="stat-label">Average Trust Score</div></div>
             <div class="stat-card"><div class="stat-value">170</div><div class="stat-label">Total Claims</div></div>
             <div class="stat-card"><div class="stat-value">4%</div><div class="stat-label">Claims Verified</div></div>
             <div class="stat-card"><div class="stat-value">38</div><div class="stat-label">Models With Sources</div></div>
@@ -347,7 +347,9 @@
                         <tr>
                             <th>Rank</th>
                             <th>Model / Provider</th>
-                            <th>Source Confidence</th>
+                            <th>Lane / Confidence</th>
+                            <th>Category Coverage</th>
+                            <th>Source Freshness</th>
                             <th>Trust Score</th>
                             <th>Use-Case Strengths</th>
                             <th>Capabilities</th>
@@ -357,10 +359,236 @@
                             <th>License</th>
                         </tr>
                     </thead>
-                    <tbody><tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude mythos preview anthropic proprietary text reasoning coding agentic long-context safety ">
+                    <tbody><tr data-provider="Moonshot AI" data-license="open" data-category="coding" data-search="kimi 2.6 moonshot ai open agentic coding function-calling image long-context multimodal reasoning text video vision coding reasoning multilingual multilingual_depth tool_use agent_swarm vision_coding">
                 <td>1</td>
+                <td><span class="model-name">Kimi 2.6</span><br><span class="muted">Moonshot AI • 2026-04-20</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-strong">Sourced external</span><br><span class="muted">source-backed • 0/6 verified</span></td>
+                <td>4/8<br><span class="muted">Agentic, Coding, Knowledge, Multimodal Grounded</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 85.0</span><span class="chip">Coding: 68.7</span><span class="chip">Reasoning: 54.0</span><span class="chip">Multilingual: 76.7</span><span class="chip">Multilingual Depth: 76.7</span><span class="chip">Tool Use: 52.0</span><span class="chip">Agent Swarm: 52.0</span><span class="chip">Vision Coding: 76.7</span></div></td>
+                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
+                <td>32B / 1058B<br><span class="muted">256K ctx</span></td>
+                <td>$0.74 / $4.66<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
+            </tr>
+<tr data-provider="Z.ai" data-license="open" data-category="coding" data-search="glm 5.1 z.ai open agentic coding function-calling long-context multilingual open-weight reasoning software-engineering text coding reasoning math safety tool_use agent_swarm hallucination_fidelity">
+                <td>2</td>
+                <td><span class="model-name">GLM 5.1</span><br><span class="muted">Z.ai • 2026-04-07</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/8 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/8 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 83.0</span><span class="chip">Coding: 59.9</span><span class="chip">Reasoning: 77.0</span><span class="chip">Math: 89.8</span><span class="chip">Safety: 29.4</span><span class="chip">Tool Use: 67.0</span><span class="chip">Agent Swarm: 67.0</span><span class="chip">Hallucination Fidelity: 29.4</span></div></td>
+                <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Open Weights</span><span class="chip">Long Context</span></div></td>
+                <td>40B / 754B<br><span class="muted">203K ctx</span></td>
+                <td>$1.05 / $3.50<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#e53e3e;">70.6%</strong><br><span style="color:#718096; font-size:0.85em;">High risk</span></td>
+                <td>open</td>
+            </tr>
+<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-5.1 zhipu ai proprietary text multilingual chinese api advanced reasoning coding reasoning">
+                <td>3</td>
+                <td><span class="model-name">GLM-5.1</span><br><span class="muted">Zhipu AI • -</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/4 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 83.0</span><span class="chip">Coding: 78.5</span><span class="chip">Reasoning: 86.8</span></div></td>
+                <td><div class="chips"><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>32B<br><span class="muted">256K ctx</span></td>
+                <td>-</td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Z.ai" data-license="proprietary" data-category="coding" data-search="glm 5 z.ai proprietary api chinese coding long-context multilingual reasoning text coding reasoning">
+                <td>4</td>
+                <td><span class="model-name">GLM 5</span><br><span class="muted">Z.ai • 2026-02-11</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/3 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 83.0</span><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
+                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>9B<br><span class="muted">203K ctx</span></td>
+                <td>$0.60 / $2.08<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude opus 4.5 anthropic proprietary reasoning coding long-context safety coding reasoning math safety">
+                <td>5</td>
+                <td><span class="model-name">Claude Opus 4.5</span><br><span class="muted">Anthropic • 2025-11-01</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 1/7 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-medium">36.9</span><br><span style="color:#718096; font-size:0.85em;">1/7 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 77.0</span><span class="chip">Coding: 89.3</span><span class="chip">Reasoning: 86.8</span><span class="chip">Math: 83.8</span><span class="chip">Safety: 69.8</span></div></td>
+                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
+                <td>-<br><span class="muted">200K ctx</span></td>
+                <td>$15.00 / $75.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="DeepSeek" data-license="open" data-category="coding" data-search="deepseek-v4-flash cloud deepseek open agentic coding function-calling long-context open-weight rag reasoning text coding reasoning math safety hallucination_fidelity">
+                <td>6</td>
+                <td><span class="model-name">DeepSeek-V4-Flash Cloud</span><br><span class="muted">DeepSeek • 2026-04-23</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-strong">Sourced external</span><br><span class="muted">source-backed • 0/7 verified</span></td>
+                <td>3/8<br><span class="muted">Agentic, Coding, Knowledge</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 77.0</span><span class="chip">Coding: 80.6</span><span class="chip">Reasoning: 76.9</span><span class="chip">Math: 92.1</span><span class="chip">Safety: 95.8</span><span class="chip">Hallucination Fidelity: 95.8</span></div></td>
+                <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">RAG</span><span class="chip">Open Weights</span><span class="chip">Long Context</span></div></td>
+                <td>13B / 284B<br><span class="muted">1.0M ctx</span></td>
+                <td>$0.14 / $0.28<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#38a169;">4.2%</strong><br><span style="color:#718096; font-size:0.85em;">Low risk</span></td>
+                <td>open</td>
+            </tr>
+<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.7 zhipu ai proprietary text multilingual chinese api coding reasoning">
+                <td>7</td>
+                <td><span class="model-name">GLM-4.7</span><br><span class="muted">Zhipu AI • -</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/4 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 70.0</span><span class="chip">Coding: 72.0</span><span class="chip">Reasoning: 83.3</span></div></td>
+                <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>32B<br><span class="muted">128K ctx</span></td>
+                <td>-</td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.7-flash zhipu ai proprietary text multilingual chinese api fast optimized coding reasoning">
+                <td>8</td>
+                <td><span class="model-name">GLM-4.7-Flash</span><br><span class="muted">Zhipu AI • -</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/4 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 70.0</span><span class="chip">Coding: 72.0</span><span class="chip">Reasoning: 83.3</span></div></td>
+                <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>9B<br><span class="muted">128K ctx</span></td>
+                <td>-</td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.7-flashx zhipu ai proprietary text multilingual chinese api fast optimized coding reasoning">
+                <td>9</td>
+                <td><span class="model-name">GLM-4.7-FlashX</span><br><span class="muted">Zhipu AI • -</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/4 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 70.0</span><span class="chip">Coding: 72.0</span><span class="chip">Reasoning: 83.3</span></div></td>
+                <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>9B<br><span class="muted">128K ctx</span></td>
+                <td>-</td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Z.ai" data-license="proprietary" data-category="coding" data-search="glm 5v turbo z.ai proprietary api chinese long-context multilingual multimodal reasoning text vision coding reasoning">
+                <td>10</td>
+                <td><span class="model-name">GLM 5V Turbo</span><br><span class="muted">Z.ai • 2026-04-01</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/3 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 67.0</span><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
+                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>9B<br><span class="muted">203K ctx</span></td>
+                <td>$1.20 / $4.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Z.ai" data-license="proprietary" data-category="coding" data-search="glm 5 turbo z.ai proprietary api chinese coding long-context multilingual reasoning text coding reasoning">
+                <td>11</td>
+                <td><span class="model-name">GLM 5 Turbo</span><br><span class="muted">Z.ai • 2026-03-15</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/3 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 67.0</span><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
+                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>9B<br><span class="muted">203K ctx</span></td>
+                <td>$1.20 / $4.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Alibaba / Qwen" data-license="open" data-category="coding" data-search="qwen 3.5 (397b) cloud alibaba / qwen open coding document-analysis image multilingual multimodal ocr reasoning text video vision coding reasoning math multilingual multilingual_depth tool_use agent_swarm vision_coding multimodal ocr video_understanding">
+                <td>12</td>
+                <td><span class="model-name">Qwen 3.5 (397B) Cloud</span><br><span class="muted">Alibaba / Qwen • 2026-02-16</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/14 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-medium">41.0</span><br><span style="color:#718096; font-size:0.85em;">0/14 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 65.0</span><span class="chip">Coding: 72.8</span><span class="chip">Reasoning: 89.4</span><span class="chip">Math: 90.8</span><span class="chip">Multilingual: 80.6</span><span class="chip">Multilingual Depth: 77.0</span><span class="chip">Tool Use: 86.7</span><span class="chip">Agent Swarm: 86.7</span><span class="chip">Vision Coding: 83.7</span><span class="chip">Multimodal: 90.0</span><span class="chip">Ocr: 93.7</span><span class="chip">Video Understanding: 87.5</span></div></td>
+                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span><span class="chip">OCR</span><span class="chip">Docs</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>17B / 397B<br><span class="muted">262K ctx</span></td>
+                <td>$0.39 / $2.34<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
+            </tr>
+<tr data-provider="Google" data-license="proprietary" data-category="coding" data-search="gemini 2.5 pro google proprietary multimodal long-context reasoning coding coding reasoning math safety">
+                <td>13</td>
+                <td><span class="model-name">Gemini 2.5 Pro</span><br><span class="muted">Google • 2026-02-12</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/6 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-medium">33.5</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 65.0</span><span class="chip">Coding: 75.0</span><span class="chip">Reasoning: 83.2</span><span class="chip">Math: 81.5</span><span class="chip">Safety: 68.1</span></div></td>
+                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
+                <td>-<br><span class="muted">2.1M ctx</span></td>
+                <td>$12.50 / $37.50<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>proprietary</td>
+            </tr>
+<tr data-provider="Moonshot AI" data-license="open" data-category="coding" data-search="kimi k2.5 moonshot ai open text coding multimodal vision agentic function-calling long-context reasoning image coding reasoning multimodal">
+                <td>14</td>
+                <td><span class="model-name">Kimi K2.5</span><br><span class="muted">Moonshot AI • 2026-01-27</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 0/3 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">18.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 64.0</span><span class="chip">Coding: 79.8</span><span class="chip">Reasoning: 47.0</span><span class="chip">Multimodal: 85.0</span></div></td>
+                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
+                <td>32B / 1058B<br><span class="muted">262K ctx</span></td>
+                <td>$0.44 / $2.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
+            </tr>
+<tr data-provider="MiniMax" data-license="restricted" data-category="coding" data-search="minimax m2.7 cloud minimax restricted agentic coding function-calling long-context office-automation reasoning software-engineering text coding reasoning math safety tool_use agent_swarm office_document hallucination_fidelity">
+                <td>15</td>
+                <td><span class="model-name">MiniMax M2.7 Cloud</span><br><span class="muted">MiniMax • 2026-03-18</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-strong">Sourced external</span><br><span class="muted">source-backed • 0/7 verified</span></td>
+                <td>4/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-low">23.5</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 63.0</span><span class="chip">Coding: 56.6</span><span class="chip">Reasoning: 68.5</span><span class="chip">Math: 87.4</span><span class="chip">Safety: 34.4</span><span class="chip">Tool Use: 54.9</span><span class="chip">Agent Swarm: 53.9</span><span class="chip">Office Document: 57.0</span><span class="chip">Hallucination Fidelity: 34.4</span></div></td>
+                <td><div class="chips"><span class="chip">Docs</span><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
+                <td>10B / 229B<br><span class="muted">197K ctx</span></td>
+                <td>$0.30 / $1.20<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td><strong style="color:#e53e3e;">65.6%</strong><br><span style="color:#718096; font-size:0.85em;">High risk</span></td>
+                <td>restricted</td>
+            </tr>
+<tr data-provider="DeepSeek" data-license="open" data-category="coding" data-search="deepseek v3.2 deepseek open open-source coding reasoning moe coding reasoning math">
+                <td>16</td>
+                <td><span class="model-name">DeepSeek V3.2</span><br><span class="muted">DeepSeek • 2025-12-26</span></td>
+                <td><span class="lane-badge lane-provisional">Provisional</span><br><span class="confidence-badge confidence-partial">Moderate confidence</span><br><span class="muted">2/4 confidence • 2/6 verified</span></td>
+                <td>8/8<br><span class="muted">Agentic, Coding, Instruction Following, Knowledge, Math, Multilingual, Multimodal Grounded, Reasoning</span></td>
+                <td><strong>BenchLM</strong>: April 27, 2026</td>
+                <td><span class="score-badge score-high">60.8</span><br><span style="color:#718096; font-size:0.85em;">2/6 verified</span></td>
+                <td><div class="chips"><span class="chip">BenchLM: 63.0</span><span class="chip">Coding: 80.8</span><span class="chip">Reasoning: 81.7</span><span class="chip">Math: 76.0</span></div></td>
+                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
+                <td>671B<br><span class="muted">128K ctx</span></td>
+                <td>-</td>
+                <td>-</td>
+                <td>open</td>
+            </tr>
+<tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude mythos preview anthropic proprietary text reasoning coding agentic long-context safety ">
+                <td>17</td>
                 <td><span class="model-name">Claude Mythos Preview</span><br><span class="muted">Anthropic • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 83.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -370,9 +598,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="DeepSeek" data-license="unknown" data-category="coding" data-search="deepseek v4 pro (max) deepseek unknown agentic coding function-calling long-context rag reasoning text ">
-                <td>2</td>
+                <td>18</td>
                 <td><span class="model-name">DeepSeek V4 Pro (Max)</span><br><span class="muted">DeepSeek • 2026-04-23</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 73.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">RAG</span><span class="chip">Long Context</span></div></td>
@@ -382,9 +612,11 @@
                 <td>unknown</td>
             </tr>
 <tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude opus 4.6 anthropic proprietary text reasoning coding long-context safety ">
-                <td>3</td>
+                <td>19</td>
                 <td><span class="model-name">Claude Opus 4.6</span><br><span class="muted">Anthropic • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 72.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -394,9 +626,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.5 openai proprietary coding long-context reasoning text ">
-                <td>4</td>
+                <td>20</td>
                 <td><span class="model-name">GPT-5.5</span><br><span class="muted">OpenAI • 2026-04-24</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 72.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -406,9 +640,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude opus 4.7 (adaptive) anthropic proprietary agentic coding long-context reasoning safety text ">
-                <td>5</td>
+                <td>21</td>
                 <td><span class="model-name">Claude Opus 4.7 (Adaptive)</span><br><span class="muted">Anthropic • 2026-04-16</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 71.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -417,22 +653,12 @@
                 <td>-</td>
                 <td>proprietary</td>
             </tr>
-<tr data-provider="Moonshot AI" data-license="open" data-category="coding" data-search="kimi 2.6 moonshot ai open agentic coding function-calling image long-context multimodal reasoning text video vision coding reasoning multilingual multilingual_depth tool_use agent_swarm vision_coding">
-                <td>6</td>
-                <td><span class="model-name">Kimi 2.6</span><br><span class="muted">Moonshot AI • 2026-04-20</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/6 verified</span></td>
-                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
-                <td><div class="chips"><span class="chip">BenchLM: 70.0</span><span class="chip">Coding: 68.7</span><span class="chip">Reasoning: 54.0</span><span class="chip">Multilingual: 76.7</span><span class="chip">Multilingual Depth: 76.7</span><span class="chip">Tool Use: 52.0</span><span class="chip">Agent Swarm: 52.0</span><span class="chip">Vision Coding: 76.7</span></div></td>
-                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
-                <td>32B / 1058B<br><span class="muted">256K ctx</span></td>
-                <td>$0.74 / $4.66<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>open</td>
-            </tr>
 <tr data-provider="DeepSeek" data-license="open" data-category="coding" data-search="deepseek v4 pro (high) deepseek open text reasoning coding agentic function-calling long-context rag ">
-                <td>7</td>
+                <td>22</td>
                 <td><span class="model-name">DeepSeek V4 Pro (High)</span><br><span class="muted">DeepSeek • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 70.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">RAG</span><span class="chip">Long Context</span></div></td>
@@ -442,9 +668,11 @@
                 <td>open</td>
             </tr>
 <tr data-provider="Qwen" data-license="unknown" data-category="coding" data-search="qwen3.5-122b-a10b qwen unknown coding long-context multilingual reasoning text ">
-                <td>8</td>
+                <td>23</td>
                 <td><span class="model-name">Qwen3.5-122B-A10B</span><br><span class="muted">Qwen • 2026-02-25</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 70.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -453,22 +681,12 @@
                 <td>-</td>
                 <td>unknown</td>
             </tr>
-<tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude opus 4.5 anthropic proprietary reasoning coding long-context safety coding reasoning math safety">
-                <td>9</td>
-                <td><span class="model-name">Claude Opus 4.5</span><br><span class="muted">Anthropic • 2025-11-01</span></td>
-                <td><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 1/7 verified</span></td>
-                <td><span class="score-badge score-medium">36.9</span><br><span style="color:#718096; font-size:0.85em;">1/7 verified</span></td>
-                <td><div class="chips"><span class="chip">BenchLM: 68.0</span><span class="chip">Coding: 89.3</span><span class="chip">Reasoning: 86.8</span><span class="chip">Math: 83.8</span><span class="chip">Safety: 69.8</span></div></td>
-                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
-                <td>-<br><span class="muted">200K ctx</span></td>
-                <td>$15.00 / $75.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
 <tr data-provider="Qwen" data-license="unknown" data-category="coding" data-search="qwen3.6 plus qwen unknown coding long-context multilingual reasoning text ">
-                <td>10</td>
+                <td>24</td>
                 <td><span class="model-name">Qwen3.6 Plus</span><br><span class="muted">Qwen • 2026-04-02</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 68.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -477,22 +695,12 @@
                 <td>-</td>
                 <td>unknown</td>
             </tr>
-<tr data-provider="Moonshot AI" data-license="open" data-category="coding" data-search="kimi k2.5 moonshot ai open text coding multimodal vision agentic function-calling long-context reasoning image coding reasoning multimodal">
-                <td>11</td>
-                <td><span class="model-name">Kimi K2.5</span><br><span class="muted">Moonshot AI • 2026-01-27</span></td>
-                <td><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
-                <td><span class="score-badge score-low">18.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
-                <td><div class="chips"><span class="chip">BenchLM: 68.0</span><span class="chip">Coding: 79.8</span><span class="chip">Reasoning: 47.0</span><span class="chip">Multimodal: 85.0</span></div></td>
-                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
-                <td>32B / 1058B<br><span class="muted">262K ctx</span></td>
-                <td>$0.44 / $2.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>open</td>
-            </tr>
 <tr data-provider="Qwen" data-license="open" data-category="coding" data-search="qwen3.6-27b qwen open text reasoning coding multilingual long-context ">
-                <td>12</td>
+                <td>25</td>
                 <td><span class="model-name">Qwen3.6-27B</span><br><span class="muted">Qwen • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-estimated">Estimated</span><br><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td><div class="chips"><span class="chip">BenchLM: 66.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -501,34 +709,12 @@
                 <td>-</td>
                 <td>open</td>
             </tr>
-<tr data-provider="Meta" data-license="open" data-category="coding" data-search="llama 3.1 405b meta open text reasoning coding multilingual tool-calling long-context coding reasoning math multilingual">
-                <td>13</td>
-                <td><span class="model-name">Llama 3.1 405B</span><br><span class="muted">Meta • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 1/5 verified</span></td>
-                <td><span class="score-badge score-high">51.8</span><br><span style="color:#718096; font-size:0.85em;">1/5 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 89.0</span><span class="chip">Reasoning: 86.5</span><span class="chip">Math: 73.8</span><span class="chip">Multilingual: 87.5</span></div></td>
-                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>405B<br><span class="muted">128K ctx</span></td>
-                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>open</td>
-            </tr>
-<tr data-provider="DeepSeek" data-license="open" data-category="coding" data-search="deepseek v3.2 deepseek open open-source coding reasoning moe coding reasoning math">
-                <td>14</td>
-                <td><span class="model-name">DeepSeek V3.2</span><br><span class="muted">DeepSeek • 2025-12-26</span></td>
-                <td><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 2/6 verified</span></td>
-                <td><span class="score-badge score-high">60.8</span><br><span style="color:#718096; font-size:0.85em;">2/6 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 80.8</span><span class="chip">Reasoning: 81.7</span><span class="chip">Math: 76.0</span></div></td>
-                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
-                <td>671B<br><span class="muted">128K ctx</span></td>
-                <td>-</td>
-                <td>-</td>
-                <td>open</td>
-            </tr>
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-4.1 openai proprietary multimodal reasoning coding coding reasoning math">
-                <td>15</td>
+                <td>26</td>
                 <td><span class="model-name">GPT-4.1</span><br><span class="muted">OpenAI • 2026-01-15</span></td>
-                <td><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 2/5 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 2/5 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-medium">47.5</span><br><span style="color:#718096; font-size:0.85em;">2/5 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 72.8</span><span class="chip">Reasoning: 83.8</span><span class="chip">Math: 80.9</span></div></td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -538,9 +724,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="MiniMax" data-license="proprietary" data-category="coding" data-search="minimax m2.5 cloud minimax proprietary agentic coding function-calling long-context reasoning software-engineering text coding">
-                <td>16</td>
+                <td>27</td>
                 <td><span class="model-name">MiniMax M2.5 Cloud</span><br><span class="muted">MiniMax • 2026-02-12</span></td>
-                <td><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 1/1 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 1/1 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-high">63.8</span><br><span style="color:#718096; font-size:0.85em;">1/1 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 80.2</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -549,10 +737,26 @@
                 <td>-</td>
                 <td>proprietary</td>
             </tr>
+<tr data-provider="Meta" data-license="open" data-category="coding" data-search="llama 3.1 405b meta open text reasoning coding multilingual tool-calling long-context coding reasoning math multilingual">
+                <td>28</td>
+                <td><span class="model-name">Llama 3.1 405B</span><br><span class="muted">Meta • -</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/5 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
+                <td><span class="score-badge score-low">29.8</span><br><span style="color:#718096; font-size:0.85em;">0/5 verified</span></td>
+                <td><div class="chips"><span class="chip">Coding: 89.0</span><span class="chip">Reasoning: 85.8</span><span class="chip">Math: 73.8</span><span class="chip">Multilingual: 87.5</span></div></td>
+                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
+                <td>405B<br><span class="muted">128K ctx</span></td>
+                <td>$0.00 / $0.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
+                <td>-</td>
+                <td>open</td>
+            </tr>
 <tr data-provider="NVIDIA" data-license="open" data-category="coding" data-search="nemotron-3-super cloud nvidia open text coding agentic tool-use long-context reasoning multilingual enterprise coding reasoning math multilingual multilingual_depth">
-                <td>17</td>
+                <td>29</td>
                 <td><span class="model-name">Nemotron-3-Super Cloud</span><br><span class="muted">NVIDIA • 2026-03-11</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/5 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/5 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/5 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 81.2</span><span class="chip">Reasoning: 88.9</span><span class="chip">Math: 88.9</span><span class="chip">Multilingual: 86.7</span><span class="chip">Multilingual Depth: 86.7</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Enterprise</span><span class="chip">Long Context</span></div></td>
@@ -561,46 +765,12 @@
                 <td>-</td>
                 <td>open</td>
             </tr>
-<tr data-provider="Alibaba / Qwen" data-license="open" data-category="coding" data-search="qwen 3.5 (397b) cloud alibaba / qwen open coding document-analysis image multilingual multimodal ocr reasoning text video vision coding reasoning math multilingual multilingual_depth tool_use agent_swarm vision_coding multimodal ocr video_understanding">
-                <td>18</td>
-                <td><span class="model-name">Qwen 3.5 (397B) Cloud</span><br><span class="muted">Alibaba / Qwen • 2026-02-16</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/14 verified</span></td>
-                <td><span class="score-badge score-medium">41.0</span><br><span style="color:#718096; font-size:0.85em;">0/14 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 72.8</span><span class="chip">Reasoning: 89.4</span><span class="chip">Math: 90.8</span><span class="chip">Multilingual: 80.6</span><span class="chip">Multilingual Depth: 77.0</span><span class="chip">Tool Use: 86.7</span><span class="chip">Agent Swarm: 86.7</span><span class="chip">Vision Coding: 83.7</span><span class="chip">Multimodal: 90.0</span><span class="chip">Ocr: 93.7</span><span class="chip">Video Understanding: 87.5</span></div></td>
-                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span><span class="chip">OCR</span><span class="chip">Docs</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>17B / 397B<br><span class="muted">262K ctx</span></td>
-                <td>$0.39 / $2.34<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>open</td>
-            </tr>
-<tr data-provider="DeepSeek" data-license="open" data-category="coding" data-search="deepseek-v4-flash cloud deepseek open agentic coding function-calling long-context open-weight rag reasoning text coding reasoning math safety hallucination_fidelity">
-                <td>19</td>
-                <td><span class="model-name">DeepSeek-V4-Flash Cloud</span><br><span class="muted">DeepSeek • 2026-04-23</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/7 verified</span></td>
-                <td><span class="score-badge score-low">26.0</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 80.6</span><span class="chip">Reasoning: 76.9</span><span class="chip">Math: 92.1</span><span class="chip">Safety: 95.8</span><span class="chip">Hallucination Fidelity: 95.8</span></div></td>
-                <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">RAG</span><span class="chip">Open Weights</span><span class="chip">Long Context</span></div></td>
-                <td>13B / 284B<br><span class="muted">1.0M ctx</span></td>
-                <td>$0.14 / $0.28<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td><strong style="color:#38a169;">4.2%</strong><br><span style="color:#718096; font-size:0.85em;">Low risk</span></td>
-                <td>open</td>
-            </tr>
-<tr data-provider="Google" data-license="proprietary" data-category="coding" data-search="gemini 2.5 pro google proprietary multimodal long-context reasoning coding coding reasoning math safety">
-                <td>20</td>
-                <td><span class="model-name">Gemini 2.5 Pro</span><br><span class="muted">Google • 2026-02-12</span></td>
-                <td><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/6 verified</span></td>
-                <td><span class="score-badge score-medium">33.5</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 75.0</span><span class="chip">Reasoning: 83.2</span><span class="chip">Math: 81.5</span><span class="chip">Safety: 68.1</span></div></td>
-                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
-                <td>-<br><span class="muted">2.1M ctx</span></td>
-                <td>$12.50 / $37.50<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
 <tr data-provider="Alibaba" data-license="open" data-category="coding" data-search="qwen3 14b alibaba open text reasoning coding multilingual tool-calling long-context agentic thinking-modes mcp reasoning math multilingual">
-                <td>21</td>
+                <td>30</td>
                 <td><span class="model-name">Qwen3 14B</span><br><span class="muted">Alibaba • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/6 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/6 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">29.8</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
                 <td><div class="chips"><span class="chip">Reasoning: 75.5</span><span class="chip">Math: 62.0</span><span class="chip">Multilingual: 71.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -610,9 +780,11 @@
                 <td>open</td>
             </tr>
 <tr data-provider="DeepSeek" data-license="open" data-category="coding" data-search="deepseek r1 14b deepseek open text reasoning coding stem chain-of-thought long-context distilled coding reasoning math multilingual">
-                <td>22</td>
+                <td>31</td>
                 <td><span class="model-name">DeepSeek R1 14B</span><br><span class="muted">DeepSeek • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/6 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/6 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">29.8</span><br><span style="color:#718096; font-size:0.85em;">0/6 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 57.6</span><span class="chip">Reasoning: 82.0</span><span class="chip">Math: 76.5</span><span class="chip">Multilingual: 84.0</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -622,9 +794,11 @@
                 <td>open</td>
             </tr>
 <tr data-provider="Mistral AI" data-license="open" data-category="coding" data-search="devstral 2 123b cloud mistral ai open text coding agentic software-engineering function-calling tool-use long-context dense coding reasoning math safety hallucination_fidelity">
-                <td>23</td>
+                <td>32</td>
                 <td><span class="model-name">Devstral 2 123B Cloud</span><br><span class="muted">Mistral AI • 2025-12-09</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">18.5</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 72.2</span><span class="chip">Reasoning: 59.4</span><span class="chip">Math: 59.4</span><span class="chip">Safety: 92.5</span><span class="chip">Hallucination Fidelity: 92.5</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Dense</span><span class="chip">Long Context</span></div></td>
@@ -633,34 +807,12 @@
                 <td><strong style="color:#38a169;">14.9%</strong><br><span style="color:#718096; font-size:0.85em;">Low risk</span></td>
                 <td>open</td>
             </tr>
-<tr data-provider="Z.ai" data-license="open" data-category="coding" data-search="glm 5.1 z.ai open agentic coding function-calling long-context multilingual open-weight reasoning software-engineering text coding reasoning math safety tool_use agent_swarm hallucination_fidelity">
-                <td>24</td>
-                <td><span class="model-name">GLM 5.1</span><br><span class="muted">Z.ai • 2026-04-07</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/8 verified</span></td>
-                <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/8 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 59.9</span><span class="chip">Reasoning: 77.0</span><span class="chip">Math: 89.8</span><span class="chip">Safety: 29.4</span><span class="chip">Tool Use: 67.0</span><span class="chip">Agent Swarm: 67.0</span><span class="chip">Hallucination Fidelity: 29.4</span></div></td>
-                <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Open Weights</span><span class="chip">Long Context</span></div></td>
-                <td>40B / 754B<br><span class="muted">203K ctx</span></td>
-                <td>$1.05 / $3.50<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td><strong style="color:#e53e3e;">70.6%</strong><br><span style="color:#718096; font-size:0.85em;">High risk</span></td>
-                <td>open</td>
-            </tr>
-<tr data-provider="MiniMax" data-license="restricted" data-category="coding" data-search="minimax m2.7 cloud minimax restricted agentic coding function-calling long-context office-automation reasoning software-engineering text coding reasoning math safety tool_use agent_swarm office_document hallucination_fidelity">
-                <td>25</td>
-                <td><span class="model-name">MiniMax M2.7 Cloud</span><br><span class="muted">MiniMax • 2026-03-18</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/7 verified</span></td>
-                <td><span class="score-badge score-low">23.5</span><br><span style="color:#718096; font-size:0.85em;">0/7 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 56.6</span><span class="chip">Reasoning: 68.5</span><span class="chip">Math: 87.4</span><span class="chip">Safety: 34.4</span><span class="chip">Tool Use: 54.9</span><span class="chip">Agent Swarm: 53.9</span><span class="chip">Office Document: 57.0</span><span class="chip">Hallucination Fidelity: 34.4</span></div></td>
-                <td><div class="chips"><span class="chip">Docs</span><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
-                <td>10B / 229B<br><span class="muted">197K ctx</span></td>
-                <td>$0.30 / $1.20<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td><strong style="color:#e53e3e;">65.6%</strong><br><span style="color:#718096; font-size:0.85em;">High risk</span></td>
-                <td>restricted</td>
-            </tr>
 <tr data-provider="Meta" data-license="open" data-category="reasoning" data-search="llama 3.2 vision 11b meta open vision multimodal text ocr document-analysis chart-understanding long-context vqav2 docvqa reasoning math">
-                <td>26</td>
+                <td>33</td>
                 <td><span class="model-name">Llama 3.2 Vision 11B</span><br><span class="muted">Meta • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">22.2</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Reasoning: 52.6</span><span class="chip">Math: 42.3</span></div></td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">OCR</span><span class="chip">Docs</span><span class="chip">Long Context</span></div></td>
@@ -670,9 +822,11 @@
                 <td>open</td>
             </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.6v zhipu ai proprietary text multilingual chinese api vision coding reasoning">
-                <td>27</td>
+                <td>34</td>
                 <td><span class="model-name">GLM-4.6V</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 68.3</span><span class="chip">Reasoning: 80.5</span></div></td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -682,9 +836,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.5v zhipu ai proprietary text multilingual chinese api vision coding reasoning">
-                <td>28</td>
+                <td>35</td>
                 <td><span class="model-name">GLM-4.5V</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 65.8</span><span class="chip">Reasoning: 78.5</span></div></td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -694,9 +850,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.6v-flash zhipu ai proprietary text multilingual chinese api vision fast optimized coding reasoning">
-                <td>29</td>
+                <td>36</td>
                 <td><span class="model-name">GLM-4.6V-Flash</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 68.3</span><span class="chip">Reasoning: 80.5</span></div></td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -706,9 +864,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.6v-flashx zhipu ai proprietary text multilingual chinese api vision fast optimized coding reasoning">
-                <td>30</td>
+                <td>37</td>
                 <td><span class="model-name">GLM-4.6V-FlashX</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 68.3</span><span class="chip">Reasoning: 80.5</span></div></td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -717,22 +877,12 @@
                 <td>-</td>
                 <td>proprietary</td>
             </tr>
-<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-5.1 zhipu ai proprietary text multilingual chinese api advanced reasoning coding reasoning">
-                <td>31</td>
-                <td><span class="model-name">GLM-5.1</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
-                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 78.5</span><span class="chip">Reasoning: 86.8</span></div></td>
-                <td><div class="chips"><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>32B<br><span class="muted">256K ctx</span></td>
-                <td>-</td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.6 zhipu ai proprietary text multilingual chinese api coding reasoning">
-                <td>32</td>
+                <td>38</td>
                 <td><span class="model-name">GLM-4.6</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 68.3</span><span class="chip">Reasoning: 80.5</span></div></td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -741,22 +891,12 @@
                 <td>-</td>
                 <td>proprietary</td>
             </tr>
-<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.7 zhipu ai proprietary text multilingual chinese api coding reasoning">
-                <td>33</td>
-                <td><span class="model-name">GLM-4.7</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
-                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 72.0</span><span class="chip">Reasoning: 83.3</span></div></td>
-                <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>32B<br><span class="muted">128K ctx</span></td>
-                <td>-</td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.5 zhipu ai proprietary text multilingual chinese api coding reasoning">
-                <td>34</td>
+                <td>39</td>
                 <td><span class="model-name">GLM-4.5</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 65.8</span><span class="chip">Reasoning: 78.5</span></div></td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -765,34 +905,12 @@
                 <td>-</td>
                 <td>proprietary</td>
             </tr>
-<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.7-flash zhipu ai proprietary text multilingual chinese api fast optimized coding reasoning">
-                <td>35</td>
-                <td><span class="model-name">GLM-4.7-Flash</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
-                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 72.0</span><span class="chip">Reasoning: 83.3</span></div></td>
-                <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>9B<br><span class="muted">128K ctx</span></td>
-                <td>-</td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
-<tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.7-flashx zhipu ai proprietary text multilingual chinese api fast optimized coding reasoning">
-                <td>36</td>
-                <td><span class="model-name">GLM-4.7-FlashX</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/4 verified</span></td>
-                <td><span class="score-badge score-low">17.2</span><br><span style="color:#718096; font-size:0.85em;">0/4 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 72.0</span><span class="chip">Reasoning: 83.3</span></div></td>
-                <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>9B<br><span class="muted">128K ctx</span></td>
-                <td>-</td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
 <tr data-provider="Nous" data-license="open" data-category="coding" data-search="hermes 3 8b nous open text coding function-calling agentic tool-use long-context commonsense">
-                <td>37</td>
+                <td>40</td>
                 <td><span class="model-name">Hermes 3 8B</span><br><span class="muted">Nous • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/1 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/1 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">14.8</span><br><span style="color:#718096; font-size:0.85em;">0/1 verified</span></td>
                 <td><div class="chips"><span class="chip">Commonsense: 3.1</span></div></td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Long Context</span></div></td>
@@ -801,22 +919,12 @@
                 <td>-</td>
                 <td>open</td>
             </tr>
-<tr data-provider="Z.ai" data-license="proprietary" data-category="coding" data-search="glm 5v turbo z.ai proprietary api chinese long-context multilingual multimodal reasoning text vision coding reasoning">
-                <td>38</td>
-                <td><span class="model-name">GLM 5V Turbo</span><br><span class="muted">Z.ai • 2026-04-01</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
-                <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
-                <td><div class="chips"><span class="chip">Vision</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>9B<br><span class="muted">203K ctx</span></td>
-                <td>$1.20 / $4.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-ocr zhipu ai proprietary text multilingual chinese api ocr document vision coding reasoning">
-                <td>39</td>
+                <td>41</td>
                 <td><span class="model-name">GLM-OCR</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">OCR</span><span class="chip">Multi-Lang</span></div></td>
@@ -826,9 +934,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="autoglm-phone-multilingual zhipu ai proprietary text multilingual chinese api agentic phone-control automation tool-calling coding reasoning">
-                <td>40</td>
+                <td>42</td>
                 <td><span class="model-name">AutoGLM-Phone-Multilingual</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
                 <td><div class="chips"><span class="chip">Agent</span><span class="chip">Multi-Lang</span></div></td>
@@ -838,9 +948,11 @@
                 <td>proprietary</td>
             </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4-32b-0414-128k zhipu ai proprietary text multilingual chinese api coding reasoning">
-                <td>41</td>
+                <td>43</td>
                 <td><span class="model-name">GLM-4-32B-0414-128K</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -849,34 +961,12 @@
                 <td>-</td>
                 <td>proprietary</td>
             </tr>
-<tr data-provider="Z.ai" data-license="proprietary" data-category="coding" data-search="glm 5 z.ai proprietary api chinese coding long-context multilingual reasoning text coding reasoning">
-                <td>42</td>
-                <td><span class="model-name">GLM 5</span><br><span class="muted">Z.ai • 2026-02-11</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
-                <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
-                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>9B<br><span class="muted">203K ctx</span></td>
-                <td>$0.60 / $2.08<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
-<tr data-provider="Z.ai" data-license="proprietary" data-category="coding" data-search="glm 5 turbo z.ai proprietary api chinese coding long-context multilingual reasoning text coding reasoning">
-                <td>43</td>
-                <td><span class="model-name">GLM 5 Turbo</span><br><span class="muted">Z.ai • 2026-03-15</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
-                <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
-                <td><div class="chips"><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
-                <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
-                <td>9B<br><span class="muted">203K ctx</span></td>
-                <td>$1.20 / $4.00<br><span style="color:#718096; font-size:0.85em;">per 1M in/out</span></td>
-                <td>-</td>
-                <td>proprietary</td>
-            </tr>
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4-plus zhipu ai proprietary text multilingual chinese api premium reasoning coding reasoning">
                 <td>44</td>
                 <td><span class="model-name">GLM-4-Plus</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 61.2</span><span class="chip">Reasoning: 74.0</span></div></td>
                 <td><div class="chips"><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -888,7 +978,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.5-air zhipu ai proprietary text multilingual chinese api lightweight efficient coding reasoning">
                 <td>45</td>
                 <td><span class="model-name">GLM-4.5-Air</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 58.0</span><span class="chip">Reasoning: 71.2</span></div></td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -900,7 +992,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.5-airx zhipu ai proprietary text multilingual chinese api lightweight efficient coding reasoning">
                 <td>46</td>
                 <td><span class="model-name">GLM-4.5-AirX</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 58.0</span><span class="chip">Reasoning: 71.2</span></div></td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -912,7 +1006,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="coding" data-search="glm-4.5-flash zhipu ai proprietary text multilingual chinese api fast optimized coding reasoning">
                 <td>47</td>
                 <td><span class="model-name">GLM-4.5-Flash</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td><span class="lane-badge lane-local-only">Local only</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/3 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-low">13.5</span><br><span style="color:#718096; font-size:0.85em;">0/3 verified</span></td>
                 <td><div class="chips"><span class="chip">Coding: 62.5</span><span class="chip">Reasoning: 75.5</span></div></td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -924,7 +1020,9 @@
 <tr data-provider="Google" data-license="proprietary" data-category="coding" data-search="gemini 3.1 pro preview custom tools google proprietary agentic coding function-calling long-context multimodal reasoning text vision ">
                 <td>48</td>
                 <td><span class="model-name">Gemini 3.1 Pro Preview Custom Tools</span><br><span class="muted">Google • 2026-02-25</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -936,7 +1034,9 @@
 <tr data-provider="Alibaba" data-license="proprietary" data-category="multimodal" data-search="qwen3 vl 235b cloud alibaba proprietary vision multimodal text ocr document-analysis long-context multilingual ">
                 <td>49</td>
                 <td><span class="model-name">Qwen3 VL 235B Cloud</span><br><span class="muted">Alibaba • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">OCR</span><span class="chip">Docs</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -948,7 +1048,9 @@
 <tr data-provider="Community" data-license="open" data-category="multimodal" data-search="llava community open vision multimodal text vqa ocr image-captioning ">
                 <td>50</td>
                 <td><span class="model-name">LLaVA</span><br><span class="muted">Community • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">OCR</span></div></td>
@@ -960,7 +1062,9 @@
 <tr data-provider="Google" data-license="open" data-category="multimodal" data-search="gemma 3 4b google open text vision multimodal image-captioning vqa long-context multilingual ">
                 <td>51</td>
                 <td><span class="model-name">Gemma 3 4B</span><br><span class="muted">Google • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -972,7 +1076,9 @@
 <tr data-provider="Google" data-license="proprietary" data-category="coding" data-search="gemini 3.1 flash lite preview google proprietary coding long-context multimodal reasoning text vision ">
                 <td>52</td>
                 <td><span class="model-name">Gemini 3.1 Flash Lite Preview</span><br><span class="muted">Google • 2026-03-02</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -984,7 +1090,9 @@
 <tr data-provider="Google" data-license="proprietary" data-category="coding" data-search="gemini 3.1 pro preview google proprietary coding long-context multimodal reasoning text vision ">
                 <td>53</td>
                 <td><span class="model-name">Gemini 3.1 Pro Preview</span><br><span class="muted">Google • 2026-02-19</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -996,7 +1104,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="multimodal" data-search="gpt-5 image openai proprietary image long-context multimodal text vision ">
                 <td>54</td>
                 <td><span class="model-name">GPT-5 Image</span><br><span class="muted">OpenAI • 2025-10-14</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Long Context</span></div></td>
@@ -1008,7 +1118,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="multimodal" data-search="gpt-5 image mini openai proprietary image long-context multimodal text vision ">
                 <td>55</td>
                 <td><span class="model-name">GPT-5 Image Mini</span><br><span class="muted">OpenAI • 2025-10-16</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Long Context</span></div></td>
@@ -1020,7 +1132,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="reasoning" data-search="gpt-5.4 image 2 openai proprietary image multimodal reasoning text vision ">
                 <td>56</td>
                 <td><span class="model-name">GPT-5.4 Image 2</span><br><span class="muted">OpenAI • 2026-04-21</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1032,7 +1146,9 @@
 <tr data-provider="Xiaomi" data-license="unknown" data-category="coding" data-search="mimo-v2-omni xiaomi unknown coding image long-context multimodal reasoning text vision ">
                 <td>57</td>
                 <td><span class="model-name">MiMo-V2-Omni</span><br><span class="muted">Xiaomi • 2026-03-18</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1044,7 +1160,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="multimodal" data-search="gpt audio openai proprietary audio multimodal speech text ">
                 <td>58</td>
                 <td><span class="model-name">GPT Audio</span><br><span class="muted">OpenAI • 2026-01-19</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Audio</span><span class="chip">Long Context</span></div></td>
@@ -1056,7 +1174,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="multimodal" data-search="gpt audio mini openai proprietary audio multimodal speech text ">
                 <td>59</td>
                 <td><span class="model-name">GPT Audio Mini</span><br><span class="muted">OpenAI • 2026-01-19</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Audio</span><span class="chip">Long Context</span></div></td>
@@ -1068,7 +1188,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="multimodal" data-search="gpt-4o audio openai proprietary audio multimodal speech text ">
                 <td>60</td>
                 <td><span class="model-name">GPT-4o Audio</span><br><span class="muted">OpenAI • 2025-08-14</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Audio</span><span class="chip">Long Context</span></div></td>
@@ -1080,7 +1202,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="cogvideox-3 zhipu ai proprietary multimodal video-generation generation ">
                 <td>61</td>
                 <td><span class="model-name">CogVideoX-3</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span></div></td>
@@ -1092,7 +1216,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="cogview-4-250304 zhipu ai proprietary multimodal image-generation vision image cogview ">
                 <td>62</td>
                 <td><span class="model-name">CogView-4-250304</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span></div></td>
@@ -1104,7 +1230,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="glm-asr-2512 zhipu ai proprietary multimodal video-generation generation audio speech asr speech-recognition ">
                 <td>63</td>
                 <td><span class="model-name">GLM-ASR-2512</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Audio</span></div></td>
@@ -1116,7 +1244,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="glm-image zhipu ai proprietary multimodal image-generation vision image-generation ">
                 <td>64</td>
                 <td><span class="model-name">GLM-Image</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span></div></td>
@@ -1128,7 +1258,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="vidu2-image zhipu ai proprietary multimodal video-generation generation video vidu ">
                 <td>65</td>
                 <td><span class="model-name">Vidu2-Image</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span></div></td>
@@ -1140,7 +1272,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="vidu2-reference zhipu ai proprietary multimodal video-generation generation video vidu ">
                 <td>66</td>
                 <td><span class="model-name">Vidu2-Reference</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span></div></td>
@@ -1152,7 +1286,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="vidu2-start-end zhipu ai proprietary multimodal video-generation generation video vidu ">
                 <td>67</td>
                 <td><span class="model-name">Vidu2-Start-End</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span></div></td>
@@ -1164,7 +1300,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="viduq1-image zhipu ai proprietary multimodal video-generation generation video vidu ">
                 <td>68</td>
                 <td><span class="model-name">Viduq1-Image</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span></div></td>
@@ -1176,7 +1314,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="viduq1-reference zhipu ai proprietary multimodal video-generation generation video vidu ">
                 <td>69</td>
                 <td><span class="model-name">ViduQ1-Reference</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span></div></td>
@@ -1188,7 +1328,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="viduq1-start-end zhipu ai proprietary multimodal video-generation generation video vidu ">
                 <td>70</td>
                 <td><span class="model-name">ViduQ1-Start-End</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span></div></td>
@@ -1200,7 +1342,9 @@
 <tr data-provider="Zhipu AI" data-license="proprietary" data-category="multimodal" data-search="viduq1-text zhipu ai proprietary multimodal video-generation generation video vidu ">
                 <td>71</td>
                 <td><span class="model-name">ViduQ1-text</span><br><span class="muted">Zhipu AI • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Vision</span><span class="chip">Video</span></div></td>
@@ -1212,7 +1356,9 @@
 <tr data-provider="IBM" data-license="open" data-category="coding" data-search="granite 3.3 8b ibm open text coding fim function-calling long-context enterprise ">
                 <td>72</td>
                 <td><span class="model-name">Granite 3.3 8B</span><br><span class="muted">IBM • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Enterprise</span><span class="chip">Long Context</span></div></td>
@@ -1224,7 +1370,9 @@
 <tr data-provider="xAI" data-license="proprietary" data-category="coding" data-search="grok 4.20 multi-agent xai proprietary agentic coding function-calling long-context reasoning text ">
                 <td>73</td>
                 <td><span class="model-name">Grok 4.20 Multi-Agent</span><br><span class="muted">xAI • 2026-03-31</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1236,7 +1384,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.4 pro openai proprietary agentic coding long-context reasoning text ">
                 <td>74</td>
                 <td><span class="model-name">GPT-5.4 Pro</span><br><span class="muted">OpenAI • 2026-03-05</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1248,7 +1398,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.5 pro openai proprietary agentic coding long-context reasoning text ">
                 <td>75</td>
                 <td><span class="model-name">GPT-5.5 Pro</span><br><span class="muted">OpenAI • 2026-04-24</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1260,7 +1412,9 @@
 <tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude sonnet 4.6 anthropic proprietary agentic coding long-context reasoning safety text ">
                 <td>76</td>
                 <td><span class="model-name">Claude Sonnet 4.6</span><br><span class="muted">Anthropic • 2026-02-17</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Agent</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1272,7 +1426,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.3-codex openai proprietary agentic coding long-context software-engineering text ">
                 <td>77</td>
                 <td><span class="model-name">GPT-5.3-Codex</span><br><span class="muted">OpenAI • 2026-02-24</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Agent</span><span class="chip">Long Context</span></div></td>
@@ -1284,7 +1440,9 @@
 <tr data-provider="Mistral" data-license="unknown" data-category="coding" data-search="mistral small 4 mistral unknown coding function-calling long-context reasoning text ">
                 <td>78</td>
                 <td><span class="model-name">Mistral Small 4</span><br><span class="muted">Mistral • 2026-03-16</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1296,7 +1454,9 @@
 <tr data-provider="Kwaipilot" data-license="unknown" data-category="coding" data-search="kat-coder-pro v2 kwaipilot unknown agentic coding function-calling long-context software-engineering text ">
                 <td>79</td>
                 <td><span class="model-name">KAT-Coder-Pro V2</span><br><span class="muted">Kwaipilot • 2026-03-27</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Tools</span><span class="chip">Agent</span><span class="chip">Long Context</span></div></td>
@@ -1308,7 +1468,9 @@
 <tr data-provider="Deep Cogito" data-license="open" data-category="coding" data-search="cogito 2.1 671b cloud deep cogito open text reasoning coding stem thinking-modes hybrid-reasoning long-context ">
                 <td>80</td>
                 <td><span class="model-name">Cogito 2.1 671B Cloud</span><br><span class="muted">Deep Cogito • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1320,7 +1482,9 @@
 <tr data-provider="Deep Cogito" data-license="open" data-category="coding" data-search="cogito 14b deep cogito open text reasoning coding stem thinking-modes hybrid-reasoning ">
                 <td>81</td>
                 <td><span class="model-name">Cogito 14B</span><br><span class="muted">Deep Cogito • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1332,7 +1496,9 @@
 <tr data-provider="Community" data-license="open" data-category="coding" data-search="deepcoder community open text coding code-generation multiple-languages ">
                 <td>82</td>
                 <td><span class="model-name">DeepCoder</span><br><span class="muted">Community • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span></div></td>
@@ -1344,7 +1510,9 @@
 <tr data-provider="Alibaba" data-license="open" data-category="all" data-search="qwen3 embedding 0.6b alibaba open text embeddings retrieval semantic-search rag multilingual ">
                 <td>83</td>
                 <td><span class="model-name">Qwen3 Embedding 0.6B</span><br><span class="muted">Alibaba • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">RAG</span></div></td>
@@ -1356,7 +1524,9 @@
 <tr data-provider="Nomic" data-license="open" data-category="all" data-search="nomic embed text v2 moe nomic open text embeddings retrieval semantic-search rag multilingual moe ">
                 <td>84</td>
                 <td><span class="model-name">Nomic Embed Text v2 MoE</span><br><span class="muted">Nomic • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Multi-Lang</span><span class="chip">RAG</span></div></td>
@@ -1368,7 +1538,9 @@
 <tr data-provider="Mixedbread" data-license="open" data-category="all" data-search="mxbai embed large mixedbread open text embeddings retrieval semantic-search rag mteb ">
                 <td>85</td>
                 <td><span class="model-name">MXBAI Embed Large</span><br><span class="muted">Mixedbread • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">RAG</span></div></td>
@@ -1380,7 +1552,9 @@
 <tr data-provider="Google" data-license="open" data-category="all" data-search="embedding gemma google open text embeddings retrieval semantic-search rag ">
                 <td>86</td>
                 <td><span class="model-name">Embedding Gemma</span><br><span class="muted">Google • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">RAG</span></div></td>
@@ -1392,7 +1566,9 @@
 <tr data-provider="Nomic" data-license="open" data-category="all" data-search="nomic embed text nomic open text embeddings retrieval semantic-search rag long-context ">
                 <td>87</td>
                 <td><span class="model-name">Nomic Embed Text</span><br><span class="muted">Nomic • -</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">RAG</span><span class="chip">Long Context</span></div></td>
@@ -1404,7 +1580,9 @@
 <tr data-provider="xAI" data-license="proprietary" data-category="coding" data-search="grok 4.20 xai proprietary coding long-context reasoning text ">
                 <td>88</td>
                 <td><span class="model-name">Grok 4.20</span><br><span class="muted">xAI • 2026-03-31</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1416,7 +1594,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.4 openai proprietary coding long-context reasoning text ">
                 <td>89</td>
                 <td><span class="model-name">GPT-5.4</span><br><span class="muted">OpenAI • 2026-03-05</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1428,7 +1608,9 @@
 <tr data-provider="Xiaomi" data-license="unknown" data-category="coding" data-search="mimo-v2-pro xiaomi unknown coding long-context reasoning text ">
                 <td>90</td>
                 <td><span class="model-name">MiMo-V2-Pro</span><br><span class="muted">Xiaomi • 2026-03-18</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1440,7 +1622,9 @@
 <tr data-provider="Xiaomi" data-license="unknown" data-category="coding" data-search="mimo-v2.5 xiaomi unknown coding long-context reasoning text ">
                 <td>91</td>
                 <td><span class="model-name">MiMo-V2.5</span><br><span class="muted">Xiaomi • 2026-04-22</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1452,7 +1636,9 @@
 <tr data-provider="Xiaomi" data-license="unknown" data-category="coding" data-search="mimo-v2.5-pro xiaomi unknown coding long-context reasoning text ">
                 <td>92</td>
                 <td><span class="model-name">MiMo-V2.5-Pro</span><br><span class="muted">Xiaomi • 2026-04-22</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1464,7 +1650,9 @@
 <tr data-provider="Anthropic" data-license="proprietary" data-category="coding" data-search="claude opus 4.6 (fast) anthropic proprietary coding long-context reasoning safety text ">
                 <td>93</td>
                 <td><span class="model-name">Claude Opus 4.6 (Fast)</span><br><span class="muted">Anthropic • 2026-04-07</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1476,7 +1664,9 @@
 <tr data-provider="Qwen" data-license="unknown" data-category="coding" data-search="qwen3.5 plus 2026-02-15 qwen unknown coding long-context multilingual reasoning text ">
                 <td>94</td>
                 <td><span class="model-name">Qwen3.5 Plus 2026-02-15</span><br><span class="muted">Qwen • 2026-02-16</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -1488,7 +1678,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.4 mini openai proprietary coding long-context reasoning text ">
                 <td>95</td>
                 <td><span class="model-name">GPT-5.4 Mini</span><br><span class="muted">OpenAI • 2026-03-17</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1500,7 +1692,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.4 nano openai proprietary coding long-context reasoning text ">
                 <td>96</td>
                 <td><span class="model-name">GPT-5.4 Nano</span><br><span class="muted">OpenAI • 2026-03-17</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1512,7 +1706,9 @@
 <tr data-provider="Google" data-license="unknown" data-category="coding" data-search="gemma 4 31b google unknown coding long-context open-weight reasoning text ">
                 <td>97</td>
                 <td><span class="model-name">Gemma 4 31B</span><br><span class="muted">Google • 2026-04-02</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Open Weights</span><span class="chip">Long Context</span></div></td>
@@ -1524,7 +1720,9 @@
 <tr data-provider="Qwen" data-license="unknown" data-category="coding" data-search="qwen3 max thinking qwen unknown coding long-context multilingual reasoning text ">
                 <td>98</td>
                 <td><span class="model-name">Qwen3 Max Thinking</span><br><span class="muted">Qwen • 2026-02-09</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -1536,7 +1734,9 @@
 <tr data-provider="Qwen" data-license="unknown" data-category="coding" data-search="qwen3.5-27b qwen unknown coding long-context multilingual reasoning text ">
                 <td>99</td>
                 <td><span class="model-name">Qwen3.5-27B</span><br><span class="muted">Qwen • 2026-02-25</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -1548,7 +1748,9 @@
 <tr data-provider="Qwen" data-license="unknown" data-category="coding" data-search="qwen3.5-35b-a3b qwen unknown coding long-context multilingual reasoning text ">
                 <td>100</td>
                 <td><span class="model-name">Qwen3.5-35B-A3B</span><br><span class="muted">Qwen • 2026-02-25</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -1560,7 +1762,9 @@
 <tr data-provider="Qwen" data-license="unknown" data-category="coding" data-search="qwen3.5-9b qwen unknown coding long-context multilingual reasoning text ">
                 <td>101</td>
                 <td><span class="model-name">Qwen3.5-9B</span><br><span class="muted">Qwen • 2026-03-10</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Multi-Lang</span><span class="chip">Long Context</span></div></td>
@@ -1572,7 +1776,9 @@
 <tr data-provider="ByteDance Seed" data-license="unknown" data-category="coding" data-search="seed-2.0-lite bytedance seed unknown coding long-context reasoning text ">
                 <td>102</td>
                 <td><span class="model-name">Seed-2.0-Lite</span><br><span class="muted">ByteDance Seed • 2026-03-10</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1584,7 +1790,9 @@
 <tr data-provider="ByteDance Seed" data-license="unknown" data-category="coding" data-search="seed-2.0-mini bytedance seed unknown coding long-context reasoning text ">
                 <td>103</td>
                 <td><span class="model-name">Seed-2.0-Mini</span><br><span class="muted">ByteDance Seed • 2026-02-26</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1596,7 +1804,9 @@
 <tr data-provider="Arcee AI" data-license="unknown" data-category="coding" data-search="trinity large thinking arcee ai unknown coding long-context reasoning text ">
                 <td>104</td>
                 <td><span class="model-name">Trinity Large Thinking</span><br><span class="muted">Arcee AI • 2026-04-01</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1608,7 +1818,9 @@
 <tr data-provider="AionLabs" data-license="unknown" data-category="coding" data-search="aion-2.0 aionlabs unknown coding long-context reasoning text ">
                 <td>105</td>
                 <td><span class="model-name">Aion-2.0</span><br><span class="muted">AionLabs • 2026-02-23</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1620,7 +1832,9 @@
 <tr data-provider="OpenAI" data-license="proprietary" data-category="coding" data-search="gpt-5.3 chat openai proprietary coding reasoning text ">
                 <td>106</td>
                 <td><span class="model-name">GPT-5.3 Chat</span><br><span class="muted">OpenAI • 2026-03-03</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1632,7 +1846,9 @@
 <tr data-provider="Inception" data-license="unknown" data-category="coding" data-search="mercury 2 inception unknown coding reasoning text ">
                 <td>107</td>
                 <td><span class="model-name">Mercury 2</span><br><span class="muted">Inception • 2026-03-04</span></td>
-                <td><span class="confidence-badge confidence-low">Low / estimated</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td><span class="lane-badge lane-no-evidence">No evidence</span><br><span class="confidence-badge confidence-low">Low confidence</span><br><span class="muted">1/4 confidence • 0/0 verified</span></td>
+                <td>0/8</td>
+                <td>-</td>
                 <td><span class="score-badge score-na">N/A</span><br><span style="color:#718096; font-size:0.85em;">0/0 verified</span></td>
                 <td>-</td>
                 <td><div class="chips"><span class="chip">Code</span><span class="chip">Reasoning</span><span class="chip">Long Context</span></div></td>
@@ -1648,12 +1864,14 @@
         <section class="info-grid" id="methodology">
             <div class="info-card">
                 <h3>How rankings are ordered</h3>
-                <p>Models with independently verified claims or external leaderboard score/rank metadata rank ahead of models with only unverified claims. Within each reliability tier, externally sourced or BenchLM-style weighted category capability now sorts before raw verification-count tie breakers. Partial-data models follow, zero-evidence models are placed last, and trust score plus capability metadata break remaining ties.</p>
+                <p>Models with independently verified claims or live source score/rank metadata rank ahead of models with only unverified claims. Ranking lanes distinguish verified, provisional, estimated, local-only, and no-evidence rows; zero-evidence models are placed last. Within each lane, externally sourced or BenchLM-style weighted category capability sorts before raw verification-count tie breakers.</p>
             </div>
             <div class="info-card">
                 <h3>Completeness and accuracy signals</h3>
                 <ul>
-                    <li><strong>Source Confidence</strong> uses a 4-tier confidence ladder based on sourced claim depth and weighted category breadth.</li>
+                    <li><strong>Source Confidence</strong> uses a 4-tier confidence ladder based on sourced benchmark depth and weighted category breadth.</li>
+                    <li><strong>Source Freshness</strong> exposes the source-reported date or retrieval timestamp used for each live adapter.</li>
+                    <li><strong>Category Coverage</strong> shows how many BenchLM-style weighted categories have direct source rows.</li>
                     <li><strong>Claim Coverage</strong> shows how many models include checkable benchmark claims.</li>
                     <li><strong>Use-case and metadata columns</strong> surface context, pricing, release date, license, and capability tags without hiding uncertainty.</li>
                 </ul>
@@ -1682,7 +1900,7 @@
         </section>
 
         <div class="footer">
-            <p>Last updated: 2026-04-28T05:31:51.821729</p>
+            <p>Last updated: 2026-04-27T19:08:19.894120</p>
             <p style="margin-top: 10px;">
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard" class="github-link">View on GitHub</a> |
                 <a href="https://github.com/Grumpified-OGGVCT/model-trust-scorecard#how-it-works" class="github-link">Methodology</a> |

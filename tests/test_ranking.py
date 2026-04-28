@@ -239,6 +239,32 @@ def test_artificial_analysis_metadata_scores_sparse_models_above_zero_metadata()
     ]
 
 
+def test_live_source_score_keeps_kimi_26_above_base_kimi_25():
+    ranked = sorted(
+        [
+            {
+                "model_card": {"model_id": "kimi-k2.5-cloud", "display_name": "Kimi K2.5"},
+                "primary_leaderboard_source": "BenchLM",
+                "primary_leaderboard_rank": 43,
+                "primary_leaderboard_score": 64.0,
+                "ranking_lane": "provisional",
+                "rankable_benchmark_count": 9,
+            },
+            {
+                "model_card": {"model_id": "kimi-k2.6-cloud", "display_name": "Kimi 2.6"},
+                "primary_leaderboard_source": "BenchLM",
+                "primary_leaderboard_rank": 12,
+                "primary_leaderboard_score": 85.0,
+                "ranking_lane": "provisional",
+                "rankable_benchmark_count": 5,
+            },
+        ],
+        key=score_record_sort_key,
+    )
+
+    assert ranked[0]["model_card"]["model_id"] == "kimi-k2.6-cloud"
+
+
 def test_capability_rank_metadata_fallback_orders_sparse_models():
     higher_ranked = ModelCard(
         model_id="higher-ranked",
