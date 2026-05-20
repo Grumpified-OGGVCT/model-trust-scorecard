@@ -21,9 +21,9 @@ Models are ordered by independently sourced capability first, then demonstrated 
 | 15 | GLM-4.7-FlashX | Zhipu AI | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 69.0, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
 | 16 | GLM 5V Turbo | Z.ai | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 67.0, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
 | 17 | GLM 5 Turbo | Z.ai | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 67.0, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 18 | Qwen 3.5 (397B) Cloud | Alibaba / Qwen | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 65.0, coding: 72.8, reasoning: 89.4, math: 90.8, multilingual: 80.6, multilingual_depth: 77.0, tool_use: 86.7, agent_swarm: 86.7, vision_coding: 83.7, multimodal: 90.0, ocr: 93.7, video_understanding: 87.5 | ![41.0](https://img.shields.io/badge/Trust-41.0-yellow) | 0/14 | open |
-| 19 | Gemini 2.5 Pro | Google | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 65.0, coding: 75.0, reasoning: 83.2, math: 81.5, safety: 68.1 | ![33.5](https://img.shields.io/badge/Trust-33.5-yellow) | 0/6 | proprietary |
-| 20 | Kimi K2.5 | Moonshot AI | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 64.0, coding: 79.8, reasoning: 47.0, multimodal: 85.0 | ![18.5](https://img.shields.io/badge/Trust-18.5-orange) | 0/3 | open |
+| 18 | Kimi K2.5 | Moonshot AI | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 64.0, coding: 79.8, reasoning: 47.0, multimodal: 85.0 | ![18.5](https://img.shields.io/badge/Trust-18.5-orange) | 0/3 | open |
+| 19 | Qwen 3.5 (397B) Cloud | Alibaba / Qwen | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 64.0, coding: 72.8, reasoning: 89.4, math: 90.8, multilingual: 80.6, multilingual_depth: 77.0, tool_use: 86.7, agent_swarm: 86.7, vision_coding: 83.7, multimodal: 90.0, ocr: 93.7, video_understanding: 87.5 | ![41.0](https://img.shields.io/badge/Trust-41.0-yellow) | 0/14 | open |
+| 20 | Gemini 2.5 Pro | Google | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 64.0, coding: 75.0, reasoning: 83.2, math: 81.5, safety: 68.1 | ![33.5](https://img.shields.io/badge/Trust-33.5-yellow) | 0/6 | proprietary |
 | 21 | MiniMax M2.7 Cloud | MiniMax | provisional | 4/8 | BenchLM: May 19, 2026 | BenchLM score: 62.0, coding: 56.6, reasoning: 68.5, math: 87.4, safety: 34.4, tool_use: 54.9, agent_swarm: 53.9, office_document: 57.0, hallucination_fidelity: 34.4 | ![23.5](https://img.shields.io/badge/Trust-23.5-orange) | 0/7 | restricted |
 | 22 | DeepSeek V3.2 | DeepSeek | provisional | 8/8 | BenchLM: May 19, 2026 | BenchLM score: 62.0, coding: 80.8, reasoning: 81.7, math: 76.0 | ![60.8](https://img.shields.io/badge/Trust-60.8-brightgreen) | 2/6 | open |
 | 23 | Claude Opus 4.7 (Adaptive) | Anthropic | estimated | 0/8 | — | BenchLM score: 71.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
@@ -68,4 +68,4 @@ Models are ordered by independently sourced capability first, then demonstrated 
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-05-19T14:52:02.555564*
+*Last updated: 2026-05-20T02:49:08.276768*
