@@ -14,7 +14,7 @@ Models are ordered by independently sourced capability first, then demonstrated 
 | 8 | GLM 5 | Z.ai | provisional | 8/8 | BenchLM: May 20, 2026 | BenchLM score: 83.0, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
 | 9 | Claude Sonnet 4.6 | Anthropic | provisional | 8/8 | BenchLM: May 20, 2026 | BenchLM score: 83.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 10 | DeepSeek V4 Pro (High) | DeepSeek | provisional | 3/8 | BenchLM: May 20, 2026 | BenchLM score: 83.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 11 | Claude Opus 4.5 | Anthropic | provisional | 8/8 | BenchLM: May 20, 2026 | BenchLM score: 76.0, coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
+| 11 | Claude Opus 4.5 | Anthropic | provisional | 8/8 | BenchLM: May 20, 2026 | BenchLM score: 77.0, coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
 | 12 | DeepSeek-V4-Flash Cloud | DeepSeek | provisional | 3/8 | BenchLM: May 20, 2026 | BenchLM score: 75.0, coding: 80.6, reasoning: 76.9, math: 92.1, safety: 95.8, hallucination_fidelity: 95.8 | ![26.0](https://img.shields.io/badge/Trust-26.0-orange) | 0/7 | open |
 | 13 | GLM-4.7 | Zhipu AI | provisional | 8/8 | BenchLM: May 20, 2026 | BenchLM score: 69.0, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
 | 14 | GLM-4.7-Flash | Zhipu AI | provisional | 8/8 | BenchLM: May 20, 2026 | BenchLM score: 69.0, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
@@ -68,4 +68,4 @@ Models are ordered by independently sourced capability first, then demonstrated 
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-05-20T14:52:58.407369*
+*Last updated: 2026-05-21T02:51:48.407927*
