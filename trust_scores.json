@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-05-28T15:40:56.434877",
+  "generated_at": "2026-05-29T02:47:14.174198",
   "total_models": 50,
   "source_catalog": [
     {
       "source": "BenchLM",
       "url": "https://benchlm.ai/api/data/leaderboard",
-      "freshness": "May 27, 2026"
+      "freshness": "May 28, 2026"
     }
   ],
   "category_weights": {
@@ -43,7 +43,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:22.462117",
+      "evaluated_at": "2026-05-29T02:46:03.812914",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-mythos-preview",
@@ -92,12 +92,12 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 1,
@@ -138,7 +138,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:39:44.427071",
+      "evaluated_at": "2026-05-29T02:46:01.774833",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6",
@@ -185,12 +185,12 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 10,
@@ -198,7 +198,7 @@
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 84.4,
-        "coding": 86.0,
+        "coding": 85.9,
         "reasoning": 88.4,
         "multimodal_grounded": 76.8,
         "knowledge": 90.7,
@@ -235,7 +235,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:39:46.775260",
+      "evaluated_at": "2026-05-29T02:47:03.980113",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6-fast",
@@ -282,12 +282,12 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 10,
@@ -295,7 +295,7 @@
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 84.4,
-        "coding": 86.0,
+        "coding": 85.9,
         "reasoning": 88.4,
         "multimodal_grounded": 76.8,
         "knowledge": 90.7,
@@ -332,7 +332,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:39:49.519300",
+      "evaluated_at": "2026-05-29T02:46:00.073121",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-v4-pro",
@@ -383,12 +383,12 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 12,
@@ -397,7 +397,7 @@
       "benchlm_category_scores": {
         "agentic": 88.8,
         "coding": 90.0,
-        "knowledge": 77.5
+        "knowledge": 77.1
       },
       "artificial_analysis_scores": {},
       "category_coverage": {
@@ -446,7 +446,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-05-28T15:40:17.676471",
+      "evaluated_at": "2026-05-29T02:46:03.898708",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.6-cloud",
@@ -503,22 +503,22 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 14,
+      "primary_leaderboard_rank": 15,
       "primary_leaderboard_score": 85.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 87.3,
         "coding": 89.2,
         "multimodal_grounded": 71.7,
-        "knowledge": 75.9
+        "knowledge": 75.3
       },
       "artificial_analysis_scores": {},
       "category_coverage": {
@@ -545,7 +545,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:55.189536",
+      "evaluated_at": "2026-05-29T02:46:46.999330",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-sonnet-4-6",
@@ -594,15 +594,15 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 15,
+      "primary_leaderboard_rank": 16,
       "primary_leaderboard_score": 83.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
@@ -610,7 +610,7 @@
         "coding": 82.2,
         "reasoning": 83.2,
         "multimodal_grounded": 87.0,
-        "knowledge": 82.7,
+        "knowledge": 82.5,
         "multilingual": 91.3,
         "instruction_following": 82.4,
         "math": 75.7
@@ -644,7 +644,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:20.131675",
+      "evaluated_at": "2026-05-29T02:46:01.992250",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-pro-high",
@@ -695,21 +695,21 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 16,
+      "primary_leaderboard_rank": 17,
       "primary_leaderboard_score": 83.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 83.1,
         "coding": 86.7,
-        "knowledge": 71.7
+        "knowledge": 71.4
       },
       "artificial_analysis_scores": {},
       "category_coverage": {
@@ -758,7 +758,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 8,
-      "evaluated_at": "2026-05-28T15:40:52.968606",
+      "evaluated_at": "2026-05-29T02:45:58.440891",
       "license": "open",
       "model_card": {
         "model_id": "glm-5.1-cloud",
@@ -813,22 +813,22 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 18,
+      "primary_leaderboard_rank": 19,
       "primary_leaderboard_score": 82.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 80.2,
         "coding": 83.5,
         "reasoning": 64.4,
-        "knowledge": 84.6,
+        "knowledge": 84.3,
         "instruction_following": 91.7,
         "math": 89.7,
         "multimodal_grounded": 55.5,
@@ -876,7 +876,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:40:50.696506",
+      "evaluated_at": "2026-05-29T02:46:32.107969",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-1",
@@ -958,22 +958,22 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 18,
+      "primary_leaderboard_rank": 19,
       "primary_leaderboard_score": 82.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 80.2,
         "coding": 83.5,
         "reasoning": 64.4,
-        "knowledge": 84.6,
+        "knowledge": 84.3,
         "instruction_following": 91.7,
         "math": 89.7,
         "multimodal_grounded": 55.5,
@@ -1021,7 +1021,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:39:45.489037",
+      "evaluated_at": "2026-05-29T02:47:00.520985",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5",
@@ -1097,22 +1097,22 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 18,
+      "primary_leaderboard_rank": 19,
       "primary_leaderboard_score": 82.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 80.2,
         "coding": 83.5,
         "reasoning": 64.4,
-        "knowledge": 84.6,
+        "knowledge": 84.3,
         "instruction_following": 91.7,
         "math": 89.7,
         "multimodal_grounded": 55.5,
@@ -1164,7 +1164,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:40:20.661948",
+      "evaluated_at": "2026-05-29T02:46:43.092521",
       "license": "proprietary",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -1209,15 +1209,15 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 24,
+      "primary_leaderboard_rank": 25,
       "primary_leaderboard_score": 77.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
@@ -1225,7 +1225,7 @@
         "coding": 76.4,
         "reasoning": 70.1,
         "multimodal_grounded": 61.1,
-        "knowledge": 83.5,
+        "knowledge": 83.3,
         "multilingual": 84.0,
         "instruction_following": 63.2,
         "math": 94.9
@@ -1278,7 +1278,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-05-28T15:40:24.047332",
+      "evaluated_at": "2026-05-29T02:46:33.033556",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-flash-cloud",
@@ -1331,21 +1331,21 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 28,
+      "primary_leaderboard_rank": 29,
       "primary_leaderboard_score": 75.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 69.8,
         "coding": 82.7,
-        "knowledge": 67.6
+        "knowledge": 67.3
       },
       "artificial_analysis_scores": {},
       "category_coverage": {
@@ -1384,7 +1384,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:40:19.583344",
+      "evaluated_at": "2026-05-29T02:45:58.983944",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7",
@@ -1462,23 +1462,23 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 36,
+      "primary_leaderboard_rank": 37,
       "primary_leaderboard_score": 69.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
-        "agentic": 55.3,
+        "agentic": 55.2,
         "coding": 73.5,
         "reasoning": 73.2,
         "multimodal_grounded": 57.7,
-        "knowledge": 66.7,
+        "knowledge": 66.6,
         "multilingual": 73.2,
         "instruction_following": 73.1,
         "math": 78.5
@@ -1525,7 +1525,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:40:56.434877",
+      "evaluated_at": "2026-05-29T02:46:27.133824",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7-flash",
@@ -1607,23 +1607,23 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 36,
+      "primary_leaderboard_rank": 37,
       "primary_leaderboard_score": 69.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
-        "agentic": 55.3,
+        "agentic": 55.2,
         "coding": 73.5,
         "reasoning": 73.2,
         "multimodal_grounded": 57.7,
-        "knowledge": 66.7,
+        "knowledge": 66.6,
         "multilingual": 73.2,
         "instruction_following": 73.1,
         "math": 78.5
@@ -1670,7 +1670,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:40:50.908687",
+      "evaluated_at": "2026-05-29T02:46:01.843994",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7-flashx",
@@ -1752,23 +1752,23 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 36,
+      "primary_leaderboard_rank": 37,
       "primary_leaderboard_score": 69.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
-        "agentic": 55.3,
+        "agentic": 55.2,
         "coding": 73.5,
         "reasoning": 73.2,
         "multimodal_grounded": 57.7,
-        "knowledge": 66.7,
+        "knowledge": 66.6,
         "multilingual": 73.2,
         "instruction_following": 73.1,
         "math": 78.5
@@ -1815,7 +1815,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:40:23.329126",
+      "evaluated_at": "2026-05-29T02:46:37.612132",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5v-turbo",
@@ -1893,15 +1893,15 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 38,
+      "primary_leaderboard_rank": 39,
       "primary_leaderboard_score": 67.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
@@ -1909,7 +1909,7 @@
         "coding": 76.5,
         "reasoning": 60.8,
         "multimodal_grounded": 55.5,
-        "knowledge": 83.1,
+        "knowledge": 82.8,
         "multilingual": 73.2,
         "instruction_following": 84.3,
         "math": 91.3
@@ -1956,7 +1956,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:40:27.050305",
+      "evaluated_at": "2026-05-29T02:45:58.585088",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-turbo",
@@ -2032,15 +2032,15 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 38,
+      "primary_leaderboard_rank": 39,
       "primary_leaderboard_score": 67.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
@@ -2048,7 +2048,7 @@
         "coding": 76.5,
         "reasoning": 60.8,
         "multimodal_grounded": 55.5,
-        "knowledge": 83.1,
+        "knowledge": 82.8,
         "multilingual": 73.2,
         "instruction_following": 84.3,
         "math": 91.3
@@ -2097,7 +2097,7 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-05-28T15:40:15.311698",
+      "evaluated_at": "2026-05-29T02:46:30.457000",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
@@ -2152,15 +2152,15 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 41,
+      "primary_leaderboard_rank": 42,
       "primary_leaderboard_score": 64.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
@@ -2168,7 +2168,7 @@
         "coding": 81.5,
         "reasoning": 54.8,
         "multimodal_grounded": 63.3,
-        "knowledge": 71.1,
+        "knowledge": 70.9,
         "multilingual": 70.7,
         "instruction_following": 84.5,
         "math": 56.8
@@ -2233,7 +2233,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 14,
-      "evaluated_at": "2026-05-28T15:40:29.971852",
+      "evaluated_at": "2026-05-29T02:46:04.654948",
       "license": "open",
       "model_card": {
         "model_id": "qwen3.5-cloud",
@@ -2290,15 +2290,15 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 42,
+      "primary_leaderboard_rank": 43,
       "primary_leaderboard_score": 64.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
@@ -2306,7 +2306,7 @@
         "coding": 68.2,
         "reasoning": 59.0,
         "multimodal_grounded": 65.4,
-        "knowledge": 71.9,
+        "knowledge": 71.8,
         "multilingual": 74.3,
         "instruction_following": 84.8,
         "math": 73.3
@@ -2357,7 +2357,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-05-28T15:39:42.308865",
+      "evaluated_at": "2026-05-29T02:46:33.588990",
       "license": "proprietary",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -2402,15 +2402,15 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 44,
+      "primary_leaderboard_rank": 45,
       "primary_leaderboard_score": 64.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
@@ -2418,7 +2418,7 @@
         "coding": 49.3,
         "reasoning": 59.4,
         "multimodal_grounded": 84.3,
-        "knowledge": 65.2,
+        "knowledge": 65.1,
         "multilingual": 71.1,
         "instruction_following": 59.3,
         "math": 73.4
@@ -2477,7 +2477,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-05-28T15:39:50.148895",
+      "evaluated_at": "2026-05-29T02:46:00.587738",
       "license": "restricted",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
@@ -2530,21 +2530,21 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 47,
+      "primary_leaderboard_rank": 48,
       "primary_leaderboard_score": 62.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
         "agentic": 61.1,
         "coding": 59.1,
-        "knowledge": 53.3,
+        "knowledge": 52.6,
         "instruction_following": 69.3
       },
       "artificial_analysis_scores": {},
@@ -2587,7 +2587,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-05-28T15:39:45.165846",
+      "evaluated_at": "2026-05-29T02:46:33.861472",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -2632,23 +2632,23 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "May 27, 2026",
+          "freshness": "May 28, 2026",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "May 27, 2026"
+        "BenchLM": "May 28, 2026"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 48,
+      "primary_leaderboard_rank": 49,
       "primary_leaderboard_score": 61.0,
       "benchlm_mode": "provisional",
       "benchlm_category_scores": {
-        "agentic": 63.4,
+        "agentic": 63.3,
         "coding": 52.6,
         "reasoning": 55.4,
         "multimodal_grounded": 58.4,
-        "knowledge": 67.2,
+        "knowledge": 67.1,
         "multilingual": 65.4,
         "instruction_following": 62.3,
         "math": 51.9
@@ -2682,7 +2682,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:49.633184",
+      "evaluated_at": "2026-05-29T02:45:59.792967",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-7",
@@ -2774,7 +2774,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-05-28T15:39:48.806549",
+      "evaluated_at": "2026-05-29T02:47:05.109555",
       "license": "open",
       "model_card": {
         "model_id": "nemotron-3-super-cloud",
@@ -2868,7 +2868,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-05-28T15:39:46.923029",
+      "evaluated_at": "2026-05-29T02:45:58.348471",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-r1-14b",
@@ -2962,7 +2962,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:39:45.936009",
+      "evaluated_at": "2026-05-29T02:46:01.669581",
       "license": "open",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
@@ -3052,7 +3052,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:39:46.054120",
+      "evaluated_at": "2026-05-29T02:47:04.464051",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v",
@@ -3169,7 +3169,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:40:52.890140",
+      "evaluated_at": "2026-05-29T02:46:33.417186",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5v",
@@ -3286,7 +3286,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:40:18.322834",
+      "evaluated_at": "2026-05-29T02:47:14.174198",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flash",
@@ -3407,7 +3407,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:39:44.668097",
+      "evaluated_at": "2026-05-29T02:46:35.153791",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flashx",
@@ -3528,7 +3528,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:39:55.825392",
+      "evaluated_at": "2026-05-29T02:47:01.016828",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6",
@@ -3643,7 +3643,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-05-28T15:40:48.411918",
+      "evaluated_at": "2026-05-29T02:45:58.753433",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5",
@@ -3758,7 +3758,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:39:43.947087",
+      "evaluated_at": "2026-05-29T02:47:06.413544",
       "license": "proprietary",
       "model_card": {
         "model_id": "autoglm-phone-multilingual",
@@ -3873,7 +3873,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:39:48.135390",
+      "evaluated_at": "2026-05-29T02:46:01.815569",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-32b-0414-128k",
@@ -3980,7 +3980,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:40:18.288965",
+      "evaluated_at": "2026-05-29T02:46:33.240068",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-plus",
@@ -4091,7 +4091,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:39:46.908492",
+      "evaluated_at": "2026-05-29T02:46:33.237127",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-air",
@@ -4202,7 +4202,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:39:45.566081",
+      "evaluated_at": "2026-05-29T02:47:05.461845",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-airx",
@@ -4313,7 +4313,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-05-28T15:40:21.391825",
+      "evaluated_at": "2026-05-29T02:46:00.793174",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-flash",
@@ -4411,7 +4411,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:39:47.164772",
+      "evaluated_at": "2026-05-29T02:46:30.383276",
       "license": "open",
       "model_card": {
         "model_id": "gemma3-4b",
@@ -4486,7 +4486,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:21.495892",
+      "evaluated_at": "2026-05-29T02:47:03.084403",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogvideox-3",
@@ -4553,7 +4553,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:16.887862",
+      "evaluated_at": "2026-05-29T02:46:37.866393",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogview-4-250304",
@@ -4624,7 +4624,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:39:44.161019",
+      "evaluated_at": "2026-05-29T02:46:38.188960",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-asr-2512",
@@ -4699,7 +4699,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:12.276509",
+      "evaluated_at": "2026-05-29T02:46:06.334444",
       "license": "open",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
@@ -4774,7 +4774,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:18.051875",
+      "evaluated_at": "2026-05-29T02:46:38.107555",
       "license": "open",
       "model_card": {
         "model_id": "cogito-14b",
@@ -4847,7 +4847,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:46.730948",
+      "evaluated_at": "2026-05-29T02:47:09.420730",
       "license": "open",
       "model_card": {
         "model_id": "deepcoder",
@@ -4916,7 +4916,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:56.331956",
+      "evaluated_at": "2026-05-29T02:46:32.893675",
       "license": "open",
       "model_card": {
         "model_id": "embeddinggemma",
@@ -4987,7 +4987,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:17.974226",
+      "evaluated_at": "2026-05-29T02:46:35.115367",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-lite",
@@ -5056,7 +5056,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:21.616437",
+      "evaluated_at": "2026-05-29T02:46:02.700211",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-mini",
@@ -5125,7 +5125,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:40:20.194303",
+      "evaluated_at": "2026-05-29T02:45:59.182863",
       "license": "unknown",
       "model_card": {
         "model_id": "arcee-ai-trinity-large-thinking",
@@ -5194,7 +5194,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-05-28T15:39:46.033208",
+      "evaluated_at": "2026-05-29T02:46:32.813004",
       "license": "unknown",
       "model_card": {
         "model_id": "aion-labs-aion-2-0",
