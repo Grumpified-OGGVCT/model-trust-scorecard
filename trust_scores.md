@@ -4,22 +4,22 @@ Models are ordered by independently sourced capability first, then demonstrated 
 
 | Rank | Model | Vendor | Lane | Category Coverage | Source Freshness | Use-Case Strengths | Trust Score | Verified Claims | License |
 |------|-------|--------|------|-------------------|------------------|--------------------|-------------|-----------------|---------|
-| 1 | Claude Opus 4.7 (Adaptive) | Anthropic | provisional | 4/8 | BenchLM: 2026-07-29 | BenchLM score: 71.3 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 2 | Claude Opus 4.6 | Anthropic | provisional | 5/8 | BenchLM: 2026-07-29 | BenchLM score: 67.8 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 3 | Claude Opus 4.6 (Fast) | Anthropic | provisional | 5/8 | BenchLM: 2026-07-29 | BenchLM score: 67.8 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 4 | GLM 5.1 | Z.ai | provisional | 7/8 | BenchLM: 2026-07-29 | BenchLM score: 66.8, coding: 59.9, reasoning: 77.0, math: 89.8, safety: 29.4, tool_use: 67.0, agent_swarm: 67.0, hallucination_fidelity: 29.4 | ![22.2](https://img.shields.io/badge/Trust-22.2-orange) | 0/8 | open |
-| 5 | GLM-5.1 | Zhipu AI | provisional | 7/8 | BenchLM: 2026-07-29 | BenchLM score: 66.8, coding: 78.5, reasoning: 86.8 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
-| 6 | GLM 5 | Z.ai | provisional | 7/8 | BenchLM: 2026-07-29 | BenchLM score: 66.8, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 7 | GLM 5 Turbo | Z.ai | provisional | 7/8 | BenchLM: 2026-07-29 | BenchLM score: 65.9, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 8 | GLM 5V Turbo | Z.ai | provisional | 7/8 | BenchLM: 2026-07-29 | BenchLM score: 65.2, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 9 | Claude Sonnet 4.6 | Anthropic | provisional | 5/8 | BenchLM: 2026-07-29 | BenchLM score: 64.3 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 10 | Claude Opus 4.5 | Anthropic | provisional | 8/8 | BenchLM: 2026-07-29 | BenchLM score: 63.4, coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
-| 11 | MiniMax M2.7 Cloud | MiniMax | provisional | 2/8 | BenchLM: 2026-07-29 | BenchLM score: 63.1, coding: 56.6, reasoning: 68.5, math: 87.4, safety: 34.4, tool_use: 54.9, agent_swarm: 53.9, office_document: 57.0, hallucination_fidelity: 34.4 | ![23.5](https://img.shields.io/badge/Trust-23.5-orange) | 0/7 | restricted |
-| 12 | GLM-4.7 | Zhipu AI | provisional | 4/8 | BenchLM: 2026-07-29 | BenchLM score: 60.4, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
-| 13 | GLM-4.7-Flash | Zhipu AI | provisional | 4/8 | BenchLM: 2026-07-29 | BenchLM score: 60.4, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
-| 14 | GLM-4.7-FlashX | Zhipu AI | provisional | 4/8 | BenchLM: 2026-07-29 | BenchLM score: 60.4, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
-| 15 | DeepSeek V4 Pro (High) | DeepSeek | provisional | 4/8 | BenchLM: 2026-07-29 | BenchLM score: 60.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 16 | DeepSeek V4 Pro (Max) | DeepSeek | provisional | 4/8 | BenchLM: 2026-07-29 | BenchLM score: 60.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 1 | Claude Opus 4.7 (Adaptive) | Anthropic | provisional | 4/8 | BenchLM: 2026-07-30 | BenchLM score: 71.3 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 2 | Claude Opus 4.6 | Anthropic | provisional | 5/8 | BenchLM: 2026-07-30 | BenchLM score: 67.8 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 3 | Claude Opus 4.6 (Fast) | Anthropic | provisional | 5/8 | BenchLM: 2026-07-30 | BenchLM score: 67.8 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 4 | GLM 5.1 | Z.ai | provisional | 7/8 | BenchLM: 2026-07-30 | BenchLM score: 66.8, coding: 59.9, reasoning: 77.0, math: 89.8, safety: 29.4, tool_use: 67.0, agent_swarm: 67.0, hallucination_fidelity: 29.4 | ![22.2](https://img.shields.io/badge/Trust-22.2-orange) | 0/8 | open |
+| 5 | GLM-5.1 | Zhipu AI | provisional | 7/8 | BenchLM: 2026-07-30 | BenchLM score: 66.8, coding: 78.5, reasoning: 86.8 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 6 | GLM 5 | Z.ai | provisional | 7/8 | BenchLM: 2026-07-30 | BenchLM score: 66.8, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 7 | GLM 5 Turbo | Z.ai | provisional | 7/8 | BenchLM: 2026-07-30 | BenchLM score: 65.9, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 8 | GLM 5V Turbo | Z.ai | provisional | 7/8 | BenchLM: 2026-07-30 | BenchLM score: 65.2, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 9 | Claude Sonnet 4.6 | Anthropic | provisional | 5/8 | BenchLM: 2026-07-30 | BenchLM score: 64.3 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 10 | Claude Opus 4.5 | Anthropic | provisional | 8/8 | BenchLM: 2026-07-30 | BenchLM score: 63.4, coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
+| 11 | MiniMax M2.7 Cloud | MiniMax | provisional | 2/8 | BenchLM: 2026-07-30 | BenchLM score: 63.1, coding: 56.6, reasoning: 68.5, math: 87.4, safety: 34.4, tool_use: 54.9, agent_swarm: 53.9, office_document: 57.0, hallucination_fidelity: 34.4 | ![23.5](https://img.shields.io/badge/Trust-23.5-orange) | 0/7 | restricted |
+| 12 | GLM-4.7 | Zhipu AI | provisional | 4/8 | BenchLM: 2026-07-30 | BenchLM score: 60.4, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 13 | GLM-4.7-Flash | Zhipu AI | provisional | 4/8 | BenchLM: 2026-07-30 | BenchLM score: 60.4, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 14 | GLM-4.7-FlashX | Zhipu AI | provisional | 4/8 | BenchLM: 2026-07-30 | BenchLM score: 60.4, coding: 72.0, reasoning: 83.3 | ![17.2](https://img.shields.io/badge/Trust-17.2-orange) | 0/4 | proprietary |
+| 15 | DeepSeek V4 Pro (High) | DeepSeek | provisional | 4/8 | BenchLM: 2026-07-30 | BenchLM score: 60.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 16 | DeepSeek V4 Pro (Max) | DeepSeek | provisional | 4/8 | BenchLM: 2026-07-30 | BenchLM score: 60.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 17 | Claude Mythos Preview | Anthropic | estimated | 0/8 | — | BenchLM score: 83.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 18 | Kimi 2.6 | Moonshot AI | estimated | 0/8 | — | BenchLM score: 70.0, coding: 68.7, reasoning: 54.0, multilingual: 76.7, multilingual_depth: 76.7, tool_use: 52.0, agent_swarm: 52.0, vision_coding: 76.7 | ![22.2](https://img.shields.io/badge/Trust-22.2-orange) | 0/6 | open |
 | 19 | Kimi K2.5 | Moonshot AI | estimated | 0/8 | — | BenchLM score: 68.0, coding: 79.8, reasoning: 47.0, multimodal: 85.0 | ![18.5](https://img.shields.io/badge/Trust-18.5-orange) | 0/3 | open |
@@ -68,4 +68,4 @@ Models are ordered by independently sourced capability first, then demonstrated 
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-07-30T13:48:56.157354*
+*Last updated: 2026-07-31T02:16:19.708723*
