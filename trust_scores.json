@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-12T12:58:43.408025",
+  "generated_at": "2026-08-13T01:28:09.891619",
   "total_models": 50,
   "source_catalog": [
     {
@@ -19,15 +19,15 @@
     "math": 5.0
   },
   "ranking_lane_counts": {
-    "local_only": 19,
+    "local_only": 22,
     "no_evidence": 12,
     "estimated": 5,
-    "provisional": 14
+    "provisional": 11
   },
   "confidence_distribution": {
-    "Low confidence": 31,
+    "Low confidence": 34,
     "Low / estimated": 5,
-    "Sourced external": 8,
+    "Sourced external": 5,
     "Moderate confidence": 6
   },
   "snapshot_methodology_version": "benchlm-aa-source-evidence-v1",
@@ -43,7 +43,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:57.799896",
+      "evaluated_at": "2026-08-13T01:27:29.287390",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-7",
@@ -104,8 +104,8 @@
       "primary_leaderboard_score": 71.53,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 56.53,
-        "coding": 67.81,
+        "agentic": 56.52,
+        "coding": 67.76,
         "knowledge": 65.2,
         "math": 61.7
       },
@@ -134,7 +134,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:22.799865",
+      "evaluated_at": "2026-08-13T01:27:57.441735",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6",
@@ -190,11 +190,11 @@
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 21,
-      "primary_leaderboard_score": 67.88,
+      "primary_leaderboard_score": 67.68,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 57.0,
-        "coding": 61.4,
+        "agentic": 56.96,
+        "coding": 61.32,
         "multimodal_grounded": 61.5,
         "knowledge": 82.7,
         "math": 59.6
@@ -225,7 +225,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:25.224292",
+      "evaluated_at": "2026-08-13T01:26:55.906029",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6-fast",
@@ -281,11 +281,11 @@
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 21,
-      "primary_leaderboard_score": 67.88,
+      "primary_leaderboard_score": 67.68,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 57.0,
-        "coding": 61.4,
+        "agentic": 56.96,
+        "coding": 61.32,
         "multimodal_grounded": 61.5,
         "knowledge": 82.7,
         "math": 59.6
@@ -339,7 +339,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 8,
-      "evaluated_at": "2026-08-12T12:57:27.957896",
+      "evaluated_at": "2026-08-13T01:27:28.018979",
       "license": "open",
       "model_card": {
         "model_id": "glm-5.1-cloud",
@@ -402,12 +402,12 @@
         "BenchLM": "2026-08-12"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 25,
-      "primary_leaderboard_score": 66.77,
+      "primary_leaderboard_rank": 26,
+      "primary_leaderboard_score": 66.56,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 48.33,
-        "coding": 55.31,
+        "agentic": 48.06,
+        "coding": 55.26,
         "knowledge": 77.6,
         "math": 64.2,
         "reasoning": 76.3,
@@ -455,7 +455,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:57:55.999637",
+      "evaluated_at": "2026-08-13T01:27:18.431332",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-1",
@@ -545,12 +545,12 @@
         "BenchLM": "2026-08-12"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 25,
-      "primary_leaderboard_score": 66.77,
+      "primary_leaderboard_rank": 26,
+      "primary_leaderboard_score": 66.56,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 48.33,
-        "coding": 55.31,
+        "agentic": 48.06,
+        "coding": 55.26,
         "knowledge": 77.6,
         "math": 64.2,
         "reasoning": 76.3,
@@ -598,7 +598,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:10.301434",
+      "evaluated_at": "2026-08-13T01:27:34.635150",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5",
@@ -682,12 +682,12 @@
         "BenchLM": "2026-08-12"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 25,
-      "primary_leaderboard_score": 66.77,
+      "primary_leaderboard_rank": 26,
+      "primary_leaderboard_score": 66.56,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 48.33,
-        "coding": 55.31,
+        "agentic": 48.06,
+        "coding": 55.26,
         "knowledge": 77.6,
         "math": 64.2,
         "reasoning": 76.3,
@@ -735,7 +735,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:06.530463",
+      "evaluated_at": "2026-08-13T01:27:23.689315",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-turbo",
@@ -820,11 +820,11 @@
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 29,
-      "primary_leaderboard_score": 65.99,
+      "primary_leaderboard_score": 65.78,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 54.9,
-        "coding": 58.4,
+        "agentic": 54.77,
+        "coding": 58.26,
         "reasoning": 76.3,
         "knowledge": 77.9,
         "multilingual": 48.7,
@@ -872,7 +872,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:03.902757",
+      "evaluated_at": "2026-08-13T01:26:50.060066",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5v-turbo",
@@ -958,12 +958,12 @@
         "BenchLM": "2026-08-12"
       },
       "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 33,
-      "primary_leaderboard_score": 65.47,
+      "primary_leaderboard_rank": 32,
+      "primary_leaderboard_score": 65.26,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 54.9,
-        "coding": 58.4,
+        "agentic": 54.77,
+        "coding": 58.26,
         "reasoning": 76.3,
         "knowledge": 77.9,
         "multilingual": 48.7,
@@ -998,7 +998,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:58:43.408025",
+      "evaluated_at": "2026-08-13T01:26:55.796387",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-sonnet-4-6",
@@ -1056,11 +1056,11 @@
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 37,
-      "primary_leaderboard_score": 64.42,
+      "primary_leaderboard_score": 64.23,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 51.72,
-        "coding": 58.54,
+        "agentic": 51.69,
+        "coding": 58.49,
         "multimodal_grounded": 55.2,
         "knowledge": 76.9,
         "math": 49.3
@@ -1108,7 +1108,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:01.688495",
+      "evaluated_at": "2026-08-13T01:28:06.643994",
       "license": "proprietary",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -1162,11 +1162,11 @@
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 41,
-      "primary_leaderboard_score": 63.52,
+      "primary_leaderboard_score": 63.33,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 36.24,
-        "coding": 61.55,
+        "agentic": 36.19,
+        "coding": 61.4,
         "reasoning": 87.8,
         "multimodal_grounded": 28.9,
         "knowledge": 60.4,
@@ -1228,7 +1228,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-08-12T12:58:41.793501",
+      "evaluated_at": "2026-08-13T01:26:55.715639",
       "license": "restricted",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
@@ -1290,11 +1290,11 @@
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 44,
-      "primary_leaderboard_score": 62.98,
+      "primary_leaderboard_score": 62.76,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 34.4,
-        "coding": 45.73
+        "agentic": 34.15,
+        "coding": 45.74
       },
       "artificial_analysis_scores": {},
       "category_coverage": {
@@ -1309,413 +1309,6 @@
       "rankable_category_count": 2
     },
     {
-      "model_id": "glm-4-7",
-      "display_name": "GLM-4.7",
-      "vendor": "Zhipu AI",
-      "trust_score": 17.2,
-      "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 72.0,
-          "reasoning": 83.3
-        }
-      },
-      "use_case_scores": {
-        "coding": 72.0,
-        "reasoning": 83.3
-      },
-      "total_claims": 4,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:58:38.505317",
-      "license": "proprietary",
-      "model_card": {
-        "model_id": "glm-4-7",
-        "display_name": "GLM-4.7",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": 32.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "leaderboard_source": null,
-        "leaderboard_rank": null,
-        "leaderboard_score": null,
-        "capability_rank": null,
-        "benchmark_claims": [
-          {
-            "benchmark": "MMLU",
-            "metric": "accuracy",
-            "value": 82.1,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "C-Eval",
-            "metric": "accuracy",
-            "value": 79.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "HumanEval",
-            "metric": "pass@1",
-            "value": 72.0,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "GSM8K",
-            "metric": "accuracy",
-            "value": 84.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          }
-        ]
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api"
-      ],
-      "ranking_lane": "provisional",
-      "confidence_tier": "Sourced external",
-      "source_evidence": [
-        {
-          "source": "BenchLM",
-          "freshness": "2026-08-12",
-          "url": "https://benchlm.ai/api/data/leaderboard"
-        }
-      ],
-      "source_freshness": {
-        "BenchLM": "2026-08-12"
-      },
-      "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 49,
-      "primary_leaderboard_score": 60.51,
-      "benchlm_mode": "bench-align-v5",
-      "benchlm_category_scores": {
-        "agentic": 51.11,
-        "coding": 51.19,
-        "knowledge": 33.2,
-        "math": 25.9
-      },
-      "artificial_analysis_scores": {},
-      "category_coverage": {
-        "covered": 4,
-        "total": 8,
-        "categories": [
-          "agentic",
-          "coding",
-          "knowledge",
-          "math"
-        ]
-      },
-      "rankable_benchmark_count": 5,
-      "rankable_category_count": 4
-    },
-    {
-      "model_id": "glm-4-7-flash",
-      "display_name": "GLM-4.7-Flash",
-      "vendor": "Zhipu AI",
-      "trust_score": 17.2,
-      "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 72.0,
-          "reasoning": 83.3
-        }
-      },
-      "use_case_scores": {
-        "coding": 72.0,
-        "reasoning": 83.3
-      },
-      "total_claims": 4,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:57:59.493443",
-      "license": "proprietary",
-      "model_card": {
-        "model_id": "glm-4-7-flash",
-        "display_name": "GLM-4.7-Flash",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": 9.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "fast",
-          "optimized"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "leaderboard_source": null,
-        "leaderboard_rank": null,
-        "leaderboard_score": null,
-        "capability_rank": null,
-        "benchmark_claims": [
-          {
-            "benchmark": "MMLU",
-            "metric": "accuracy",
-            "value": 82.1,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "C-Eval",
-            "metric": "accuracy",
-            "value": 79.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "HumanEval",
-            "metric": "pass@1",
-            "value": 72.0,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "GSM8K",
-            "metric": "accuracy",
-            "value": 84.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          }
-        ]
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "fast",
-        "optimized"
-      ],
-      "ranking_lane": "provisional",
-      "confidence_tier": "Sourced external",
-      "source_evidence": [
-        {
-          "source": "BenchLM",
-          "freshness": "2026-08-12",
-          "url": "https://benchlm.ai/api/data/leaderboard"
-        }
-      ],
-      "source_freshness": {
-        "BenchLM": "2026-08-12"
-      },
-      "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 49,
-      "primary_leaderboard_score": 60.51,
-      "benchlm_mode": "bench-align-v5",
-      "benchlm_category_scores": {
-        "agentic": 51.11,
-        "coding": 51.19,
-        "knowledge": 33.2,
-        "math": 25.9
-      },
-      "artificial_analysis_scores": {},
-      "category_coverage": {
-        "covered": 4,
-        "total": 8,
-        "categories": [
-          "agentic",
-          "coding",
-          "knowledge",
-          "math"
-        ]
-      },
-      "rankable_benchmark_count": 5,
-      "rankable_category_count": 4
-    },
-    {
-      "model_id": "glm-4-7-flashx",
-      "display_name": "GLM-4.7-FlashX",
-      "vendor": "Zhipu AI",
-      "trust_score": 17.2,
-      "breakdown": {
-        "coverage_score": 11.2,
-        "verification_score": 0.0,
-        "performance_gap_score": 6.0,
-        "openness_score": 0.0,
-        "safety_score": 0.0,
-        "use_case_scores": {
-          "coding": 72.0,
-          "reasoning": 83.3
-        }
-      },
-      "use_case_scores": {
-        "coding": 72.0,
-        "reasoning": 83.3
-      },
-      "total_claims": 4,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:57:26.581013",
-      "license": "proprietary",
-      "model_card": {
-        "model_id": "glm-4-7-flashx",
-        "display_name": "GLM-4.7-FlashX",
-        "vendor": "Zhipu AI",
-        "card_url": null,
-        "card_text": "GLM-4.7-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": 9.0,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 128000,
-        "release_date": null,
-        "tags": [
-          "text",
-          "multilingual",
-          "chinese",
-          "api",
-          "fast",
-          "optimized"
-        ],
-        "pricing_per_1k_input_usd": null,
-        "pricing_per_1k_output_usd": null,
-        "weekly_tokens": null,
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "leaderboard_source": null,
-        "leaderboard_rank": null,
-        "leaderboard_score": null,
-        "capability_rank": null,
-        "benchmark_claims": [
-          {
-            "benchmark": "MMLU",
-            "metric": "accuracy",
-            "value": 82.1,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "C-Eval",
-            "metric": "accuracy",
-            "value": 79.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "HumanEval",
-            "metric": "pass@1",
-            "value": 72.0,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          },
-          {
-            "benchmark": "GSM8K",
-            "metric": "accuracy",
-            "value": 84.5,
-            "source": "z.ai reported",
-            "source_url": null,
-            "raw": null
-          }
-        ]
-      },
-      "tags": [
-        "text",
-        "multilingual",
-        "chinese",
-        "api",
-        "fast",
-        "optimized"
-      ],
-      "ranking_lane": "provisional",
-      "confidence_tier": "Sourced external",
-      "source_evidence": [
-        {
-          "source": "BenchLM",
-          "freshness": "2026-08-12",
-          "url": "https://benchlm.ai/api/data/leaderboard"
-        }
-      ],
-      "source_freshness": {
-        "BenchLM": "2026-08-12"
-      },
-      "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 49,
-      "primary_leaderboard_score": 60.51,
-      "benchlm_mode": "bench-align-v5",
-      "benchlm_category_scores": {
-        "agentic": 51.11,
-        "coding": 51.19,
-        "knowledge": 33.2,
-        "math": 25.9
-      },
-      "artificial_analysis_scores": {},
-      "category_coverage": {
-        "covered": 4,
-        "total": 8,
-        "categories": [
-          "agentic",
-          "coding",
-          "knowledge",
-          "math"
-        ]
-      },
-      "rankable_benchmark_count": 5,
-      "rankable_category_count": 4
-    },
-    {
       "model_id": "anthropic-claude-mythos-preview",
       "display_name": "Claude Mythos Preview",
       "vendor": "Anthropic",
@@ -1726,7 +1319,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:28.547516",
+      "evaluated_at": "2026-08-13T01:28:02.710219",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-mythos-preview",
@@ -1799,7 +1392,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:23.679905",
+      "evaluated_at": "2026-08-13T01:27:28.263376",
       "license": "unknown",
       "model_card": {
         "model_id": "deepseek-v4-pro",
@@ -1897,7 +1490,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-08-12T12:57:29.485767",
+      "evaluated_at": "2026-08-13T01:26:50.271839",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.6-cloud",
@@ -1978,7 +1571,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:58:03.477764",
+      "evaluated_at": "2026-08-13T01:26:57.861249",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-pro-high",
@@ -2068,7 +1661,7 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-08-12T12:57:27.839668",
+      "evaluated_at": "2026-08-13T01:26:54.126246",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
@@ -2162,7 +1755,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-08-12T12:57:24.983317",
+      "evaluated_at": "2026-08-13T01:27:24.209028",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -2250,7 +1843,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-08-12T12:57:22.257012",
+      "evaluated_at": "2026-08-13T01:27:35.648313",
       "license": "open",
       "model_card": {
         "model_id": "nemotron-3-super-cloud",
@@ -2358,7 +1951,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 14,
-      "evaluated_at": "2026-08-12T12:58:14.028694",
+      "evaluated_at": "2026-08-13T01:27:59.708292",
       "license": "open",
       "model_card": {
         "model_id": "qwen3.5-cloud",
@@ -2458,7 +2051,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-08-12T12:58:03.982585",
+      "evaluated_at": "2026-08-13T01:26:55.611983",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-flash-cloud",
@@ -2552,7 +2145,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-08-12T12:58:02.669438",
+      "evaluated_at": "2026-08-13T01:27:29.198452",
       "license": "proprietary",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -2638,7 +2231,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-08-12T12:57:32.186101",
+      "evaluated_at": "2026-08-13T01:26:58.307973",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-r1-14b",
@@ -2732,7 +2325,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:57:27.415825",
+      "evaluated_at": "2026-08-13T01:28:05.926979",
       "license": "open",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
@@ -2822,7 +2415,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:57:29.649198",
+      "evaluated_at": "2026-08-13T01:27:30.808089",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v",
@@ -2939,7 +2532,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:58:08.831786",
+      "evaluated_at": "2026-08-13T01:26:49.910398",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5v",
@@ -3056,7 +2649,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:58:17.377755",
+      "evaluated_at": "2026-08-13T01:27:57.024431",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flash",
@@ -3177,7 +2770,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:58:03.237222",
+      "evaluated_at": "2026-08-13T01:27:25.200572",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flashx",
@@ -3298,7 +2891,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:57:24.801807",
+      "evaluated_at": "2026-08-13T01:27:27.874366",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6",
@@ -3390,6 +2983,121 @@
       "rankable_category_count": 0
     },
     {
+      "model_id": "glm-4-7",
+      "display_name": "GLM-4.7",
+      "vendor": "Zhipu AI",
+      "trust_score": 17.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.0,
+          "reasoning": 83.3
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.0,
+        "reasoning": 83.3
+      },
+      "total_claims": 4,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-08-13T01:26:55.709574",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "glm-4-7",
+        "display_name": "GLM-4.7",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.7 from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 2\n**Parameters:** 32B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** general text generation and analysis",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": 32.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "leaderboard_source": null,
+        "leaderboard_rank": null,
+        "leaderboard_score": null,
+        "capability_rank": null,
+        "benchmark_claims": [
+          {
+            "benchmark": "MMLU",
+            "metric": "accuracy",
+            "value": 82.1,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "C-Eval",
+            "metric": "accuracy",
+            "value": 79.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "HumanEval",
+            "metric": "pass@1",
+            "value": 72.0,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "GSM8K",
+            "metric": "accuracy",
+            "value": 84.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          }
+        ]
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api"
+      ],
+      "ranking_lane": "local_only",
+      "confidence_tier": "Low confidence",
+      "source_evidence": [],
+      "source_freshness": {},
+      "primary_leaderboard_source": null,
+      "primary_leaderboard_rank": null,
+      "primary_leaderboard_score": null,
+      "benchlm_mode": null,
+      "benchlm_category_scores": {},
+      "artificial_analysis_scores": {},
+      "category_coverage": {
+        "covered": 0,
+        "total": 8,
+        "categories": []
+      },
+      "rankable_benchmark_count": 0,
+      "rankable_category_count": 0
+    },
+    {
       "model_id": "glm-4-5",
       "display_name": "GLM-4.5",
       "vendor": "Zhipu AI",
@@ -3413,7 +3121,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-08-12T12:58:35.933574",
+      "evaluated_at": "2026-08-13T01:27:25.272580",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5",
@@ -3505,6 +3213,244 @@
       "rankable_category_count": 0
     },
     {
+      "model_id": "glm-4-7-flash",
+      "display_name": "GLM-4.7-Flash",
+      "vendor": "Zhipu AI",
+      "trust_score": 17.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.0,
+          "reasoning": 83.3
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.0,
+        "reasoning": 83.3
+      },
+      "total_claims": 4,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-08-13T01:26:56.649976",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "glm-4-7-flash",
+        "display_name": "GLM-4.7-Flash",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.7-Flash from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 1\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": 9.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "leaderboard_source": null,
+        "leaderboard_rank": null,
+        "leaderboard_score": null,
+        "capability_rank": null,
+        "benchmark_claims": [
+          {
+            "benchmark": "MMLU",
+            "metric": "accuracy",
+            "value": 82.1,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "C-Eval",
+            "metric": "accuracy",
+            "value": 79.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "HumanEval",
+            "metric": "pass@1",
+            "value": 72.0,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "GSM8K",
+            "metric": "accuracy",
+            "value": 84.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          }
+        ]
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "fast",
+        "optimized"
+      ],
+      "ranking_lane": "local_only",
+      "confidence_tier": "Low confidence",
+      "source_evidence": [],
+      "source_freshness": {},
+      "primary_leaderboard_source": null,
+      "primary_leaderboard_rank": null,
+      "primary_leaderboard_score": null,
+      "benchlm_mode": null,
+      "benchlm_category_scores": {},
+      "artificial_analysis_scores": {},
+      "category_coverage": {
+        "covered": 0,
+        "total": 8,
+        "categories": []
+      },
+      "rankable_benchmark_count": 0,
+      "rankable_category_count": 0
+    },
+    {
+      "model_id": "glm-4-7-flashx",
+      "display_name": "GLM-4.7-FlashX",
+      "vendor": "Zhipu AI",
+      "trust_score": 17.2,
+      "breakdown": {
+        "coverage_score": 11.2,
+        "verification_score": 0.0,
+        "performance_gap_score": 6.0,
+        "openness_score": 0.0,
+        "safety_score": 0.0,
+        "use_case_scores": {
+          "coding": 72.0,
+          "reasoning": 83.3
+        }
+      },
+      "use_case_scores": {
+        "coding": 72.0,
+        "reasoning": 83.3
+      },
+      "total_claims": 4,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 4,
+      "evaluated_at": "2026-08-13T01:27:56.694566",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "glm-4-7-flashx",
+        "display_name": "GLM-4.7-FlashX",
+        "vendor": "Zhipu AI",
+        "card_url": null,
+        "card_text": "GLM-4.7-FlashX from Zhipu AI (z.ai).\n\n**Model Type:** Language Model\n**Concurrency Limit:** 3\n**Parameters:** 9B\n**Context Window:** 128K tokens\n**Language Support:** Chinese, English, multilingual\n**API:** Available via z.ai platform\n**Use Cases:** fast, efficient inference",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": 9.0,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 128000,
+        "release_date": null,
+        "tags": [
+          "text",
+          "multilingual",
+          "chinese",
+          "api",
+          "fast",
+          "optimized"
+        ],
+        "pricing_per_1k_input_usd": null,
+        "pricing_per_1k_output_usd": null,
+        "weekly_tokens": null,
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "leaderboard_source": null,
+        "leaderboard_rank": null,
+        "leaderboard_score": null,
+        "capability_rank": null,
+        "benchmark_claims": [
+          {
+            "benchmark": "MMLU",
+            "metric": "accuracy",
+            "value": 82.1,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "C-Eval",
+            "metric": "accuracy",
+            "value": 79.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "HumanEval",
+            "metric": "pass@1",
+            "value": 72.0,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          },
+          {
+            "benchmark": "GSM8K",
+            "metric": "accuracy",
+            "value": 84.5,
+            "source": "z.ai reported",
+            "source_url": null,
+            "raw": null
+          }
+        ]
+      },
+      "tags": [
+        "text",
+        "multilingual",
+        "chinese",
+        "api",
+        "fast",
+        "optimized"
+      ],
+      "ranking_lane": "local_only",
+      "confidence_tier": "Low confidence",
+      "source_evidence": [],
+      "source_freshness": {},
+      "primary_leaderboard_source": null,
+      "primary_leaderboard_rank": null,
+      "primary_leaderboard_score": null,
+      "benchlm_mode": null,
+      "benchlm_category_scores": {},
+      "artificial_analysis_scores": {},
+      "category_coverage": {
+        "covered": 0,
+        "total": 8,
+        "categories": []
+      },
+      "rankable_benchmark_count": 0,
+      "rankable_category_count": 0
+    },
+    {
       "model_id": "autoglm-phone-multilingual",
       "display_name": "AutoGLM-Phone-Multilingual",
       "vendor": "Zhipu AI",
@@ -3528,7 +3474,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:57:33.379812",
+      "evaluated_at": "2026-08-13T01:27:56.963965",
       "license": "proprietary",
       "model_card": {
         "model_id": "autoglm-phone-multilingual",
@@ -3643,7 +3589,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:38.971905",
+      "evaluated_at": "2026-08-13T01:28:09.891619",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-32b-0414-128k",
@@ -3750,7 +3696,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:57:23.064150",
+      "evaluated_at": "2026-08-13T01:27:23.688341",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-plus",
@@ -3861,7 +3807,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:35.210957",
+      "evaluated_at": "2026-08-13T01:27:27.729336",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-air",
@@ -3972,7 +3918,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:38.671685",
+      "evaluated_at": "2026-08-13T01:26:53.371259",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-airx",
@@ -4083,7 +4029,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-08-12T12:58:00.067934",
+      "evaluated_at": "2026-08-13T01:26:54.993375",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-flash",
@@ -4181,7 +4127,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:56.350144",
+      "evaluated_at": "2026-08-13T01:27:26.559861",
       "license": "open",
       "model_card": {
         "model_id": "gemma3-4b",
@@ -4256,7 +4202,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:58:01.700736",
+      "evaluated_at": "2026-08-13T01:27:59.449865",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogvideox-3",
@@ -4323,7 +4269,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:58.491524",
+      "evaluated_at": "2026-08-13T01:26:56.419013",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogview-4-250304",
@@ -4394,7 +4340,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:58.367000",
+      "evaluated_at": "2026-08-13T01:27:33.942883",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-asr-2512",
@@ -4469,7 +4415,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:58:35.483225",
+      "evaluated_at": "2026-08-13T01:27:29.885636",
       "license": "open",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
@@ -4544,7 +4490,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:24.271019",
+      "evaluated_at": "2026-08-13T01:26:48.920988",
       "license": "open",
       "model_card": {
         "model_id": "cogito-14b",
@@ -4617,7 +4563,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:58:01.172802",
+      "evaluated_at": "2026-08-13T01:26:55.267027",
       "license": "open",
       "model_card": {
         "model_id": "deepcoder",
@@ -4686,7 +4632,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:58:38.157226",
+      "evaluated_at": "2026-08-13T01:26:52.653935",
       "license": "open",
       "model_card": {
         "model_id": "embeddinggemma",
@@ -4757,7 +4703,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:24.764452",
+      "evaluated_at": "2026-08-13T01:27:32.022653",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-lite",
@@ -4826,7 +4772,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:58:29.825206",
+      "evaluated_at": "2026-08-13T01:27:29.538742",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-mini",
@@ -4895,7 +4841,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:29.190574",
+      "evaluated_at": "2026-08-13T01:26:49.213709",
       "license": "unknown",
       "model_card": {
         "model_id": "arcee-ai-trinity-large-thinking",
@@ -4964,7 +4910,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-08-12T12:57:27.725617",
+      "evaluated_at": "2026-08-13T01:26:48.495237",
       "license": "unknown",
       "model_card": {
         "model_id": "aion-labs-aion-2-0",
