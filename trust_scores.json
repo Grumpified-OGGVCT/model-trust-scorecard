@@ -1,11 +1,11 @@
 {
-  "generated_at": "2026-10-27T17:19:08.120216",
+  "generated_at": "2026-10-28T03:40:48.332947",
   "total_models": 50,
   "source_catalog": [
     {
       "source": "BenchLM",
       "url": "https://benchlm.ai/api/data/leaderboard",
-      "freshness": "2026-10-26"
+      "freshness": "2026-10-27"
     }
   ],
   "category_weights": {
@@ -20,15 +20,15 @@
   },
   "ranking_lane_counts": {
     "local_only": 27,
-    "estimated": 5,
-    "provisional": 5,
-    "no_evidence": 13
+    "estimated": 7,
+    "no_evidence": 13,
+    "provisional": 3
   },
   "confidence_distribution": {
     "Low confidence": 40,
-    "Low / estimated": 5,
-    "Sourced external": 3,
-    "Moderate confidence": 2
+    "Low / estimated": 7,
+    "Moderate confidence": 2,
+    "Sourced external": 1
   },
   "snapshot_methodology_version": "benchlm-aa-source-evidence-v1",
   "scores": [
@@ -56,7 +56,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:18:19.298891",
+      "evaluated_at": "2026-10-28T03:40:44.263694",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5",
@@ -132,211 +132,23 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "2026-10-26",
+          "freshness": "2026-10-27",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "2026-10-26"
+        "BenchLM": "2026-10-27"
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 25,
-      "primary_leaderboard_score": 68.23,
+      "primary_leaderboard_score": 68.32,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 70.15,
-        "coding": 56.21,
+        "agentic": 70.5,
+        "coding": 56.31,
         "reasoning": 79.8,
-        "knowledge": 61.59,
+        "knowledge": 62.0,
         "math": 71.5
-      },
-      "artificial_analysis_scores": {},
-      "category_coverage": {
-        "covered": 5,
-        "total": 8,
-        "categories": [
-          "agentic",
-          "coding",
-          "knowledge",
-          "math",
-          "reasoning"
-        ]
-      },
-      "rankable_benchmark_count": 6,
-      "rankable_category_count": 5
-    },
-    {
-      "model_id": "anthropic-claude-opus-4-7",
-      "display_name": "Claude Opus 4.7 (Adaptive)",
-      "vendor": "Anthropic",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:50.018754",
-      "license": "proprietary",
-      "model_card": {
-        "model_id": "anthropic-claude-opus-4-7",
-        "display_name": "Claude Opus 4.7 (Adaptive)",
-        "vendor": "Anthropic",
-        "card_url": "https://openrouter.ai/models/anthropic-claude-opus-4-7",
-        "card_text": "Claude Opus 4.7 (Adaptive) is a comparative catalog entry for Anthropic.\n\nWeekly tokens: 1.17T.\nContext Window: 1,000,000 tokens.\nReleased: 2026-04-16.\nPricing: $5 per 1M input tokens and $25 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, long context, safety.\n\nBenchLM reference: rank #5, overall score 71.",
-        "license_kind": "proprietary",
-        "architecture": null,
-        "parameter_count_billions": null,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 1000000,
-        "release_date": "2026-04-16T00:00:00",
-        "tags": [
-          "agentic",
-          "coding",
-          "long-context",
-          "reasoning",
-          "safety",
-          "text"
-        ],
-        "pricing_per_1k_input_usd": 0.005,
-        "pricing_per_1k_output_usd": 0.025,
-        "weekly_tokens": "1.17T",
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "leaderboard_source": "BenchLM",
-        "leaderboard_rank": 5,
-        "leaderboard_score": 71.0,
-        "capability_rank": null,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "agentic",
-        "coding",
-        "long-context",
-        "reasoning",
-        "safety",
-        "text"
-      ],
-      "ranking_lane": "provisional",
-      "confidence_tier": "Sourced external",
-      "source_evidence": [
-        {
-          "source": "BenchLM",
-          "freshness": "2026-10-26",
-          "url": "https://benchlm.ai/api/data/leaderboard"
-        }
-      ],
-      "source_freshness": {
-        "BenchLM": "2026-10-26"
-      },
-      "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 37,
-      "primary_leaderboard_score": 65.16,
-      "benchlm_mode": "bench-align-v5",
-      "benchlm_category_scores": {
-        "agentic": 54.28,
-        "coding": 55.65,
-        "reasoning": 31.4,
-        "knowledge": 65.1,
-        "math": 72.9
-      },
-      "artificial_analysis_scores": {},
-      "category_coverage": {
-        "covered": 5,
-        "total": 8,
-        "categories": [
-          "agentic",
-          "coding",
-          "knowledge",
-          "math",
-          "reasoning"
-        ]
-      },
-      "rankable_benchmark_count": 6,
-      "rankable_category_count": 5
-    },
-    {
-      "model_id": "deepseek-v4-pro",
-      "display_name": "DeepSeek V4 Pro (Max)",
-      "vendor": "DeepSeek",
-      "trust_score": null,
-      "breakdown": {},
-      "use_case_scores": {},
-      "total_claims": 0,
-      "verified_count": 0,
-      "refuted_count": 0,
-      "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:56.103202",
-      "license": "unknown",
-      "model_card": {
-        "model_id": "deepseek-v4-pro",
-        "display_name": "DeepSeek V4 Pro (Max)",
-        "vendor": "DeepSeek",
-        "card_url": "https://openrouter.ai/models/deepseek-v4-pro",
-        "card_text": "DeepSeek V4 Pro (Max) is a comparative catalog entry for DeepSeek.\n\nWeekly tokens: 15.9B.\nContext Window: 1,048,576 tokens.\nReleased: 2026-04-23.\nPricing: $0.435 per 1M input tokens and $0.87 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, function calling, long context, rag.\n\nBenchLM reference: rank #2, overall score 73.",
-        "license_kind": "unknown",
-        "architecture": null,
-        "parameter_count_billions": null,
-        "total_parameter_count_billions": null,
-        "context_window_tokens": 1048576,
-        "release_date": "2026-04-23T00:00:00",
-        "tags": [
-          "agentic",
-          "coding",
-          "function-calling",
-          "long-context",
-          "rag",
-          "reasoning",
-          "text"
-        ],
-        "pricing_per_1k_input_usd": 0.000435,
-        "pricing_per_1k_output_usd": 0.00087,
-        "weekly_tokens": "15.9B",
-        "hallucination_rate": null,
-        "structured_output_error_rate": null,
-        "artificial_analysis_intelligence_index": null,
-        "artificial_analysis_coding_index": null,
-        "artificial_analysis_agentic_index": null,
-        "leaderboard_source": "BenchLM",
-        "leaderboard_rank": 2,
-        "leaderboard_score": 73.0,
-        "capability_rank": null,
-        "benchmark_claims": []
-      },
-      "tags": [
-        "agentic",
-        "coding",
-        "function-calling",
-        "long-context",
-        "rag",
-        "reasoning",
-        "text"
-      ],
-      "ranking_lane": "provisional",
-      "confidence_tier": "Sourced external",
-      "source_evidence": [
-        {
-          "source": "BenchLM",
-          "freshness": "2026-10-26",
-          "url": "https://benchlm.ai/api/data/leaderboard"
-        }
-      ],
-      "source_freshness": {
-        "BenchLM": "2026-10-26"
-      },
-      "primary_leaderboard_source": "BenchLM",
-      "primary_leaderboard_rank": 44,
-      "primary_leaderboard_score": 63.23,
-      "benchlm_mode": "bench-align-v5",
-      "benchlm_category_scores": {
-        "agentic": 53.03,
-        "coding": 47.47,
-        "reasoning": 60.7,
-        "knowledge": 62.91,
-        "math": 87.4
       },
       "artificial_analysis_scores": {},
       "category_coverage": {
@@ -364,7 +176,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:55.538849",
+      "evaluated_at": "2026-10-28T03:40:30.497834",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6",
@@ -411,23 +223,23 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "2026-10-26",
+          "freshness": "2026-10-27",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "2026-10-26"
+        "BenchLM": "2026-10-27"
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 50,
-      "primary_leaderboard_score": 62.4,
+      "primary_leaderboard_score": 62.51,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 45.68,
-        "coding": 46.53,
+        "agentic": 46.14,
+        "coding": 46.62,
         "reasoning": 51.2,
         "multimodal_grounded": 74.9,
-        "knowledge": 58.64,
+        "knowledge": 59.06,
         "instruction_following": 52.4,
         "math": 69.1
       },
@@ -459,7 +271,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:21.999205",
+      "evaluated_at": "2026-10-28T03:39:36.282546",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-opus-4-6-fast",
@@ -506,23 +318,23 @@
       "source_evidence": [
         {
           "source": "BenchLM",
-          "freshness": "2026-10-26",
+          "freshness": "2026-10-27",
           "url": "https://benchlm.ai/api/data/leaderboard"
         }
       ],
       "source_freshness": {
-        "BenchLM": "2026-10-26"
+        "BenchLM": "2026-10-27"
       },
       "primary_leaderboard_source": "BenchLM",
       "primary_leaderboard_rank": 50,
-      "primary_leaderboard_score": 62.4,
+      "primary_leaderboard_score": 62.51,
       "benchlm_mode": "bench-align-v5",
       "benchlm_category_scores": {
-        "agentic": 45.68,
-        "coding": 46.53,
+        "agentic": 46.14,
+        "coding": 46.62,
         "reasoning": 51.2,
         "multimodal_grounded": 74.9,
-        "knowledge": 58.64,
+        "knowledge": 59.06,
         "instruction_following": 52.4,
         "math": 69.1
       },
@@ -554,7 +366,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:51.500689",
+      "evaluated_at": "2026-10-28T03:39:37.959800",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-mythos-preview",
@@ -617,6 +429,154 @@
       "rankable_category_count": 0
     },
     {
+      "model_id": "deepseek-v4-pro",
+      "display_name": "DeepSeek V4 Pro (Max)",
+      "vendor": "DeepSeek",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-10-28T03:39:53.970510",
+      "license": "unknown",
+      "model_card": {
+        "model_id": "deepseek-v4-pro",
+        "display_name": "DeepSeek V4 Pro (Max)",
+        "vendor": "DeepSeek",
+        "card_url": "https://openrouter.ai/models/deepseek-v4-pro",
+        "card_text": "DeepSeek V4 Pro (Max) is a comparative catalog entry for DeepSeek.\n\nWeekly tokens: 15.9B.\nContext Window: 1,048,576 tokens.\nReleased: 2026-04-23.\nPricing: $0.435 per 1M input tokens and $0.87 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, function calling, long context, rag.\n\nBenchLM reference: rank #2, overall score 73.",
+        "license_kind": "unknown",
+        "architecture": null,
+        "parameter_count_billions": null,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 1048576,
+        "release_date": "2026-04-23T00:00:00",
+        "tags": [
+          "agentic",
+          "coding",
+          "function-calling",
+          "long-context",
+          "rag",
+          "reasoning",
+          "text"
+        ],
+        "pricing_per_1k_input_usd": 0.000435,
+        "pricing_per_1k_output_usd": 0.00087,
+        "weekly_tokens": "15.9B",
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "leaderboard_source": "BenchLM",
+        "leaderboard_rank": 2,
+        "leaderboard_score": 73.0,
+        "capability_rank": null,
+        "benchmark_claims": []
+      },
+      "tags": [
+        "agentic",
+        "coding",
+        "function-calling",
+        "long-context",
+        "rag",
+        "reasoning",
+        "text"
+      ],
+      "ranking_lane": "estimated",
+      "confidence_tier": "Low / estimated",
+      "source_evidence": [],
+      "source_freshness": {},
+      "primary_leaderboard_source": null,
+      "primary_leaderboard_rank": null,
+      "primary_leaderboard_score": null,
+      "benchlm_mode": null,
+      "benchlm_category_scores": {},
+      "artificial_analysis_scores": {},
+      "category_coverage": {
+        "covered": 0,
+        "total": 8,
+        "categories": []
+      },
+      "rankable_benchmark_count": 0,
+      "rankable_category_count": 0
+    },
+    {
+      "model_id": "anthropic-claude-opus-4-7",
+      "display_name": "Claude Opus 4.7 (Adaptive)",
+      "vendor": "Anthropic",
+      "trust_score": null,
+      "breakdown": {},
+      "use_case_scores": {},
+      "total_claims": 0,
+      "verified_count": 0,
+      "refuted_count": 0,
+      "unverifiable_count": 0,
+      "evaluated_at": "2026-10-28T03:39:50.291415",
+      "license": "proprietary",
+      "model_card": {
+        "model_id": "anthropic-claude-opus-4-7",
+        "display_name": "Claude Opus 4.7 (Adaptive)",
+        "vendor": "Anthropic",
+        "card_url": "https://openrouter.ai/models/anthropic-claude-opus-4-7",
+        "card_text": "Claude Opus 4.7 (Adaptive) is a comparative catalog entry for Anthropic.\n\nWeekly tokens: 1.17T.\nContext Window: 1,000,000 tokens.\nReleased: 2026-04-16.\nPricing: $5 per 1M input tokens and $25 per 1M output tokens.\nCapabilities: text, reasoning, coding, agentic, long context, safety.\n\nBenchLM reference: rank #5, overall score 71.",
+        "license_kind": "proprietary",
+        "architecture": null,
+        "parameter_count_billions": null,
+        "total_parameter_count_billions": null,
+        "context_window_tokens": 1000000,
+        "release_date": "2026-04-16T00:00:00",
+        "tags": [
+          "agentic",
+          "coding",
+          "long-context",
+          "reasoning",
+          "safety",
+          "text"
+        ],
+        "pricing_per_1k_input_usd": 0.005,
+        "pricing_per_1k_output_usd": 0.025,
+        "weekly_tokens": "1.17T",
+        "hallucination_rate": null,
+        "structured_output_error_rate": null,
+        "artificial_analysis_intelligence_index": null,
+        "artificial_analysis_coding_index": null,
+        "artificial_analysis_agentic_index": null,
+        "leaderboard_source": "BenchLM",
+        "leaderboard_rank": 5,
+        "leaderboard_score": 71.0,
+        "capability_rank": null,
+        "benchmark_claims": []
+      },
+      "tags": [
+        "agentic",
+        "coding",
+        "long-context",
+        "reasoning",
+        "safety",
+        "text"
+      ],
+      "ranking_lane": "estimated",
+      "confidence_tier": "Low / estimated",
+      "source_evidence": [],
+      "source_freshness": {},
+      "primary_leaderboard_source": null,
+      "primary_leaderboard_rank": null,
+      "primary_leaderboard_score": null,
+      "benchlm_mode": null,
+      "benchlm_category_scores": {},
+      "artificial_analysis_scores": {},
+      "category_coverage": {
+        "covered": 0,
+        "total": 8,
+        "categories": []
+      },
+      "rankable_benchmark_count": 0,
+      "rankable_category_count": 0
+    },
+    {
       "model_id": "kimi-k2.6-cloud",
       "display_name": "Kimi 2.6",
       "vendor": "Moonshot AI",
@@ -650,7 +610,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-10-27T17:17:47.269314",
+      "evaluated_at": "2026-10-28T03:39:31.814511",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.6-cloud",
@@ -731,7 +691,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:52.453613",
+      "evaluated_at": "2026-10-28T03:40:12.380654",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-pro-high",
@@ -823,7 +783,7 @@
       "verified_count": 1,
       "refuted_count": 3,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:18:59.309279",
+      "evaluated_at": "2026-10-28T03:40:37.981450",
       "license": "proprietary",
       "model_card": {
         "model_id": "claude-opus-4.5",
@@ -907,7 +867,7 @@
       "verified_count": 0,
       "refuted_count": 1,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-10-27T17:18:21.840342",
+      "evaluated_at": "2026-10-28T03:39:49.714214",
       "license": "open",
       "model_card": {
         "model_id": "kimi-k2.5-cloud",
@@ -1001,7 +961,7 @@
       "verified_count": 2,
       "refuted_count": 2,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-10-27T17:18:27.205724",
+      "evaluated_at": "2026-10-28T03:40:07.520590",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v3.2",
@@ -1089,7 +1049,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 5,
-      "evaluated_at": "2026-10-27T17:17:48.356456",
+      "evaluated_at": "2026-10-28T03:39:36.661603",
       "license": "open",
       "model_card": {
         "model_id": "nemotron-3-super-cloud",
@@ -1197,7 +1157,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 14,
-      "evaluated_at": "2026-10-27T17:18:28.824361",
+      "evaluated_at": "2026-10-28T03:40:07.561374",
       "license": "open",
       "model_card": {
         "model_id": "qwen3.5-cloud",
@@ -1297,7 +1257,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-10-27T17:18:29.922996",
+      "evaluated_at": "2026-10-28T03:40:17.527806",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-v4-flash-cloud",
@@ -1391,7 +1351,7 @@
       "verified_count": 0,
       "refuted_count": 4,
       "unverifiable_count": 2,
-      "evaluated_at": "2026-10-27T17:17:44.774777",
+      "evaluated_at": "2026-10-28T03:40:15.548897",
       "license": "proprietary",
       "model_card": {
         "model_id": "gemini-2.5-pro",
@@ -1477,7 +1437,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 6,
-      "evaluated_at": "2026-10-27T17:18:21.243734",
+      "evaluated_at": "2026-10-28T03:39:39.267466",
       "license": "open",
       "model_card": {
         "model_id": "deepseek-r1-14b",
@@ -1571,7 +1531,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:17:49.837342",
+      "evaluated_at": "2026-10-28T03:39:40.601231",
       "license": "open",
       "model_card": {
         "model_id": "devstral-2-123b-cloud",
@@ -1671,7 +1631,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 8,
-      "evaluated_at": "2026-10-27T17:17:49.352343",
+      "evaluated_at": "2026-10-28T03:40:05.501791",
       "license": "open",
       "model_card": {
         "model_id": "glm-5.1-cloud",
@@ -1775,7 +1735,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 7,
-      "evaluated_at": "2026-10-27T17:17:48.271009",
+      "evaluated_at": "2026-10-28T03:39:35.160612",
       "license": "restricted",
       "model_card": {
         "model_id": "minimax-m2.7-cloud",
@@ -1865,7 +1825,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:57.318864",
+      "evaluated_at": "2026-10-28T03:40:36.305321",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v",
@@ -1982,7 +1942,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:35.594491",
+      "evaluated_at": "2026-10-28T03:40:48.332947",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5v",
@@ -2099,7 +2059,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:19:08.120216",
+      "evaluated_at": "2026-10-28T03:40:44.190876",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flash",
@@ -2220,7 +2180,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:31.980009",
+      "evaluated_at": "2026-10-28T03:40:09.483705",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6v-flashx",
@@ -2341,7 +2301,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:33.253620",
+      "evaluated_at": "2026-10-28T03:39:37.188410",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-1",
@@ -2460,7 +2420,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:22.397499",
+      "evaluated_at": "2026-10-28T03:40:22.379441",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-6",
@@ -2575,7 +2535,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:31.634591",
+      "evaluated_at": "2026-10-28T03:40:18.335957",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7",
@@ -2690,7 +2650,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:21.010407",
+      "evaluated_at": "2026-10-28T03:40:22.335956",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5",
@@ -2805,7 +2765,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:18:24.918912",
+      "evaluated_at": "2026-10-28T03:40:37.544511",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7-flash",
@@ -2924,7 +2884,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 4,
-      "evaluated_at": "2026-10-27T17:17:53.118451",
+      "evaluated_at": "2026-10-28T03:40:08.491705",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-7-flashx",
@@ -3043,7 +3003,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:19:06.663624",
+      "evaluated_at": "2026-10-28T03:40:24.467157",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5v-turbo",
@@ -3158,7 +3118,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:17:49.173533",
+      "evaluated_at": "2026-10-28T03:39:40.374635",
       "license": "proprietary",
       "model_card": {
         "model_id": "autoglm-phone-multilingual",
@@ -3273,7 +3233,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:18:23.245982",
+      "evaluated_at": "2026-10-28T03:40:44.095045",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-32b-0414-128k",
@@ -3380,7 +3340,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:19:01.316267",
+      "evaluated_at": "2026-10-28T03:40:04.333554",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-5-turbo",
@@ -3493,7 +3453,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:18:44.206917",
+      "evaluated_at": "2026-10-28T03:40:39.339318",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-plus",
@@ -3604,7 +3564,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:18:28.091810",
+      "evaluated_at": "2026-10-28T03:39:35.552511",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-air",
@@ -3715,7 +3675,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:19:03.125705",
+      "evaluated_at": "2026-10-28T03:39:38.024859",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-airx",
@@ -3826,7 +3786,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 3,
-      "evaluated_at": "2026-10-27T17:17:49.156246",
+      "evaluated_at": "2026-10-28T03:39:36.647532",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-4-5-flash",
@@ -3924,7 +3884,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:57.416818",
+      "evaluated_at": "2026-10-28T03:40:07.200437",
       "license": "open",
       "model_card": {
         "model_id": "gemma3-4b",
@@ -3999,7 +3959,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:54.856625",
+      "evaluated_at": "2026-10-28T03:40:47.318188",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogvideox-3",
@@ -4066,7 +4026,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:58.569005",
+      "evaluated_at": "2026-10-28T03:39:32.347548",
       "license": "proprietary",
       "model_card": {
         "model_id": "cogview-4-250304",
@@ -4137,7 +4097,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:46.351769",
+      "evaluated_at": "2026-10-28T03:40:11.966182",
       "license": "proprietary",
       "model_card": {
         "model_id": "glm-asr-2512",
@@ -4212,7 +4172,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:47.935054",
+      "evaluated_at": "2026-10-28T03:40:09.400177",
       "license": "proprietary",
       "model_card": {
         "model_id": "anthropic-claude-sonnet-4-6",
@@ -4285,7 +4245,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:28.594049",
+      "evaluated_at": "2026-10-28T03:40:22.766259",
       "license": "open",
       "model_card": {
         "model_id": "cogito-2.1-671b-cloud",
@@ -4360,7 +4320,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:30.578696",
+      "evaluated_at": "2026-10-28T03:39:29.981301",
       "license": "open",
       "model_card": {
         "model_id": "cogito-14b",
@@ -4433,7 +4393,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:56.660073",
+      "evaluated_at": "2026-10-28T03:40:09.395585",
       "license": "open",
       "model_card": {
         "model_id": "deepcoder",
@@ -4502,7 +4462,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:18:23.999962",
+      "evaluated_at": "2026-10-28T03:39:38.939099",
       "license": "open",
       "model_card": {
         "model_id": "embeddinggemma",
@@ -4573,7 +4533,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:47.657416",
+      "evaluated_at": "2026-10-28T03:39:40.216013",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-lite",
@@ -4642,7 +4602,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:53.020707",
+      "evaluated_at": "2026-10-28T03:40:42.826419",
       "license": "unknown",
       "model_card": {
         "model_id": "bytedance-seed-2-0-mini",
@@ -4711,7 +4671,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:48.649852",
+      "evaluated_at": "2026-10-28T03:39:40.009365",
       "license": "unknown",
       "model_card": {
         "model_id": "arcee-ai-trinity-large-thinking",
@@ -4780,7 +4740,7 @@
       "verified_count": 0,
       "refuted_count": 0,
       "unverifiable_count": 0,
-      "evaluated_at": "2026-10-27T17:17:48.602304",
+      "evaluated_at": "2026-10-28T03:40:29.046687",
       "license": "unknown",
       "model_card": {
         "model_id": "aion-labs-aion-2-0",
