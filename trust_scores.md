@@ -68,4 +68,4 @@ Models are ordered by independently sourced capability first, then demonstrated 
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-11-05T19:25:15.470475*
+*Last updated: 2026-11-06T04:48:09.035108*
