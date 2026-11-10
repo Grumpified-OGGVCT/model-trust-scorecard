@@ -4,7 +4,7 @@ Models are ordered by independently sourced capability first, then demonstrated 
 
 | Rank | Model | Vendor | Lane | Category Coverage | Source Freshness | Use-Case Strengths | Trust Score | Verified Claims | License |
 |------|-------|--------|------|-------------------|------------------|--------------------|-------------|-----------------|---------|
-| 1 | Claude Opus 4.7 (Adaptive) | Anthropic | provisional | 5/8 | BenchLM: 2026-11-10 | BenchLM score: 64.8 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 1 | Claude Opus 4.7 (Adaptive) | Anthropic | provisional | 5/8 | BenchLM: 2026-11-10 | BenchLM score: 64.9 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 2 | DeepSeek V4 Pro (Max) | DeepSeek | provisional | 5/8 | BenchLM: 2026-11-10 | BenchLM score: 62.5 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 3 | Claude Opus 4.6 | Anthropic | provisional | 7/8 | BenchLM: 2026-11-10 | BenchLM score: 62.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 4 | Claude Opus 4.6 (Fast) | Anthropic | provisional | 7/8 | BenchLM: 2026-11-10 | BenchLM score: 62.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
@@ -68,4 +68,4 @@ Models are ordered by independently sourced capability first, then demonstrated 
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-11-10T05:42:57.890466*
+*Last updated: 2026-11-10T19:15:26.010945*
