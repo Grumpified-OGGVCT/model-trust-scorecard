@@ -4,12 +4,12 @@ Models are ordered by independently sourced capability first, then demonstrated 
 
 | Rank | Model | Vendor | Lane | Category Coverage | Source Freshness | Use-Case Strengths | Trust Score | Verified Claims | License |
 |------|-------|--------|------|-------------------|------------------|--------------------|-------------|-----------------|---------|
-| 1 | Claude Opus 4.7 (Adaptive) | Anthropic | provisional | 7/8 | BenchLM: 2026-11-19 | BenchLM score: 65.7 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 2 | DeepSeek V4 Pro (High) | DeepSeek | provisional | 6/8 | BenchLM: 2026-11-19 | BenchLM score: 62.7 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 3 | DeepSeek V4 Pro (Max) | DeepSeek | provisional | 6/8 | BenchLM: 2026-11-19 | BenchLM score: 62.7 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
-| 4 | Claude Opus 4.6 | Anthropic | provisional | 7/8 | BenchLM: 2026-11-19 | BenchLM score: 61.3 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 5 | Claude Opus 4.6 (Fast) | Anthropic | provisional | 7/8 | BenchLM: 2026-11-19 | BenchLM score: 61.3 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 6 | Claude Mythos Preview | Anthropic | estimated | 0/8 | — | BenchLM score: 83.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 1 | GLM 5 | Z.ai | provisional | 7/8 | BenchLM: 2026-11-19 | BenchLM score: 63.8, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 2 | Claude Opus 4.7 (Adaptive) | Anthropic | provisional | 7/8 | BenchLM: 2026-11-19 | BenchLM score: 63.2 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 3 | DeepSeek V4 Pro (High) | DeepSeek | provisional | 8/8 | BenchLM: 2026-11-19 | BenchLM score: 61.5 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 4 | DeepSeek V4 Pro (Max) | DeepSeek | provisional | 8/8 | BenchLM: 2026-11-19 | BenchLM score: 61.5 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 5 | Claude Mythos Preview | Anthropic | estimated | 0/8 | — | BenchLM score: 83.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 6 | Claude Opus 4.6 | Anthropic | estimated | 0/8 | — | BenchLM score: 72.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 7 | Kimi 2.6 | Moonshot AI | estimated | 0/8 | — | BenchLM score: 70.0, coding: 68.7, reasoning: 54.0, multilingual: 76.7, multilingual_depth: 76.7, tool_use: 52.0, agent_swarm: 52.0, vision_coding: 76.7 | ![22.2](https://img.shields.io/badge/Trust-22.2-orange) | 0/6 | open |
 | 8 | Claude Opus 4.5 | Anthropic | estimated | 0/8 | — | BenchLM score: 68.0, coding: 89.3, reasoning: 86.8, math: 83.8, safety: 69.8 | ![36.9](https://img.shields.io/badge/Trust-36.9-yellow) | 1/7 | proprietary |
 | 9 | Kimi K2.5 | Moonshot AI | estimated | 0/8 | — | BenchLM score: 68.0, coding: 79.8, reasoning: 47.0, multimodal: 85.0 | ![18.5](https://img.shields.io/badge/Trust-18.5-orange) | 0/3 | open |
@@ -35,21 +35,21 @@ Models are ordered by independently sourced capability first, then demonstrated 
 | 29 | GLM 5V Turbo | Z.ai | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
 | 30 | AutoGLM-Phone-Multilingual | Zhipu AI | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
 | 31 | GLM-4-32B-0414-128K | Zhipu AI | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 32 | GLM 5 | Z.ai | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 33 | GLM 5 Turbo | Z.ai | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 34 | GLM-4-Plus | Zhipu AI | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 35 | GLM-4.5-Air | Zhipu AI | local_only | 0/8 | — | coding: 58.0, reasoning: 71.2 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 36 | GLM-4.5-AirX | Zhipu AI | local_only | 0/8 | — | coding: 58.0, reasoning: 71.2 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 37 | GLM-4.5-Flash | Zhipu AI | local_only | 0/8 | — | coding: 62.5, reasoning: 75.5 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
-| 38 | Gemma 3 4B | Google | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 39 | CogVideoX-3 | Zhipu AI | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 40 | CogView-4-250304 | Zhipu AI | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 41 | GLM-ASR-2512 | Zhipu AI | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 42 | Claude Sonnet 4.6 | Anthropic | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 43 | Cogito 2.1 671B Cloud | Deep Cogito | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 44 | Cogito 14B | Deep Cogito | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 45 | DeepCoder | Community | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 46 | Embedding Gemma | Google | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 32 | GLM 5 Turbo | Z.ai | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 33 | GLM-4-Plus | Zhipu AI | local_only | 0/8 | — | coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 34 | GLM-4.5-Air | Zhipu AI | local_only | 0/8 | — | coding: 58.0, reasoning: 71.2 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 35 | GLM-4.5-AirX | Zhipu AI | local_only | 0/8 | — | coding: 58.0, reasoning: 71.2 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 36 | GLM-4.5-Flash | Zhipu AI | local_only | 0/8 | — | coding: 62.5, reasoning: 75.5 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 37 | Gemma 3 4B | Google | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 38 | CogVideoX-3 | Zhipu AI | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 39 | CogView-4-250304 | Zhipu AI | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 40 | GLM-ASR-2512 | Zhipu AI | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 41 | Claude Sonnet 4.6 | Anthropic | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
+| 42 | Cogito 2.1 671B Cloud | Deep Cogito | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 43 | Cogito 14B | Deep Cogito | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 44 | DeepCoder | Community | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 45 | Embedding Gemma | Google | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 46 | Claude Opus 4.6 (Fast) | Anthropic | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 47 | Seed-2.0-Lite | ByteDance Seed | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 48 | Seed-2.0-Mini | ByteDance Seed | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 49 | Trinity Large Thinking | Arcee AI | no_evidence | 0/8 | — | — | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
@@ -68,4 +68,4 @@ Models are ordered by independently sourced capability first, then demonstrated 
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-11-19T19:53:51.071679*
+*Last updated: 2026-11-20T05:25:53.799356*
