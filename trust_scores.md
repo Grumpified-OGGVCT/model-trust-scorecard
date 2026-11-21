@@ -4,10 +4,10 @@ Models are ordered by independently sourced capability first, then demonstrated 
 
 | Rank | Model | Vendor | Lane | Category Coverage | Source Freshness | Use-Case Strengths | Trust Score | Verified Claims | License |
 |------|-------|--------|------|-------------------|------------------|--------------------|-------------|-----------------|---------|
-| 1 | GLM 5 | Z.ai | provisional | 7/8 | BenchLM: 2026-11-21 | BenchLM score: 63.7, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
+| 1 | GLM 5 | Z.ai | provisional | 7/8 | BenchLM: 2026-11-21 | BenchLM score: 63.5, coding: 61.2, reasoning: 74.0 | ![13.5](https://img.shields.io/badge/Trust-13.5-orange) | 0/3 | proprietary |
 | 2 | Claude Opus 4.7 (Adaptive) | Anthropic | provisional | 7/8 | BenchLM: 2026-11-21 | BenchLM score: 63.2 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
-| 3 | DeepSeek V4 Pro (High) | DeepSeek | provisional | 8/8 | BenchLM: 2026-11-21 | BenchLM score: 61.4 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
-| 4 | DeepSeek V4 Pro (Max) | DeepSeek | provisional | 8/8 | BenchLM: 2026-11-21 | BenchLM score: 61.4 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
+| 3 | DeepSeek V4 Pro (High) | DeepSeek | provisional | 8/8 | BenchLM: 2026-11-21 | BenchLM score: 61.6 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | open |
+| 4 | DeepSeek V4 Pro (Max) | DeepSeek | provisional | 8/8 | BenchLM: 2026-11-21 | BenchLM score: 61.6 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | unknown |
 | 5 | Claude Mythos Preview | Anthropic | estimated | 0/8 | — | BenchLM score: 83.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 6 | Claude Opus 4.6 | Anthropic | estimated | 0/8 | — | BenchLM score: 72.0 | ![N/A](https://img.shields.io/badge/Trust-N%2FA-lightgrey) | 0/0 | proprietary |
 | 7 | Kimi 2.6 | Moonshot AI | estimated | 0/8 | — | BenchLM score: 70.0, coding: 68.7, reasoning: 54.0, multilingual: 76.7, multilingual_depth: 76.7, tool_use: 52.0, agent_swarm: 52.0, vision_coding: 76.7 | ![22.2](https://img.shields.io/badge/Trust-22.2-orange) | 0/6 | open |
@@ -68,4 +68,4 @@ Models are ordered by independently sourced capability first, then demonstrated 
 - 🟡 **30-49**: Moderate relative trust - some claims verified or partial coverage
 - 🟠 **<30**: Low trust - few claims verified or significant gaps
 
-*Last updated: 2026-11-21T05:17:49.159768*
+*Last updated: 2026-11-21T18:38:04.307075*
